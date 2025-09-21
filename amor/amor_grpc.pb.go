@@ -4,7 +4,7 @@
 // - protoc             (unknown)
 // source: amor/amor.proto
 
-package amor
+package accumora_go_sdk
 
 import (
 	context "context"
@@ -19,9 +19,9 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	ProjectAmor_AddAccommodation_FullMethodName = "/projectamor_api.amor.v1.ProjectAmor/AddAccommodation"
-	ProjectAmor_LoginUser_FullMethodName        = "/projectamor_api.amor.v1.ProjectAmor/LoginUser"
-	ProjectAmor_RegisterUser_FullMethodName     = "/projectamor_api.amor.v1.ProjectAmor/RegisterUser"
+	ProjectAmor_AddAccommodation_FullMethodName = "/accumora_go_sdk.v1.ProjectAmor/AddAccommodation"
+	ProjectAmor_LoginUser_FullMethodName        = "/accumora_go_sdk.v1.ProjectAmor/LoginUser"
+	ProjectAmor_RegisterUser_FullMethodName     = "/accumora_go_sdk.v1.ProjectAmor/RegisterUser"
 )
 
 // ProjectAmorClient is the client API for ProjectAmor service.
@@ -176,7 +176,7 @@ func _ProjectAmor_RegisterUser_Handler(srv interface{}, ctx context.Context, dec
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var ProjectAmor_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "projectamor_api.amor.v1.ProjectAmor",
+	ServiceName: "accumora_go_sdk.v1.ProjectAmor",
 	HandlerType: (*ProjectAmorServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: amor/amor.proto
 
-package amor
+package accumora_go_sdk
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -411,11 +411,11 @@ var File_amor_amor_proto protoreflect.FileDescriptor
 
 const file_amor_amor_proto_rawDesc = "" +
 	"\n" +
-	"\x0famor/amor.proto\x12\x17projectamor_api.amor.v1\"\x15\n" +
+	"\x0famor/amor.proto\x12\x12accumora_go_sdk.v1\"\x15\n" +
 	"\x13RegisterUserRequest\"\x16\n" +
-	"\x14RegisterUserResponse\"\xc5\x01\n" +
-	"\x10LoginUserRequest\x12J\n" +
-	"\x06manual\x18\x01 \x01(\v20.projectamor_api.amor.v1.LoginUserRequest.ManualH\x00R\x06manual\x12 \n" +
+	"\x14RegisterUserResponse\"\xc0\x01\n" +
+	"\x10LoginUserRequest\x12E\n" +
+	"\x06manual\x18\x01 \x01(\v2+.accumora_go_sdk.v1.LoginUserRequest.ManualH\x00R\x06manual\x12 \n" +
 	"\n" +
 	"auth0Token\x18\x02 \x01(\tH\x00R\n" +
 	"auth0Token\x1a:\n" +
@@ -436,11 +436,11 @@ const file_amor_amor_proto_rawDesc = "" +
 	" \x01(\x01R\blatitude\x12\x1c\n" +
 	"\tlongitude\x18\v \x01(\x01R\tlongitudeB\v\n" +
 	"\t_photoUrl\"\x1a\n" +
-	"\x18AddAccommodationResponse2\xdd\x02\n" +
-	"\vProjectAmor\x12y\n" +
-	"\x10AddAccommodation\x120.projectamor_api.amor.v1.AddAccommodationRequest\x1a1.projectamor_api.amor.v1.AddAccommodationResponse\"\x00\x12d\n" +
-	"\tLoginUser\x12).projectamor_api.amor.v1.LoginUserRequest\x1a*.projectamor_api.amor.v1.LoginUserResponse\"\x00\x12m\n" +
-	"\fRegisterUser\x12,.projectamor_api.amor.v1.RegisterUserRequest\x1a-.projectamor_api.amor.v1.RegisterUserResponse\"\x00B*Z(github.com/Ninolito/projectamor-api/amorb\x06proto3"
+	"\x18AddAccommodationResponse2\xbf\x02\n" +
+	"\vProjectAmor\x12o\n" +
+	"\x10AddAccommodation\x12+.accumora_go_sdk.v1.AddAccommodationRequest\x1a,.accumora_go_sdk.v1.AddAccommodationResponse\"\x00\x12Z\n" +
+	"\tLoginUser\x12$.accumora_go_sdk.v1.LoginUserRequest\x1a%.accumora_go_sdk.v1.LoginUserResponse\"\x00\x12c\n" +
+	"\fRegisterUser\x12'.accumora_go_sdk.v1.RegisterUserRequest\x1a(.accumora_go_sdk.v1.RegisterUserResponse\"\x00B(Z&github.com/ninyolittle/accumora-go-sdkb\x06proto3"
 
 var (
 	file_amor_amor_proto_rawDescOnce sync.Once
@@ -456,22 +456,22 @@ func file_amor_amor_proto_rawDescGZIP() []byte {
 
 var file_amor_amor_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
 var file_amor_amor_proto_goTypes = []any{
-	(*RegisterUserRequest)(nil),      // 0: projectamor_api.amor.v1.RegisterUserRequest
-	(*RegisterUserResponse)(nil),     // 1: projectamor_api.amor.v1.RegisterUserResponse
-	(*LoginUserRequest)(nil),         // 2: projectamor_api.amor.v1.LoginUserRequest
-	(*LoginUserResponse)(nil),        // 3: projectamor_api.amor.v1.LoginUserResponse
-	(*AddAccommodationRequest)(nil),  // 4: projectamor_api.amor.v1.AddAccommodationRequest
-	(*AddAccommodationResponse)(nil), // 5: projectamor_api.amor.v1.AddAccommodationResponse
-	(*LoginUserRequest_Manual)(nil),  // 6: projectamor_api.amor.v1.LoginUserRequest.Manual
+	(*RegisterUserRequest)(nil),      // 0: accumora_go_sdk.v1.RegisterUserRequest
+	(*RegisterUserResponse)(nil),     // 1: accumora_go_sdk.v1.RegisterUserResponse
+	(*LoginUserRequest)(nil),         // 2: accumora_go_sdk.v1.LoginUserRequest
+	(*LoginUserResponse)(nil),        // 3: accumora_go_sdk.v1.LoginUserResponse
+	(*AddAccommodationRequest)(nil),  // 4: accumora_go_sdk.v1.AddAccommodationRequest
+	(*AddAccommodationResponse)(nil), // 5: accumora_go_sdk.v1.AddAccommodationResponse
+	(*LoginUserRequest_Manual)(nil),  // 6: accumora_go_sdk.v1.LoginUserRequest.Manual
 }
 var file_amor_amor_proto_depIdxs = []int32{
-	6, // 0: projectamor_api.amor.v1.LoginUserRequest.manual:type_name -> projectamor_api.amor.v1.LoginUserRequest.Manual
-	4, // 1: projectamor_api.amor.v1.ProjectAmor.AddAccommodation:input_type -> projectamor_api.amor.v1.AddAccommodationRequest
-	2, // 2: projectamor_api.amor.v1.ProjectAmor.LoginUser:input_type -> projectamor_api.amor.v1.LoginUserRequest
-	0, // 3: projectamor_api.amor.v1.ProjectAmor.RegisterUser:input_type -> projectamor_api.amor.v1.RegisterUserRequest
-	5, // 4: projectamor_api.amor.v1.ProjectAmor.AddAccommodation:output_type -> projectamor_api.amor.v1.AddAccommodationResponse
-	3, // 5: projectamor_api.amor.v1.ProjectAmor.LoginUser:output_type -> projectamor_api.amor.v1.LoginUserResponse
-	1, // 6: projectamor_api.amor.v1.ProjectAmor.RegisterUser:output_type -> projectamor_api.amor.v1.RegisterUserResponse
+	6, // 0: accumora_go_sdk.v1.LoginUserRequest.manual:type_name -> accumora_go_sdk.v1.LoginUserRequest.Manual
+	4, // 1: accumora_go_sdk.v1.ProjectAmor.AddAccommodation:input_type -> accumora_go_sdk.v1.AddAccommodationRequest
+	2, // 2: accumora_go_sdk.v1.ProjectAmor.LoginUser:input_type -> accumora_go_sdk.v1.LoginUserRequest
+	0, // 3: accumora_go_sdk.v1.ProjectAmor.RegisterUser:input_type -> accumora_go_sdk.v1.RegisterUserRequest
+	5, // 4: accumora_go_sdk.v1.ProjectAmor.AddAccommodation:output_type -> accumora_go_sdk.v1.AddAccommodationResponse
+	3, // 5: accumora_go_sdk.v1.ProjectAmor.LoginUser:output_type -> accumora_go_sdk.v1.LoginUserResponse
+	1, // 6: accumora_go_sdk.v1.ProjectAmor.RegisterUser:output_type -> accumora_go_sdk.v1.RegisterUserResponse
 	4, // [4:7] is the sub-list for method output_type
 	1, // [1:4] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
