@@ -21,78 +21,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type RegisterUserRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RegisterUserRequest) Reset() {
-	*x = RegisterUserRequest{}
-	mi := &file_amor_amor_proto_msgTypes[0]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RegisterUserRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RegisterUserRequest) ProtoMessage() {}
-
-func (x *RegisterUserRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_amor_proto_msgTypes[0]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RegisterUserRequest.ProtoReflect.Descriptor instead.
-func (*RegisterUserRequest) Descriptor() ([]byte, []int) {
-	return file_amor_amor_proto_rawDescGZIP(), []int{0}
-}
-
-type RegisterUserResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RegisterUserResponse) Reset() {
-	*x = RegisterUserResponse{}
-	mi := &file_amor_amor_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RegisterUserResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RegisterUserResponse) ProtoMessage() {}
-
-func (x *RegisterUserResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_amor_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RegisterUserResponse.ProtoReflect.Descriptor instead.
-func (*RegisterUserResponse) Descriptor() ([]byte, []int) {
-	return file_amor_amor_proto_rawDescGZIP(), []int{1}
-}
-
 type LoginUserRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Types that are valid to be assigned to Input:
@@ -106,7 +34,7 @@ type LoginUserRequest struct {
 
 func (x *LoginUserRequest) Reset() {
 	*x = LoginUserRequest{}
-	mi := &file_amor_amor_proto_msgTypes[2]
+	mi := &file_amor_amor_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -118,7 +46,7 @@ func (x *LoginUserRequest) String() string {
 func (*LoginUserRequest) ProtoMessage() {}
 
 func (x *LoginUserRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_amor_proto_msgTypes[2]
+	mi := &file_amor_amor_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -131,7 +59,7 @@ func (x *LoginUserRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LoginUserRequest.ProtoReflect.Descriptor instead.
 func (*LoginUserRequest) Descriptor() ([]byte, []int) {
-	return file_amor_amor_proto_rawDescGZIP(), []int{2}
+	return file_amor_amor_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *LoginUserRequest) GetInput() isLoginUserRequest_Input {
@@ -184,7 +112,7 @@ type LoginUserResponse struct {
 
 func (x *LoginUserResponse) Reset() {
 	*x = LoginUserResponse{}
-	mi := &file_amor_amor_proto_msgTypes[3]
+	mi := &file_amor_amor_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -196,7 +124,7 @@ func (x *LoginUserResponse) String() string {
 func (*LoginUserResponse) ProtoMessage() {}
 
 func (x *LoginUserResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_amor_proto_msgTypes[3]
+	mi := &file_amor_amor_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -209,7 +137,7 @@ func (x *LoginUserResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LoginUserResponse.ProtoReflect.Descriptor instead.
 func (*LoginUserResponse) Descriptor() ([]byte, []int) {
-	return file_amor_amor_proto_rawDescGZIP(), []int{3}
+	return file_amor_amor_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *LoginUserResponse) GetAccessToken() string {
@@ -235,7 +163,7 @@ type AddAccommodationRequest struct {
 
 func (x *AddAccommodationRequest) Reset() {
 	*x = AddAccommodationRequest{}
-	mi := &file_amor_amor_proto_msgTypes[4]
+	mi := &file_amor_amor_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -247,7 +175,7 @@ func (x *AddAccommodationRequest) String() string {
 func (*AddAccommodationRequest) ProtoMessage() {}
 
 func (x *AddAccommodationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_amor_proto_msgTypes[4]
+	mi := &file_amor_amor_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -260,7 +188,7 @@ func (x *AddAccommodationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddAccommodationRequest.ProtoReflect.Descriptor instead.
 func (*AddAccommodationRequest) Descriptor() ([]byte, []int) {
-	return file_amor_amor_proto_rawDescGZIP(), []int{4}
+	return file_amor_amor_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *AddAccommodationRequest) GetName() string {
@@ -327,7 +255,7 @@ type AddAccommodationResponse struct {
 
 func (x *AddAccommodationResponse) Reset() {
 	*x = AddAccommodationResponse{}
-	mi := &file_amor_amor_proto_msgTypes[5]
+	mi := &file_amor_amor_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -339,7 +267,7 @@ func (x *AddAccommodationResponse) String() string {
 func (*AddAccommodationResponse) ProtoMessage() {}
 
 func (x *AddAccommodationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_amor_proto_msgTypes[5]
+	mi := &file_amor_amor_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -352,7 +280,7 @@ func (x *AddAccommodationResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddAccommodationResponse.ProtoReflect.Descriptor instead.
 func (*AddAccommodationResponse) Descriptor() ([]byte, []int) {
-	return file_amor_amor_proto_rawDescGZIP(), []int{5}
+	return file_amor_amor_proto_rawDescGZIP(), []int{3}
 }
 
 type LoginUserRequest_Manual struct {
@@ -365,7 +293,7 @@ type LoginUserRequest_Manual struct {
 
 func (x *LoginUserRequest_Manual) Reset() {
 	*x = LoginUserRequest_Manual{}
-	mi := &file_amor_amor_proto_msgTypes[6]
+	mi := &file_amor_amor_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -377,7 +305,7 @@ func (x *LoginUserRequest_Manual) String() string {
 func (*LoginUserRequest_Manual) ProtoMessage() {}
 
 func (x *LoginUserRequest_Manual) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_amor_proto_msgTypes[6]
+	mi := &file_amor_amor_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -390,7 +318,7 @@ func (x *LoginUserRequest_Manual) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LoginUserRequest_Manual.ProtoReflect.Descriptor instead.
 func (*LoginUserRequest_Manual) Descriptor() ([]byte, []int) {
-	return file_amor_amor_proto_rawDescGZIP(), []int{2, 0}
+	return file_amor_amor_proto_rawDescGZIP(), []int{0, 0}
 }
 
 func (x *LoginUserRequest_Manual) GetEmail() string {
@@ -411,9 +339,7 @@ var File_amor_amor_proto protoreflect.FileDescriptor
 
 const file_amor_amor_proto_rawDesc = "" +
 	"\n" +
-	"\x0famor/amor.proto\x12\x17projectamor_api.amor.v1\"\x15\n" +
-	"\x13RegisterUserRequest\"\x16\n" +
-	"\x14RegisterUserResponse\"\xc5\x01\n" +
+	"\x0famor/amor.proto\x12\x17projectamor_api.amor.v1\"\xc5\x01\n" +
 	"\x10LoginUserRequest\x12J\n" +
 	"\x06manual\x18\x01 \x01(\v20.projectamor_api.amor.v1.LoginUserRequest.ManualH\x00R\x06manual\x12 \n" +
 	"\n" +
@@ -436,11 +362,10 @@ const file_amor_amor_proto_rawDesc = "" +
 	" \x01(\x01R\blatitude\x12\x1c\n" +
 	"\tlongitude\x18\v \x01(\x01R\tlongitudeB\v\n" +
 	"\t_photoUrl\"\x1a\n" +
-	"\x18AddAccommodationResponse2\xdd\x02\n" +
+	"\x18AddAccommodationResponse2\xee\x01\n" +
 	"\vProjectAmor\x12y\n" +
 	"\x10AddAccommodation\x120.projectamor_api.amor.v1.AddAccommodationRequest\x1a1.projectamor_api.amor.v1.AddAccommodationResponse\"\x00\x12d\n" +
-	"\tLoginUser\x12).projectamor_api.amor.v1.LoginUserRequest\x1a*.projectamor_api.amor.v1.LoginUserResponse\"\x00\x12m\n" +
-	"\fRegisterUser\x12,.projectamor_api.amor.v1.RegisterUserRequest\x1a-.projectamor_api.amor.v1.RegisterUserResponse\"\x00B*Z(github.com/Ninolito/projectamor-api/amorb\x06proto3"
+	"\tLoginUser\x12).projectamor_api.amor.v1.LoginUserRequest\x1a*.projectamor_api.amor.v1.LoginUserResponse\"\x00B*Z(github.com/Ninolito/projectamor-api/amorb\x06proto3"
 
 var (
 	file_amor_amor_proto_rawDescOnce sync.Once
@@ -454,26 +379,22 @@ func file_amor_amor_proto_rawDescGZIP() []byte {
 	return file_amor_amor_proto_rawDescData
 }
 
-var file_amor_amor_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
+var file_amor_amor_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_amor_amor_proto_goTypes = []any{
-	(*RegisterUserRequest)(nil),      // 0: projectamor_api.amor.v1.RegisterUserRequest
-	(*RegisterUserResponse)(nil),     // 1: projectamor_api.amor.v1.RegisterUserResponse
-	(*LoginUserRequest)(nil),         // 2: projectamor_api.amor.v1.LoginUserRequest
-	(*LoginUserResponse)(nil),        // 3: projectamor_api.amor.v1.LoginUserResponse
-	(*AddAccommodationRequest)(nil),  // 4: projectamor_api.amor.v1.AddAccommodationRequest
-	(*AddAccommodationResponse)(nil), // 5: projectamor_api.amor.v1.AddAccommodationResponse
-	(*LoginUserRequest_Manual)(nil),  // 6: projectamor_api.amor.v1.LoginUserRequest.Manual
+	(*LoginUserRequest)(nil),         // 0: projectamor_api.amor.v1.LoginUserRequest
+	(*LoginUserResponse)(nil),        // 1: projectamor_api.amor.v1.LoginUserResponse
+	(*AddAccommodationRequest)(nil),  // 2: projectamor_api.amor.v1.AddAccommodationRequest
+	(*AddAccommodationResponse)(nil), // 3: projectamor_api.amor.v1.AddAccommodationResponse
+	(*LoginUserRequest_Manual)(nil),  // 4: projectamor_api.amor.v1.LoginUserRequest.Manual
 }
 var file_amor_amor_proto_depIdxs = []int32{
-	6, // 0: projectamor_api.amor.v1.LoginUserRequest.manual:type_name -> projectamor_api.amor.v1.LoginUserRequest.Manual
-	4, // 1: projectamor_api.amor.v1.ProjectAmor.AddAccommodation:input_type -> projectamor_api.amor.v1.AddAccommodationRequest
-	2, // 2: projectamor_api.amor.v1.ProjectAmor.LoginUser:input_type -> projectamor_api.amor.v1.LoginUserRequest
-	0, // 3: projectamor_api.amor.v1.ProjectAmor.RegisterUser:input_type -> projectamor_api.amor.v1.RegisterUserRequest
-	5, // 4: projectamor_api.amor.v1.ProjectAmor.AddAccommodation:output_type -> projectamor_api.amor.v1.AddAccommodationResponse
-	3, // 5: projectamor_api.amor.v1.ProjectAmor.LoginUser:output_type -> projectamor_api.amor.v1.LoginUserResponse
-	1, // 6: projectamor_api.amor.v1.ProjectAmor.RegisterUser:output_type -> projectamor_api.amor.v1.RegisterUserResponse
-	4, // [4:7] is the sub-list for method output_type
-	1, // [1:4] is the sub-list for method input_type
+	4, // 0: projectamor_api.amor.v1.LoginUserRequest.manual:type_name -> projectamor_api.amor.v1.LoginUserRequest.Manual
+	2, // 1: projectamor_api.amor.v1.ProjectAmor.AddAccommodation:input_type -> projectamor_api.amor.v1.AddAccommodationRequest
+	0, // 2: projectamor_api.amor.v1.ProjectAmor.LoginUser:input_type -> projectamor_api.amor.v1.LoginUserRequest
+	3, // 3: projectamor_api.amor.v1.ProjectAmor.AddAccommodation:output_type -> projectamor_api.amor.v1.AddAccommodationResponse
+	1, // 4: projectamor_api.amor.v1.ProjectAmor.LoginUser:output_type -> projectamor_api.amor.v1.LoginUserResponse
+	3, // [3:5] is the sub-list for method output_type
+	1, // [1:3] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
 	1, // [1:1] is the sub-list for extension extendee
 	0, // [0:1] is the sub-list for field type_name
@@ -484,18 +405,18 @@ func file_amor_amor_proto_init() {
 	if File_amor_amor_proto != nil {
 		return
 	}
-	file_amor_amor_proto_msgTypes[2].OneofWrappers = []any{
+	file_amor_amor_proto_msgTypes[0].OneofWrappers = []any{
 		(*LoginUserRequest_Manual_)(nil),
 		(*LoginUserRequest_Auth0Token)(nil),
 	}
-	file_amor_amor_proto_msgTypes[4].OneofWrappers = []any{}
+	file_amor_amor_proto_msgTypes[2].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_amor_amor_proto_rawDesc), len(file_amor_amor_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   7,
+			NumMessages:   5,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
