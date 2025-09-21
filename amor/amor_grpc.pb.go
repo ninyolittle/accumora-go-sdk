@@ -20,7 +20,7 @@ const _ = grpc.SupportPackageIsVersion9
 
 const (
 	ProjectAmor_AddAccommodation_FullMethodName = "/projectamor_api.amor.v1.ProjectAmor/AddAccommodation"
-	ProjectAmor_LoginAuthUser_FullMethodName    = "/projectamor_api.amor.v1.ProjectAmor/LoginAuthUser"
+	ProjectAmor_LoginUser_FullMethodName        = "/projectamor_api.amor.v1.ProjectAmor/LoginUser"
 )
 
 // ProjectAmorClient is the client API for ProjectAmor service.
@@ -28,7 +28,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ProjectAmorClient interface {
 	AddAccommodation(ctx context.Context, in *AddAccommodationRequest, opts ...grpc.CallOption) (*AddAccommodationResponse, error)
-	LoginAuthUser(ctx context.Context, in *LoginAuthUserRequest, opts ...grpc.CallOption) (*LoginAuthUserResponse, error)
+	LoginUser(ctx context.Context, in *LoginUserRequest, opts ...grpc.CallOption) (*LoginUserResponse, error)
 }
 
 type projectAmorClient struct {
@@ -49,10 +49,10 @@ func (c *projectAmorClient) AddAccommodation(ctx context.Context, in *AddAccommo
 	return out, nil
 }
 
-func (c *projectAmorClient) LoginAuthUser(ctx context.Context, in *LoginAuthUserRequest, opts ...grpc.CallOption) (*LoginAuthUserResponse, error) {
+func (c *projectAmorClient) LoginUser(ctx context.Context, in *LoginUserRequest, opts ...grpc.CallOption) (*LoginUserResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(LoginAuthUserResponse)
-	err := c.cc.Invoke(ctx, ProjectAmor_LoginAuthUser_FullMethodName, in, out, cOpts...)
+	out := new(LoginUserResponse)
+	err := c.cc.Invoke(ctx, ProjectAmor_LoginUser_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -64,7 +64,7 @@ func (c *projectAmorClient) LoginAuthUser(ctx context.Context, in *LoginAuthUser
 // for forward compatibility.
 type ProjectAmorServer interface {
 	AddAccommodation(context.Context, *AddAccommodationRequest) (*AddAccommodationResponse, error)
-	LoginAuthUser(context.Context, *LoginAuthUserRequest) (*LoginAuthUserResponse, error)
+	LoginUser(context.Context, *LoginUserRequest) (*LoginUserResponse, error)
 	mustEmbedUnimplementedProjectAmorServer()
 }
 
@@ -78,8 +78,8 @@ type UnimplementedProjectAmorServer struct{}
 func (UnimplementedProjectAmorServer) AddAccommodation(context.Context, *AddAccommodationRequest) (*AddAccommodationResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AddAccommodation not implemented")
 }
-func (UnimplementedProjectAmorServer) LoginAuthUser(context.Context, *LoginAuthUserRequest) (*LoginAuthUserResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method LoginAuthUser not implemented")
+func (UnimplementedProjectAmorServer) LoginUser(context.Context, *LoginUserRequest) (*LoginUserResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method LoginUser not implemented")
 }
 func (UnimplementedProjectAmorServer) mustEmbedUnimplementedProjectAmorServer() {}
 func (UnimplementedProjectAmorServer) testEmbeddedByValue()                     {}
@@ -120,20 +120,20 @@ func _ProjectAmor_AddAccommodation_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ProjectAmor_LoginAuthUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(LoginAuthUserRequest)
+func _ProjectAmor_LoginUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LoginUserRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ProjectAmorServer).LoginAuthUser(ctx, in)
+		return srv.(ProjectAmorServer).LoginUser(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ProjectAmor_LoginAuthUser_FullMethodName,
+		FullMethod: ProjectAmor_LoginUser_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProjectAmorServer).LoginAuthUser(ctx, req.(*LoginAuthUserRequest))
+		return srv.(ProjectAmorServer).LoginUser(ctx, req.(*LoginUserRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -150,8 +150,8 @@ var ProjectAmor_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _ProjectAmor_AddAccommodation_Handler,
 		},
 		{
-			MethodName: "LoginAuthUser",
-			Handler:    _ProjectAmor_LoginAuthUser_Handler,
+			MethodName: "LoginUser",
+			Handler:    _ProjectAmor_LoginUser_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
