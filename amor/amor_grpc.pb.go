@@ -21,6 +21,7 @@ const _ = grpc.SupportPackageIsVersion9
 const (
 	ProjectAmor_AddAccommodation_FullMethodName = "/projectamor_api.amor.v1.ProjectAmor/AddAccommodation"
 	ProjectAmor_LoginUser_FullMethodName        = "/projectamor_api.amor.v1.ProjectAmor/LoginUser"
+	ProjectAmor_RegisterUser_FullMethodName     = "/projectamor_api.amor.v1.ProjectAmor/RegisterUser"
 )
 
 // ProjectAmorClient is the client API for ProjectAmor service.
@@ -29,6 +30,7 @@ const (
 type ProjectAmorClient interface {
 	AddAccommodation(ctx context.Context, in *AddAccommodationRequest, opts ...grpc.CallOption) (*AddAccommodationResponse, error)
 	LoginUser(ctx context.Context, in *LoginUserRequest, opts ...grpc.CallOption) (*LoginUserResponse, error)
+	RegisterUser(ctx context.Context, in *RegisterUserRequest, opts ...grpc.CallOption) (*RegisterUserResponse, error)
 }
 
 type projectAmorClient struct {
@@ -59,12 +61,23 @@ func (c *projectAmorClient) LoginUser(ctx context.Context, in *LoginUserRequest,
 	return out, nil
 }
 
+func (c *projectAmorClient) RegisterUser(ctx context.Context, in *RegisterUserRequest, opts ...grpc.CallOption) (*RegisterUserResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RegisterUserResponse)
+	err := c.cc.Invoke(ctx, ProjectAmor_RegisterUser_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ProjectAmorServer is the server API for ProjectAmor service.
 // All implementations must embed UnimplementedProjectAmorServer
 // for forward compatibility.
 type ProjectAmorServer interface {
 	AddAccommodation(context.Context, *AddAccommodationRequest) (*AddAccommodationResponse, error)
 	LoginUser(context.Context, *LoginUserRequest) (*LoginUserResponse, error)
+	RegisterUser(context.Context, *RegisterUserRequest) (*RegisterUserResponse, error)
 	mustEmbedUnimplementedProjectAmorServer()
 }
 
@@ -80,6 +93,9 @@ func (UnimplementedProjectAmorServer) AddAccommodation(context.Context, *AddAcco
 }
 func (UnimplementedProjectAmorServer) LoginUser(context.Context, *LoginUserRequest) (*LoginUserResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method LoginUser not implemented")
+}
+func (UnimplementedProjectAmorServer) RegisterUser(context.Context, *RegisterUserRequest) (*RegisterUserResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RegisterUser not implemented")
 }
 func (UnimplementedProjectAmorServer) mustEmbedUnimplementedProjectAmorServer() {}
 func (UnimplementedProjectAmorServer) testEmbeddedByValue()                     {}
@@ -138,6 +154,24 @@ func _ProjectAmor_LoginUser_Handler(srv interface{}, ctx context.Context, dec fu
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ProjectAmor_RegisterUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RegisterUserRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProjectAmorServer).RegisterUser(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProjectAmor_RegisterUser_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProjectAmorServer).RegisterUser(ctx, req.(*RegisterUserRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // ProjectAmor_ServiceDesc is the grpc.ServiceDesc for ProjectAmor service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -152,6 +186,10 @@ var ProjectAmor_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "LoginUser",
 			Handler:    _ProjectAmor_LoginUser_Handler,
+		},
+		{
+			MethodName: "RegisterUser",
+			Handler:    _ProjectAmor_RegisterUser_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
