@@ -223,8 +223,8 @@ type AddAccommodationRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	Type          string                 `protobuf:"bytes,2,opt,name=type,proto3" json:"type,omitempty"`
-	Address       string                 `protobuf:"bytes,3,opt,name=address,proto3" json:"address,omitempty"`
-	Utilities     []int32                `protobuf:"varint,7,rep,packed,name=utilities,proto3" json:"utilities,omitempty"`
+	Location      string                 `protobuf:"bytes,3,opt,name=location,proto3" json:"location,omitempty"`
+	Utilities     []string               `protobuf:"bytes,7,rep,name=utilities,proto3" json:"utilities,omitempty"`
 	PhotoUrl      []byte                 `protobuf:"bytes,8,opt,name=photoUrl,proto3,oneof" json:"photoUrl,omitempty"`
 	Description   string                 `protobuf:"bytes,9,opt,name=description,proto3" json:"description,omitempty"`
 	Latitude      float64                `protobuf:"fixed64,10,opt,name=latitude,proto3" json:"latitude,omitempty"`
@@ -277,14 +277,14 @@ func (x *AddAccommodationRequest) GetType() string {
 	return ""
 }
 
-func (x *AddAccommodationRequest) GetAddress() string {
+func (x *AddAccommodationRequest) GetLocation() string {
 	if x != nil {
-		return x.Address
+		return x.Location
 	}
 	return ""
 }
 
-func (x *AddAccommodationRequest) GetUtilities() []int32 {
+func (x *AddAccommodationRequest) GetUtilities() []string {
 	if x != nil {
 		return x.Utilities
 	}
@@ -424,12 +424,12 @@ const file_amor_amor_proto_rawDesc = "" +
 	"\bpassword\x18\x02 \x01(\tR\bpasswordB\a\n" +
 	"\x05input\"5\n" +
 	"\x11LoginUserResponse\x12 \n" +
-	"\vaccessToken\x18\x01 \x01(\tR\vaccessToken\"\x83\x02\n" +
+	"\vaccessToken\x18\x01 \x01(\tR\vaccessToken\"\x85\x02\n" +
 	"\x17AddAccommodationRequest\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x12\n" +
-	"\x04type\x18\x02 \x01(\tR\x04type\x12\x18\n" +
-	"\aaddress\x18\x03 \x01(\tR\aaddress\x12\x1c\n" +
-	"\tutilities\x18\a \x03(\x05R\tutilities\x12\x1f\n" +
+	"\x04type\x18\x02 \x01(\tR\x04type\x12\x1a\n" +
+	"\blocation\x18\x03 \x01(\tR\blocation\x12\x1c\n" +
+	"\tutilities\x18\a \x03(\tR\tutilities\x12\x1f\n" +
 	"\bphotoUrl\x18\b \x01(\fH\x00R\bphotoUrl\x88\x01\x01\x12 \n" +
 	"\vdescription\x18\t \x01(\tR\vdescription\x12\x1a\n" +
 	"\blatitude\x18\n" +

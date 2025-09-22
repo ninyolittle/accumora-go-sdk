@@ -21,6 +21,220 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type User_AccountType int32
+
+const (
+	User_manual   User_AccountType = 0
+	User_google   User_AccountType = 1
+	User_facebook User_AccountType = 2
+)
+
+// Enum value maps for User_AccountType.
+var (
+	User_AccountType_name = map[int32]string{
+		0: "manual",
+		1: "google",
+		2: "facebook",
+	}
+	User_AccountType_value = map[string]int32{
+		"manual":   0,
+		"google":   1,
+		"facebook": 2,
+	}
+)
+
+func (x User_AccountType) Enum() *User_AccountType {
+	p := new(User_AccountType)
+	*p = x
+	return p
+}
+
+func (x User_AccountType) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (User_AccountType) Descriptor() protoreflect.EnumDescriptor {
+	return file_amor_types_proto_enumTypes[0].Descriptor()
+}
+
+func (User_AccountType) Type() protoreflect.EnumType {
+	return &file_amor_types_proto_enumTypes[0]
+}
+
+func (x User_AccountType) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use User_AccountType.Descriptor instead.
+func (User_AccountType) EnumDescriptor() ([]byte, []int) {
+	return file_amor_types_proto_rawDescGZIP(), []int{0, 0}
+}
+
+type User_Gender int32
+
+const (
+	User_unknown_gender User_Gender = 0
+	User_male           User_Gender = 1
+	User_female         User_Gender = 2
+)
+
+// Enum value maps for User_Gender.
+var (
+	User_Gender_name = map[int32]string{
+		0: "unknown_gender",
+		1: "male",
+		2: "female",
+	}
+	User_Gender_value = map[string]int32{
+		"unknown_gender": 0,
+		"male":           1,
+		"female":         2,
+	}
+)
+
+func (x User_Gender) Enum() *User_Gender {
+	p := new(User_Gender)
+	*p = x
+	return p
+}
+
+func (x User_Gender) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (User_Gender) Descriptor() protoreflect.EnumDescriptor {
+	return file_amor_types_proto_enumTypes[1].Descriptor()
+}
+
+func (User_Gender) Type() protoreflect.EnumType {
+	return &file_amor_types_proto_enumTypes[1]
+}
+
+func (x User_Gender) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use User_Gender.Descriptor instead.
+func (User_Gender) EnumDescriptor() ([]byte, []int) {
+	return file_amor_types_proto_rawDescGZIP(), []int{0, 1}
+}
+
+type User struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	FirstName     string                 `protobuf:"bytes,2,opt,name=first_name,json=firstName,proto3" json:"first_name,omitempty"`
+	LastName      *string                `protobuf:"bytes,3,opt,name=last_name,json=lastName,proto3,oneof" json:"last_name,omitempty"`
+	Phone         *string                `protobuf:"bytes,4,opt,name=phone,proto3,oneof" json:"phone,omitempty"`
+	EmailAddress  string                 `protobuf:"bytes,5,opt,name=email_address,json=emailAddress,proto3" json:"email_address,omitempty"`
+	Location      *string                `protobuf:"bytes,6,opt,name=location,proto3,oneof" json:"location,omitempty"`
+	Password      *string                `protobuf:"bytes,7,opt,name=password,proto3,oneof" json:"password,omitempty"`
+	AccountType   User_AccountType       `protobuf:"varint,8,opt,name=accountType,proto3,enum=accumora_go_sdk.v1.User_AccountType" json:"accountType,omitempty"`
+	Birthday      *string                `protobuf:"bytes,9,opt,name=birthday,proto3,oneof" json:"birthday,omitempty"`
+	Gender        User_Gender            `protobuf:"varint,10,opt,name=gender,proto3,enum=accumora_go_sdk.v1.User_Gender" json:"gender,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *User) Reset() {
+	*x = User{}
+	mi := &file_amor_types_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *User) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*User) ProtoMessage() {}
+
+func (x *User) ProtoReflect() protoreflect.Message {
+	mi := &file_amor_types_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use User.ProtoReflect.Descriptor instead.
+func (*User) Descriptor() ([]byte, []int) {
+	return file_amor_types_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *User) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+func (x *User) GetFirstName() string {
+	if x != nil {
+		return x.FirstName
+	}
+	return ""
+}
+
+func (x *User) GetLastName() string {
+	if x != nil && x.LastName != nil {
+		return *x.LastName
+	}
+	return ""
+}
+
+func (x *User) GetPhone() string {
+	if x != nil && x.Phone != nil {
+		return *x.Phone
+	}
+	return ""
+}
+
+func (x *User) GetEmailAddress() string {
+	if x != nil {
+		return x.EmailAddress
+	}
+	return ""
+}
+
+func (x *User) GetLocation() string {
+	if x != nil && x.Location != nil {
+		return *x.Location
+	}
+	return ""
+}
+
+func (x *User) GetPassword() string {
+	if x != nil && x.Password != nil {
+		return *x.Password
+	}
+	return ""
+}
+
+func (x *User) GetAccountType() User_AccountType {
+	if x != nil {
+		return x.AccountType
+	}
+	return User_manual
+}
+
+func (x *User) GetBirthday() string {
+	if x != nil && x.Birthday != nil {
+		return *x.Birthday
+	}
+	return ""
+}
+
+func (x *User) GetGender() User_Gender {
+	if x != nil {
+		return x.Gender
+	}
+	return User_unknown_gender
+}
+
 type Accommodation struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
@@ -31,13 +245,14 @@ type Accommodation struct {
 	Type          string                 `protobuf:"bytes,6,opt,name=type,proto3" json:"type,omitempty"`
 	Latitude      float64                `protobuf:"fixed64,7,opt,name=latitude,proto3" json:"latitude,omitempty"`
 	Longitude     float64                `protobuf:"fixed64,8,opt,name=longitude,proto3" json:"longitude,omitempty"`
+	UserId        string                 `protobuf:"bytes,9,opt,name=userId,proto3" json:"userId,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Accommodation) Reset() {
 	*x = Accommodation{}
-	mi := &file_amor_types_proto_msgTypes[0]
+	mi := &file_amor_types_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -49,7 +264,7 @@ func (x *Accommodation) String() string {
 func (*Accommodation) ProtoMessage() {}
 
 func (x *Accommodation) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_types_proto_msgTypes[0]
+	mi := &file_amor_types_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -62,7 +277,7 @@ func (x *Accommodation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Accommodation.ProtoReflect.Descriptor instead.
 func (*Accommodation) Descriptor() ([]byte, []int) {
-	return file_amor_types_proto_rawDescGZIP(), []int{0}
+	return file_amor_types_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *Accommodation) GetId() string {
@@ -121,11 +336,48 @@ func (x *Accommodation) GetLongitude() float64 {
 	return 0
 }
 
+func (x *Accommodation) GetUserId() string {
+	if x != nil {
+		return x.UserId
+	}
+	return ""
+}
+
 var File_amor_types_proto protoreflect.FileDescriptor
 
 const file_amor_types_proto_rawDesc = "" +
 	"\n" +
-	"\x10amor/types.proto\x12\x12accumora_go_sdk.v1\"\xdd\x01\n" +
+	"\x10amor/types.proto\x12\x12accumora_go_sdk.v1\"\xa3\x04\n" +
+	"\x04User\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1d\n" +
+	"\n" +
+	"first_name\x18\x02 \x01(\tR\tfirstName\x12 \n" +
+	"\tlast_name\x18\x03 \x01(\tH\x00R\blastName\x88\x01\x01\x12\x19\n" +
+	"\x05phone\x18\x04 \x01(\tH\x01R\x05phone\x88\x01\x01\x12#\n" +
+	"\remail_address\x18\x05 \x01(\tR\femailAddress\x12\x1f\n" +
+	"\blocation\x18\x06 \x01(\tH\x02R\blocation\x88\x01\x01\x12\x1f\n" +
+	"\bpassword\x18\a \x01(\tH\x03R\bpassword\x88\x01\x01\x12F\n" +
+	"\vaccountType\x18\b \x01(\x0e2$.accumora_go_sdk.v1.User.AccountTypeR\vaccountType\x12\x1f\n" +
+	"\bbirthday\x18\t \x01(\tH\x04R\bbirthday\x88\x01\x01\x127\n" +
+	"\x06gender\x18\n" +
+	" \x01(\x0e2\x1f.accumora_go_sdk.v1.User.GenderR\x06gender\"3\n" +
+	"\vAccountType\x12\n" +
+	"\n" +
+	"\x06manual\x10\x00\x12\n" +
+	"\n" +
+	"\x06google\x10\x01\x12\f\n" +
+	"\bfacebook\x10\x02\"2\n" +
+	"\x06Gender\x12\x12\n" +
+	"\x0eunknown_gender\x10\x00\x12\b\n" +
+	"\x04male\x10\x01\x12\n" +
+	"\n" +
+	"\x06female\x10\x02B\f\n" +
+	"\n" +
+	"_last_nameB\b\n" +
+	"\x06_phoneB\v\n" +
+	"\t_locationB\v\n" +
+	"\t_passwordB\v\n" +
+	"\t_birthday\"\xf5\x01\n" +
 	"\rAccommodation\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x1a\n" +
@@ -134,7 +386,8 @@ const file_amor_types_proto_rawDesc = "" +
 	"\tutilities\x18\x05 \x03(\tR\tutilities\x12\x12\n" +
 	"\x04type\x18\x06 \x01(\tR\x04type\x12\x1a\n" +
 	"\blatitude\x18\a \x01(\x01R\blatitude\x12\x1c\n" +
-	"\tlongitude\x18\b \x01(\x01R\tlongitudeB(Z&github.com/ninyolittle/accumora-go-sdkb\x06proto3"
+	"\tlongitude\x18\b \x01(\x01R\tlongitude\x12\x16\n" +
+	"\x06userId\x18\t \x01(\tR\x06userIdB(Z&github.com/ninyolittle/accumora-go-sdkb\x06proto3"
 
 var (
 	file_amor_types_proto_rawDescOnce sync.Once
@@ -148,16 +401,22 @@ func file_amor_types_proto_rawDescGZIP() []byte {
 	return file_amor_types_proto_rawDescData
 }
 
-var file_amor_types_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_amor_types_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
+var file_amor_types_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_amor_types_proto_goTypes = []any{
-	(*Accommodation)(nil), // 0: accumora_go_sdk.v1.Accommodation
+	(User_AccountType)(0), // 0: accumora_go_sdk.v1.User.AccountType
+	(User_Gender)(0),      // 1: accumora_go_sdk.v1.User.Gender
+	(*User)(nil),          // 2: accumora_go_sdk.v1.User
+	(*Accommodation)(nil), // 3: accumora_go_sdk.v1.Accommodation
 }
 var file_amor_types_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0, // 0: accumora_go_sdk.v1.User.accountType:type_name -> accumora_go_sdk.v1.User.AccountType
+	1, // 1: accumora_go_sdk.v1.User.gender:type_name -> accumora_go_sdk.v1.User.Gender
+	2, // [2:2] is the sub-list for method output_type
+	2, // [2:2] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_amor_types_proto_init() }
@@ -165,18 +424,20 @@ func file_amor_types_proto_init() {
 	if File_amor_types_proto != nil {
 		return
 	}
+	file_amor_types_proto_msgTypes[0].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_amor_types_proto_rawDesc), len(file_amor_types_proto_rawDesc)),
-			NumEnums:      0,
-			NumMessages:   1,
+			NumEnums:      2,
+			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_amor_types_proto_goTypes,
 		DependencyIndexes: file_amor_types_proto_depIdxs,
+		EnumInfos:         file_amor_types_proto_enumTypes,
 		MessageInfos:      file_amor_types_proto_msgTypes,
 	}.Build()
 	File_amor_types_proto = out.File
