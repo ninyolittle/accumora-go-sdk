@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: amor/v1/amor.proto
 
-package amor
+package v1
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -518,7 +518,7 @@ const file_amor_v1_amor_proto_rawDesc = "" +
 	"\vProjectAmor\x12i\n" +
 	"\x10AddAccommodation\x12(.accumora_rpc.v1.AddAccommodationRequest\x1a).accumora_rpc.v1.AddAccommodationResponse\"\x00\x12T\n" +
 	"\tLoginUser\x12!.accumora_rpc.v1.LoginUserRequest\x1a\".accumora_rpc.v1.LoginUserResponse\"\x00\x12]\n" +
-	"\fRegisterUser\x12$.accumora_rpc.v1.RegisterUserRequest\x1a%.accumora_rpc.v1.RegisterUserResponse\"\x00B*Z(github.com/ninyolittle/accumora-rpc/amorb\x06proto3"
+	"\fRegisterUser\x12$.accumora_rpc.v1.RegisterUserRequest\x1a%.accumora_rpc.v1.RegisterUserResponse\"\x00B0Z.github.com/ninyolittle/accumora-go-sdk/amor/v1b\x06proto3"
 
 var (
 	file_amor_v1_amor_proto_rawDescOnce sync.Once

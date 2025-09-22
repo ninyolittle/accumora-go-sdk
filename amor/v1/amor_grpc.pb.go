@@ -4,7 +4,7 @@
 // - protoc             (unknown)
 // source: amor/v1/amor.proto
 
-package amor
+package v1
 
 import (
 	context "context"
