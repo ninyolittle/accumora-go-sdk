@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: amor/v1/types.proto
 
-package v1
+package amor
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -387,7 +387,7 @@ const file_amor_v1_types_proto_rawDesc = "" +
 	"\x04type\x18\x06 \x01(\tR\x04type\x12\x1a\n" +
 	"\blatitude\x18\a \x01(\x01R\blatitude\x12\x1c\n" +
 	"\tlongitude\x18\b \x01(\x01R\tlongitude\x12\x16\n" +
-	"\x06userId\x18\t \x01(\tR\x06userIdB0Z.github.com/ninyolittle/accumora-go-sdk/amor/v1b\x06proto3"
+	"\x06userId\x18\t \x01(\tR\x06userIdB2Z0github.com/ninyolittle/accumora-go-sdk/amor;amorb\x06proto3"
 
 var (
 	file_amor_v1_types_proto_rawDescOnce sync.Once
