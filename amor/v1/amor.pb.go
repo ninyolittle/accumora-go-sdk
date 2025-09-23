@@ -21,6 +21,854 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type UpdateRoomRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name          *string                `protobuf:"bytes,2,opt,name=name,proto3,oneof" json:"name,omitempty"`
+	Description   *string                `protobuf:"bytes,3,opt,name=description,proto3,oneof" json:"description,omitempty"`
+	Prices        *Room_Prices           `protobuf:"bytes,4,opt,name=prices,proto3,oneof" json:"prices,omitempty"`
+	Capacity      *int32                 `protobuf:"varint,5,opt,name=capacity,proto3,oneof" json:"capacity,omitempty"`
+	Utilities     []string               `protobuf:"bytes,6,rep,name=utilities,proto3" json:"utilities,omitempty"`
+	PhotoUrl      []byte                 `protobuf:"bytes,7,opt,name=photo_url,json=photoUrl,proto3,oneof" json:"photo_url,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateRoomRequest) Reset() {
+	*x = UpdateRoomRequest{}
+	mi := &file_amor_v1_amor_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateRoomRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateRoomRequest) ProtoMessage() {}
+
+func (x *UpdateRoomRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_amor_v1_amor_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateRoomRequest.ProtoReflect.Descriptor instead.
+func (*UpdateRoomRequest) Descriptor() ([]byte, []int) {
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *UpdateRoomRequest) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+func (x *UpdateRoomRequest) GetName() string {
+	if x != nil && x.Name != nil {
+		return *x.Name
+	}
+	return ""
+}
+
+func (x *UpdateRoomRequest) GetDescription() string {
+	if x != nil && x.Description != nil {
+		return *x.Description
+	}
+	return ""
+}
+
+func (x *UpdateRoomRequest) GetPrices() *Room_Prices {
+	if x != nil {
+		return x.Prices
+	}
+	return nil
+}
+
+func (x *UpdateRoomRequest) GetCapacity() int32 {
+	if x != nil && x.Capacity != nil {
+		return *x.Capacity
+	}
+	return 0
+}
+
+func (x *UpdateRoomRequest) GetUtilities() []string {
+	if x != nil {
+		return x.Utilities
+	}
+	return nil
+}
+
+func (x *UpdateRoomRequest) GetPhotoUrl() []byte {
+	if x != nil {
+		return x.PhotoUrl
+	}
+	return nil
+}
+
+type UpdateRoomResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Room          *Room                  `protobuf:"bytes,1,opt,name=room,proto3" json:"room,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateRoomResponse) Reset() {
+	*x = UpdateRoomResponse{}
+	mi := &file_amor_v1_amor_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateRoomResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateRoomResponse) ProtoMessage() {}
+
+func (x *UpdateRoomResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_amor_v1_amor_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateRoomResponse.ProtoReflect.Descriptor instead.
+func (*UpdateRoomResponse) Descriptor() ([]byte, []int) {
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *UpdateRoomResponse) GetRoom() *Room {
+	if x != nil {
+		return x.Room
+	}
+	return nil
+}
+
+type UpdateAccommodationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name          *string                `protobuf:"bytes,2,opt,name=name,proto3,oneof" json:"name,omitempty"`
+	Location      *Location              `protobuf:"bytes,3,opt,name=location,proto3,oneof" json:"location,omitempty"`
+	Description   *string                `protobuf:"bytes,4,opt,name=description,proto3,oneof" json:"description,omitempty"`
+	Utilities     []string               `protobuf:"bytes,5,rep,name=utilities,proto3" json:"utilities,omitempty"`
+	Type          *string                `protobuf:"bytes,6,opt,name=type,proto3,oneof" json:"type,omitempty"`
+	Latitude      *float64               `protobuf:"fixed64,7,opt,name=latitude,proto3,oneof" json:"latitude,omitempty"`
+	Longitude     *float64               `protobuf:"fixed64,8,opt,name=longitude,proto3,oneof" json:"longitude,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateAccommodationRequest) Reset() {
+	*x = UpdateAccommodationRequest{}
+	mi := &file_amor_v1_amor_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateAccommodationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateAccommodationRequest) ProtoMessage() {}
+
+func (x *UpdateAccommodationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_amor_v1_amor_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateAccommodationRequest.ProtoReflect.Descriptor instead.
+func (*UpdateAccommodationRequest) Descriptor() ([]byte, []int) {
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *UpdateAccommodationRequest) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+func (x *UpdateAccommodationRequest) GetName() string {
+	if x != nil && x.Name != nil {
+		return *x.Name
+	}
+	return ""
+}
+
+func (x *UpdateAccommodationRequest) GetLocation() *Location {
+	if x != nil {
+		return x.Location
+	}
+	return nil
+}
+
+func (x *UpdateAccommodationRequest) GetDescription() string {
+	if x != nil && x.Description != nil {
+		return *x.Description
+	}
+	return ""
+}
+
+func (x *UpdateAccommodationRequest) GetUtilities() []string {
+	if x != nil {
+		return x.Utilities
+	}
+	return nil
+}
+
+func (x *UpdateAccommodationRequest) GetType() string {
+	if x != nil && x.Type != nil {
+		return *x.Type
+	}
+	return ""
+}
+
+func (x *UpdateAccommodationRequest) GetLatitude() float64 {
+	if x != nil && x.Latitude != nil {
+		return *x.Latitude
+	}
+	return 0
+}
+
+func (x *UpdateAccommodationRequest) GetLongitude() float64 {
+	if x != nil && x.Longitude != nil {
+		return *x.Longitude
+	}
+	return 0
+}
+
+type UpdateAccommodationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Accommodation *Accommodation         `protobuf:"bytes,1,opt,name=accommodation,proto3" json:"accommodation,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateAccommodationResponse) Reset() {
+	*x = UpdateAccommodationResponse{}
+	mi := &file_amor_v1_amor_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateAccommodationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateAccommodationResponse) ProtoMessage() {}
+
+func (x *UpdateAccommodationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_amor_v1_amor_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateAccommodationResponse.ProtoReflect.Descriptor instead.
+func (*UpdateAccommodationResponse) Descriptor() ([]byte, []int) {
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *UpdateAccommodationResponse) GetAccommodation() *Accommodation {
+	if x != nil {
+		return x.Accommodation
+	}
+	return nil
+}
+
+type GetUserRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUserRequest) Reset() {
+	*x = GetUserRequest{}
+	mi := &file_amor_v1_amor_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUserRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUserRequest) ProtoMessage() {}
+
+func (x *GetUserRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_amor_v1_amor_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUserRequest.ProtoReflect.Descriptor instead.
+func (*GetUserRequest) Descriptor() ([]byte, []int) {
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{4}
+}
+
+type GetUserResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	User          *User                  `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUserResponse) Reset() {
+	*x = GetUserResponse{}
+	mi := &file_amor_v1_amor_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUserResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUserResponse) ProtoMessage() {}
+
+func (x *GetUserResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_amor_v1_amor_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUserResponse.ProtoReflect.Descriptor instead.
+func (*GetUserResponse) Descriptor() ([]byte, []int) {
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *GetUserResponse) GetUser() *User {
+	if x != nil {
+		return x.User
+	}
+	return nil
+}
+
+type AddRoomRequest struct {
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	Name            string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	AccommodationId string                 `protobuf:"bytes,2,opt,name=accommodationId,proto3" json:"accommodationId,omitempty"`
+	Description     *string                `protobuf:"bytes,3,opt,name=description,proto3,oneof" json:"description,omitempty"`
+	Prices          *Room_Prices           `protobuf:"bytes,4,opt,name=prices,proto3" json:"prices,omitempty"`
+	Capacity        *int32                 `protobuf:"varint,5,opt,name=capacity,proto3,oneof" json:"capacity,omitempty"`
+	Utilities       []string               `protobuf:"bytes,6,rep,name=utilities,proto3" json:"utilities,omitempty"`
+	PhotoUrl        []byte                 `protobuf:"bytes,7,opt,name=photoUrl,proto3,oneof" json:"photoUrl,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *AddRoomRequest) Reset() {
+	*x = AddRoomRequest{}
+	mi := &file_amor_v1_amor_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddRoomRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddRoomRequest) ProtoMessage() {}
+
+func (x *AddRoomRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_amor_v1_amor_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddRoomRequest.ProtoReflect.Descriptor instead.
+func (*AddRoomRequest) Descriptor() ([]byte, []int) {
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *AddRoomRequest) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *AddRoomRequest) GetAccommodationId() string {
+	if x != nil {
+		return x.AccommodationId
+	}
+	return ""
+}
+
+func (x *AddRoomRequest) GetDescription() string {
+	if x != nil && x.Description != nil {
+		return *x.Description
+	}
+	return ""
+}
+
+func (x *AddRoomRequest) GetPrices() *Room_Prices {
+	if x != nil {
+		return x.Prices
+	}
+	return nil
+}
+
+func (x *AddRoomRequest) GetCapacity() int32 {
+	if x != nil && x.Capacity != nil {
+		return *x.Capacity
+	}
+	return 0
+}
+
+func (x *AddRoomRequest) GetUtilities() []string {
+	if x != nil {
+		return x.Utilities
+	}
+	return nil
+}
+
+func (x *AddRoomRequest) GetPhotoUrl() []byte {
+	if x != nil {
+		return x.PhotoUrl
+	}
+	return nil
+}
+
+type AddRoomResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Room          *Room                  `protobuf:"bytes,1,opt,name=room,proto3" json:"room,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddRoomResponse) Reset() {
+	*x = AddRoomResponse{}
+	mi := &file_amor_v1_amor_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddRoomResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddRoomResponse) ProtoMessage() {}
+
+func (x *AddRoomResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_amor_v1_amor_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddRoomResponse.ProtoReflect.Descriptor instead.
+func (*AddRoomResponse) Descriptor() ([]byte, []int) {
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *AddRoomResponse) GetRoom() *Room {
+	if x != nil {
+		return x.Room
+	}
+	return nil
+}
+
+type DeleteRoomRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteRoomRequest) Reset() {
+	*x = DeleteRoomRequest{}
+	mi := &file_amor_v1_amor_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteRoomRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteRoomRequest) ProtoMessage() {}
+
+func (x *DeleteRoomRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_amor_v1_amor_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteRoomRequest.ProtoReflect.Descriptor instead.
+func (*DeleteRoomRequest) Descriptor() ([]byte, []int) {
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *DeleteRoomRequest) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+type DeleteRoomResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteRoomResponse) Reset() {
+	*x = DeleteRoomResponse{}
+	mi := &file_amor_v1_amor_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteRoomResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteRoomResponse) ProtoMessage() {}
+
+func (x *DeleteRoomResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_amor_v1_amor_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteRoomResponse.ProtoReflect.Descriptor instead.
+func (*DeleteRoomResponse) Descriptor() ([]byte, []int) {
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{9}
+}
+
+type GetRoomsRequest struct {
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	AccommodationId *string                `protobuf:"bytes,1,opt,name=accommodationId,proto3,oneof" json:"accommodationId,omitempty"`
+	Id              []string               `protobuf:"bytes,2,rep,name=id,proto3" json:"id,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *GetRoomsRequest) Reset() {
+	*x = GetRoomsRequest{}
+	mi := &file_amor_v1_amor_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRoomsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRoomsRequest) ProtoMessage() {}
+
+func (x *GetRoomsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_amor_v1_amor_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRoomsRequest.ProtoReflect.Descriptor instead.
+func (*GetRoomsRequest) Descriptor() ([]byte, []int) {
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *GetRoomsRequest) GetAccommodationId() string {
+	if x != nil && x.AccommodationId != nil {
+		return *x.AccommodationId
+	}
+	return ""
+}
+
+func (x *GetRoomsRequest) GetId() []string {
+	if x != nil {
+		return x.Id
+	}
+	return nil
+}
+
+type GetRoomsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Rooms         []*Room                `protobuf:"bytes,1,rep,name=rooms,proto3" json:"rooms,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRoomsResponse) Reset() {
+	*x = GetRoomsResponse{}
+	mi := &file_amor_v1_amor_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRoomsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRoomsResponse) ProtoMessage() {}
+
+func (x *GetRoomsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_amor_v1_amor_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRoomsResponse.ProtoReflect.Descriptor instead.
+func (*GetRoomsResponse) Descriptor() ([]byte, []int) {
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *GetRoomsResponse) GetRooms() []*Room {
+	if x != nil {
+		return x.Rooms
+	}
+	return nil
+}
+
+type GetAccommodationsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	OwnerId       *string                `protobuf:"bytes,1,opt,name=ownerId,proto3,oneof" json:"ownerId,omitempty"`
+	Id            []string               `protobuf:"bytes,2,rep,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAccommodationsRequest) Reset() {
+	*x = GetAccommodationsRequest{}
+	mi := &file_amor_v1_amor_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAccommodationsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAccommodationsRequest) ProtoMessage() {}
+
+func (x *GetAccommodationsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_amor_v1_amor_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAccommodationsRequest.ProtoReflect.Descriptor instead.
+func (*GetAccommodationsRequest) Descriptor() ([]byte, []int) {
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *GetAccommodationsRequest) GetOwnerId() string {
+	if x != nil && x.OwnerId != nil {
+		return *x.OwnerId
+	}
+	return ""
+}
+
+func (x *GetAccommodationsRequest) GetId() []string {
+	if x != nil {
+		return x.Id
+	}
+	return nil
+}
+
+type GetAccommodationsResponse struct {
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	Accommodations []*Accommodation       `protobuf:"bytes,1,rep,name=accommodations,proto3" json:"accommodations,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
+}
+
+func (x *GetAccommodationsResponse) Reset() {
+	*x = GetAccommodationsResponse{}
+	mi := &file_amor_v1_amor_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAccommodationsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAccommodationsResponse) ProtoMessage() {}
+
+func (x *GetAccommodationsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_amor_v1_amor_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAccommodationsResponse.ProtoReflect.Descriptor instead.
+func (*GetAccommodationsResponse) Descriptor() ([]byte, []int) {
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *GetAccommodationsResponse) GetAccommodations() []*Accommodation {
+	if x != nil {
+		return x.Accommodations
+	}
+	return nil
+}
+
+type DeleteAccommodationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteAccommodationRequest) Reset() {
+	*x = DeleteAccommodationRequest{}
+	mi := &file_amor_v1_amor_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteAccommodationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteAccommodationRequest) ProtoMessage() {}
+
+func (x *DeleteAccommodationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_amor_v1_amor_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteAccommodationRequest.ProtoReflect.Descriptor instead.
+func (*DeleteAccommodationRequest) Descriptor() ([]byte, []int) {
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *DeleteAccommodationRequest) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+type DeleteAccommodationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteAccommodationResponse) Reset() {
+	*x = DeleteAccommodationResponse{}
+	mi := &file_amor_v1_amor_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteAccommodationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteAccommodationResponse) ProtoMessage() {}
+
+func (x *DeleteAccommodationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_amor_v1_amor_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteAccommodationResponse.ProtoReflect.Descriptor instead.
+func (*DeleteAccommodationResponse) Descriptor() ([]byte, []int) {
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{15}
+}
+
 type RegisterUserRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	FirstName     string                 `protobuf:"bytes,1,opt,name=first_name,json=firstName,proto3" json:"first_name,omitempty"`
@@ -37,7 +885,7 @@ type RegisterUserRequest struct {
 
 func (x *RegisterUserRequest) Reset() {
 	*x = RegisterUserRequest{}
-	mi := &file_amor_v1_amor_proto_msgTypes[0]
+	mi := &file_amor_v1_amor_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -49,7 +897,7 @@ func (x *RegisterUserRequest) String() string {
 func (*RegisterUserRequest) ProtoMessage() {}
 
 func (x *RegisterUserRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[0]
+	mi := &file_amor_v1_amor_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -62,7 +910,7 @@ func (x *RegisterUserRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RegisterUserRequest.ProtoReflect.Descriptor instead.
 func (*RegisterUserRequest) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{0}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *RegisterUserRequest) GetFirstName() string {
@@ -129,7 +977,7 @@ type RegisterUserResponse struct {
 
 func (x *RegisterUserResponse) Reset() {
 	*x = RegisterUserResponse{}
-	mi := &file_amor_v1_amor_proto_msgTypes[1]
+	mi := &file_amor_v1_amor_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -141,7 +989,7 @@ func (x *RegisterUserResponse) String() string {
 func (*RegisterUserResponse) ProtoMessage() {}
 
 func (x *RegisterUserResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[1]
+	mi := &file_amor_v1_amor_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -154,7 +1002,7 @@ func (x *RegisterUserResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RegisterUserResponse.ProtoReflect.Descriptor instead.
 func (*RegisterUserResponse) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{1}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{17}
 }
 
 type LoginUserRequest struct {
@@ -170,7 +1018,7 @@ type LoginUserRequest struct {
 
 func (x *LoginUserRequest) Reset() {
 	*x = LoginUserRequest{}
-	mi := &file_amor_v1_amor_proto_msgTypes[2]
+	mi := &file_amor_v1_amor_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -182,7 +1030,7 @@ func (x *LoginUserRequest) String() string {
 func (*LoginUserRequest) ProtoMessage() {}
 
 func (x *LoginUserRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[2]
+	mi := &file_amor_v1_amor_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -195,7 +1043,7 @@ func (x *LoginUserRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LoginUserRequest.ProtoReflect.Descriptor instead.
 func (*LoginUserRequest) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{2}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *LoginUserRequest) GetInput() isLoginUserRequest_Input {
@@ -248,7 +1096,7 @@ type LoginUserResponse struct {
 
 func (x *LoginUserResponse) Reset() {
 	*x = LoginUserResponse{}
-	mi := &file_amor_v1_amor_proto_msgTypes[3]
+	mi := &file_amor_v1_amor_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -260,7 +1108,7 @@ func (x *LoginUserResponse) String() string {
 func (*LoginUserResponse) ProtoMessage() {}
 
 func (x *LoginUserResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[3]
+	mi := &file_amor_v1_amor_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -273,7 +1121,7 @@ func (x *LoginUserResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LoginUserResponse.ProtoReflect.Descriptor instead.
 func (*LoginUserResponse) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{3}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *LoginUserResponse) GetAccessToken() string {
@@ -284,22 +1132,23 @@ func (x *LoginUserResponse) GetAccessToken() string {
 }
 
 type AddAccommodationRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Type          string                 `protobuf:"bytes,2,opt,name=type,proto3" json:"type,omitempty"`
-	Location      string                 `protobuf:"bytes,3,opt,name=location,proto3" json:"location,omitempty"`
-	Utilities     []string               `protobuf:"bytes,7,rep,name=utilities,proto3" json:"utilities,omitempty"`
-	PhotoUrl      []byte                 `protobuf:"bytes,8,opt,name=photoUrl,proto3,oneof" json:"photoUrl,omitempty"`
-	Description   string                 `protobuf:"bytes,9,opt,name=description,proto3" json:"description,omitempty"`
-	Latitude      float64                `protobuf:"fixed64,10,opt,name=latitude,proto3" json:"latitude,omitempty"`
-	Longitude     float64                `protobuf:"fixed64,11,opt,name=longitude,proto3" json:"longitude,omitempty"`
+	state       protoimpl.MessageState `protogen:"open.v1"`
+	Name        string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Type        string                 `protobuf:"bytes,2,opt,name=type,proto3" json:"type,omitempty"`
+	Utilities   []string               `protobuf:"bytes,4,rep,name=utilities,proto3" json:"utilities,omitempty"`
+	Description *string                `protobuf:"bytes,5,opt,name=description,proto3,oneof" json:"description,omitempty"`
+	// Types that are valid to be assigned to Geo:
+	//
+	//	*AddAccommodationRequest_Location
+	//	*AddAccommodationRequest_Coordinates
+	Geo           isAddAccommodationRequest_Geo `protobuf_oneof:"geo"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *AddAccommodationRequest) Reset() {
 	*x = AddAccommodationRequest{}
-	mi := &file_amor_v1_amor_proto_msgTypes[4]
+	mi := &file_amor_v1_amor_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -311,7 +1160,7 @@ func (x *AddAccommodationRequest) String() string {
 func (*AddAccommodationRequest) ProtoMessage() {}
 
 func (x *AddAccommodationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[4]
+	mi := &file_amor_v1_amor_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -324,7 +1173,7 @@ func (x *AddAccommodationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddAccommodationRequest.ProtoReflect.Descriptor instead.
 func (*AddAccommodationRequest) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{4}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *AddAccommodationRequest) GetName() string {
@@ -341,13 +1190,6 @@ func (x *AddAccommodationRequest) GetType() string {
 	return ""
 }
 
-func (x *AddAccommodationRequest) GetLocation() string {
-	if x != nil {
-		return x.Location
-	}
-	return ""
-}
-
 func (x *AddAccommodationRequest) GetUtilities() []string {
 	if x != nil {
 		return x.Utilities
@@ -355,43 +1197,64 @@ func (x *AddAccommodationRequest) GetUtilities() []string {
 	return nil
 }
 
-func (x *AddAccommodationRequest) GetPhotoUrl() []byte {
-	if x != nil {
-		return x.PhotoUrl
-	}
-	return nil
-}
-
 func (x *AddAccommodationRequest) GetDescription() string {
-	if x != nil {
-		return x.Description
+	if x != nil && x.Description != nil {
+		return *x.Description
 	}
 	return ""
 }
 
-func (x *AddAccommodationRequest) GetLatitude() float64 {
+func (x *AddAccommodationRequest) GetGeo() isAddAccommodationRequest_Geo {
 	if x != nil {
-		return x.Latitude
+		return x.Geo
 	}
-	return 0
+	return nil
 }
 
-func (x *AddAccommodationRequest) GetLongitude() float64 {
+func (x *AddAccommodationRequest) GetLocation() *Location {
 	if x != nil {
-		return x.Longitude
+		if x, ok := x.Geo.(*AddAccommodationRequest_Location); ok {
+			return x.Location
+		}
 	}
-	return 0
+	return nil
 }
+
+func (x *AddAccommodationRequest) GetCoordinates() *Coordinates {
+	if x != nil {
+		if x, ok := x.Geo.(*AddAccommodationRequest_Coordinates); ok {
+			return x.Coordinates
+		}
+	}
+	return nil
+}
+
+type isAddAccommodationRequest_Geo interface {
+	isAddAccommodationRequest_Geo()
+}
+
+type AddAccommodationRequest_Location struct {
+	Location *Location `protobuf:"bytes,6,opt,name=location,proto3,oneof"`
+}
+
+type AddAccommodationRequest_Coordinates struct {
+	Coordinates *Coordinates `protobuf:"bytes,7,opt,name=coordinates,proto3,oneof"`
+}
+
+func (*AddAccommodationRequest_Location) isAddAccommodationRequest_Geo() {}
+
+func (*AddAccommodationRequest_Coordinates) isAddAccommodationRequest_Geo() {}
 
 type AddAccommodationResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Accommodation *Accommodation         `protobuf:"bytes,1,opt,name=accommodation,proto3" json:"accommodation,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *AddAccommodationResponse) Reset() {
 	*x = AddAccommodationResponse{}
-	mi := &file_amor_v1_amor_proto_msgTypes[5]
+	mi := &file_amor_v1_amor_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -403,7 +1266,7 @@ func (x *AddAccommodationResponse) String() string {
 func (*AddAccommodationResponse) ProtoMessage() {}
 
 func (x *AddAccommodationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[5]
+	mi := &file_amor_v1_amor_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -416,7 +1279,14 @@ func (x *AddAccommodationResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddAccommodationResponse.ProtoReflect.Descriptor instead.
 func (*AddAccommodationResponse) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{5}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *AddAccommodationResponse) GetAccommodation() *Accommodation {
+	if x != nil {
+		return x.Accommodation
+	}
+	return nil
 }
 
 type LoginUserRequest_Manual struct {
@@ -429,7 +1299,7 @@ type LoginUserRequest_Manual struct {
 
 func (x *LoginUserRequest_Manual) Reset() {
 	*x = LoginUserRequest_Manual{}
-	mi := &file_amor_v1_amor_proto_msgTypes[6]
+	mi := &file_amor_v1_amor_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -441,7 +1311,7 @@ func (x *LoginUserRequest_Manual) String() string {
 func (*LoginUserRequest_Manual) ProtoMessage() {}
 
 func (x *LoginUserRequest_Manual) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[6]
+	mi := &file_amor_v1_amor_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -454,7 +1324,7 @@ func (x *LoginUserRequest_Manual) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LoginUserRequest_Manual.ProtoReflect.Descriptor instead.
 func (*LoginUserRequest_Manual) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{2, 0}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{18, 0}
 }
 
 func (x *LoginUserRequest_Manual) GetEmail() string {
@@ -475,7 +1345,76 @@ var File_amor_v1_amor_proto protoreflect.FileDescriptor
 
 const file_amor_v1_amor_proto_rawDesc = "" +
 	"\n" +
-	"\x12amor/v1/amor.proto\x12\x0faccumora_rpc.v1\x1a\x13amor/v1/types.proto\"\xdc\x02\n" +
+	"\x12amor/v1/amor.proto\x12\x0faccumora_rpc.v1\x1a\x13amor/v1/types.proto\"\xbe\x02\n" +
+	"\x11UpdateRoomRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12\x17\n" +
+	"\x04name\x18\x02 \x01(\tH\x00R\x04name\x88\x01\x01\x12%\n" +
+	"\vdescription\x18\x03 \x01(\tH\x01R\vdescription\x88\x01\x01\x129\n" +
+	"\x06prices\x18\x04 \x01(\v2\x1c.accumora_rpc.v1.Room.PricesH\x02R\x06prices\x88\x01\x01\x12\x1f\n" +
+	"\bcapacity\x18\x05 \x01(\x05H\x03R\bcapacity\x88\x01\x01\x12\x1c\n" +
+	"\tutilities\x18\x06 \x03(\tR\tutilities\x12 \n" +
+	"\tphoto_url\x18\a \x01(\fH\x04R\bphotoUrl\x88\x01\x01B\a\n" +
+	"\x05_nameB\x0e\n" +
+	"\f_descriptionB\t\n" +
+	"\a_pricesB\v\n" +
+	"\t_capacityB\f\n" +
+	"\n" +
+	"_photo_url\"?\n" +
+	"\x12UpdateRoomResponse\x12)\n" +
+	"\x04room\x18\x01 \x01(\v2\x15.accumora_rpc.v1.RoomR\x04room\"\xed\x02\n" +
+	"\x1aUpdateAccommodationRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12\x17\n" +
+	"\x04name\x18\x02 \x01(\tH\x00R\x04name\x88\x01\x01\x12:\n" +
+	"\blocation\x18\x03 \x01(\v2\x19.accumora_rpc.v1.LocationH\x01R\blocation\x88\x01\x01\x12%\n" +
+	"\vdescription\x18\x04 \x01(\tH\x02R\vdescription\x88\x01\x01\x12\x1c\n" +
+	"\tutilities\x18\x05 \x03(\tR\tutilities\x12\x17\n" +
+	"\x04type\x18\x06 \x01(\tH\x03R\x04type\x88\x01\x01\x12\x1f\n" +
+	"\blatitude\x18\a \x01(\x01H\x04R\blatitude\x88\x01\x01\x12!\n" +
+	"\tlongitude\x18\b \x01(\x01H\x05R\tlongitude\x88\x01\x01B\a\n" +
+	"\x05_nameB\v\n" +
+	"\t_locationB\x0e\n" +
+	"\f_descriptionB\a\n" +
+	"\x05_typeB\v\n" +
+	"\t_latitudeB\f\n" +
+	"\n" +
+	"_longitude\"c\n" +
+	"\x1bUpdateAccommodationResponse\x12D\n" +
+	"\raccommodation\x18\x01 \x01(\v2\x1e.accumora_rpc.v1.AccommodationR\raccommodation\"\x10\n" +
+	"\x0eGetUserRequest\"<\n" +
+	"\x0fGetUserResponse\x12)\n" +
+	"\x04user\x18\x01 \x01(\v2\x15.accumora_rpc.v1.UserR\x04user\"\xb5\x02\n" +
+	"\x0eAddRoomRequest\x12\x12\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\x12(\n" +
+	"\x0faccommodationId\x18\x02 \x01(\tR\x0faccommodationId\x12%\n" +
+	"\vdescription\x18\x03 \x01(\tH\x00R\vdescription\x88\x01\x01\x124\n" +
+	"\x06prices\x18\x04 \x01(\v2\x1c.accumora_rpc.v1.Room.PricesR\x06prices\x12\x1f\n" +
+	"\bcapacity\x18\x05 \x01(\x05H\x01R\bcapacity\x88\x01\x01\x12\x1c\n" +
+	"\tutilities\x18\x06 \x03(\tR\tutilities\x12\x1f\n" +
+	"\bphotoUrl\x18\a \x01(\fH\x02R\bphotoUrl\x88\x01\x01B\x0e\n" +
+	"\f_descriptionB\v\n" +
+	"\t_capacityB\v\n" +
+	"\t_photoUrl\"<\n" +
+	"\x0fAddRoomResponse\x12)\n" +
+	"\x04room\x18\x01 \x01(\v2\x15.accumora_rpc.v1.RoomR\x04room\"#\n" +
+	"\x11DeleteRoomRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\"\x14\n" +
+	"\x12DeleteRoomResponse\"d\n" +
+	"\x0fGetRoomsRequest\x12-\n" +
+	"\x0faccommodationId\x18\x01 \x01(\tH\x00R\x0faccommodationId\x88\x01\x01\x12\x0e\n" +
+	"\x02id\x18\x02 \x03(\tR\x02idB\x12\n" +
+	"\x10_accommodationId\"?\n" +
+	"\x10GetRoomsResponse\x12+\n" +
+	"\x05rooms\x18\x01 \x03(\v2\x15.accumora_rpc.v1.RoomR\x05rooms\"U\n" +
+	"\x18GetAccommodationsRequest\x12\x1d\n" +
+	"\aownerId\x18\x01 \x01(\tH\x00R\aownerId\x88\x01\x01\x12\x0e\n" +
+	"\x02id\x18\x02 \x03(\tR\x02idB\n" +
+	"\n" +
+	"\b_ownerId\"c\n" +
+	"\x19GetAccommodationsResponse\x12F\n" +
+	"\x0eaccommodations\x18\x01 \x03(\v2\x1e.accumora_rpc.v1.AccommodationR\x0eaccommodations\",\n" +
+	"\x1aDeleteAccommodationRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\"\x1d\n" +
+	"\x1bDeleteAccommodationResponse\"\xdc\x02\n" +
 	"\x13RegisterUserRequest\x12\x1d\n" +
 	"\n" +
 	"first_name\x18\x01 \x01(\tR\tfirstName\x12 \n" +
@@ -502,23 +1441,32 @@ const file_amor_v1_amor_proto_rawDesc = "" +
 	"\bpassword\x18\x02 \x01(\tR\bpasswordB\a\n" +
 	"\x05input\"5\n" +
 	"\x11LoginUserResponse\x12 \n" +
-	"\vaccessToken\x18\x01 \x01(\tR\vaccessToken\"\x85\x02\n" +
+	"\vaccessToken\x18\x01 \x01(\tR\vaccessToken\"\x98\x02\n" +
 	"\x17AddAccommodationRequest\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x12\n" +
-	"\x04type\x18\x02 \x01(\tR\x04type\x12\x1a\n" +
-	"\blocation\x18\x03 \x01(\tR\blocation\x12\x1c\n" +
-	"\tutilities\x18\a \x03(\tR\tutilities\x12\x1f\n" +
-	"\bphotoUrl\x18\b \x01(\fH\x00R\bphotoUrl\x88\x01\x01\x12 \n" +
-	"\vdescription\x18\t \x01(\tR\vdescription\x12\x1a\n" +
-	"\blatitude\x18\n" +
-	" \x01(\x01R\blatitude\x12\x1c\n" +
-	"\tlongitude\x18\v \x01(\x01R\tlongitudeB\v\n" +
-	"\t_photoUrl\"\x1a\n" +
-	"\x18AddAccommodationResponse2\xad\x02\n" +
+	"\x04type\x18\x02 \x01(\tR\x04type\x12\x1c\n" +
+	"\tutilities\x18\x04 \x03(\tR\tutilities\x12%\n" +
+	"\vdescription\x18\x05 \x01(\tH\x01R\vdescription\x88\x01\x01\x127\n" +
+	"\blocation\x18\x06 \x01(\v2\x19.accumora_rpc.v1.LocationH\x00R\blocation\x12@\n" +
+	"\vcoordinates\x18\a \x01(\v2\x1c.accumora_rpc.v1.CoordinatesH\x00R\vcoordinatesB\x05\n" +
+	"\x03geoB\x0e\n" +
+	"\f_description\"`\n" +
+	"\x18AddAccommodationResponse\x12D\n" +
+	"\raccommodation\x18\x01 \x01(\v2\x1e.accumora_rpc.v1.AccommodationR\raccommodation2\xa8\b\n" +
 	"\vProjectAmor\x12i\n" +
 	"\x10AddAccommodation\x12(.accumora_rpc.v1.AddAccommodationRequest\x1a).accumora_rpc.v1.AddAccommodationResponse\"\x00\x12T\n" +
 	"\tLoginUser\x12!.accumora_rpc.v1.LoginUserRequest\x1a\".accumora_rpc.v1.LoginUserResponse\"\x00\x12]\n" +
-	"\fRegisterUser\x12$.accumora_rpc.v1.RegisterUserRequest\x1a%.accumora_rpc.v1.RegisterUserResponse\"\x00B2Z0github.com/ninyolittle/accumora-go-sdk/amor;amorb\x06proto3"
+	"\fRegisterUser\x12$.accumora_rpc.v1.RegisterUserRequest\x1a%.accumora_rpc.v1.RegisterUserResponse\"\x00\x12r\n" +
+	"\x13DeleteAccommodation\x12+.accumora_rpc.v1.DeleteAccommodationRequest\x1a,.accumora_rpc.v1.DeleteAccommodationResponse\"\x00\x12l\n" +
+	"\x11GetAccommodations\x12).accumora_rpc.v1.GetAccommodationsRequest\x1a*.accumora_rpc.v1.GetAccommodationsResponse\"\x00\x12r\n" +
+	"\x13UpdateAccommodation\x12+.accumora_rpc.v1.UpdateAccommodationRequest\x1a,.accumora_rpc.v1.UpdateAccommodationResponse\"\x00\x12N\n" +
+	"\aAddRoom\x12\x1f.accumora_rpc.v1.AddRoomRequest\x1a .accumora_rpc.v1.AddRoomResponse\"\x00\x12Q\n" +
+	"\bGetRooms\x12 .accumora_rpc.v1.GetRoomsRequest\x1a!.accumora_rpc.v1.GetRoomsResponse\"\x00\x12W\n" +
+	"\n" +
+	"DeleteRoom\x12\".accumora_rpc.v1.DeleteRoomRequest\x1a#.accumora_rpc.v1.DeleteRoomResponse\"\x00\x12W\n" +
+	"\n" +
+	"UpdateRoom\x12\".accumora_rpc.v1.UpdateRoomRequest\x1a#.accumora_rpc.v1.UpdateRoomResponse\"\x00\x12N\n" +
+	"\aGetUser\x12\x1f.accumora_rpc.v1.GetUserRequest\x1a .accumora_rpc.v1.GetUserResponse\"\x00B2Z0github.com/ninyolittle/accumora-go-sdk/amor;amorb\x06proto3"
 
 var (
 	file_amor_v1_amor_proto_rawDescOnce sync.Once
@@ -532,31 +1480,81 @@ func file_amor_v1_amor_proto_rawDescGZIP() []byte {
 	return file_amor_v1_amor_proto_rawDescData
 }
 
-var file_amor_v1_amor_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
+var file_amor_v1_amor_proto_msgTypes = make([]protoimpl.MessageInfo, 23)
 var file_amor_v1_amor_proto_goTypes = []any{
-	(*RegisterUserRequest)(nil),      // 0: accumora_rpc.v1.RegisterUserRequest
-	(*RegisterUserResponse)(nil),     // 1: accumora_rpc.v1.RegisterUserResponse
-	(*LoginUserRequest)(nil),         // 2: accumora_rpc.v1.LoginUserRequest
-	(*LoginUserResponse)(nil),        // 3: accumora_rpc.v1.LoginUserResponse
-	(*AddAccommodationRequest)(nil),  // 4: accumora_rpc.v1.AddAccommodationRequest
-	(*AddAccommodationResponse)(nil), // 5: accumora_rpc.v1.AddAccommodationResponse
-	(*LoginUserRequest_Manual)(nil),  // 6: accumora_rpc.v1.LoginUserRequest.Manual
-	(User_Gender)(0),                 // 7: accumora_rpc.v1.User.Gender
+	(*UpdateRoomRequest)(nil),           // 0: accumora_rpc.v1.UpdateRoomRequest
+	(*UpdateRoomResponse)(nil),          // 1: accumora_rpc.v1.UpdateRoomResponse
+	(*UpdateAccommodationRequest)(nil),  // 2: accumora_rpc.v1.UpdateAccommodationRequest
+	(*UpdateAccommodationResponse)(nil), // 3: accumora_rpc.v1.UpdateAccommodationResponse
+	(*GetUserRequest)(nil),              // 4: accumora_rpc.v1.GetUserRequest
+	(*GetUserResponse)(nil),             // 5: accumora_rpc.v1.GetUserResponse
+	(*AddRoomRequest)(nil),              // 6: accumora_rpc.v1.AddRoomRequest
+	(*AddRoomResponse)(nil),             // 7: accumora_rpc.v1.AddRoomResponse
+	(*DeleteRoomRequest)(nil),           // 8: accumora_rpc.v1.DeleteRoomRequest
+	(*DeleteRoomResponse)(nil),          // 9: accumora_rpc.v1.DeleteRoomResponse
+	(*GetRoomsRequest)(nil),             // 10: accumora_rpc.v1.GetRoomsRequest
+	(*GetRoomsResponse)(nil),            // 11: accumora_rpc.v1.GetRoomsResponse
+	(*GetAccommodationsRequest)(nil),    // 12: accumora_rpc.v1.GetAccommodationsRequest
+	(*GetAccommodationsResponse)(nil),   // 13: accumora_rpc.v1.GetAccommodationsResponse
+	(*DeleteAccommodationRequest)(nil),  // 14: accumora_rpc.v1.DeleteAccommodationRequest
+	(*DeleteAccommodationResponse)(nil), // 15: accumora_rpc.v1.DeleteAccommodationResponse
+	(*RegisterUserRequest)(nil),         // 16: accumora_rpc.v1.RegisterUserRequest
+	(*RegisterUserResponse)(nil),        // 17: accumora_rpc.v1.RegisterUserResponse
+	(*LoginUserRequest)(nil),            // 18: accumora_rpc.v1.LoginUserRequest
+	(*LoginUserResponse)(nil),           // 19: accumora_rpc.v1.LoginUserResponse
+	(*AddAccommodationRequest)(nil),     // 20: accumora_rpc.v1.AddAccommodationRequest
+	(*AddAccommodationResponse)(nil),    // 21: accumora_rpc.v1.AddAccommodationResponse
+	(*LoginUserRequest_Manual)(nil),     // 22: accumora_rpc.v1.LoginUserRequest.Manual
+	(*Room_Prices)(nil),                 // 23: accumora_rpc.v1.Room.Prices
+	(*Room)(nil),                        // 24: accumora_rpc.v1.Room
+	(*Location)(nil),                    // 25: accumora_rpc.v1.Location
+	(*Accommodation)(nil),               // 26: accumora_rpc.v1.Accommodation
+	(*User)(nil),                        // 27: accumora_rpc.v1.User
+	(User_Gender)(0),                    // 28: accumora_rpc.v1.User.Gender
+	(*Coordinates)(nil),                 // 29: accumora_rpc.v1.Coordinates
 }
 var file_amor_v1_amor_proto_depIdxs = []int32{
-	7, // 0: accumora_rpc.v1.RegisterUserRequest.gender:type_name -> accumora_rpc.v1.User.Gender
-	6, // 1: accumora_rpc.v1.LoginUserRequest.manual:type_name -> accumora_rpc.v1.LoginUserRequest.Manual
-	4, // 2: accumora_rpc.v1.ProjectAmor.AddAccommodation:input_type -> accumora_rpc.v1.AddAccommodationRequest
-	2, // 3: accumora_rpc.v1.ProjectAmor.LoginUser:input_type -> accumora_rpc.v1.LoginUserRequest
-	0, // 4: accumora_rpc.v1.ProjectAmor.RegisterUser:input_type -> accumora_rpc.v1.RegisterUserRequest
-	5, // 5: accumora_rpc.v1.ProjectAmor.AddAccommodation:output_type -> accumora_rpc.v1.AddAccommodationResponse
-	3, // 6: accumora_rpc.v1.ProjectAmor.LoginUser:output_type -> accumora_rpc.v1.LoginUserResponse
-	1, // 7: accumora_rpc.v1.ProjectAmor.RegisterUser:output_type -> accumora_rpc.v1.RegisterUserResponse
-	5, // [5:8] is the sub-list for method output_type
-	2, // [2:5] is the sub-list for method input_type
-	2, // [2:2] is the sub-list for extension type_name
-	2, // [2:2] is the sub-list for extension extendee
-	0, // [0:2] is the sub-list for field type_name
+	23, // 0: accumora_rpc.v1.UpdateRoomRequest.prices:type_name -> accumora_rpc.v1.Room.Prices
+	24, // 1: accumora_rpc.v1.UpdateRoomResponse.room:type_name -> accumora_rpc.v1.Room
+	25, // 2: accumora_rpc.v1.UpdateAccommodationRequest.location:type_name -> accumora_rpc.v1.Location
+	26, // 3: accumora_rpc.v1.UpdateAccommodationResponse.accommodation:type_name -> accumora_rpc.v1.Accommodation
+	27, // 4: accumora_rpc.v1.GetUserResponse.user:type_name -> accumora_rpc.v1.User
+	23, // 5: accumora_rpc.v1.AddRoomRequest.prices:type_name -> accumora_rpc.v1.Room.Prices
+	24, // 6: accumora_rpc.v1.AddRoomResponse.room:type_name -> accumora_rpc.v1.Room
+	24, // 7: accumora_rpc.v1.GetRoomsResponse.rooms:type_name -> accumora_rpc.v1.Room
+	26, // 8: accumora_rpc.v1.GetAccommodationsResponse.accommodations:type_name -> accumora_rpc.v1.Accommodation
+	28, // 9: accumora_rpc.v1.RegisterUserRequest.gender:type_name -> accumora_rpc.v1.User.Gender
+	22, // 10: accumora_rpc.v1.LoginUserRequest.manual:type_name -> accumora_rpc.v1.LoginUserRequest.Manual
+	25, // 11: accumora_rpc.v1.AddAccommodationRequest.location:type_name -> accumora_rpc.v1.Location
+	29, // 12: accumora_rpc.v1.AddAccommodationRequest.coordinates:type_name -> accumora_rpc.v1.Coordinates
+	26, // 13: accumora_rpc.v1.AddAccommodationResponse.accommodation:type_name -> accumora_rpc.v1.Accommodation
+	20, // 14: accumora_rpc.v1.ProjectAmor.AddAccommodation:input_type -> accumora_rpc.v1.AddAccommodationRequest
+	18, // 15: accumora_rpc.v1.ProjectAmor.LoginUser:input_type -> accumora_rpc.v1.LoginUserRequest
+	16, // 16: accumora_rpc.v1.ProjectAmor.RegisterUser:input_type -> accumora_rpc.v1.RegisterUserRequest
+	14, // 17: accumora_rpc.v1.ProjectAmor.DeleteAccommodation:input_type -> accumora_rpc.v1.DeleteAccommodationRequest
+	12, // 18: accumora_rpc.v1.ProjectAmor.GetAccommodations:input_type -> accumora_rpc.v1.GetAccommodationsRequest
+	2,  // 19: accumora_rpc.v1.ProjectAmor.UpdateAccommodation:input_type -> accumora_rpc.v1.UpdateAccommodationRequest
+	6,  // 20: accumora_rpc.v1.ProjectAmor.AddRoom:input_type -> accumora_rpc.v1.AddRoomRequest
+	10, // 21: accumora_rpc.v1.ProjectAmor.GetRooms:input_type -> accumora_rpc.v1.GetRoomsRequest
+	8,  // 22: accumora_rpc.v1.ProjectAmor.DeleteRoom:input_type -> accumora_rpc.v1.DeleteRoomRequest
+	0,  // 23: accumora_rpc.v1.ProjectAmor.UpdateRoom:input_type -> accumora_rpc.v1.UpdateRoomRequest
+	4,  // 24: accumora_rpc.v1.ProjectAmor.GetUser:input_type -> accumora_rpc.v1.GetUserRequest
+	21, // 25: accumora_rpc.v1.ProjectAmor.AddAccommodation:output_type -> accumora_rpc.v1.AddAccommodationResponse
+	19, // 26: accumora_rpc.v1.ProjectAmor.LoginUser:output_type -> accumora_rpc.v1.LoginUserResponse
+	17, // 27: accumora_rpc.v1.ProjectAmor.RegisterUser:output_type -> accumora_rpc.v1.RegisterUserResponse
+	15, // 28: accumora_rpc.v1.ProjectAmor.DeleteAccommodation:output_type -> accumora_rpc.v1.DeleteAccommodationResponse
+	13, // 29: accumora_rpc.v1.ProjectAmor.GetAccommodations:output_type -> accumora_rpc.v1.GetAccommodationsResponse
+	3,  // 30: accumora_rpc.v1.ProjectAmor.UpdateAccommodation:output_type -> accumora_rpc.v1.UpdateAccommodationResponse
+	7,  // 31: accumora_rpc.v1.ProjectAmor.AddRoom:output_type -> accumora_rpc.v1.AddRoomResponse
+	11, // 32: accumora_rpc.v1.ProjectAmor.GetRooms:output_type -> accumora_rpc.v1.GetRoomsResponse
+	9,  // 33: accumora_rpc.v1.ProjectAmor.DeleteRoom:output_type -> accumora_rpc.v1.DeleteRoomResponse
+	1,  // 34: accumora_rpc.v1.ProjectAmor.UpdateRoom:output_type -> accumora_rpc.v1.UpdateRoomResponse
+	5,  // 35: accumora_rpc.v1.ProjectAmor.GetUser:output_type -> accumora_rpc.v1.GetUserResponse
+	25, // [25:36] is the sub-list for method output_type
+	14, // [14:25] is the sub-list for method input_type
+	14, // [14:14] is the sub-list for extension type_name
+	14, // [14:14] is the sub-list for extension extendee
+	0,  // [0:14] is the sub-list for field type_name
 }
 
 func init() { file_amor_v1_amor_proto_init() }
@@ -566,18 +1564,26 @@ func file_amor_v1_amor_proto_init() {
 	}
 	file_amor_v1_types_proto_init()
 	file_amor_v1_amor_proto_msgTypes[0].OneofWrappers = []any{}
-	file_amor_v1_amor_proto_msgTypes[2].OneofWrappers = []any{
+	file_amor_v1_amor_proto_msgTypes[2].OneofWrappers = []any{}
+	file_amor_v1_amor_proto_msgTypes[6].OneofWrappers = []any{}
+	file_amor_v1_amor_proto_msgTypes[10].OneofWrappers = []any{}
+	file_amor_v1_amor_proto_msgTypes[12].OneofWrappers = []any{}
+	file_amor_v1_amor_proto_msgTypes[16].OneofWrappers = []any{}
+	file_amor_v1_amor_proto_msgTypes[18].OneofWrappers = []any{
 		(*LoginUserRequest_Manual_)(nil),
 		(*LoginUserRequest_Auth0Token)(nil),
 	}
-	file_amor_v1_amor_proto_msgTypes[4].OneofWrappers = []any{}
+	file_amor_v1_amor_proto_msgTypes[20].OneofWrappers = []any{
+		(*AddAccommodationRequest_Location)(nil),
+		(*AddAccommodationRequest_Coordinates)(nil),
+	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_amor_v1_amor_proto_rawDesc), len(file_amor_v1_amor_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   7,
+			NumMessages:   23,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

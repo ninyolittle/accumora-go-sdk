@@ -67,7 +67,7 @@ func (x User_AccountType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use User_AccountType.Descriptor instead.
 func (User_AccountType) EnumDescriptor() ([]byte, []int) {
-	return file_amor_v1_types_proto_rawDescGZIP(), []int{0, 0}
+	return file_amor_v1_types_proto_rawDescGZIP(), []int{3, 0}
 }
 
 type User_Gender int32
@@ -116,7 +116,235 @@ func (x User_Gender) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use User_Gender.Descriptor instead.
 func (User_Gender) EnumDescriptor() ([]byte, []int) {
-	return file_amor_v1_types_proto_rawDescGZIP(), []int{0, 1}
+	return file_amor_v1_types_proto_rawDescGZIP(), []int{3, 1}
+}
+
+type Coordinates struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Latitude      *float64               `protobuf:"fixed64,1,opt,name=latitude,proto3,oneof" json:"latitude,omitempty"`
+	Longitude     *float64               `protobuf:"fixed64,2,opt,name=longitude,proto3,oneof" json:"longitude,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Coordinates) Reset() {
+	*x = Coordinates{}
+	mi := &file_amor_v1_types_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Coordinates) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Coordinates) ProtoMessage() {}
+
+func (x *Coordinates) ProtoReflect() protoreflect.Message {
+	mi := &file_amor_v1_types_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Coordinates.ProtoReflect.Descriptor instead.
+func (*Coordinates) Descriptor() ([]byte, []int) {
+	return file_amor_v1_types_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *Coordinates) GetLatitude() float64 {
+	if x != nil && x.Latitude != nil {
+		return *x.Latitude
+	}
+	return 0
+}
+
+func (x *Coordinates) GetLongitude() float64 {
+	if x != nil && x.Longitude != nil {
+		return *x.Longitude
+	}
+	return 0
+}
+
+type Location struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Barangay      *string                `protobuf:"bytes,1,opt,name=barangay,proto3,oneof" json:"barangay,omitempty"`
+	Town          *string                `protobuf:"bytes,2,opt,name=town,proto3,oneof" json:"town,omitempty"`
+	ZipCode       *string                `protobuf:"bytes,3,opt,name=zip_code,json=zipCode,proto3,oneof" json:"zip_code,omitempty"`
+	Province      *string                `protobuf:"bytes,4,opt,name=province,proto3,oneof" json:"province,omitempty"`
+	Region        *string                `protobuf:"bytes,5,opt,name=region,proto3,oneof" json:"region,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Location) Reset() {
+	*x = Location{}
+	mi := &file_amor_v1_types_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Location) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Location) ProtoMessage() {}
+
+func (x *Location) ProtoReflect() protoreflect.Message {
+	mi := &file_amor_v1_types_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Location.ProtoReflect.Descriptor instead.
+func (*Location) Descriptor() ([]byte, []int) {
+	return file_amor_v1_types_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *Location) GetBarangay() string {
+	if x != nil && x.Barangay != nil {
+		return *x.Barangay
+	}
+	return ""
+}
+
+func (x *Location) GetTown() string {
+	if x != nil && x.Town != nil {
+		return *x.Town
+	}
+	return ""
+}
+
+func (x *Location) GetZipCode() string {
+	if x != nil && x.ZipCode != nil {
+		return *x.ZipCode
+	}
+	return ""
+}
+
+func (x *Location) GetProvince() string {
+	if x != nil && x.Province != nil {
+		return *x.Province
+	}
+	return ""
+}
+
+func (x *Location) GetRegion() string {
+	if x != nil && x.Region != nil {
+		return *x.Region
+	}
+	return ""
+}
+
+type Room struct {
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	Id              string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name            string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	AccommodationId string                 `protobuf:"bytes,3,opt,name=accommodation_id,json=accommodationId,proto3" json:"accommodation_id,omitempty"`
+	Description     *string                `protobuf:"bytes,4,opt,name=description,proto3,oneof" json:"description,omitempty"`
+	Prices          *Room_Prices           `protobuf:"bytes,5,opt,name=prices,proto3" json:"prices,omitempty"`
+	Capacity        *int32                 `protobuf:"varint,6,opt,name=capacity,proto3,oneof" json:"capacity,omitempty"`
+	Utilities       []string               `protobuf:"bytes,7,rep,name=utilities,proto3" json:"utilities,omitempty"`
+	PhotoUrl        *string                `protobuf:"bytes,8,opt,name=photo_url,json=photoUrl,proto3,oneof" json:"photo_url,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *Room) Reset() {
+	*x = Room{}
+	mi := &file_amor_v1_types_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Room) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Room) ProtoMessage() {}
+
+func (x *Room) ProtoReflect() protoreflect.Message {
+	mi := &file_amor_v1_types_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Room.ProtoReflect.Descriptor instead.
+func (*Room) Descriptor() ([]byte, []int) {
+	return file_amor_v1_types_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *Room) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+func (x *Room) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *Room) GetAccommodationId() string {
+	if x != nil {
+		return x.AccommodationId
+	}
+	return ""
+}
+
+func (x *Room) GetDescription() string {
+	if x != nil && x.Description != nil {
+		return *x.Description
+	}
+	return ""
+}
+
+func (x *Room) GetPrices() *Room_Prices {
+	if x != nil {
+		return x.Prices
+	}
+	return nil
+}
+
+func (x *Room) GetCapacity() int32 {
+	if x != nil && x.Capacity != nil {
+		return *x.Capacity
+	}
+	return 0
+}
+
+func (x *Room) GetUtilities() []string {
+	if x != nil {
+		return x.Utilities
+	}
+	return nil
+}
+
+func (x *Room) GetPhotoUrl() string {
+	if x != nil && x.PhotoUrl != nil {
+		return *x.PhotoUrl
+	}
+	return ""
 }
 
 type User struct {
@@ -126,18 +354,19 @@ type User struct {
 	LastName      *string                `protobuf:"bytes,3,opt,name=last_name,json=lastName,proto3,oneof" json:"last_name,omitempty"`
 	Phone         *string                `protobuf:"bytes,4,opt,name=phone,proto3,oneof" json:"phone,omitempty"`
 	EmailAddress  string                 `protobuf:"bytes,5,opt,name=email_address,json=emailAddress,proto3" json:"email_address,omitempty"`
-	Location      *string                `protobuf:"bytes,6,opt,name=location,proto3,oneof" json:"location,omitempty"`
+	Location      *Location              `protobuf:"bytes,6,opt,name=location,proto3,oneof" json:"location,omitempty"`
 	Password      *string                `protobuf:"bytes,7,opt,name=password,proto3,oneof" json:"password,omitempty"`
-	AccountType   User_AccountType       `protobuf:"varint,8,opt,name=accountType,proto3,enum=accumora_rpc.v1.User_AccountType" json:"accountType,omitempty"`
+	AccountType   User_AccountType       `protobuf:"varint,8,opt,name=account_type,json=accountType,proto3,enum=accumora_rpc.v1.User_AccountType" json:"account_type,omitempty"`
 	Birthday      *string                `protobuf:"bytes,9,opt,name=birthday,proto3,oneof" json:"birthday,omitempty"`
 	Gender        User_Gender            `protobuf:"varint,10,opt,name=gender,proto3,enum=accumora_rpc.v1.User_Gender" json:"gender,omitempty"`
+	CreatedAt     *string                `protobuf:"bytes,11,opt,name=created_at,json=createdAt,proto3,oneof" json:"created_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *User) Reset() {
 	*x = User{}
-	mi := &file_amor_v1_types_proto_msgTypes[0]
+	mi := &file_amor_v1_types_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -149,7 +378,7 @@ func (x *User) String() string {
 func (*User) ProtoMessage() {}
 
 func (x *User) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_types_proto_msgTypes[0]
+	mi := &file_amor_v1_types_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -162,7 +391,7 @@ func (x *User) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use User.ProtoReflect.Descriptor instead.
 func (*User) Descriptor() ([]byte, []int) {
-	return file_amor_v1_types_proto_rawDescGZIP(), []int{0}
+	return file_amor_v1_types_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *User) GetId() string {
@@ -200,11 +429,11 @@ func (x *User) GetEmailAddress() string {
 	return ""
 }
 
-func (x *User) GetLocation() string {
-	if x != nil && x.Location != nil {
-		return *x.Location
+func (x *User) GetLocation() *Location {
+	if x != nil {
+		return x.Location
 	}
-	return ""
+	return nil
 }
 
 func (x *User) GetPassword() string {
@@ -235,24 +464,31 @@ func (x *User) GetGender() User_Gender {
 	return User_unknown_gender
 }
 
+func (x *User) GetCreatedAt() string {
+	if x != nil && x.CreatedAt != nil {
+		return *x.CreatedAt
+	}
+	return ""
+}
+
 type Accommodation struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
-	Location      string                 `protobuf:"bytes,3,opt,name=location,proto3" json:"location,omitempty"`
-	Description   string                 `protobuf:"bytes,4,opt,name=description,proto3" json:"description,omitempty"`
+	Location      *Location              `protobuf:"bytes,3,opt,name=location,proto3,oneof" json:"location,omitempty"`
+	Description   *string                `protobuf:"bytes,4,opt,name=description,proto3,oneof" json:"description,omitempty"`
 	Utilities     []string               `protobuf:"bytes,5,rep,name=utilities,proto3" json:"utilities,omitempty"`
 	Type          string                 `protobuf:"bytes,6,opt,name=type,proto3" json:"type,omitempty"`
-	Latitude      float64                `protobuf:"fixed64,7,opt,name=latitude,proto3" json:"latitude,omitempty"`
-	Longitude     float64                `protobuf:"fixed64,8,opt,name=longitude,proto3" json:"longitude,omitempty"`
-	UserId        string                 `protobuf:"bytes,9,opt,name=userId,proto3" json:"userId,omitempty"`
+	Coordinates   *Coordinates           `protobuf:"bytes,7,opt,name=coordinates,proto3,oneof" json:"coordinates,omitempty"`
+	Owner         string                 `protobuf:"bytes,9,opt,name=owner,proto3" json:"owner,omitempty"`
+	CreatedAt     string                 `protobuf:"bytes,10,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Accommodation) Reset() {
 	*x = Accommodation{}
-	mi := &file_amor_v1_types_proto_msgTypes[1]
+	mi := &file_amor_v1_types_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -264,7 +500,7 @@ func (x *Accommodation) String() string {
 func (*Accommodation) ProtoMessage() {}
 
 func (x *Accommodation) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_types_proto_msgTypes[1]
+	mi := &file_amor_v1_types_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -277,7 +513,7 @@ func (x *Accommodation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Accommodation.ProtoReflect.Descriptor instead.
 func (*Accommodation) Descriptor() ([]byte, []int) {
-	return file_amor_v1_types_proto_rawDescGZIP(), []int{1}
+	return file_amor_v1_types_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *Accommodation) GetId() string {
@@ -294,16 +530,16 @@ func (x *Accommodation) GetName() string {
 	return ""
 }
 
-func (x *Accommodation) GetLocation() string {
+func (x *Accommodation) GetLocation() *Location {
 	if x != nil {
 		return x.Location
 	}
-	return ""
+	return nil
 }
 
 func (x *Accommodation) GetDescription() string {
-	if x != nil {
-		return x.Description
+	if x != nil && x.Description != nil {
+		return *x.Description
 	}
 	return ""
 }
@@ -322,45 +558,155 @@ func (x *Accommodation) GetType() string {
 	return ""
 }
 
-func (x *Accommodation) GetLatitude() float64 {
+func (x *Accommodation) GetCoordinates() *Coordinates {
 	if x != nil {
-		return x.Latitude
+		return x.Coordinates
 	}
-	return 0
+	return nil
 }
 
-func (x *Accommodation) GetLongitude() float64 {
+func (x *Accommodation) GetOwner() string {
 	if x != nil {
-		return x.Longitude
-	}
-	return 0
-}
-
-func (x *Accommodation) GetUserId() string {
-	if x != nil {
-		return x.UserId
+		return x.Owner
 	}
 	return ""
+}
+
+func (x *Accommodation) GetCreatedAt() string {
+	if x != nil {
+		return x.CreatedAt
+	}
+	return ""
+}
+
+type Room_Prices struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Daily         *float64               `protobuf:"fixed64,1,opt,name=daily,proto3,oneof" json:"daily,omitempty"`
+	Weekly        *float64               `protobuf:"fixed64,2,opt,name=weekly,proto3,oneof" json:"weekly,omitempty"`
+	Monthly       *float64               `protobuf:"fixed64,3,opt,name=monthly,proto3,oneof" json:"monthly,omitempty"`
+	Yearly        *float64               `protobuf:"fixed64,4,opt,name=yearly,proto3,oneof" json:"yearly,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Room_Prices) Reset() {
+	*x = Room_Prices{}
+	mi := &file_amor_v1_types_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Room_Prices) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Room_Prices) ProtoMessage() {}
+
+func (x *Room_Prices) ProtoReflect() protoreflect.Message {
+	mi := &file_amor_v1_types_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Room_Prices.ProtoReflect.Descriptor instead.
+func (*Room_Prices) Descriptor() ([]byte, []int) {
+	return file_amor_v1_types_proto_rawDescGZIP(), []int{2, 0}
+}
+
+func (x *Room_Prices) GetDaily() float64 {
+	if x != nil && x.Daily != nil {
+		return *x.Daily
+	}
+	return 0
+}
+
+func (x *Room_Prices) GetWeekly() float64 {
+	if x != nil && x.Weekly != nil {
+		return *x.Weekly
+	}
+	return 0
+}
+
+func (x *Room_Prices) GetMonthly() float64 {
+	if x != nil && x.Monthly != nil {
+		return *x.Monthly
+	}
+	return 0
+}
+
+func (x *Room_Prices) GetYearly() float64 {
+	if x != nil && x.Yearly != nil {
+		return *x.Yearly
+	}
+	return 0
 }
 
 var File_amor_v1_types_proto protoreflect.FileDescriptor
 
 const file_amor_v1_types_proto_rawDesc = "" +
 	"\n" +
-	"\x13amor/v1/types.proto\x12\x0faccumora_rpc.v1\"\x9d\x04\n" +
+	"\x13amor/v1/types.proto\x12\x0faccumora_rpc.v1\"l\n" +
+	"\vCoordinates\x12\x1f\n" +
+	"\blatitude\x18\x01 \x01(\x01H\x00R\blatitude\x88\x01\x01\x12!\n" +
+	"\tlongitude\x18\x02 \x01(\x01H\x01R\tlongitude\x88\x01\x01B\v\n" +
+	"\t_latitudeB\f\n" +
+	"\n" +
+	"_longitude\"\xdd\x01\n" +
+	"\bLocation\x12\x1f\n" +
+	"\bbarangay\x18\x01 \x01(\tH\x00R\bbarangay\x88\x01\x01\x12\x17\n" +
+	"\x04town\x18\x02 \x01(\tH\x01R\x04town\x88\x01\x01\x12\x1e\n" +
+	"\bzip_code\x18\x03 \x01(\tH\x02R\azipCode\x88\x01\x01\x12\x1f\n" +
+	"\bprovince\x18\x04 \x01(\tH\x03R\bprovince\x88\x01\x01\x12\x1b\n" +
+	"\x06region\x18\x05 \x01(\tH\x04R\x06region\x88\x01\x01B\v\n" +
+	"\t_barangayB\a\n" +
+	"\x05_townB\v\n" +
+	"\t_zip_codeB\v\n" +
+	"\t_provinceB\t\n" +
+	"\a_region\"\xe9\x03\n" +
+	"\x04Room\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x12)\n" +
+	"\x10accommodation_id\x18\x03 \x01(\tR\x0faccommodationId\x12%\n" +
+	"\vdescription\x18\x04 \x01(\tH\x00R\vdescription\x88\x01\x01\x124\n" +
+	"\x06prices\x18\x05 \x01(\v2\x1c.accumora_rpc.v1.Room.PricesR\x06prices\x12\x1f\n" +
+	"\bcapacity\x18\x06 \x01(\x05H\x01R\bcapacity\x88\x01\x01\x12\x1c\n" +
+	"\tutilities\x18\a \x03(\tR\tutilities\x12 \n" +
+	"\tphoto_url\x18\b \x01(\tH\x02R\bphotoUrl\x88\x01\x01\x1a\xa8\x01\n" +
+	"\x06Prices\x12\x19\n" +
+	"\x05daily\x18\x01 \x01(\x01H\x00R\x05daily\x88\x01\x01\x12\x1b\n" +
+	"\x06weekly\x18\x02 \x01(\x01H\x01R\x06weekly\x88\x01\x01\x12\x1d\n" +
+	"\amonthly\x18\x03 \x01(\x01H\x02R\amonthly\x88\x01\x01\x12\x1b\n" +
+	"\x06yearly\x18\x04 \x01(\x01H\x03R\x06yearly\x88\x01\x01B\b\n" +
+	"\x06_dailyB\t\n" +
+	"\a_weeklyB\n" +
+	"\n" +
+	"\b_monthlyB\t\n" +
+	"\a_yearlyB\x0e\n" +
+	"\f_descriptionB\v\n" +
+	"\t_capacityB\f\n" +
+	"\n" +
+	"_photo_url\"\xec\x04\n" +
 	"\x04User\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1d\n" +
 	"\n" +
 	"first_name\x18\x02 \x01(\tR\tfirstName\x12 \n" +
 	"\tlast_name\x18\x03 \x01(\tH\x00R\blastName\x88\x01\x01\x12\x19\n" +
 	"\x05phone\x18\x04 \x01(\tH\x01R\x05phone\x88\x01\x01\x12#\n" +
-	"\remail_address\x18\x05 \x01(\tR\femailAddress\x12\x1f\n" +
-	"\blocation\x18\x06 \x01(\tH\x02R\blocation\x88\x01\x01\x12\x1f\n" +
-	"\bpassword\x18\a \x01(\tH\x03R\bpassword\x88\x01\x01\x12C\n" +
-	"\vaccountType\x18\b \x01(\x0e2!.accumora_rpc.v1.User.AccountTypeR\vaccountType\x12\x1f\n" +
+	"\remail_address\x18\x05 \x01(\tR\femailAddress\x12:\n" +
+	"\blocation\x18\x06 \x01(\v2\x19.accumora_rpc.v1.LocationH\x02R\blocation\x88\x01\x01\x12\x1f\n" +
+	"\bpassword\x18\a \x01(\tH\x03R\bpassword\x88\x01\x01\x12D\n" +
+	"\faccount_type\x18\b \x01(\x0e2!.accumora_rpc.v1.User.AccountTypeR\vaccountType\x12\x1f\n" +
 	"\bbirthday\x18\t \x01(\tH\x04R\bbirthday\x88\x01\x01\x124\n" +
 	"\x06gender\x18\n" +
-	" \x01(\x0e2\x1c.accumora_rpc.v1.User.GenderR\x06gender\"3\n" +
+	" \x01(\x0e2\x1c.accumora_rpc.v1.User.GenderR\x06gender\x12\"\n" +
+	"\n" +
+	"created_at\x18\v \x01(\tH\x05R\tcreatedAt\x88\x01\x01\"3\n" +
 	"\vAccountType\x12\n" +
 	"\n" +
 	"\x06manual\x10\x00\x12\n" +
@@ -377,17 +723,23 @@ const file_amor_v1_types_proto_rawDesc = "" +
 	"\x06_phoneB\v\n" +
 	"\t_locationB\v\n" +
 	"\t_passwordB\v\n" +
-	"\t_birthday\"\xf5\x01\n" +
+	"\t_birthdayB\r\n" +
+	"\v_created_at\"\xef\x02\n" +
 	"\rAccommodation\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
-	"\x04name\x18\x02 \x01(\tR\x04name\x12\x1a\n" +
-	"\blocation\x18\x03 \x01(\tR\blocation\x12 \n" +
-	"\vdescription\x18\x04 \x01(\tR\vdescription\x12\x1c\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x12:\n" +
+	"\blocation\x18\x03 \x01(\v2\x19.accumora_rpc.v1.LocationH\x00R\blocation\x88\x01\x01\x12%\n" +
+	"\vdescription\x18\x04 \x01(\tH\x01R\vdescription\x88\x01\x01\x12\x1c\n" +
 	"\tutilities\x18\x05 \x03(\tR\tutilities\x12\x12\n" +
-	"\x04type\x18\x06 \x01(\tR\x04type\x12\x1a\n" +
-	"\blatitude\x18\a \x01(\x01R\blatitude\x12\x1c\n" +
-	"\tlongitude\x18\b \x01(\x01R\tlongitude\x12\x16\n" +
-	"\x06userId\x18\t \x01(\tR\x06userIdB2Z0github.com/ninyolittle/accumora-go-sdk/amor;amorb\x06proto3"
+	"\x04type\x18\x06 \x01(\tR\x04type\x12C\n" +
+	"\vcoordinates\x18\a \x01(\v2\x1c.accumora_rpc.v1.CoordinatesH\x02R\vcoordinates\x88\x01\x01\x12\x14\n" +
+	"\x05owner\x18\t \x01(\tR\x05owner\x12\x1d\n" +
+	"\n" +
+	"created_at\x18\n" +
+	" \x01(\tR\tcreatedAtB\v\n" +
+	"\t_locationB\x0e\n" +
+	"\f_descriptionB\x0e\n" +
+	"\f_coordinatesB2Z0github.com/ninyolittle/accumora-go-sdk/amor;amorb\x06proto3"
 
 var (
 	file_amor_v1_types_proto_rawDescOnce sync.Once
@@ -402,21 +754,29 @@ func file_amor_v1_types_proto_rawDescGZIP() []byte {
 }
 
 var file_amor_v1_types_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
-var file_amor_v1_types_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_amor_v1_types_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_amor_v1_types_proto_goTypes = []any{
 	(User_AccountType)(0), // 0: accumora_rpc.v1.User.AccountType
 	(User_Gender)(0),      // 1: accumora_rpc.v1.User.Gender
-	(*User)(nil),          // 2: accumora_rpc.v1.User
-	(*Accommodation)(nil), // 3: accumora_rpc.v1.Accommodation
+	(*Coordinates)(nil),   // 2: accumora_rpc.v1.Coordinates
+	(*Location)(nil),      // 3: accumora_rpc.v1.Location
+	(*Room)(nil),          // 4: accumora_rpc.v1.Room
+	(*User)(nil),          // 5: accumora_rpc.v1.User
+	(*Accommodation)(nil), // 6: accumora_rpc.v1.Accommodation
+	(*Room_Prices)(nil),   // 7: accumora_rpc.v1.Room.Prices
 }
 var file_amor_v1_types_proto_depIdxs = []int32{
-	0, // 0: accumora_rpc.v1.User.accountType:type_name -> accumora_rpc.v1.User.AccountType
-	1, // 1: accumora_rpc.v1.User.gender:type_name -> accumora_rpc.v1.User.Gender
-	2, // [2:2] is the sub-list for method output_type
-	2, // [2:2] is the sub-list for method input_type
-	2, // [2:2] is the sub-list for extension type_name
-	2, // [2:2] is the sub-list for extension extendee
-	0, // [0:2] is the sub-list for field type_name
+	7, // 0: accumora_rpc.v1.Room.prices:type_name -> accumora_rpc.v1.Room.Prices
+	3, // 1: accumora_rpc.v1.User.location:type_name -> accumora_rpc.v1.Location
+	0, // 2: accumora_rpc.v1.User.account_type:type_name -> accumora_rpc.v1.User.AccountType
+	1, // 3: accumora_rpc.v1.User.gender:type_name -> accumora_rpc.v1.User.Gender
+	3, // 4: accumora_rpc.v1.Accommodation.location:type_name -> accumora_rpc.v1.Location
+	2, // 5: accumora_rpc.v1.Accommodation.coordinates:type_name -> accumora_rpc.v1.Coordinates
+	6, // [6:6] is the sub-list for method output_type
+	6, // [6:6] is the sub-list for method input_type
+	6, // [6:6] is the sub-list for extension type_name
+	6, // [6:6] is the sub-list for extension extendee
+	0, // [0:6] is the sub-list for field type_name
 }
 
 func init() { file_amor_v1_types_proto_init() }
@@ -425,13 +785,18 @@ func file_amor_v1_types_proto_init() {
 		return
 	}
 	file_amor_v1_types_proto_msgTypes[0].OneofWrappers = []any{}
+	file_amor_v1_types_proto_msgTypes[1].OneofWrappers = []any{}
+	file_amor_v1_types_proto_msgTypes[2].OneofWrappers = []any{}
+	file_amor_v1_types_proto_msgTypes[3].OneofWrappers = []any{}
+	file_amor_v1_types_proto_msgTypes[4].OneofWrappers = []any{}
+	file_amor_v1_types_proto_msgTypes[5].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_amor_v1_types_proto_rawDesc), len(file_amor_v1_types_proto_rawDesc)),
 			NumEnums:      2,
-			NumMessages:   2,
+			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

@@ -19,9 +19,17 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	ProjectAmor_AddAccommodation_FullMethodName = "/accumora_rpc.v1.ProjectAmor/AddAccommodation"
-	ProjectAmor_LoginUser_FullMethodName        = "/accumora_rpc.v1.ProjectAmor/LoginUser"
-	ProjectAmor_RegisterUser_FullMethodName     = "/accumora_rpc.v1.ProjectAmor/RegisterUser"
+	ProjectAmor_AddAccommodation_FullMethodName    = "/accumora_rpc.v1.ProjectAmor/AddAccommodation"
+	ProjectAmor_LoginUser_FullMethodName           = "/accumora_rpc.v1.ProjectAmor/LoginUser"
+	ProjectAmor_RegisterUser_FullMethodName        = "/accumora_rpc.v1.ProjectAmor/RegisterUser"
+	ProjectAmor_DeleteAccommodation_FullMethodName = "/accumora_rpc.v1.ProjectAmor/DeleteAccommodation"
+	ProjectAmor_GetAccommodations_FullMethodName   = "/accumora_rpc.v1.ProjectAmor/GetAccommodations"
+	ProjectAmor_UpdateAccommodation_FullMethodName = "/accumora_rpc.v1.ProjectAmor/UpdateAccommodation"
+	ProjectAmor_AddRoom_FullMethodName             = "/accumora_rpc.v1.ProjectAmor/AddRoom"
+	ProjectAmor_GetRooms_FullMethodName            = "/accumora_rpc.v1.ProjectAmor/GetRooms"
+	ProjectAmor_DeleteRoom_FullMethodName          = "/accumora_rpc.v1.ProjectAmor/DeleteRoom"
+	ProjectAmor_UpdateRoom_FullMethodName          = "/accumora_rpc.v1.ProjectAmor/UpdateRoom"
+	ProjectAmor_GetUser_FullMethodName             = "/accumora_rpc.v1.ProjectAmor/GetUser"
 )
 
 // ProjectAmorClient is the client API for ProjectAmor service.
@@ -31,6 +39,14 @@ type ProjectAmorClient interface {
 	AddAccommodation(ctx context.Context, in *AddAccommodationRequest, opts ...grpc.CallOption) (*AddAccommodationResponse, error)
 	LoginUser(ctx context.Context, in *LoginUserRequest, opts ...grpc.CallOption) (*LoginUserResponse, error)
 	RegisterUser(ctx context.Context, in *RegisterUserRequest, opts ...grpc.CallOption) (*RegisterUserResponse, error)
+	DeleteAccommodation(ctx context.Context, in *DeleteAccommodationRequest, opts ...grpc.CallOption) (*DeleteAccommodationResponse, error)
+	GetAccommodations(ctx context.Context, in *GetAccommodationsRequest, opts ...grpc.CallOption) (*GetAccommodationsResponse, error)
+	UpdateAccommodation(ctx context.Context, in *UpdateAccommodationRequest, opts ...grpc.CallOption) (*UpdateAccommodationResponse, error)
+	AddRoom(ctx context.Context, in *AddRoomRequest, opts ...grpc.CallOption) (*AddRoomResponse, error)
+	GetRooms(ctx context.Context, in *GetRoomsRequest, opts ...grpc.CallOption) (*GetRoomsResponse, error)
+	DeleteRoom(ctx context.Context, in *DeleteRoomRequest, opts ...grpc.CallOption) (*DeleteRoomResponse, error)
+	UpdateRoom(ctx context.Context, in *UpdateRoomRequest, opts ...grpc.CallOption) (*UpdateRoomResponse, error)
+	GetUser(ctx context.Context, in *GetUserRequest, opts ...grpc.CallOption) (*GetUserResponse, error)
 }
 
 type projectAmorClient struct {
@@ -71,6 +87,86 @@ func (c *projectAmorClient) RegisterUser(ctx context.Context, in *RegisterUserRe
 	return out, nil
 }
 
+func (c *projectAmorClient) DeleteAccommodation(ctx context.Context, in *DeleteAccommodationRequest, opts ...grpc.CallOption) (*DeleteAccommodationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DeleteAccommodationResponse)
+	err := c.cc.Invoke(ctx, ProjectAmor_DeleteAccommodation_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *projectAmorClient) GetAccommodations(ctx context.Context, in *GetAccommodationsRequest, opts ...grpc.CallOption) (*GetAccommodationsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAccommodationsResponse)
+	err := c.cc.Invoke(ctx, ProjectAmor_GetAccommodations_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *projectAmorClient) UpdateAccommodation(ctx context.Context, in *UpdateAccommodationRequest, opts ...grpc.CallOption) (*UpdateAccommodationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateAccommodationResponse)
+	err := c.cc.Invoke(ctx, ProjectAmor_UpdateAccommodation_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *projectAmorClient) AddRoom(ctx context.Context, in *AddRoomRequest, opts ...grpc.CallOption) (*AddRoomResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddRoomResponse)
+	err := c.cc.Invoke(ctx, ProjectAmor_AddRoom_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *projectAmorClient) GetRooms(ctx context.Context, in *GetRoomsRequest, opts ...grpc.CallOption) (*GetRoomsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRoomsResponse)
+	err := c.cc.Invoke(ctx, ProjectAmor_GetRooms_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *projectAmorClient) DeleteRoom(ctx context.Context, in *DeleteRoomRequest, opts ...grpc.CallOption) (*DeleteRoomResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DeleteRoomResponse)
+	err := c.cc.Invoke(ctx, ProjectAmor_DeleteRoom_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *projectAmorClient) UpdateRoom(ctx context.Context, in *UpdateRoomRequest, opts ...grpc.CallOption) (*UpdateRoomResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateRoomResponse)
+	err := c.cc.Invoke(ctx, ProjectAmor_UpdateRoom_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *projectAmorClient) GetUser(ctx context.Context, in *GetUserRequest, opts ...grpc.CallOption) (*GetUserResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUserResponse)
+	err := c.cc.Invoke(ctx, ProjectAmor_GetUser_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ProjectAmorServer is the server API for ProjectAmor service.
 // All implementations must embed UnimplementedProjectAmorServer
 // for forward compatibility.
@@ -78,6 +174,14 @@ type ProjectAmorServer interface {
 	AddAccommodation(context.Context, *AddAccommodationRequest) (*AddAccommodationResponse, error)
 	LoginUser(context.Context, *LoginUserRequest) (*LoginUserResponse, error)
 	RegisterUser(context.Context, *RegisterUserRequest) (*RegisterUserResponse, error)
+	DeleteAccommodation(context.Context, *DeleteAccommodationRequest) (*DeleteAccommodationResponse, error)
+	GetAccommodations(context.Context, *GetAccommodationsRequest) (*GetAccommodationsResponse, error)
+	UpdateAccommodation(context.Context, *UpdateAccommodationRequest) (*UpdateAccommodationResponse, error)
+	AddRoom(context.Context, *AddRoomRequest) (*AddRoomResponse, error)
+	GetRooms(context.Context, *GetRoomsRequest) (*GetRoomsResponse, error)
+	DeleteRoom(context.Context, *DeleteRoomRequest) (*DeleteRoomResponse, error)
+	UpdateRoom(context.Context, *UpdateRoomRequest) (*UpdateRoomResponse, error)
+	GetUser(context.Context, *GetUserRequest) (*GetUserResponse, error)
 	mustEmbedUnimplementedProjectAmorServer()
 }
 
@@ -96,6 +200,30 @@ func (UnimplementedProjectAmorServer) LoginUser(context.Context, *LoginUserReque
 }
 func (UnimplementedProjectAmorServer) RegisterUser(context.Context, *RegisterUserRequest) (*RegisterUserResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RegisterUser not implemented")
+}
+func (UnimplementedProjectAmorServer) DeleteAccommodation(context.Context, *DeleteAccommodationRequest) (*DeleteAccommodationResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteAccommodation not implemented")
+}
+func (UnimplementedProjectAmorServer) GetAccommodations(context.Context, *GetAccommodationsRequest) (*GetAccommodationsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAccommodations not implemented")
+}
+func (UnimplementedProjectAmorServer) UpdateAccommodation(context.Context, *UpdateAccommodationRequest) (*UpdateAccommodationResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateAccommodation not implemented")
+}
+func (UnimplementedProjectAmorServer) AddRoom(context.Context, *AddRoomRequest) (*AddRoomResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddRoom not implemented")
+}
+func (UnimplementedProjectAmorServer) GetRooms(context.Context, *GetRoomsRequest) (*GetRoomsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetRooms not implemented")
+}
+func (UnimplementedProjectAmorServer) DeleteRoom(context.Context, *DeleteRoomRequest) (*DeleteRoomResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteRoom not implemented")
+}
+func (UnimplementedProjectAmorServer) UpdateRoom(context.Context, *UpdateRoomRequest) (*UpdateRoomResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateRoom not implemented")
+}
+func (UnimplementedProjectAmorServer) GetUser(context.Context, *GetUserRequest) (*GetUserResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetUser not implemented")
 }
 func (UnimplementedProjectAmorServer) mustEmbedUnimplementedProjectAmorServer() {}
 func (UnimplementedProjectAmorServer) testEmbeddedByValue()                     {}
@@ -172,6 +300,150 @@ func _ProjectAmor_RegisterUser_Handler(srv interface{}, ctx context.Context, dec
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ProjectAmor_DeleteAccommodation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteAccommodationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProjectAmorServer).DeleteAccommodation(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProjectAmor_DeleteAccommodation_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProjectAmorServer).DeleteAccommodation(ctx, req.(*DeleteAccommodationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProjectAmor_GetAccommodations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAccommodationsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProjectAmorServer).GetAccommodations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProjectAmor_GetAccommodations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProjectAmorServer).GetAccommodations(ctx, req.(*GetAccommodationsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProjectAmor_UpdateAccommodation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateAccommodationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProjectAmorServer).UpdateAccommodation(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProjectAmor_UpdateAccommodation_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProjectAmorServer).UpdateAccommodation(ctx, req.(*UpdateAccommodationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProjectAmor_AddRoom_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddRoomRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProjectAmorServer).AddRoom(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProjectAmor_AddRoom_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProjectAmorServer).AddRoom(ctx, req.(*AddRoomRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProjectAmor_GetRooms_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRoomsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProjectAmorServer).GetRooms(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProjectAmor_GetRooms_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProjectAmorServer).GetRooms(ctx, req.(*GetRoomsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProjectAmor_DeleteRoom_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteRoomRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProjectAmorServer).DeleteRoom(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProjectAmor_DeleteRoom_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProjectAmorServer).DeleteRoom(ctx, req.(*DeleteRoomRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProjectAmor_UpdateRoom_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateRoomRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProjectAmorServer).UpdateRoom(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProjectAmor_UpdateRoom_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProjectAmorServer).UpdateRoom(ctx, req.(*UpdateRoomRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProjectAmor_GetUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUserRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProjectAmorServer).GetUser(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProjectAmor_GetUser_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProjectAmorServer).GetUser(ctx, req.(*GetUserRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // ProjectAmor_ServiceDesc is the grpc.ServiceDesc for ProjectAmor service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -190,6 +462,38 @@ var ProjectAmor_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "RegisterUser",
 			Handler:    _ProjectAmor_RegisterUser_Handler,
+		},
+		{
+			MethodName: "DeleteAccommodation",
+			Handler:    _ProjectAmor_DeleteAccommodation_Handler,
+		},
+		{
+			MethodName: "GetAccommodations",
+			Handler:    _ProjectAmor_GetAccommodations_Handler,
+		},
+		{
+			MethodName: "UpdateAccommodation",
+			Handler:    _ProjectAmor_UpdateAccommodation_Handler,
+		},
+		{
+			MethodName: "AddRoom",
+			Handler:    _ProjectAmor_AddRoom_Handler,
+		},
+		{
+			MethodName: "GetRooms",
+			Handler:    _ProjectAmor_GetRooms_Handler,
+		},
+		{
+			MethodName: "DeleteRoom",
+			Handler:    _ProjectAmor_DeleteRoom_Handler,
+		},
+		{
+			MethodName: "UpdateRoom",
+			Handler:    _ProjectAmor_UpdateRoom_Handler,
+		},
+		{
+			MethodName: "GetUser",
+			Handler:    _ProjectAmor_GetUser_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
