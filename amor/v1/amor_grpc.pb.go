@@ -37,17 +37,17 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ProjectAmorClient interface {
-	AddAccommodation(ctx context.Context, in *AddAccommodationRequest, opts ...grpc.CallOption) (*AddAccommodationResponse, error)
+	AddAccommodation(ctx context.Context, in *AddAccommodationRequest, opts ...grpc.CallOption) (*Accommodation, error)
 	LoginUser(ctx context.Context, in *LoginUserRequest, opts ...grpc.CallOption) (*LoginUserResponse, error)
 	RegisterUser(ctx context.Context, in *RegisterUserRequest, opts ...grpc.CallOption) (*RegisterUserResponse, error)
 	DeleteAccommodation(ctx context.Context, in *DeleteAccommodationRequest, opts ...grpc.CallOption) (*DeleteAccommodationResponse, error)
 	GetAccommodations(ctx context.Context, in *GetAccommodationsRequest, opts ...grpc.CallOption) (*GetAccommodationsResponse, error)
-	UpdateAccommodation(ctx context.Context, in *UpdateAccommodationRequest, opts ...grpc.CallOption) (*UpdateAccommodationResponse, error)
+	UpdateAccommodation(ctx context.Context, in *UpdateAccommodationRequest, opts ...grpc.CallOption) (*Accommodation, error)
 	AddRoom(ctx context.Context, in *AddRoomRequest, opts ...grpc.CallOption) (*AddRoomResponse, error)
 	GetRooms(ctx context.Context, in *GetRoomsRequest, opts ...grpc.CallOption) (*GetRoomsResponse, error)
 	DeleteRoom(ctx context.Context, in *DeleteRoomRequest, opts ...grpc.CallOption) (*DeleteRoomResponse, error)
 	UpdateRoom(ctx context.Context, in *UpdateRoomRequest, opts ...grpc.CallOption) (*UpdateRoomResponse, error)
-	GetUser(ctx context.Context, in *GetUserRequest, opts ...grpc.CallOption) (*GetUserResponse, error)
+	GetUser(ctx context.Context, in *GetUserRequest, opts ...grpc.CallOption) (*User, error)
 	SetAsLandLord(ctx context.Context, in *SetAsLandLordRequest, opts ...grpc.CallOption) (*SetAsLandLordResponse, error)
 }
 
@@ -59,9 +59,9 @@ func NewProjectAmorClient(cc grpc.ClientConnInterface) ProjectAmorClient {
 	return &projectAmorClient{cc}
 }
 
-func (c *projectAmorClient) AddAccommodation(ctx context.Context, in *AddAccommodationRequest, opts ...grpc.CallOption) (*AddAccommodationResponse, error) {
+func (c *projectAmorClient) AddAccommodation(ctx context.Context, in *AddAccommodationRequest, opts ...grpc.CallOption) (*Accommodation, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddAccommodationResponse)
+	out := new(Accommodation)
 	err := c.cc.Invoke(ctx, ProjectAmor_AddAccommodation_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -109,9 +109,9 @@ func (c *projectAmorClient) GetAccommodations(ctx context.Context, in *GetAccomm
 	return out, nil
 }
 
-func (c *projectAmorClient) UpdateAccommodation(ctx context.Context, in *UpdateAccommodationRequest, opts ...grpc.CallOption) (*UpdateAccommodationResponse, error) {
+func (c *projectAmorClient) UpdateAccommodation(ctx context.Context, in *UpdateAccommodationRequest, opts ...grpc.CallOption) (*Accommodation, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdateAccommodationResponse)
+	out := new(Accommodation)
 	err := c.cc.Invoke(ctx, ProjectAmor_UpdateAccommodation_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -159,9 +159,9 @@ func (c *projectAmorClient) UpdateRoom(ctx context.Context, in *UpdateRoomReques
 	return out, nil
 }
 
-func (c *projectAmorClient) GetUser(ctx context.Context, in *GetUserRequest, opts ...grpc.CallOption) (*GetUserResponse, error) {
+func (c *projectAmorClient) GetUser(ctx context.Context, in *GetUserRequest, opts ...grpc.CallOption) (*User, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetUserResponse)
+	out := new(User)
 	err := c.cc.Invoke(ctx, ProjectAmor_GetUser_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -183,17 +183,17 @@ func (c *projectAmorClient) SetAsLandLord(ctx context.Context, in *SetAsLandLord
 // All implementations must embed UnimplementedProjectAmorServer
 // for forward compatibility.
 type ProjectAmorServer interface {
-	AddAccommodation(context.Context, *AddAccommodationRequest) (*AddAccommodationResponse, error)
+	AddAccommodation(context.Context, *AddAccommodationRequest) (*Accommodation, error)
 	LoginUser(context.Context, *LoginUserRequest) (*LoginUserResponse, error)
 	RegisterUser(context.Context, *RegisterUserRequest) (*RegisterUserResponse, error)
 	DeleteAccommodation(context.Context, *DeleteAccommodationRequest) (*DeleteAccommodationResponse, error)
 	GetAccommodations(context.Context, *GetAccommodationsRequest) (*GetAccommodationsResponse, error)
-	UpdateAccommodation(context.Context, *UpdateAccommodationRequest) (*UpdateAccommodationResponse, error)
+	UpdateAccommodation(context.Context, *UpdateAccommodationRequest) (*Accommodation, error)
 	AddRoom(context.Context, *AddRoomRequest) (*AddRoomResponse, error)
 	GetRooms(context.Context, *GetRoomsRequest) (*GetRoomsResponse, error)
 	DeleteRoom(context.Context, *DeleteRoomRequest) (*DeleteRoomResponse, error)
 	UpdateRoom(context.Context, *UpdateRoomRequest) (*UpdateRoomResponse, error)
-	GetUser(context.Context, *GetUserRequest) (*GetUserResponse, error)
+	GetUser(context.Context, *GetUserRequest) (*User, error)
 	SetAsLandLord(context.Context, *SetAsLandLordRequest) (*SetAsLandLordResponse, error)
 	mustEmbedUnimplementedProjectAmorServer()
 }
@@ -205,7 +205,7 @@ type ProjectAmorServer interface {
 // pointer dereference when methods are called.
 type UnimplementedProjectAmorServer struct{}
 
-func (UnimplementedProjectAmorServer) AddAccommodation(context.Context, *AddAccommodationRequest) (*AddAccommodationResponse, error) {
+func (UnimplementedProjectAmorServer) AddAccommodation(context.Context, *AddAccommodationRequest) (*Accommodation, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AddAccommodation not implemented")
 }
 func (UnimplementedProjectAmorServer) LoginUser(context.Context, *LoginUserRequest) (*LoginUserResponse, error) {
@@ -220,7 +220,7 @@ func (UnimplementedProjectAmorServer) DeleteAccommodation(context.Context, *Dele
 func (UnimplementedProjectAmorServer) GetAccommodations(context.Context, *GetAccommodationsRequest) (*GetAccommodationsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAccommodations not implemented")
 }
-func (UnimplementedProjectAmorServer) UpdateAccommodation(context.Context, *UpdateAccommodationRequest) (*UpdateAccommodationResponse, error) {
+func (UnimplementedProjectAmorServer) UpdateAccommodation(context.Context, *UpdateAccommodationRequest) (*Accommodation, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateAccommodation not implemented")
 }
 func (UnimplementedProjectAmorServer) AddRoom(context.Context, *AddRoomRequest) (*AddRoomResponse, error) {
@@ -235,7 +235,7 @@ func (UnimplementedProjectAmorServer) DeleteRoom(context.Context, *DeleteRoomReq
 func (UnimplementedProjectAmorServer) UpdateRoom(context.Context, *UpdateRoomRequest) (*UpdateRoomResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateRoom not implemented")
 }
-func (UnimplementedProjectAmorServer) GetUser(context.Context, *GetUserRequest) (*GetUserResponse, error) {
+func (UnimplementedProjectAmorServer) GetUser(context.Context, *GetUserRequest) (*User, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetUser not implemented")
 }
 func (UnimplementedProjectAmorServer) SetAsLandLord(context.Context, *SetAsLandLordRequest) (*SetAsLandLordResponse, error) {
