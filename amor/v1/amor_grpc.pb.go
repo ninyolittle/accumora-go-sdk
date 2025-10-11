@@ -48,7 +48,7 @@ type ProjectAmorClient interface {
 	DeleteRoom(ctx context.Context, in *DeleteRoomRequest, opts ...grpc.CallOption) (*DeleteRoomResponse, error)
 	UpdateRoom(ctx context.Context, in *UpdateRoomRequest, opts ...grpc.CallOption) (*UpdateRoomResponse, error)
 	GetUser(ctx context.Context, in *GetUserRequest, opts ...grpc.CallOption) (*User, error)
-	SetAsLandLord(ctx context.Context, in *SetAsLandLordRequest, opts ...grpc.CallOption) (*SetAsLandLordResponse, error)
+	SetAsLandLord(ctx context.Context, in *SetAsLandLordRequest, opts ...grpc.CallOption) (*User, error)
 }
 
 type projectAmorClient struct {
@@ -169,9 +169,9 @@ func (c *projectAmorClient) GetUser(ctx context.Context, in *GetUserRequest, opt
 	return out, nil
 }
 
-func (c *projectAmorClient) SetAsLandLord(ctx context.Context, in *SetAsLandLordRequest, opts ...grpc.CallOption) (*SetAsLandLordResponse, error) {
+func (c *projectAmorClient) SetAsLandLord(ctx context.Context, in *SetAsLandLordRequest, opts ...grpc.CallOption) (*User, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetAsLandLordResponse)
+	out := new(User)
 	err := c.cc.Invoke(ctx, ProjectAmor_SetAsLandLord_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -194,7 +194,7 @@ type ProjectAmorServer interface {
 	DeleteRoom(context.Context, *DeleteRoomRequest) (*DeleteRoomResponse, error)
 	UpdateRoom(context.Context, *UpdateRoomRequest) (*UpdateRoomResponse, error)
 	GetUser(context.Context, *GetUserRequest) (*User, error)
-	SetAsLandLord(context.Context, *SetAsLandLordRequest) (*SetAsLandLordResponse, error)
+	SetAsLandLord(context.Context, *SetAsLandLordRequest) (*User, error)
 	mustEmbedUnimplementedProjectAmorServer()
 }
 
@@ -238,7 +238,7 @@ func (UnimplementedProjectAmorServer) UpdateRoom(context.Context, *UpdateRoomReq
 func (UnimplementedProjectAmorServer) GetUser(context.Context, *GetUserRequest) (*User, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetUser not implemented")
 }
-func (UnimplementedProjectAmorServer) SetAsLandLord(context.Context, *SetAsLandLordRequest) (*SetAsLandLordResponse, error) {
+func (UnimplementedProjectAmorServer) SetAsLandLord(context.Context, *SetAsLandLordRequest) (*User, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SetAsLandLord not implemented")
 }
 func (UnimplementedProjectAmorServer) mustEmbedUnimplementedProjectAmorServer() {}
