@@ -119,6 +119,55 @@ func (User_Gender) EnumDescriptor() ([]byte, []int) {
 	return file_amor_v1_types_proto_rawDescGZIP(), []int{3, 1}
 }
 
+type User_Role int32
+
+const (
+	User_unknown_role User_Role = 0
+	User_tenant       User_Role = 1
+	User_landlord     User_Role = 2
+)
+
+// Enum value maps for User_Role.
+var (
+	User_Role_name = map[int32]string{
+		0: "unknown_role",
+		1: "tenant",
+		2: "landlord",
+	}
+	User_Role_value = map[string]int32{
+		"unknown_role": 0,
+		"tenant":       1,
+		"landlord":     2,
+	}
+)
+
+func (x User_Role) Enum() *User_Role {
+	p := new(User_Role)
+	*p = x
+	return p
+}
+
+func (x User_Role) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (User_Role) Descriptor() protoreflect.EnumDescriptor {
+	return file_amor_v1_types_proto_enumTypes[2].Descriptor()
+}
+
+func (User_Role) Type() protoreflect.EnumType {
+	return &file_amor_v1_types_proto_enumTypes[2]
+}
+
+func (x User_Role) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use User_Role.Descriptor instead.
+func (User_Role) EnumDescriptor() ([]byte, []int) {
+	return file_amor_v1_types_proto_rawDescGZIP(), []int{3, 2}
+}
+
 type Coordinates struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Latitude      *float64               `protobuf:"fixed64,1,opt,name=latitude,proto3,oneof" json:"latitude,omitempty"`
@@ -360,6 +409,7 @@ type User struct {
 	Birthday      *string                `protobuf:"bytes,9,opt,name=birthday,proto3,oneof" json:"birthday,omitempty"`
 	Gender        User_Gender            `protobuf:"varint,10,opt,name=gender,proto3,enum=accumora_rpc.v1.User_Gender" json:"gender,omitempty"`
 	CreatedAt     *string                `protobuf:"bytes,11,opt,name=created_at,json=createdAt,proto3,oneof" json:"created_at,omitempty"`
+	Role          User_Role              `protobuf:"varint,12,opt,name=role,proto3,enum=accumora_rpc.v1.User_Role" json:"role,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -469,6 +519,13 @@ func (x *User) GetCreatedAt() string {
 		return *x.CreatedAt
 	}
 	return ""
+}
+
+func (x *User) GetRole() User_Role {
+	if x != nil {
+		return x.Role
+	}
+	return User_unknown_role
 }
 
 type Accommodation struct {
@@ -691,7 +748,7 @@ const file_amor_v1_types_proto_rawDesc = "" +
 	"\f_descriptionB\v\n" +
 	"\t_capacityB\f\n" +
 	"\n" +
-	"_photo_url\"\xec\x04\n" +
+	"_photo_url\"\xd0\x05\n" +
 	"\x04User\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1d\n" +
 	"\n" +
@@ -706,7 +763,8 @@ const file_amor_v1_types_proto_rawDesc = "" +
 	"\x06gender\x18\n" +
 	" \x01(\x0e2\x1c.accumora_rpc.v1.User.GenderR\x06gender\x12\"\n" +
 	"\n" +
-	"created_at\x18\v \x01(\tH\x05R\tcreatedAt\x88\x01\x01\"3\n" +
+	"created_at\x18\v \x01(\tH\x05R\tcreatedAt\x88\x01\x01\x12.\n" +
+	"\x04role\x18\f \x01(\x0e2\x1a.accumora_rpc.v1.User.RoleR\x04role\"3\n" +
 	"\vAccountType\x12\n" +
 	"\n" +
 	"\x06manual\x10\x00\x12\n" +
@@ -717,7 +775,12 @@ const file_amor_v1_types_proto_rawDesc = "" +
 	"\x0eunknown_gender\x10\x00\x12\b\n" +
 	"\x04male\x10\x01\x12\n" +
 	"\n" +
-	"\x06female\x10\x02B\f\n" +
+	"\x06female\x10\x02\"2\n" +
+	"\x04Role\x12\x10\n" +
+	"\funknown_role\x10\x00\x12\n" +
+	"\n" +
+	"\x06tenant\x10\x01\x12\f\n" +
+	"\blandlord\x10\x02B\f\n" +
 	"\n" +
 	"_last_nameB\b\n" +
 	"\x06_phoneB\v\n" +
@@ -753,30 +816,32 @@ func file_amor_v1_types_proto_rawDescGZIP() []byte {
 	return file_amor_v1_types_proto_rawDescData
 }
 
-var file_amor_v1_types_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
+var file_amor_v1_types_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
 var file_amor_v1_types_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_amor_v1_types_proto_goTypes = []any{
 	(User_AccountType)(0), // 0: accumora_rpc.v1.User.AccountType
 	(User_Gender)(0),      // 1: accumora_rpc.v1.User.Gender
-	(*Coordinates)(nil),   // 2: accumora_rpc.v1.Coordinates
-	(*Location)(nil),      // 3: accumora_rpc.v1.Location
-	(*Room)(nil),          // 4: accumora_rpc.v1.Room
-	(*User)(nil),          // 5: accumora_rpc.v1.User
-	(*Accommodation)(nil), // 6: accumora_rpc.v1.Accommodation
-	(*Room_Prices)(nil),   // 7: accumora_rpc.v1.Room.Prices
+	(User_Role)(0),        // 2: accumora_rpc.v1.User.Role
+	(*Coordinates)(nil),   // 3: accumora_rpc.v1.Coordinates
+	(*Location)(nil),      // 4: accumora_rpc.v1.Location
+	(*Room)(nil),          // 5: accumora_rpc.v1.Room
+	(*User)(nil),          // 6: accumora_rpc.v1.User
+	(*Accommodation)(nil), // 7: accumora_rpc.v1.Accommodation
+	(*Room_Prices)(nil),   // 8: accumora_rpc.v1.Room.Prices
 }
 var file_amor_v1_types_proto_depIdxs = []int32{
-	7, // 0: accumora_rpc.v1.Room.prices:type_name -> accumora_rpc.v1.Room.Prices
-	3, // 1: accumora_rpc.v1.User.location:type_name -> accumora_rpc.v1.Location
+	8, // 0: accumora_rpc.v1.Room.prices:type_name -> accumora_rpc.v1.Room.Prices
+	4, // 1: accumora_rpc.v1.User.location:type_name -> accumora_rpc.v1.Location
 	0, // 2: accumora_rpc.v1.User.account_type:type_name -> accumora_rpc.v1.User.AccountType
 	1, // 3: accumora_rpc.v1.User.gender:type_name -> accumora_rpc.v1.User.Gender
-	3, // 4: accumora_rpc.v1.Accommodation.location:type_name -> accumora_rpc.v1.Location
-	2, // 5: accumora_rpc.v1.Accommodation.coordinates:type_name -> accumora_rpc.v1.Coordinates
-	6, // [6:6] is the sub-list for method output_type
-	6, // [6:6] is the sub-list for method input_type
-	6, // [6:6] is the sub-list for extension type_name
-	6, // [6:6] is the sub-list for extension extendee
-	0, // [0:6] is the sub-list for field type_name
+	2, // 4: accumora_rpc.v1.User.role:type_name -> accumora_rpc.v1.User.Role
+	4, // 5: accumora_rpc.v1.Accommodation.location:type_name -> accumora_rpc.v1.Location
+	3, // 6: accumora_rpc.v1.Accommodation.coordinates:type_name -> accumora_rpc.v1.Coordinates
+	7, // [7:7] is the sub-list for method output_type
+	7, // [7:7] is the sub-list for method input_type
+	7, // [7:7] is the sub-list for extension type_name
+	7, // [7:7] is the sub-list for extension extendee
+	0, // [0:7] is the sub-list for field type_name
 }
 
 func init() { file_amor_v1_types_proto_init() }
@@ -795,7 +860,7 @@ func file_amor_v1_types_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_amor_v1_types_proto_rawDesc), len(file_amor_v1_types_proto_rawDesc)),
-			NumEnums:      2,
+			NumEnums:      3,
 			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   0,

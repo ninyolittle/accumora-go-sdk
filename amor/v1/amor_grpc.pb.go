@@ -30,6 +30,7 @@ const (
 	ProjectAmor_DeleteRoom_FullMethodName          = "/accumora_rpc.v1.ProjectAmor/DeleteRoom"
 	ProjectAmor_UpdateRoom_FullMethodName          = "/accumora_rpc.v1.ProjectAmor/UpdateRoom"
 	ProjectAmor_GetUser_FullMethodName             = "/accumora_rpc.v1.ProjectAmor/GetUser"
+	ProjectAmor_SetAsLandLord_FullMethodName       = "/accumora_rpc.v1.ProjectAmor/SetAsLandLord"
 )
 
 // ProjectAmorClient is the client API for ProjectAmor service.
@@ -47,6 +48,7 @@ type ProjectAmorClient interface {
 	DeleteRoom(ctx context.Context, in *DeleteRoomRequest, opts ...grpc.CallOption) (*DeleteRoomResponse, error)
 	UpdateRoom(ctx context.Context, in *UpdateRoomRequest, opts ...grpc.CallOption) (*UpdateRoomResponse, error)
 	GetUser(ctx context.Context, in *GetUserRequest, opts ...grpc.CallOption) (*GetUserResponse, error)
+	SetAsLandLord(ctx context.Context, in *SetAsLandLordRequest, opts ...grpc.CallOption) (*SetAsLandLordResponse, error)
 }
 
 type projectAmorClient struct {
@@ -167,6 +169,16 @@ func (c *projectAmorClient) GetUser(ctx context.Context, in *GetUserRequest, opt
 	return out, nil
 }
 
+func (c *projectAmorClient) SetAsLandLord(ctx context.Context, in *SetAsLandLordRequest, opts ...grpc.CallOption) (*SetAsLandLordResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetAsLandLordResponse)
+	err := c.cc.Invoke(ctx, ProjectAmor_SetAsLandLord_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ProjectAmorServer is the server API for ProjectAmor service.
 // All implementations must embed UnimplementedProjectAmorServer
 // for forward compatibility.
@@ -182,6 +194,7 @@ type ProjectAmorServer interface {
 	DeleteRoom(context.Context, *DeleteRoomRequest) (*DeleteRoomResponse, error)
 	UpdateRoom(context.Context, *UpdateRoomRequest) (*UpdateRoomResponse, error)
 	GetUser(context.Context, *GetUserRequest) (*GetUserResponse, error)
+	SetAsLandLord(context.Context, *SetAsLandLordRequest) (*SetAsLandLordResponse, error)
 	mustEmbedUnimplementedProjectAmorServer()
 }
 
@@ -224,6 +237,9 @@ func (UnimplementedProjectAmorServer) UpdateRoom(context.Context, *UpdateRoomReq
 }
 func (UnimplementedProjectAmorServer) GetUser(context.Context, *GetUserRequest) (*GetUserResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetUser not implemented")
+}
+func (UnimplementedProjectAmorServer) SetAsLandLord(context.Context, *SetAsLandLordRequest) (*SetAsLandLordResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SetAsLandLord not implemented")
 }
 func (UnimplementedProjectAmorServer) mustEmbedUnimplementedProjectAmorServer() {}
 func (UnimplementedProjectAmorServer) testEmbeddedByValue()                     {}
@@ -444,6 +460,24 @@ func _ProjectAmor_GetUser_Handler(srv interface{}, ctx context.Context, dec func
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ProjectAmor_SetAsLandLord_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAsLandLordRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProjectAmorServer).SetAsLandLord(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProjectAmor_SetAsLandLord_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProjectAmorServer).SetAsLandLord(ctx, req.(*SetAsLandLordRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // ProjectAmor_ServiceDesc is the grpc.ServiceDesc for ProjectAmor service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -494,6 +528,10 @@ var ProjectAmor_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetUser",
 			Handler:    _ProjectAmor_GetUser_Handler,
+		},
+		{
+			MethodName: "SetAsLandLord",
+			Handler:    _ProjectAmor_SetAsLandLord_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
