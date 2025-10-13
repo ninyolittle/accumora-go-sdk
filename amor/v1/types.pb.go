@@ -217,6 +217,55 @@ func (Accommodation_AccommodationType) EnumDescriptor() ([]byte, []int) {
 	return file_amor_v1_types_proto_rawDescGZIP(), []int{4, 0}
 }
 
+type Accommodation_Status int32
+
+const (
+	Accommodation_unknown_status Accommodation_Status = 0
+	Accommodation_active         Accommodation_Status = 1
+	Accommodation_inactive       Accommodation_Status = 2
+)
+
+// Enum value maps for Accommodation_Status.
+var (
+	Accommodation_Status_name = map[int32]string{
+		0: "unknown_status",
+		1: "active",
+		2: "inactive",
+	}
+	Accommodation_Status_value = map[string]int32{
+		"unknown_status": 0,
+		"active":         1,
+		"inactive":       2,
+	}
+)
+
+func (x Accommodation_Status) Enum() *Accommodation_Status {
+	p := new(Accommodation_Status)
+	*p = x
+	return p
+}
+
+func (x Accommodation_Status) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (Accommodation_Status) Descriptor() protoreflect.EnumDescriptor {
+	return file_amor_v1_types_proto_enumTypes[4].Descriptor()
+}
+
+func (Accommodation_Status) Type() protoreflect.EnumType {
+	return &file_amor_v1_types_proto_enumTypes[4]
+}
+
+func (x Accommodation_Status) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use Accommodation_Status.Descriptor instead.
+func (Accommodation_Status) EnumDescriptor() ([]byte, []int) {
+	return file_amor_v1_types_proto_rawDescGZIP(), []int{4, 1}
+}
+
 type Coordinates struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Latitude      *float64               `protobuf:"fixed64,1,opt,name=latitude,proto3,oneof" json:"latitude,omitempty"`
@@ -588,6 +637,7 @@ type Accommodation struct {
 	Coordinates   *Coordinates                    `protobuf:"bytes,7,opt,name=coordinates,proto3,oneof" json:"coordinates,omitempty"`
 	Owner         string                          `protobuf:"bytes,9,opt,name=owner,proto3" json:"owner,omitempty"`
 	CreatedAt     string                          `protobuf:"bytes,10,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	Status        Accommodation_Status            `protobuf:"varint,11,opt,name=status,proto3,enum=accumora_rpc.v1.Accommodation_Status" json:"status,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -683,6 +733,13 @@ func (x *Accommodation) GetCreatedAt() string {
 		return x.CreatedAt
 	}
 	return ""
+}
+
+func (x *Accommodation) GetStatus() Accommodation_Status {
+	if x != nil {
+		return x.Status
+	}
+	return Accommodation_unknown_status
 }
 
 type Room_Prices struct {
@@ -836,7 +893,7 @@ const file_amor_v1_types_proto_rawDesc = "" +
 	"\t_locationB\v\n" +
 	"\t_passwordB\v\n" +
 	"\t_birthdayB\r\n" +
-	"\v_created_at\"\xeb\x03\n" +
+	"\v_created_at\"\xe2\x04\n" +
 	"\rAccommodation\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12:\n" +
@@ -848,11 +905,17 @@ const file_amor_v1_types_proto_rawDesc = "" +
 	"\x05owner\x18\t \x01(\tR\x05owner\x12\x1d\n" +
 	"\n" +
 	"created_at\x18\n" +
-	" \x01(\tR\tcreatedAt\"H\n" +
+	" \x01(\tR\tcreatedAt\x12=\n" +
+	"\x06status\x18\v \x01(\x0e2%.accumora_rpc.v1.Accommodation.StatusR\x06status\"H\n" +
 	"\x11AccommodationType\x12\x10\n" +
 	"\funknown_type\x10\x00\x12\r\n" +
 	"\tapartment\x10\x01\x12\x12\n" +
-	"\x0eboarding_house\x10\x02B\v\n" +
+	"\x0eboarding_house\x10\x02\"6\n" +
+	"\x06Status\x12\x12\n" +
+	"\x0eunknown_status\x10\x00\x12\n" +
+	"\n" +
+	"\x06active\x10\x01\x12\f\n" +
+	"\binactive\x10\x02B\v\n" +
 	"\t_locationB\x0e\n" +
 	"\f_descriptionB\x0e\n" +
 	"\f_coordinatesB2Z0github.com/ninyolittle/accumora-go-sdk/amor;amorb\x06proto3"
@@ -869,34 +932,36 @@ func file_amor_v1_types_proto_rawDescGZIP() []byte {
 	return file_amor_v1_types_proto_rawDescData
 }
 
-var file_amor_v1_types_proto_enumTypes = make([]protoimpl.EnumInfo, 4)
+var file_amor_v1_types_proto_enumTypes = make([]protoimpl.EnumInfo, 5)
 var file_amor_v1_types_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_amor_v1_types_proto_goTypes = []any{
 	(User_AccountType)(0),                // 0: accumora_rpc.v1.User.AccountType
 	(User_Gender)(0),                     // 1: accumora_rpc.v1.User.Gender
 	(User_Role)(0),                       // 2: accumora_rpc.v1.User.Role
 	(Accommodation_AccommodationType)(0), // 3: accumora_rpc.v1.Accommodation.AccommodationType
-	(*Coordinates)(nil),                  // 4: accumora_rpc.v1.Coordinates
-	(*Location)(nil),                     // 5: accumora_rpc.v1.Location
-	(*Room)(nil),                         // 6: accumora_rpc.v1.Room
-	(*User)(nil),                         // 7: accumora_rpc.v1.User
-	(*Accommodation)(nil),                // 8: accumora_rpc.v1.Accommodation
-	(*Room_Prices)(nil),                  // 9: accumora_rpc.v1.Room.Prices
+	(Accommodation_Status)(0),            // 4: accumora_rpc.v1.Accommodation.Status
+	(*Coordinates)(nil),                  // 5: accumora_rpc.v1.Coordinates
+	(*Location)(nil),                     // 6: accumora_rpc.v1.Location
+	(*Room)(nil),                         // 7: accumora_rpc.v1.Room
+	(*User)(nil),                         // 8: accumora_rpc.v1.User
+	(*Accommodation)(nil),                // 9: accumora_rpc.v1.Accommodation
+	(*Room_Prices)(nil),                  // 10: accumora_rpc.v1.Room.Prices
 }
 var file_amor_v1_types_proto_depIdxs = []int32{
-	9, // 0: accumora_rpc.v1.Room.prices:type_name -> accumora_rpc.v1.Room.Prices
-	5, // 1: accumora_rpc.v1.User.location:type_name -> accumora_rpc.v1.Location
-	0, // 2: accumora_rpc.v1.User.account_type:type_name -> accumora_rpc.v1.User.AccountType
-	1, // 3: accumora_rpc.v1.User.gender:type_name -> accumora_rpc.v1.User.Gender
-	2, // 4: accumora_rpc.v1.User.role:type_name -> accumora_rpc.v1.User.Role
-	5, // 5: accumora_rpc.v1.Accommodation.location:type_name -> accumora_rpc.v1.Location
-	3, // 6: accumora_rpc.v1.Accommodation.type:type_name -> accumora_rpc.v1.Accommodation.AccommodationType
-	4, // 7: accumora_rpc.v1.Accommodation.coordinates:type_name -> accumora_rpc.v1.Coordinates
-	8, // [8:8] is the sub-list for method output_type
-	8, // [8:8] is the sub-list for method input_type
-	8, // [8:8] is the sub-list for extension type_name
-	8, // [8:8] is the sub-list for extension extendee
-	0, // [0:8] is the sub-list for field type_name
+	10, // 0: accumora_rpc.v1.Room.prices:type_name -> accumora_rpc.v1.Room.Prices
+	6,  // 1: accumora_rpc.v1.User.location:type_name -> accumora_rpc.v1.Location
+	0,  // 2: accumora_rpc.v1.User.account_type:type_name -> accumora_rpc.v1.User.AccountType
+	1,  // 3: accumora_rpc.v1.User.gender:type_name -> accumora_rpc.v1.User.Gender
+	2,  // 4: accumora_rpc.v1.User.role:type_name -> accumora_rpc.v1.User.Role
+	6,  // 5: accumora_rpc.v1.Accommodation.location:type_name -> accumora_rpc.v1.Location
+	3,  // 6: accumora_rpc.v1.Accommodation.type:type_name -> accumora_rpc.v1.Accommodation.AccommodationType
+	5,  // 7: accumora_rpc.v1.Accommodation.coordinates:type_name -> accumora_rpc.v1.Coordinates
+	4,  // 8: accumora_rpc.v1.Accommodation.status:type_name -> accumora_rpc.v1.Accommodation.Status
+	9,  // [9:9] is the sub-list for method output_type
+	9,  // [9:9] is the sub-list for method input_type
+	9,  // [9:9] is the sub-list for extension type_name
+	9,  // [9:9] is the sub-list for extension extendee
+	0,  // [0:9] is the sub-list for field type_name
 }
 
 func init() { file_amor_v1_types_proto_init() }
@@ -915,7 +980,7 @@ func file_amor_v1_types_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_amor_v1_types_proto_rawDesc), len(file_amor_v1_types_proto_rawDesc)),
-			NumEnums:      4,
+			NumEnums:      5,
 			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   0,
