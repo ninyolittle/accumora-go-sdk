@@ -31,6 +31,7 @@ const (
 	ProjectAmor_UpdateRoom_FullMethodName          = "/accumora_rpc.v1.ProjectAmor/UpdateRoom"
 	ProjectAmor_GetUser_FullMethodName             = "/accumora_rpc.v1.ProjectAmor/GetUser"
 	ProjectAmor_SetAsLandLord_FullMethodName       = "/accumora_rpc.v1.ProjectAmor/SetAsLandLord"
+	ProjectAmor_AddAmenities_FullMethodName        = "/accumora_rpc.v1.ProjectAmor/AddAmenities"
 )
 
 // ProjectAmorClient is the client API for ProjectAmor service.
@@ -49,6 +50,7 @@ type ProjectAmorClient interface {
 	UpdateRoom(ctx context.Context, in *UpdateRoomRequest, opts ...grpc.CallOption) (*UpdateRoomResponse, error)
 	GetUser(ctx context.Context, in *GetUserRequest, opts ...grpc.CallOption) (*User, error)
 	SetAsLandLord(ctx context.Context, in *SetAsLandLordRequest, opts ...grpc.CallOption) (*User, error)
+	AddAmenities(ctx context.Context, in *AddAmenitiesRequest, opts ...grpc.CallOption) (*AddAmenitiesResponse, error)
 }
 
 type projectAmorClient struct {
@@ -179,6 +181,16 @@ func (c *projectAmorClient) SetAsLandLord(ctx context.Context, in *SetAsLandLord
 	return out, nil
 }
 
+func (c *projectAmorClient) AddAmenities(ctx context.Context, in *AddAmenitiesRequest, opts ...grpc.CallOption) (*AddAmenitiesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddAmenitiesResponse)
+	err := c.cc.Invoke(ctx, ProjectAmor_AddAmenities_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ProjectAmorServer is the server API for ProjectAmor service.
 // All implementations must embed UnimplementedProjectAmorServer
 // for forward compatibility.
@@ -195,6 +207,7 @@ type ProjectAmorServer interface {
 	UpdateRoom(context.Context, *UpdateRoomRequest) (*UpdateRoomResponse, error)
 	GetUser(context.Context, *GetUserRequest) (*User, error)
 	SetAsLandLord(context.Context, *SetAsLandLordRequest) (*User, error)
+	AddAmenities(context.Context, *AddAmenitiesRequest) (*AddAmenitiesResponse, error)
 	mustEmbedUnimplementedProjectAmorServer()
 }
 
@@ -240,6 +253,9 @@ func (UnimplementedProjectAmorServer) GetUser(context.Context, *GetUserRequest) 
 }
 func (UnimplementedProjectAmorServer) SetAsLandLord(context.Context, *SetAsLandLordRequest) (*User, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SetAsLandLord not implemented")
+}
+func (UnimplementedProjectAmorServer) AddAmenities(context.Context, *AddAmenitiesRequest) (*AddAmenitiesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddAmenities not implemented")
 }
 func (UnimplementedProjectAmorServer) mustEmbedUnimplementedProjectAmorServer() {}
 func (UnimplementedProjectAmorServer) testEmbeddedByValue()                     {}
@@ -478,6 +494,24 @@ func _ProjectAmor_SetAsLandLord_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ProjectAmor_AddAmenities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddAmenitiesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProjectAmorServer).AddAmenities(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProjectAmor_AddAmenities_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProjectAmorServer).AddAmenities(ctx, req.(*AddAmenitiesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // ProjectAmor_ServiceDesc is the grpc.ServiceDesc for ProjectAmor service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -532,6 +566,10 @@ var ProjectAmor_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SetAsLandLord",
 			Handler:    _ProjectAmor_SetAsLandLord_Handler,
+		},
+		{
+			MethodName: "AddAmenities",
+			Handler:    _ProjectAmor_AddAmenities_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

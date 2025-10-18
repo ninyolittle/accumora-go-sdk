@@ -21,6 +21,55 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type Amenity_AmenityType int32
+
+const (
+	Amenity_unknown_amenity Amenity_AmenityType = 0
+	Amenity_built_in        Amenity_AmenityType = 1
+	Amenity_custom          Amenity_AmenityType = 2
+)
+
+// Enum value maps for Amenity_AmenityType.
+var (
+	Amenity_AmenityType_name = map[int32]string{
+		0: "unknown_amenity",
+		1: "built_in",
+		2: "custom",
+	}
+	Amenity_AmenityType_value = map[string]int32{
+		"unknown_amenity": 0,
+		"built_in":        1,
+		"custom":          2,
+	}
+)
+
+func (x Amenity_AmenityType) Enum() *Amenity_AmenityType {
+	p := new(Amenity_AmenityType)
+	*p = x
+	return p
+}
+
+func (x Amenity_AmenityType) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (Amenity_AmenityType) Descriptor() protoreflect.EnumDescriptor {
+	return file_amor_v1_types_proto_enumTypes[0].Descriptor()
+}
+
+func (Amenity_AmenityType) Type() protoreflect.EnumType {
+	return &file_amor_v1_types_proto_enumTypes[0]
+}
+
+func (x Amenity_AmenityType) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use Amenity_AmenityType.Descriptor instead.
+func (Amenity_AmenityType) EnumDescriptor() ([]byte, []int) {
+	return file_amor_v1_types_proto_rawDescGZIP(), []int{0, 0}
+}
+
 type User_AccountType int32
 
 const (
@@ -54,11 +103,11 @@ func (x User_AccountType) String() string {
 }
 
 func (User_AccountType) Descriptor() protoreflect.EnumDescriptor {
-	return file_amor_v1_types_proto_enumTypes[0].Descriptor()
+	return file_amor_v1_types_proto_enumTypes[1].Descriptor()
 }
 
 func (User_AccountType) Type() protoreflect.EnumType {
-	return &file_amor_v1_types_proto_enumTypes[0]
+	return &file_amor_v1_types_proto_enumTypes[1]
 }
 
 func (x User_AccountType) Number() protoreflect.EnumNumber {
@@ -67,7 +116,7 @@ func (x User_AccountType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use User_AccountType.Descriptor instead.
 func (User_AccountType) EnumDescriptor() ([]byte, []int) {
-	return file_amor_v1_types_proto_rawDescGZIP(), []int{3, 0}
+	return file_amor_v1_types_proto_rawDescGZIP(), []int{4, 0}
 }
 
 type User_Gender int32
@@ -103,11 +152,11 @@ func (x User_Gender) String() string {
 }
 
 func (User_Gender) Descriptor() protoreflect.EnumDescriptor {
-	return file_amor_v1_types_proto_enumTypes[1].Descriptor()
+	return file_amor_v1_types_proto_enumTypes[2].Descriptor()
 }
 
 func (User_Gender) Type() protoreflect.EnumType {
-	return &file_amor_v1_types_proto_enumTypes[1]
+	return &file_amor_v1_types_proto_enumTypes[2]
 }
 
 func (x User_Gender) Number() protoreflect.EnumNumber {
@@ -116,7 +165,7 @@ func (x User_Gender) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use User_Gender.Descriptor instead.
 func (User_Gender) EnumDescriptor() ([]byte, []int) {
-	return file_amor_v1_types_proto_rawDescGZIP(), []int{3, 1}
+	return file_amor_v1_types_proto_rawDescGZIP(), []int{4, 1}
 }
 
 type User_Role int32
@@ -152,11 +201,11 @@ func (x User_Role) String() string {
 }
 
 func (User_Role) Descriptor() protoreflect.EnumDescriptor {
-	return file_amor_v1_types_proto_enumTypes[2].Descriptor()
+	return file_amor_v1_types_proto_enumTypes[3].Descriptor()
 }
 
 func (User_Role) Type() protoreflect.EnumType {
-	return &file_amor_v1_types_proto_enumTypes[2]
+	return &file_amor_v1_types_proto_enumTypes[3]
 }
 
 func (x User_Role) Number() protoreflect.EnumNumber {
@@ -165,7 +214,7 @@ func (x User_Role) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use User_Role.Descriptor instead.
 func (User_Role) EnumDescriptor() ([]byte, []int) {
-	return file_amor_v1_types_proto_rawDescGZIP(), []int{3, 2}
+	return file_amor_v1_types_proto_rawDescGZIP(), []int{4, 2}
 }
 
 type Accommodation_AccommodationType int32
@@ -201,11 +250,11 @@ func (x Accommodation_AccommodationType) String() string {
 }
 
 func (Accommodation_AccommodationType) Descriptor() protoreflect.EnumDescriptor {
-	return file_amor_v1_types_proto_enumTypes[3].Descriptor()
+	return file_amor_v1_types_proto_enumTypes[4].Descriptor()
 }
 
 func (Accommodation_AccommodationType) Type() protoreflect.EnumType {
-	return &file_amor_v1_types_proto_enumTypes[3]
+	return &file_amor_v1_types_proto_enumTypes[4]
 }
 
 func (x Accommodation_AccommodationType) Number() protoreflect.EnumNumber {
@@ -214,7 +263,7 @@ func (x Accommodation_AccommodationType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use Accommodation_AccommodationType.Descriptor instead.
 func (Accommodation_AccommodationType) EnumDescriptor() ([]byte, []int) {
-	return file_amor_v1_types_proto_rawDescGZIP(), []int{4, 0}
+	return file_amor_v1_types_proto_rawDescGZIP(), []int{5, 0}
 }
 
 type Accommodation_Status int32
@@ -250,11 +299,11 @@ func (x Accommodation_Status) String() string {
 }
 
 func (Accommodation_Status) Descriptor() protoreflect.EnumDescriptor {
-	return file_amor_v1_types_proto_enumTypes[4].Descriptor()
+	return file_amor_v1_types_proto_enumTypes[5].Descriptor()
 }
 
 func (Accommodation_Status) Type() protoreflect.EnumType {
-	return &file_amor_v1_types_proto_enumTypes[4]
+	return &file_amor_v1_types_proto_enumTypes[5]
 }
 
 func (x Accommodation_Status) Number() protoreflect.EnumNumber {
@@ -263,7 +312,91 @@ func (x Accommodation_Status) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use Accommodation_Status.Descriptor instead.
 func (Accommodation_Status) EnumDescriptor() ([]byte, []int) {
-	return file_amor_v1_types_proto_rawDescGZIP(), []int{4, 1}
+	return file_amor_v1_types_proto_rawDescGZIP(), []int{5, 1}
+}
+
+type Amenity struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Type          Amenity_AmenityType    `protobuf:"varint,3,opt,name=type,proto3,enum=accumora_rpc.v1.Amenity_AmenityType" json:"type,omitempty"`
+	Owner         string                 `protobuf:"bytes,4,opt,name=owner,proto3" json:"owner,omitempty"`
+	Icon          string                 `protobuf:"bytes,5,opt,name=icon,proto3" json:"icon,omitempty"`
+	IconColor     string                 `protobuf:"bytes,6,opt,name=icon_color,json=iconColor,proto3" json:"icon_color,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Amenity) Reset() {
+	*x = Amenity{}
+	mi := &file_amor_v1_types_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Amenity) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Amenity) ProtoMessage() {}
+
+func (x *Amenity) ProtoReflect() protoreflect.Message {
+	mi := &file_amor_v1_types_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Amenity.ProtoReflect.Descriptor instead.
+func (*Amenity) Descriptor() ([]byte, []int) {
+	return file_amor_v1_types_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *Amenity) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+func (x *Amenity) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *Amenity) GetType() Amenity_AmenityType {
+	if x != nil {
+		return x.Type
+	}
+	return Amenity_unknown_amenity
+}
+
+func (x *Amenity) GetOwner() string {
+	if x != nil {
+		return x.Owner
+	}
+	return ""
+}
+
+func (x *Amenity) GetIcon() string {
+	if x != nil {
+		return x.Icon
+	}
+	return ""
+}
+
+func (x *Amenity) GetIconColor() string {
+	if x != nil {
+		return x.IconColor
+	}
+	return ""
 }
 
 type Coordinates struct {
@@ -276,7 +409,7 @@ type Coordinates struct {
 
 func (x *Coordinates) Reset() {
 	*x = Coordinates{}
-	mi := &file_amor_v1_types_proto_msgTypes[0]
+	mi := &file_amor_v1_types_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -288,7 +421,7 @@ func (x *Coordinates) String() string {
 func (*Coordinates) ProtoMessage() {}
 
 func (x *Coordinates) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_types_proto_msgTypes[0]
+	mi := &file_amor_v1_types_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -301,7 +434,7 @@ func (x *Coordinates) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Coordinates.ProtoReflect.Descriptor instead.
 func (*Coordinates) Descriptor() ([]byte, []int) {
-	return file_amor_v1_types_proto_rawDescGZIP(), []int{0}
+	return file_amor_v1_types_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *Coordinates) GetLatitude() float64 {
@@ -331,7 +464,7 @@ type Location struct {
 
 func (x *Location) Reset() {
 	*x = Location{}
-	mi := &file_amor_v1_types_proto_msgTypes[1]
+	mi := &file_amor_v1_types_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -343,7 +476,7 @@ func (x *Location) String() string {
 func (*Location) ProtoMessage() {}
 
 func (x *Location) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_types_proto_msgTypes[1]
+	mi := &file_amor_v1_types_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -356,7 +489,7 @@ func (x *Location) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Location.ProtoReflect.Descriptor instead.
 func (*Location) Descriptor() ([]byte, []int) {
-	return file_amor_v1_types_proto_rawDescGZIP(), []int{1}
+	return file_amor_v1_types_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *Location) GetBarangay() string {
@@ -410,7 +543,7 @@ type Room struct {
 
 func (x *Room) Reset() {
 	*x = Room{}
-	mi := &file_amor_v1_types_proto_msgTypes[2]
+	mi := &file_amor_v1_types_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -422,7 +555,7 @@ func (x *Room) String() string {
 func (*Room) ProtoMessage() {}
 
 func (x *Room) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_types_proto_msgTypes[2]
+	mi := &file_amor_v1_types_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -435,7 +568,7 @@ func (x *Room) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Room.ProtoReflect.Descriptor instead.
 func (*Room) Descriptor() ([]byte, []int) {
-	return file_amor_v1_types_proto_rawDescGZIP(), []int{2}
+	return file_amor_v1_types_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *Room) GetId() string {
@@ -514,7 +647,7 @@ type User struct {
 
 func (x *User) Reset() {
 	*x = User{}
-	mi := &file_amor_v1_types_proto_msgTypes[3]
+	mi := &file_amor_v1_types_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -526,7 +659,7 @@ func (x *User) String() string {
 func (*User) ProtoMessage() {}
 
 func (x *User) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_types_proto_msgTypes[3]
+	mi := &file_amor_v1_types_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -539,7 +672,7 @@ func (x *User) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use User.ProtoReflect.Descriptor instead.
 func (*User) Descriptor() ([]byte, []int) {
-	return file_amor_v1_types_proto_rawDescGZIP(), []int{3}
+	return file_amor_v1_types_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *User) GetId() string {
@@ -644,7 +777,7 @@ type Accommodation struct {
 
 func (x *Accommodation) Reset() {
 	*x = Accommodation{}
-	mi := &file_amor_v1_types_proto_msgTypes[4]
+	mi := &file_amor_v1_types_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -656,7 +789,7 @@ func (x *Accommodation) String() string {
 func (*Accommodation) ProtoMessage() {}
 
 func (x *Accommodation) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_types_proto_msgTypes[4]
+	mi := &file_amor_v1_types_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -669,7 +802,7 @@ func (x *Accommodation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Accommodation.ProtoReflect.Descriptor instead.
 func (*Accommodation) Descriptor() ([]byte, []int) {
-	return file_amor_v1_types_proto_rawDescGZIP(), []int{4}
+	return file_amor_v1_types_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *Accommodation) GetId() string {
@@ -754,7 +887,7 @@ type Room_Prices struct {
 
 func (x *Room_Prices) Reset() {
 	*x = Room_Prices{}
-	mi := &file_amor_v1_types_proto_msgTypes[5]
+	mi := &file_amor_v1_types_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -766,7 +899,7 @@ func (x *Room_Prices) String() string {
 func (*Room_Prices) ProtoMessage() {}
 
 func (x *Room_Prices) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_types_proto_msgTypes[5]
+	mi := &file_amor_v1_types_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -779,7 +912,7 @@ func (x *Room_Prices) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Room_Prices.ProtoReflect.Descriptor instead.
 func (*Room_Prices) Descriptor() ([]byte, []int) {
-	return file_amor_v1_types_proto_rawDescGZIP(), []int{2, 0}
+	return file_amor_v1_types_proto_rawDescGZIP(), []int{3, 0}
 }
 
 func (x *Room_Prices) GetDaily() float64 {
@@ -814,7 +947,20 @@ var File_amor_v1_types_proto protoreflect.FileDescriptor
 
 const file_amor_v1_types_proto_rawDesc = "" +
 	"\n" +
-	"\x13amor/v1/types.proto\x12\x0faccumora_rpc.v1\"l\n" +
+	"\x13amor/v1/types.proto\x12\x0faccumora_rpc.v1\"\xee\x01\n" +
+	"\aAmenity\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x128\n" +
+	"\x04type\x18\x03 \x01(\x0e2$.accumora_rpc.v1.Amenity.AmenityTypeR\x04type\x12\x14\n" +
+	"\x05owner\x18\x04 \x01(\tR\x05owner\x12\x12\n" +
+	"\x04icon\x18\x05 \x01(\tR\x04icon\x12\x1d\n" +
+	"\n" +
+	"icon_color\x18\x06 \x01(\tR\ticonColor\"<\n" +
+	"\vAmenityType\x12\x13\n" +
+	"\x0funknown_amenity\x10\x00\x12\f\n" +
+	"\bbuilt_in\x10\x01\x12\n" +
+	"\n" +
+	"\x06custom\x10\x02\"l\n" +
 	"\vCoordinates\x12\x1f\n" +
 	"\blatitude\x18\x01 \x01(\x01H\x00R\blatitude\x88\x01\x01\x12!\n" +
 	"\tlongitude\x18\x02 \x01(\x01H\x01R\tlongitude\x88\x01\x01B\v\n" +
@@ -932,36 +1078,39 @@ func file_amor_v1_types_proto_rawDescGZIP() []byte {
 	return file_amor_v1_types_proto_rawDescData
 }
 
-var file_amor_v1_types_proto_enumTypes = make([]protoimpl.EnumInfo, 5)
-var file_amor_v1_types_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
+var file_amor_v1_types_proto_enumTypes = make([]protoimpl.EnumInfo, 6)
+var file_amor_v1_types_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
 var file_amor_v1_types_proto_goTypes = []any{
-	(User_AccountType)(0),                // 0: accumora_rpc.v1.User.AccountType
-	(User_Gender)(0),                     // 1: accumora_rpc.v1.User.Gender
-	(User_Role)(0),                       // 2: accumora_rpc.v1.User.Role
-	(Accommodation_AccommodationType)(0), // 3: accumora_rpc.v1.Accommodation.AccommodationType
-	(Accommodation_Status)(0),            // 4: accumora_rpc.v1.Accommodation.Status
-	(*Coordinates)(nil),                  // 5: accumora_rpc.v1.Coordinates
-	(*Location)(nil),                     // 6: accumora_rpc.v1.Location
-	(*Room)(nil),                         // 7: accumora_rpc.v1.Room
-	(*User)(nil),                         // 8: accumora_rpc.v1.User
-	(*Accommodation)(nil),                // 9: accumora_rpc.v1.Accommodation
-	(*Room_Prices)(nil),                  // 10: accumora_rpc.v1.Room.Prices
+	(Amenity_AmenityType)(0),             // 0: accumora_rpc.v1.Amenity.AmenityType
+	(User_AccountType)(0),                // 1: accumora_rpc.v1.User.AccountType
+	(User_Gender)(0),                     // 2: accumora_rpc.v1.User.Gender
+	(User_Role)(0),                       // 3: accumora_rpc.v1.User.Role
+	(Accommodation_AccommodationType)(0), // 4: accumora_rpc.v1.Accommodation.AccommodationType
+	(Accommodation_Status)(0),            // 5: accumora_rpc.v1.Accommodation.Status
+	(*Amenity)(nil),                      // 6: accumora_rpc.v1.Amenity
+	(*Coordinates)(nil),                  // 7: accumora_rpc.v1.Coordinates
+	(*Location)(nil),                     // 8: accumora_rpc.v1.Location
+	(*Room)(nil),                         // 9: accumora_rpc.v1.Room
+	(*User)(nil),                         // 10: accumora_rpc.v1.User
+	(*Accommodation)(nil),                // 11: accumora_rpc.v1.Accommodation
+	(*Room_Prices)(nil),                  // 12: accumora_rpc.v1.Room.Prices
 }
 var file_amor_v1_types_proto_depIdxs = []int32{
-	10, // 0: accumora_rpc.v1.Room.prices:type_name -> accumora_rpc.v1.Room.Prices
-	6,  // 1: accumora_rpc.v1.User.location:type_name -> accumora_rpc.v1.Location
-	0,  // 2: accumora_rpc.v1.User.account_type:type_name -> accumora_rpc.v1.User.AccountType
-	1,  // 3: accumora_rpc.v1.User.gender:type_name -> accumora_rpc.v1.User.Gender
-	2,  // 4: accumora_rpc.v1.User.role:type_name -> accumora_rpc.v1.User.Role
-	6,  // 5: accumora_rpc.v1.Accommodation.location:type_name -> accumora_rpc.v1.Location
-	3,  // 6: accumora_rpc.v1.Accommodation.type:type_name -> accumora_rpc.v1.Accommodation.AccommodationType
-	5,  // 7: accumora_rpc.v1.Accommodation.coordinates:type_name -> accumora_rpc.v1.Coordinates
-	4,  // 8: accumora_rpc.v1.Accommodation.status:type_name -> accumora_rpc.v1.Accommodation.Status
-	9,  // [9:9] is the sub-list for method output_type
-	9,  // [9:9] is the sub-list for method input_type
-	9,  // [9:9] is the sub-list for extension type_name
-	9,  // [9:9] is the sub-list for extension extendee
-	0,  // [0:9] is the sub-list for field type_name
+	0,  // 0: accumora_rpc.v1.Amenity.type:type_name -> accumora_rpc.v1.Amenity.AmenityType
+	12, // 1: accumora_rpc.v1.Room.prices:type_name -> accumora_rpc.v1.Room.Prices
+	8,  // 2: accumora_rpc.v1.User.location:type_name -> accumora_rpc.v1.Location
+	1,  // 3: accumora_rpc.v1.User.account_type:type_name -> accumora_rpc.v1.User.AccountType
+	2,  // 4: accumora_rpc.v1.User.gender:type_name -> accumora_rpc.v1.User.Gender
+	3,  // 5: accumora_rpc.v1.User.role:type_name -> accumora_rpc.v1.User.Role
+	8,  // 6: accumora_rpc.v1.Accommodation.location:type_name -> accumora_rpc.v1.Location
+	4,  // 7: accumora_rpc.v1.Accommodation.type:type_name -> accumora_rpc.v1.Accommodation.AccommodationType
+	7,  // 8: accumora_rpc.v1.Accommodation.coordinates:type_name -> accumora_rpc.v1.Coordinates
+	5,  // 9: accumora_rpc.v1.Accommodation.status:type_name -> accumora_rpc.v1.Accommodation.Status
+	10, // [10:10] is the sub-list for method output_type
+	10, // [10:10] is the sub-list for method input_type
+	10, // [10:10] is the sub-list for extension type_name
+	10, // [10:10] is the sub-list for extension extendee
+	0,  // [0:10] is the sub-list for field type_name
 }
 
 func init() { file_amor_v1_types_proto_init() }
@@ -969,19 +1118,19 @@ func file_amor_v1_types_proto_init() {
 	if File_amor_v1_types_proto != nil {
 		return
 	}
-	file_amor_v1_types_proto_msgTypes[0].OneofWrappers = []any{}
 	file_amor_v1_types_proto_msgTypes[1].OneofWrappers = []any{}
 	file_amor_v1_types_proto_msgTypes[2].OneofWrappers = []any{}
 	file_amor_v1_types_proto_msgTypes[3].OneofWrappers = []any{}
 	file_amor_v1_types_proto_msgTypes[4].OneofWrappers = []any{}
 	file_amor_v1_types_proto_msgTypes[5].OneofWrappers = []any{}
+	file_amor_v1_types_proto_msgTypes[6].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_amor_v1_types_proto_rawDesc), len(file_amor_v1_types_proto_rawDesc)),
-			NumEnums:      5,
-			NumMessages:   6,
+			NumEnums:      6,
+			NumMessages:   7,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
