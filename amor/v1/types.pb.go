@@ -174,6 +174,7 @@ const (
 	User_unknown_role User_Role = 0
 	User_tenant       User_Role = 1
 	User_landlord     User_Role = 2
+	User_admin        User_Role = 3
 )
 
 // Enum value maps for User_Role.
@@ -182,11 +183,13 @@ var (
 		0: "unknown_role",
 		1: "tenant",
 		2: "landlord",
+		3: "admin",
 	}
 	User_Role_value = map[string]int32{
 		"unknown_role": 0,
 		"tenant":       1,
 		"landlord":     2,
+		"admin":        3,
 	}
 )
 
@@ -1000,7 +1003,7 @@ const file_amor_v1_types_proto_rawDesc = "" +
 	"\f_descriptionB\v\n" +
 	"\t_capacityB\f\n" +
 	"\n" +
-	"_photo_url\"\xd0\x05\n" +
+	"_photo_url\"\xdb\x05\n" +
 	"\x04User\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1d\n" +
 	"\n" +
@@ -1027,12 +1030,13 @@ const file_amor_v1_types_proto_rawDesc = "" +
 	"\x0eunknown_gender\x10\x00\x12\b\n" +
 	"\x04male\x10\x01\x12\n" +
 	"\n" +
-	"\x06female\x10\x02\"2\n" +
+	"\x06female\x10\x02\"=\n" +
 	"\x04Role\x12\x10\n" +
 	"\funknown_role\x10\x00\x12\n" +
 	"\n" +
 	"\x06tenant\x10\x01\x12\f\n" +
-	"\blandlord\x10\x02B\f\n" +
+	"\blandlord\x10\x02\x12\t\n" +
+	"\x05admin\x10\x03B\f\n" +
 	"\n" +
 	"_last_nameB\b\n" +
 	"\x06_phoneB\v\n" +
