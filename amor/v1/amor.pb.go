@@ -1159,6 +1159,7 @@ func (x *RegisterUserRequest) GetGender() User_Gender {
 
 type RegisterUserResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	AccessToken   string                 `protobuf:"bytes,1,opt,name=access_token,json=accessToken,proto3" json:"access_token,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1191,6 +1192,13 @@ func (x *RegisterUserResponse) ProtoReflect() protoreflect.Message {
 // Deprecated: Use RegisterUserResponse.ProtoReflect.Descriptor instead.
 func (*RegisterUserResponse) Descriptor() ([]byte, []int) {
 	return file_amor_v1_amor_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *RegisterUserResponse) GetAccessToken() string {
+	if x != nil {
+		return x.AccessToken
+	}
+	return ""
 }
 
 type LoginUserRequest struct {
@@ -1277,7 +1285,7 @@ func (*LoginUserRequest_Auth0Token) isLoginUserRequest_Input() {}
 
 type LoginUserResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	AccessToken   string                 `protobuf:"bytes,1,opt,name=accessToken,proto3" json:"accessToken,omitempty"`
+	AccessToken   string                 `protobuf:"bytes,1,opt,name=access_token,json=accessToken,proto3" json:"access_token,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1643,8 +1651,9 @@ const file_amor_v1_amor_proto_rawDesc = "" +
 	"_last_nameB\b\n" +
 	"\x06_phoneB\v\n" +
 	"\t_locationB\v\n" +
-	"\t_birthday\"\x16\n" +
-	"\x14RegisterUserResponse\"\xbd\x01\n" +
+	"\t_birthday\"9\n" +
+	"\x14RegisterUserResponse\x12!\n" +
+	"\faccess_token\x18\x01 \x01(\tR\vaccessToken\"\xbd\x01\n" +
 	"\x10LoginUserRequest\x12B\n" +
 	"\x06manual\x18\x01 \x01(\v2(.accumora_rpc.v1.LoginUserRequest.ManualH\x00R\x06manual\x12 \n" +
 	"\n" +
@@ -1653,9 +1662,9 @@ const file_amor_v1_amor_proto_rawDesc = "" +
 	"\x06Manual\x12\x14\n" +
 	"\x05email\x18\x01 \x01(\tR\x05email\x12\x1a\n" +
 	"\bpassword\x18\x02 \x01(\tR\bpasswordB\a\n" +
-	"\x05input\"5\n" +
-	"\x11LoginUserResponse\x12 \n" +
-	"\vaccessToken\x18\x01 \x01(\tR\vaccessToken\"\xca\x02\n" +
+	"\x05input\"6\n" +
+	"\x11LoginUserResponse\x12!\n" +
+	"\faccess_token\x18\x01 \x01(\tR\vaccessToken\"\xca\x02\n" +
 	"\x17AddAccommodationRequest\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12D\n" +
 	"\x04type\x18\x02 \x01(\x0e20.accumora_rpc.v1.Accommodation.AccommodationTypeR\x04type\x12\x1c\n" +
