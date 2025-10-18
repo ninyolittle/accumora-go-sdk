@@ -631,21 +631,22 @@ func (x *Room) GetPhotoUrl() string {
 }
 
 type User struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	FirstName     string                 `protobuf:"bytes,2,opt,name=first_name,json=firstName,proto3" json:"first_name,omitempty"`
-	LastName      *string                `protobuf:"bytes,3,opt,name=last_name,json=lastName,proto3,oneof" json:"last_name,omitempty"`
-	Phone         *string                `protobuf:"bytes,4,opt,name=phone,proto3,oneof" json:"phone,omitempty"`
-	EmailAddress  string                 `protobuf:"bytes,5,opt,name=email_address,json=emailAddress,proto3" json:"email_address,omitempty"`
-	Location      *Location              `protobuf:"bytes,6,opt,name=location,proto3,oneof" json:"location,omitempty"`
-	Password      *string                `protobuf:"bytes,7,opt,name=password,proto3,oneof" json:"password,omitempty"`
-	AccountType   User_AccountType       `protobuf:"varint,8,opt,name=account_type,json=accountType,proto3,enum=accumora_rpc.v1.User_AccountType" json:"account_type,omitempty"`
-	Birthday      *string                `protobuf:"bytes,9,opt,name=birthday,proto3,oneof" json:"birthday,omitempty"`
-	Gender        User_Gender            `protobuf:"varint,10,opt,name=gender,proto3,enum=accumora_rpc.v1.User_Gender" json:"gender,omitempty"`
-	CreatedAt     *string                `protobuf:"bytes,11,opt,name=created_at,json=createdAt,proto3,oneof" json:"created_at,omitempty"`
-	Role          User_Role              `protobuf:"varint,12,opt,name=role,proto3,enum=accumora_rpc.v1.User_Role" json:"role,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	Id              string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	FirstName       string                 `protobuf:"bytes,2,opt,name=first_name,json=firstName,proto3" json:"first_name,omitempty"`
+	LastName        *string                `protobuf:"bytes,3,opt,name=last_name,json=lastName,proto3,oneof" json:"last_name,omitempty"`
+	Phone           *string                `protobuf:"bytes,4,opt,name=phone,proto3,oneof" json:"phone,omitempty"`
+	EmailAddress    string                 `protobuf:"bytes,5,opt,name=email_address,json=emailAddress,proto3" json:"email_address,omitempty"`
+	Location        *Location              `protobuf:"bytes,6,opt,name=location,proto3,oneof" json:"location,omitempty"`
+	Password        *string                `protobuf:"bytes,7,opt,name=password,proto3,oneof" json:"password,omitempty"`
+	AccountType     User_AccountType       `protobuf:"varint,8,opt,name=account_type,json=accountType,proto3,enum=accumora_rpc.v1.User_AccountType" json:"account_type,omitempty"`
+	Birthday        *string                `protobuf:"bytes,9,opt,name=birthday,proto3,oneof" json:"birthday,omitempty"`
+	Gender          User_Gender            `protobuf:"varint,10,opt,name=gender,proto3,enum=accumora_rpc.v1.User_Gender" json:"gender,omitempty"`
+	CreatedAt       *string                `protobuf:"bytes,11,opt,name=created_at,json=createdAt,proto3,oneof" json:"created_at,omitempty"`
+	Role            User_Role              `protobuf:"varint,12,opt,name=role,proto3,enum=accumora_rpc.v1.User_Role" json:"role,omitempty"`
+	IsEmailVerified bool                   `protobuf:"varint,13,opt,name=is_email_verified,json=isEmailVerified,proto3" json:"is_email_verified,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
 }
 
 func (x *User) Reset() {
@@ -760,6 +761,13 @@ func (x *User) GetRole() User_Role {
 		return x.Role
 	}
 	return User_unknown_role
+}
+
+func (x *User) GetIsEmailVerified() bool {
+	if x != nil {
+		return x.IsEmailVerified
+	}
+	return false
 }
 
 type Accommodation struct {
@@ -1003,7 +1011,7 @@ const file_amor_v1_types_proto_rawDesc = "" +
 	"\f_descriptionB\v\n" +
 	"\t_capacityB\f\n" +
 	"\n" +
-	"_photo_url\"\xdb\x05\n" +
+	"_photo_url\"\x87\x06\n" +
 	"\x04User\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1d\n" +
 	"\n" +
@@ -1019,7 +1027,8 @@ const file_amor_v1_types_proto_rawDesc = "" +
 	" \x01(\x0e2\x1c.accumora_rpc.v1.User.GenderR\x06gender\x12\"\n" +
 	"\n" +
 	"created_at\x18\v \x01(\tH\x05R\tcreatedAt\x88\x01\x01\x12.\n" +
-	"\x04role\x18\f \x01(\x0e2\x1a.accumora_rpc.v1.User.RoleR\x04role\"3\n" +
+	"\x04role\x18\f \x01(\x0e2\x1a.accumora_rpc.v1.User.RoleR\x04role\x12*\n" +
+	"\x11is_email_verified\x18\r \x01(\bR\x0fisEmailVerified\"3\n" +
 	"\vAccountType\x12\n" +
 	"\n" +
 	"\x06manual\x10\x00\x12\n" +
