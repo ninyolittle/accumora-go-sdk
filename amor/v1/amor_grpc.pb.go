@@ -11,7 +11,6 @@ import (
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
 )
 
 // This is a compile-time assertion to ensure that this generated file
@@ -54,8 +53,8 @@ type ProjectAmorClient interface {
 	GetUser(ctx context.Context, in *GetUserRequest, opts ...grpc.CallOption) (*User, error)
 	SetAsLandLord(ctx context.Context, in *SetAsLandLordRequest, opts ...grpc.CallOption) (*User, error)
 	AddAmenities(ctx context.Context, in *AddAmenitiesRequest, opts ...grpc.CallOption) (*AddAmenitiesResponse, error)
-	SendVerificationEmail(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	ConfirmEmailAddress(ctx context.Context, in *ConfirmEmailAddressRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	SendVerificationEmail(ctx context.Context, in *SendVerificationEmailRequest, opts ...grpc.CallOption) (*SendVerificationEmailResponse, error)
+	ConfirmEmailAddress(ctx context.Context, in *ConfirmEmailAddressRequest, opts ...grpc.CallOption) (*ConfirmEmailAddressResponse, error)
 }
 
 type projectAmorClient struct {
@@ -196,9 +195,9 @@ func (c *projectAmorClient) AddAmenities(ctx context.Context, in *AddAmenitiesRe
 	return out, nil
 }
 
-func (c *projectAmorClient) SendVerificationEmail(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *projectAmorClient) SendVerificationEmail(ctx context.Context, in *SendVerificationEmailRequest, opts ...grpc.CallOption) (*SendVerificationEmailResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(emptypb.Empty)
+	out := new(SendVerificationEmailResponse)
 	err := c.cc.Invoke(ctx, ProjectAmor_SendVerificationEmail_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -206,9 +205,9 @@ func (c *projectAmorClient) SendVerificationEmail(ctx context.Context, in *empty
 	return out, nil
 }
 
-func (c *projectAmorClient) ConfirmEmailAddress(ctx context.Context, in *ConfirmEmailAddressRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *projectAmorClient) ConfirmEmailAddress(ctx context.Context, in *ConfirmEmailAddressRequest, opts ...grpc.CallOption) (*ConfirmEmailAddressResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(emptypb.Empty)
+	out := new(ConfirmEmailAddressResponse)
 	err := c.cc.Invoke(ctx, ProjectAmor_ConfirmEmailAddress_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -233,8 +232,8 @@ type ProjectAmorServer interface {
 	GetUser(context.Context, *GetUserRequest) (*User, error)
 	SetAsLandLord(context.Context, *SetAsLandLordRequest) (*User, error)
 	AddAmenities(context.Context, *AddAmenitiesRequest) (*AddAmenitiesResponse, error)
-	SendVerificationEmail(context.Context, *emptypb.Empty) (*emptypb.Empty, error)
-	ConfirmEmailAddress(context.Context, *ConfirmEmailAddressRequest) (*emptypb.Empty, error)
+	SendVerificationEmail(context.Context, *SendVerificationEmailRequest) (*SendVerificationEmailResponse, error)
+	ConfirmEmailAddress(context.Context, *ConfirmEmailAddressRequest) (*ConfirmEmailAddressResponse, error)
 	mustEmbedUnimplementedProjectAmorServer()
 }
 
@@ -284,10 +283,10 @@ func (UnimplementedProjectAmorServer) SetAsLandLord(context.Context, *SetAsLandL
 func (UnimplementedProjectAmorServer) AddAmenities(context.Context, *AddAmenitiesRequest) (*AddAmenitiesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AddAmenities not implemented")
 }
-func (UnimplementedProjectAmorServer) SendVerificationEmail(context.Context, *emptypb.Empty) (*emptypb.Empty, error) {
+func (UnimplementedProjectAmorServer) SendVerificationEmail(context.Context, *SendVerificationEmailRequest) (*SendVerificationEmailResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SendVerificationEmail not implemented")
 }
-func (UnimplementedProjectAmorServer) ConfirmEmailAddress(context.Context, *ConfirmEmailAddressRequest) (*emptypb.Empty, error) {
+func (UnimplementedProjectAmorServer) ConfirmEmailAddress(context.Context, *ConfirmEmailAddressRequest) (*ConfirmEmailAddressResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ConfirmEmailAddress not implemented")
 }
 func (UnimplementedProjectAmorServer) mustEmbedUnimplementedProjectAmorServer() {}
@@ -546,7 +545,7 @@ func _ProjectAmor_AddAmenities_Handler(srv interface{}, ctx context.Context, dec
 }
 
 func _ProjectAmor_SendVerificationEmail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(emptypb.Empty)
+	in := new(SendVerificationEmailRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -558,7 +557,7 @@ func _ProjectAmor_SendVerificationEmail_Handler(srv interface{}, ctx context.Con
 		FullMethod: ProjectAmor_SendVerificationEmail_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProjectAmorServer).SendVerificationEmail(ctx, req.(*emptypb.Empty))
+		return srv.(ProjectAmorServer).SendVerificationEmail(ctx, req.(*SendVerificationEmailRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
