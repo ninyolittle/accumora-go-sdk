@@ -22,6 +22,7 @@ const (
 	ProjectAmor_AddAccommodation_FullMethodName      = "/accumora_rpc.v1.ProjectAmor/AddAccommodation"
 	ProjectAmor_LoginUser_FullMethodName             = "/accumora_rpc.v1.ProjectAmor/LoginUser"
 	ProjectAmor_RegisterUser_FullMethodName          = "/accumora_rpc.v1.ProjectAmor/RegisterUser"
+	ProjectAmor_DeleteUser_FullMethodName            = "/accumora_rpc.v1.ProjectAmor/DeleteUser"
 	ProjectAmor_DeleteAccommodation_FullMethodName   = "/accumora_rpc.v1.ProjectAmor/DeleteAccommodation"
 	ProjectAmor_GetAccommodations_FullMethodName     = "/accumora_rpc.v1.ProjectAmor/GetAccommodations"
 	ProjectAmor_UpdateAccommodation_FullMethodName   = "/accumora_rpc.v1.ProjectAmor/UpdateAccommodation"
@@ -43,6 +44,7 @@ type ProjectAmorClient interface {
 	AddAccommodation(ctx context.Context, in *AddAccommodationRequest, opts ...grpc.CallOption) (*Accommodation, error)
 	LoginUser(ctx context.Context, in *LoginUserRequest, opts ...grpc.CallOption) (*LoginUserResponse, error)
 	RegisterUser(ctx context.Context, in *RegisterUserRequest, opts ...grpc.CallOption) (*RegisterUserResponse, error)
+	DeleteUser(ctx context.Context, in *DeleteUserRequest, opts ...grpc.CallOption) (*DeleteUserResponse, error)
 	DeleteAccommodation(ctx context.Context, in *DeleteAccommodationRequest, opts ...grpc.CallOption) (*DeleteAccommodationResponse, error)
 	GetAccommodations(ctx context.Context, in *GetAccommodationsRequest, opts ...grpc.CallOption) (*GetAccommodationsResponse, error)
 	UpdateAccommodation(ctx context.Context, in *UpdateAccommodationRequest, opts ...grpc.CallOption) (*Accommodation, error)
@@ -89,6 +91,16 @@ func (c *projectAmorClient) RegisterUser(ctx context.Context, in *RegisterUserRe
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(RegisterUserResponse)
 	err := c.cc.Invoke(ctx, ProjectAmor_RegisterUser_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *projectAmorClient) DeleteUser(ctx context.Context, in *DeleteUserRequest, opts ...grpc.CallOption) (*DeleteUserResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DeleteUserResponse)
+	err := c.cc.Invoke(ctx, ProjectAmor_DeleteUser_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -222,6 +234,7 @@ type ProjectAmorServer interface {
 	AddAccommodation(context.Context, *AddAccommodationRequest) (*Accommodation, error)
 	LoginUser(context.Context, *LoginUserRequest) (*LoginUserResponse, error)
 	RegisterUser(context.Context, *RegisterUserRequest) (*RegisterUserResponse, error)
+	DeleteUser(context.Context, *DeleteUserRequest) (*DeleteUserResponse, error)
 	DeleteAccommodation(context.Context, *DeleteAccommodationRequest) (*DeleteAccommodationResponse, error)
 	GetAccommodations(context.Context, *GetAccommodationsRequest) (*GetAccommodationsResponse, error)
 	UpdateAccommodation(context.Context, *UpdateAccommodationRequest) (*Accommodation, error)
@@ -252,6 +265,9 @@ func (UnimplementedProjectAmorServer) LoginUser(context.Context, *LoginUserReque
 }
 func (UnimplementedProjectAmorServer) RegisterUser(context.Context, *RegisterUserRequest) (*RegisterUserResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RegisterUser not implemented")
+}
+func (UnimplementedProjectAmorServer) DeleteUser(context.Context, *DeleteUserRequest) (*DeleteUserResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteUser not implemented")
 }
 func (UnimplementedProjectAmorServer) DeleteAccommodation(context.Context, *DeleteAccommodationRequest) (*DeleteAccommodationResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteAccommodation not implemented")
@@ -360,6 +376,24 @@ func _ProjectAmor_RegisterUser_Handler(srv interface{}, ctx context.Context, dec
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ProjectAmorServer).RegisterUser(ctx, req.(*RegisterUserRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProjectAmor_DeleteUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteUserRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProjectAmorServer).DeleteUser(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProjectAmor_DeleteUser_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProjectAmorServer).DeleteUser(ctx, req.(*DeleteUserRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -598,6 +632,10 @@ var ProjectAmor_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "RegisterUser",
 			Handler:    _ProjectAmor_RegisterUser_Handler,
+		},
+		{
+			MethodName: "DeleteUser",
+			Handler:    _ProjectAmor_DeleteUser_Handler,
 		},
 		{
 			MethodName: "DeleteAccommodation",
