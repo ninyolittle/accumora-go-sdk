@@ -1684,8 +1684,8 @@ func (*AddAccommodationRequest_Coordinates) isAddAccommodationRequest_Geo() {}
 type AddAmenitiesRequest_Input struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Icon          string                 `protobuf:"bytes,2,opt,name=icon,proto3" json:"icon,omitempty"`
-	IconColor     string                 `protobuf:"bytes,3,opt,name=iconColor,proto3" json:"iconColor,omitempty"`
+	Icon          *string                `protobuf:"bytes,2,opt,name=icon,proto3,oneof" json:"icon,omitempty"`
+	IconColor     *string                `protobuf:"bytes,3,opt,name=iconColor,proto3,oneof" json:"iconColor,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1728,15 +1728,15 @@ func (x *AddAmenitiesRequest_Input) GetName() string {
 }
 
 func (x *AddAmenitiesRequest_Input) GetIcon() string {
-	if x != nil {
-		return x.Icon
+	if x != nil && x.Icon != nil {
+		return *x.Icon
 	}
 	return ""
 }
 
 func (x *AddAmenitiesRequest_Input) GetIconColor() string {
-	if x != nil {
-		return x.IconColor
+	if x != nil && x.IconColor != nil {
+		return *x.IconColor
 	}
 	return ""
 }
@@ -1814,13 +1814,16 @@ const file_amor_v1_amor_proto_rawDesc = "" +
 	"\x11confirmation_code\x18\x01 \x01(\tR\x10confirmationCode\"\x1d\n" +
 	"\x1bConfirmEmailAddressResponse\"\x1e\n" +
 	"\x1cSendVerificationEmailRequest\"\x1f\n" +
-	"\x1dSendVerificationEmailResponse\"\xae\x01\n" +
+	"\x1dSendVerificationEmailResponse\"\xcf\x01\n" +
 	"\x13AddAmenitiesRequest\x12H\n" +
-	"\tamenities\x18\x01 \x03(\v2*.accumora_rpc.v1.AddAmenitiesRequest.InputR\tamenities\x1aM\n" +
+	"\tamenities\x18\x01 \x03(\v2*.accumora_rpc.v1.AddAmenitiesRequest.InputR\tamenities\x1an\n" +
 	"\x05Input\x12\x12\n" +
-	"\x04name\x18\x01 \x01(\tR\x04name\x12\x12\n" +
-	"\x04icon\x18\x02 \x01(\tR\x04icon\x12\x1c\n" +
-	"\ticonColor\x18\x03 \x01(\tR\ticonColor\"N\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\x12\x17\n" +
+	"\x04icon\x18\x02 \x01(\tH\x00R\x04icon\x88\x01\x01\x12!\n" +
+	"\ticonColor\x18\x03 \x01(\tH\x01R\ticonColor\x88\x01\x01B\a\n" +
+	"\x05_iconB\f\n" +
+	"\n" +
+	"_iconColor\"N\n" +
 	"\x14AddAmenitiesResponse\x126\n" +
 	"\tamenities\x18\x01 \x03(\v2\x18.accumora_rpc.v1.AmenityR\tamenities\"\x16\n" +
 	"\x14SetAsLandLordRequest\"\xbe\x02\n" +
@@ -2087,6 +2090,7 @@ func file_amor_v1_amor_proto_init() {
 		(*AddAccommodationRequest_Location)(nil),
 		(*AddAccommodationRequest_Coordinates)(nil),
 	}
+	file_amor_v1_amor_proto_msgTypes[32].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
