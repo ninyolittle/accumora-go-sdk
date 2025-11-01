@@ -776,7 +776,6 @@ type Accommodation struct {
 	Name          string                          `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	Location      *Location                       `protobuf:"bytes,3,opt,name=location,proto3,oneof" json:"location,omitempty"`
 	Description   *string                         `protobuf:"bytes,4,opt,name=description,proto3,oneof" json:"description,omitempty"`
-	Utilities     []string                        `protobuf:"bytes,5,rep,name=utilities,proto3" json:"utilities,omitempty"`
 	Type          Accommodation_AccommodationType `protobuf:"varint,6,opt,name=type,proto3,enum=accumora_rpc.v1.Accommodation_AccommodationType" json:"type,omitempty"`
 	Coordinates   *Coordinates                    `protobuf:"bytes,7,opt,name=coordinates,proto3,oneof" json:"coordinates,omitempty"`
 	Owner         string                          `protobuf:"bytes,9,opt,name=owner,proto3" json:"owner,omitempty"`
@@ -842,13 +841,6 @@ func (x *Accommodation) GetDescription() string {
 		return *x.Description
 	}
 	return ""
-}
-
-func (x *Accommodation) GetUtilities() []string {
-	if x != nil {
-		return x.Utilities
-	}
-	return nil
 }
 
 func (x *Accommodation) GetType() Accommodation_AccommodationType {
@@ -1054,13 +1046,12 @@ const file_amor_v1_types_proto_rawDesc = "" +
 	"\t_locationB\v\n" +
 	"\t_passwordB\v\n" +
 	"\t_birthdayB\r\n" +
-	"\v_created_at\"\xe2\x04\n" +
+	"\v_created_at\"\xc4\x04\n" +
 	"\rAccommodation\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12:\n" +
 	"\blocation\x18\x03 \x01(\v2\x19.accumora_rpc.v1.LocationH\x00R\blocation\x88\x01\x01\x12%\n" +
-	"\vdescription\x18\x04 \x01(\tH\x01R\vdescription\x88\x01\x01\x12\x1c\n" +
-	"\tutilities\x18\x05 \x03(\tR\tutilities\x12D\n" +
+	"\vdescription\x18\x04 \x01(\tH\x01R\vdescription\x88\x01\x01\x12D\n" +
 	"\x04type\x18\x06 \x01(\x0e20.accumora_rpc.v1.Accommodation.AccommodationTypeR\x04type\x12C\n" +
 	"\vcoordinates\x18\a \x01(\v2\x1c.accumora_rpc.v1.CoordinatesH\x02R\vcoordinates\x88\x01\x01\x12\x14\n" +
 	"\x05owner\x18\t \x01(\tR\x05owner\x12\x1d\n" +
