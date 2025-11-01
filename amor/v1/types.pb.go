@@ -324,8 +324,8 @@ type Amenity struct {
 	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	Type          Amenity_AmenityType    `protobuf:"varint,3,opt,name=type,proto3,enum=accumora_rpc.v1.Amenity_AmenityType" json:"type,omitempty"`
 	Owner         string                 `protobuf:"bytes,4,opt,name=owner,proto3" json:"owner,omitempty"`
-	Icon          string                 `protobuf:"bytes,5,opt,name=icon,proto3" json:"icon,omitempty"`
-	IconColor     string                 `protobuf:"bytes,6,opt,name=icon_color,json=iconColor,proto3" json:"icon_color,omitempty"`
+	Icon          *string                `protobuf:"bytes,5,opt,name=icon,proto3,oneof" json:"icon,omitempty"`
+	IconColor     *string                `protobuf:"bytes,6,opt,name=icon_color,json=iconColor,proto3,oneof" json:"icon_color,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -389,15 +389,15 @@ func (x *Amenity) GetOwner() string {
 }
 
 func (x *Amenity) GetIcon() string {
-	if x != nil {
-		return x.Icon
+	if x != nil && x.Icon != nil {
+		return *x.Icon
 	}
 	return ""
 }
 
 func (x *Amenity) GetIconColor() string {
-	if x != nil {
-		return x.IconColor
+	if x != nil && x.IconColor != nil {
+		return *x.IconColor
 	}
 	return ""
 }
@@ -958,20 +958,22 @@ var File_amor_v1_types_proto protoreflect.FileDescriptor
 
 const file_amor_v1_types_proto_rawDesc = "" +
 	"\n" +
-	"\x13amor/v1/types.proto\x12\x0faccumora_rpc.v1\"\xee\x01\n" +
+	"\x13amor/v1/types.proto\x12\x0faccumora_rpc.v1\"\x90\x02\n" +
 	"\aAmenity\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x128\n" +
 	"\x04type\x18\x03 \x01(\x0e2$.accumora_rpc.v1.Amenity.AmenityTypeR\x04type\x12\x14\n" +
-	"\x05owner\x18\x04 \x01(\tR\x05owner\x12\x12\n" +
-	"\x04icon\x18\x05 \x01(\tR\x04icon\x12\x1d\n" +
+	"\x05owner\x18\x04 \x01(\tR\x05owner\x12\x17\n" +
+	"\x04icon\x18\x05 \x01(\tH\x00R\x04icon\x88\x01\x01\x12\"\n" +
 	"\n" +
-	"icon_color\x18\x06 \x01(\tR\ticonColor\"<\n" +
+	"icon_color\x18\x06 \x01(\tH\x01R\ticonColor\x88\x01\x01\"<\n" +
 	"\vAmenityType\x12\x13\n" +
 	"\x0funknown_amenity\x10\x00\x12\f\n" +
 	"\bbuilt_in\x10\x01\x12\n" +
 	"\n" +
-	"\x06custom\x10\x02\"l\n" +
+	"\x06custom\x10\x02B\a\n" +
+	"\x05_iconB\r\n" +
+	"\v_icon_color\"l\n" +
 	"\vCoordinates\x12\x1f\n" +
 	"\blatitude\x18\x01 \x01(\x01H\x00R\blatitude\x88\x01\x01\x12!\n" +
 	"\tlongitude\x18\x02 \x01(\x01H\x01R\tlongitude\x88\x01\x01B\v\n" +
@@ -1131,6 +1133,7 @@ func file_amor_v1_types_proto_init() {
 	if File_amor_v1_types_proto != nil {
 		return
 	}
+	file_amor_v1_types_proto_msgTypes[0].OneofWrappers = []any{}
 	file_amor_v1_types_proto_msgTypes[1].OneofWrappers = []any{}
 	file_amor_v1_types_proto_msgTypes[2].OneofWrappers = []any{}
 	file_amor_v1_types_proto_msgTypes[3].OneofWrappers = []any{}
