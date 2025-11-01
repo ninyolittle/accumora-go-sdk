@@ -33,6 +33,8 @@ const (
 	ProjectAmor_GetUser_FullMethodName               = "/accumora_rpc.v1.ProjectAmor/GetUser"
 	ProjectAmor_SetAsLandLord_FullMethodName         = "/accumora_rpc.v1.ProjectAmor/SetAsLandLord"
 	ProjectAmor_AddAmenities_FullMethodName          = "/accumora_rpc.v1.ProjectAmor/AddAmenities"
+	ProjectAmor_ListAmenities_FullMethodName         = "/accumora_rpc.v1.ProjectAmor/ListAmenities"
+	ProjectAmor_DeleteAmenities_FullMethodName       = "/accumora_rpc.v1.ProjectAmor/DeleteAmenities"
 	ProjectAmor_SendVerificationEmail_FullMethodName = "/accumora_rpc.v1.ProjectAmor/SendVerificationEmail"
 	ProjectAmor_ConfirmEmailAddress_FullMethodName   = "/accumora_rpc.v1.ProjectAmor/ConfirmEmailAddress"
 )
@@ -55,6 +57,8 @@ type ProjectAmorClient interface {
 	GetUser(ctx context.Context, in *GetUserRequest, opts ...grpc.CallOption) (*User, error)
 	SetAsLandLord(ctx context.Context, in *SetAsLandLordRequest, opts ...grpc.CallOption) (*User, error)
 	AddAmenities(ctx context.Context, in *AddAmenitiesRequest, opts ...grpc.CallOption) (*AddAmenitiesResponse, error)
+	ListAmenities(ctx context.Context, in *ListAmenitiesRequest, opts ...grpc.CallOption) (*ListAmenitiesResponse, error)
+	DeleteAmenities(ctx context.Context, in *DeleteAmenitiesRequest, opts ...grpc.CallOption) (*DeleteAmenitiesResponse, error)
 	SendVerificationEmail(ctx context.Context, in *SendVerificationEmailRequest, opts ...grpc.CallOption) (*SendVerificationEmailResponse, error)
 	ConfirmEmailAddress(ctx context.Context, in *ConfirmEmailAddressRequest, opts ...grpc.CallOption) (*ConfirmEmailAddressResponse, error)
 }
@@ -207,6 +211,26 @@ func (c *projectAmorClient) AddAmenities(ctx context.Context, in *AddAmenitiesRe
 	return out, nil
 }
 
+func (c *projectAmorClient) ListAmenities(ctx context.Context, in *ListAmenitiesRequest, opts ...grpc.CallOption) (*ListAmenitiesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ListAmenitiesResponse)
+	err := c.cc.Invoke(ctx, ProjectAmor_ListAmenities_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *projectAmorClient) DeleteAmenities(ctx context.Context, in *DeleteAmenitiesRequest, opts ...grpc.CallOption) (*DeleteAmenitiesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DeleteAmenitiesResponse)
+	err := c.cc.Invoke(ctx, ProjectAmor_DeleteAmenities_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *projectAmorClient) SendVerificationEmail(ctx context.Context, in *SendVerificationEmailRequest, opts ...grpc.CallOption) (*SendVerificationEmailResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SendVerificationEmailResponse)
@@ -245,6 +269,8 @@ type ProjectAmorServer interface {
 	GetUser(context.Context, *GetUserRequest) (*User, error)
 	SetAsLandLord(context.Context, *SetAsLandLordRequest) (*User, error)
 	AddAmenities(context.Context, *AddAmenitiesRequest) (*AddAmenitiesResponse, error)
+	ListAmenities(context.Context, *ListAmenitiesRequest) (*ListAmenitiesResponse, error)
+	DeleteAmenities(context.Context, *DeleteAmenitiesRequest) (*DeleteAmenitiesResponse, error)
 	SendVerificationEmail(context.Context, *SendVerificationEmailRequest) (*SendVerificationEmailResponse, error)
 	ConfirmEmailAddress(context.Context, *ConfirmEmailAddressRequest) (*ConfirmEmailAddressResponse, error)
 	mustEmbedUnimplementedProjectAmorServer()
@@ -298,6 +324,12 @@ func (UnimplementedProjectAmorServer) SetAsLandLord(context.Context, *SetAsLandL
 }
 func (UnimplementedProjectAmorServer) AddAmenities(context.Context, *AddAmenitiesRequest) (*AddAmenitiesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AddAmenities not implemented")
+}
+func (UnimplementedProjectAmorServer) ListAmenities(context.Context, *ListAmenitiesRequest) (*ListAmenitiesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListAmenities not implemented")
+}
+func (UnimplementedProjectAmorServer) DeleteAmenities(context.Context, *DeleteAmenitiesRequest) (*DeleteAmenitiesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteAmenities not implemented")
 }
 func (UnimplementedProjectAmorServer) SendVerificationEmail(context.Context, *SendVerificationEmailRequest) (*SendVerificationEmailResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SendVerificationEmail not implemented")
@@ -578,6 +610,42 @@ func _ProjectAmor_AddAmenities_Handler(srv interface{}, ctx context.Context, dec
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ProjectAmor_ListAmenities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListAmenitiesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProjectAmorServer).ListAmenities(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProjectAmor_ListAmenities_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProjectAmorServer).ListAmenities(ctx, req.(*ListAmenitiesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProjectAmor_DeleteAmenities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteAmenitiesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProjectAmorServer).DeleteAmenities(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProjectAmor_DeleteAmenities_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProjectAmorServer).DeleteAmenities(ctx, req.(*DeleteAmenitiesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _ProjectAmor_SendVerificationEmail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SendVerificationEmailRequest)
 	if err := dec(in); err != nil {
@@ -676,6 +744,14 @@ var ProjectAmor_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "AddAmenities",
 			Handler:    _ProjectAmor_AddAmenities_Handler,
+		},
+		{
+			MethodName: "ListAmenities",
+			Handler:    _ProjectAmor_ListAmenities_Handler,
+		},
+		{
+			MethodName: "DeleteAmenities",
+			Handler:    _ProjectAmor_DeleteAmenities_Handler,
 		},
 		{
 			MethodName: "SendVerificationEmail",
