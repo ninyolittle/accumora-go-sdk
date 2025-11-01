@@ -1571,13 +1571,14 @@ type AddAccommodationRequest struct {
 	state       protoimpl.MessageState          `protogen:"open.v1"`
 	Name        string                          `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	Type        Accommodation_AccommodationType `protobuf:"varint,2,opt,name=type,proto3,enum=accumora_rpc.v1.Accommodation_AccommodationType" json:"type,omitempty"`
-	Utilities   []string                        `protobuf:"bytes,4,rep,name=utilities,proto3" json:"utilities,omitempty"`
+	Amenities   []string                        `protobuf:"bytes,4,rep,name=amenities,proto3" json:"amenities,omitempty"`
 	Description *string                         `protobuf:"bytes,5,opt,name=description,proto3,oneof" json:"description,omitempty"`
 	// Types that are valid to be assigned to Geo:
 	//
 	//	*AddAccommodationRequest_Location
 	//	*AddAccommodationRequest_Coordinates
 	Geo           isAddAccommodationRequest_Geo `protobuf_oneof:"geo"`
+	Rules         []string                      `protobuf:"bytes,9,rep,name=rules,proto3" json:"rules,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1626,9 +1627,9 @@ func (x *AddAccommodationRequest) GetType() Accommodation_AccommodationType {
 	return Accommodation_unknown_type
 }
 
-func (x *AddAccommodationRequest) GetUtilities() []string {
+func (x *AddAccommodationRequest) GetAmenities() []string {
 	if x != nil {
-		return x.Utilities
+		return x.Amenities
 	}
 	return nil
 }
@@ -1661,6 +1662,13 @@ func (x *AddAccommodationRequest) GetCoordinates() *Coordinates {
 		if x, ok := x.Geo.(*AddAccommodationRequest_Coordinates); ok {
 			return x.Coordinates
 		}
+	}
+	return nil
+}
+
+func (x *AddAccommodationRequest) GetRules() []string {
+	if x != nil {
+		return x.Rules
 	}
 	return nil
 }
@@ -1919,14 +1927,15 @@ const file_amor_v1_amor_proto_rawDesc = "" +
 	"\bpassword\x18\x02 \x01(\tR\bpasswordB\a\n" +
 	"\x05input\"6\n" +
 	"\x11LoginUserResponse\x12!\n" +
-	"\faccess_token\x18\x01 \x01(\tR\vaccessToken\"\xca\x02\n" +
+	"\faccess_token\x18\x01 \x01(\tR\vaccessToken\"\xe0\x02\n" +
 	"\x17AddAccommodationRequest\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12D\n" +
 	"\x04type\x18\x02 \x01(\x0e20.accumora_rpc.v1.Accommodation.AccommodationTypeR\x04type\x12\x1c\n" +
-	"\tutilities\x18\x04 \x03(\tR\tutilities\x12%\n" +
+	"\tamenities\x18\x04 \x03(\tR\tamenities\x12%\n" +
 	"\vdescription\x18\x05 \x01(\tH\x01R\vdescription\x88\x01\x01\x127\n" +
 	"\blocation\x18\x06 \x01(\v2\x19.accumora_rpc.v1.LocationH\x00R\blocation\x12@\n" +
-	"\vcoordinates\x18\a \x01(\v2\x1c.accumora_rpc.v1.CoordinatesH\x00R\vcoordinatesB\x05\n" +
+	"\vcoordinates\x18\a \x01(\v2\x1c.accumora_rpc.v1.CoordinatesH\x00R\vcoordinates\x12\x14\n" +
+	"\x05rules\x18\t \x03(\tR\x05rulesB\x05\n" +
 	"\x03geoB\x0e\n" +
 	"\f_description2\xc5\r\n" +
 	"\vProjectAmor\x12^\n" +
