@@ -778,6 +778,7 @@ type Accommodation struct {
 	Description   *string                         `protobuf:"bytes,4,opt,name=description,proto3,oneof" json:"description,omitempty"`
 	Type          Accommodation_AccommodationType `protobuf:"varint,6,opt,name=type,proto3,enum=accumora_rpc.v1.Accommodation_AccommodationType" json:"type,omitempty"`
 	Coordinates   *Coordinates                    `protobuf:"bytes,7,opt,name=coordinates,proto3,oneof" json:"coordinates,omitempty"`
+	Amenities     []*Amenity                      `protobuf:"bytes,8,rep,name=amenities,proto3" json:"amenities,omitempty"`
 	Owner         string                          `protobuf:"bytes,9,opt,name=owner,proto3" json:"owner,omitempty"`
 	CreatedAt     string                          `protobuf:"bytes,10,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	Status        Accommodation_Status            `protobuf:"varint,11,opt,name=status,proto3,enum=accumora_rpc.v1.Accommodation_Status" json:"status,omitempty"`
@@ -853,6 +854,13 @@ func (x *Accommodation) GetType() Accommodation_AccommodationType {
 func (x *Accommodation) GetCoordinates() *Coordinates {
 	if x != nil {
 		return x.Coordinates
+	}
+	return nil
+}
+
+func (x *Accommodation) GetAmenities() []*Amenity {
+	if x != nil {
+		return x.Amenities
 	}
 	return nil
 }
@@ -1046,14 +1054,15 @@ const file_amor_v1_types_proto_rawDesc = "" +
 	"\t_locationB\v\n" +
 	"\t_passwordB\v\n" +
 	"\t_birthdayB\r\n" +
-	"\v_created_at\"\xc4\x04\n" +
+	"\v_created_at\"\xfc\x04\n" +
 	"\rAccommodation\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12:\n" +
 	"\blocation\x18\x03 \x01(\v2\x19.accumora_rpc.v1.LocationH\x00R\blocation\x88\x01\x01\x12%\n" +
 	"\vdescription\x18\x04 \x01(\tH\x01R\vdescription\x88\x01\x01\x12D\n" +
 	"\x04type\x18\x06 \x01(\x0e20.accumora_rpc.v1.Accommodation.AccommodationTypeR\x04type\x12C\n" +
-	"\vcoordinates\x18\a \x01(\v2\x1c.accumora_rpc.v1.CoordinatesH\x02R\vcoordinates\x88\x01\x01\x12\x14\n" +
+	"\vcoordinates\x18\a \x01(\v2\x1c.accumora_rpc.v1.CoordinatesH\x02R\vcoordinates\x88\x01\x01\x126\n" +
+	"\tamenities\x18\b \x03(\v2\x18.accumora_rpc.v1.AmenityR\tamenities\x12\x14\n" +
 	"\x05owner\x18\t \x01(\tR\x05owner\x12\x1d\n" +
 	"\n" +
 	"created_at\x18\n" +
@@ -1111,12 +1120,13 @@ var file_amor_v1_types_proto_depIdxs = []int32{
 	8,  // 6: accumora_rpc.v1.Accommodation.location:type_name -> accumora_rpc.v1.Location
 	4,  // 7: accumora_rpc.v1.Accommodation.type:type_name -> accumora_rpc.v1.Accommodation.AccommodationType
 	7,  // 8: accumora_rpc.v1.Accommodation.coordinates:type_name -> accumora_rpc.v1.Coordinates
-	5,  // 9: accumora_rpc.v1.Accommodation.status:type_name -> accumora_rpc.v1.Accommodation.Status
-	10, // [10:10] is the sub-list for method output_type
-	10, // [10:10] is the sub-list for method input_type
-	10, // [10:10] is the sub-list for extension type_name
-	10, // [10:10] is the sub-list for extension extendee
-	0,  // [0:10] is the sub-list for field type_name
+	6,  // 9: accumora_rpc.v1.Accommodation.amenities:type_name -> accumora_rpc.v1.Amenity
+	5,  // 10: accumora_rpc.v1.Accommodation.status:type_name -> accumora_rpc.v1.Accommodation.Status
+	11, // [11:11] is the sub-list for method output_type
+	11, // [11:11] is the sub-list for method input_type
+	11, // [11:11] is the sub-list for extension type_name
+	11, // [11:11] is the sub-list for extension extendee
+	0,  // [0:11] is the sub-list for field type_name
 }
 
 func init() { file_amor_v1_types_proto_init() }
