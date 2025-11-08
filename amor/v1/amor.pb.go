@@ -779,6 +779,7 @@ func (x *UpdateRoomResponse) GetRoom() *Room {
 
 type UpdateAccommodationRequest struct {
 	state       protoimpl.MessageState          `protogen:"open.v1"`
+	Id          string                          `protobuf:"bytes,10,opt,name=id,proto3" json:"id,omitempty"`
 	Name        string                          `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	Type        Accommodation_AccommodationType `protobuf:"varint,2,opt,name=type,proto3,enum=accumora_rpc.v1.Accommodation_AccommodationType" json:"type,omitempty"`
 	Amenities   []string                        `protobuf:"bytes,4,rep,name=amenities,proto3" json:"amenities,omitempty"`
@@ -821,6 +822,13 @@ func (x *UpdateAccommodationRequest) ProtoReflect() protoreflect.Message {
 // Deprecated: Use UpdateAccommodationRequest.ProtoReflect.Descriptor instead.
 func (*UpdateAccommodationRequest) Descriptor() ([]byte, []int) {
 	return file_amor_v1_amor_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *UpdateAccommodationRequest) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
 }
 
 func (x *UpdateAccommodationRequest) GetName() string {
@@ -1982,8 +1990,10 @@ const file_amor_v1_amor_proto_rawDesc = "" +
 	"\n" +
 	"_photo_url\"?\n" +
 	"\x12UpdateRoomResponse\x12)\n" +
-	"\x04room\x18\x01 \x01(\v2\x15.accumora_rpc.v1.RoomR\x04room\"\xe3\x02\n" +
-	"\x1aUpdateAccommodationRequest\x12\x12\n" +
+	"\x04room\x18\x01 \x01(\v2\x15.accumora_rpc.v1.RoomR\x04room\"\xf3\x02\n" +
+	"\x1aUpdateAccommodationRequest\x12\x0e\n" +
+	"\x02id\x18\n" +
+	" \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12D\n" +
 	"\x04type\x18\x02 \x01(\x0e20.accumora_rpc.v1.Accommodation.AccommodationTypeR\x04type\x12\x1c\n" +
 	"\tamenities\x18\x04 \x03(\tR\tamenities\x12%\n" +
