@@ -19,24 +19,25 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	ProjectAmor_AddAccommodation_FullMethodName      = "/accumora_rpc.v1.ProjectAmor/AddAccommodation"
-	ProjectAmor_LoginUser_FullMethodName             = "/accumora_rpc.v1.ProjectAmor/LoginUser"
-	ProjectAmor_RegisterUser_FullMethodName          = "/accumora_rpc.v1.ProjectAmor/RegisterUser"
-	ProjectAmor_DeleteUser_FullMethodName            = "/accumora_rpc.v1.ProjectAmor/DeleteUser"
-	ProjectAmor_DeleteAccommodation_FullMethodName   = "/accumora_rpc.v1.ProjectAmor/DeleteAccommodation"
-	ProjectAmor_GetAccommodations_FullMethodName     = "/accumora_rpc.v1.ProjectAmor/GetAccommodations"
-	ProjectAmor_UpdateAccommodation_FullMethodName   = "/accumora_rpc.v1.ProjectAmor/UpdateAccommodation"
-	ProjectAmor_AddRoom_FullMethodName               = "/accumora_rpc.v1.ProjectAmor/AddRoom"
-	ProjectAmor_GetRooms_FullMethodName              = "/accumora_rpc.v1.ProjectAmor/GetRooms"
-	ProjectAmor_DeleteRoom_FullMethodName            = "/accumora_rpc.v1.ProjectAmor/DeleteRoom"
-	ProjectAmor_UpdateRoom_FullMethodName            = "/accumora_rpc.v1.ProjectAmor/UpdateRoom"
-	ProjectAmor_GetUser_FullMethodName               = "/accumora_rpc.v1.ProjectAmor/GetUser"
-	ProjectAmor_SetAsLandLord_FullMethodName         = "/accumora_rpc.v1.ProjectAmor/SetAsLandLord"
-	ProjectAmor_AddAmenities_FullMethodName          = "/accumora_rpc.v1.ProjectAmor/AddAmenities"
-	ProjectAmor_ListAmenities_FullMethodName         = "/accumora_rpc.v1.ProjectAmor/ListAmenities"
-	ProjectAmor_DeleteAmenities_FullMethodName       = "/accumora_rpc.v1.ProjectAmor/DeleteAmenities"
-	ProjectAmor_SendVerificationEmail_FullMethodName = "/accumora_rpc.v1.ProjectAmor/SendVerificationEmail"
-	ProjectAmor_ConfirmEmailAddress_FullMethodName   = "/accumora_rpc.v1.ProjectAmor/ConfirmEmailAddress"
+	ProjectAmor_AddAccommodation_FullMethodName       = "/accumora_rpc.v1.ProjectAmor/AddAccommodation"
+	ProjectAmor_LoginUser_FullMethodName              = "/accumora_rpc.v1.ProjectAmor/LoginUser"
+	ProjectAmor_RegisterUser_FullMethodName           = "/accumora_rpc.v1.ProjectAmor/RegisterUser"
+	ProjectAmor_DeleteUser_FullMethodName             = "/accumora_rpc.v1.ProjectAmor/DeleteUser"
+	ProjectAmor_DeleteAccommodation_FullMethodName    = "/accumora_rpc.v1.ProjectAmor/DeleteAccommodation"
+	ProjectAmor_GetAccommodations_FullMethodName      = "/accumora_rpc.v1.ProjectAmor/GetAccommodations"
+	ProjectAmor_UpdateAccommodation_FullMethodName    = "/accumora_rpc.v1.ProjectAmor/UpdateAccommodation"
+	ProjectAmor_AddRoom_FullMethodName                = "/accumora_rpc.v1.ProjectAmor/AddRoom"
+	ProjectAmor_GetRooms_FullMethodName               = "/accumora_rpc.v1.ProjectAmor/GetRooms"
+	ProjectAmor_DeleteRoom_FullMethodName             = "/accumora_rpc.v1.ProjectAmor/DeleteRoom"
+	ProjectAmor_UpdateRoom_FullMethodName             = "/accumora_rpc.v1.ProjectAmor/UpdateRoom"
+	ProjectAmor_GetUser_FullMethodName                = "/accumora_rpc.v1.ProjectAmor/GetUser"
+	ProjectAmor_SetAsLandLord_FullMethodName          = "/accumora_rpc.v1.ProjectAmor/SetAsLandLord"
+	ProjectAmor_AddAmenities_FullMethodName           = "/accumora_rpc.v1.ProjectAmor/AddAmenities"
+	ProjectAmor_ListAmenities_FullMethodName          = "/accumora_rpc.v1.ProjectAmor/ListAmenities"
+	ProjectAmor_DeleteAmenities_FullMethodName        = "/accumora_rpc.v1.ProjectAmor/DeleteAmenities"
+	ProjectAmor_SendVerificationEmail_FullMethodName  = "/accumora_rpc.v1.ProjectAmor/SendVerificationEmail"
+	ProjectAmor_ConfirmEmailAddress_FullMethodName    = "/accumora_rpc.v1.ProjectAmor/ConfirmEmailAddress"
+	ProjectAmor_SetAccommodationStatus_FullMethodName = "/accumora_rpc.v1.ProjectAmor/SetAccommodationStatus"
 )
 
 // ProjectAmorClient is the client API for ProjectAmor service.
@@ -61,6 +62,7 @@ type ProjectAmorClient interface {
 	DeleteAmenities(ctx context.Context, in *DeleteAmenitiesRequest, opts ...grpc.CallOption) (*DeleteAmenitiesResponse, error)
 	SendVerificationEmail(ctx context.Context, in *SendVerificationEmailRequest, opts ...grpc.CallOption) (*SendVerificationEmailResponse, error)
 	ConfirmEmailAddress(ctx context.Context, in *ConfirmEmailAddressRequest, opts ...grpc.CallOption) (*ConfirmEmailAddressResponse, error)
+	SetAccommodationStatus(ctx context.Context, in *SetAccommodationStatusRequest, opts ...grpc.CallOption) (*Accommodation, error)
 }
 
 type projectAmorClient struct {
@@ -251,6 +253,16 @@ func (c *projectAmorClient) ConfirmEmailAddress(ctx context.Context, in *Confirm
 	return out, nil
 }
 
+func (c *projectAmorClient) SetAccommodationStatus(ctx context.Context, in *SetAccommodationStatusRequest, opts ...grpc.CallOption) (*Accommodation, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Accommodation)
+	err := c.cc.Invoke(ctx, ProjectAmor_SetAccommodationStatus_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ProjectAmorServer is the server API for ProjectAmor service.
 // All implementations must embed UnimplementedProjectAmorServer
 // for forward compatibility.
@@ -273,6 +285,7 @@ type ProjectAmorServer interface {
 	DeleteAmenities(context.Context, *DeleteAmenitiesRequest) (*DeleteAmenitiesResponse, error)
 	SendVerificationEmail(context.Context, *SendVerificationEmailRequest) (*SendVerificationEmailResponse, error)
 	ConfirmEmailAddress(context.Context, *ConfirmEmailAddressRequest) (*ConfirmEmailAddressResponse, error)
+	SetAccommodationStatus(context.Context, *SetAccommodationStatusRequest) (*Accommodation, error)
 	mustEmbedUnimplementedProjectAmorServer()
 }
 
@@ -336,6 +349,9 @@ func (UnimplementedProjectAmorServer) SendVerificationEmail(context.Context, *Se
 }
 func (UnimplementedProjectAmorServer) ConfirmEmailAddress(context.Context, *ConfirmEmailAddressRequest) (*ConfirmEmailAddressResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ConfirmEmailAddress not implemented")
+}
+func (UnimplementedProjectAmorServer) SetAccommodationStatus(context.Context, *SetAccommodationStatusRequest) (*Accommodation, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SetAccommodationStatus not implemented")
 }
 func (UnimplementedProjectAmorServer) mustEmbedUnimplementedProjectAmorServer() {}
 func (UnimplementedProjectAmorServer) testEmbeddedByValue()                     {}
@@ -682,6 +698,24 @@ func _ProjectAmor_ConfirmEmailAddress_Handler(srv interface{}, ctx context.Conte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ProjectAmor_SetAccommodationStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAccommodationStatusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProjectAmorServer).SetAccommodationStatus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProjectAmor_SetAccommodationStatus_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProjectAmorServer).SetAccommodationStatus(ctx, req.(*SetAccommodationStatusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // ProjectAmor_ServiceDesc is the grpc.ServiceDesc for ProjectAmor service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -760,6 +794,10 @@ var ProjectAmor_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ConfirmEmailAddress",
 			Handler:    _ProjectAmor_ConfirmEmailAddress_Handler,
+		},
+		{
+			MethodName: "SetAccommodationStatus",
+			Handler:    _ProjectAmor_SetAccommodationStatus_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
