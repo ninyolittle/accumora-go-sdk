@@ -62,7 +62,7 @@ type ProjectAmorClient interface {
 	DeleteAmenities(ctx context.Context, in *DeleteAmenitiesRequest, opts ...grpc.CallOption) (*DeleteAmenitiesResponse, error)
 	SendVerificationEmail(ctx context.Context, in *SendVerificationEmailRequest, opts ...grpc.CallOption) (*SendVerificationEmailResponse, error)
 	ConfirmEmailAddress(ctx context.Context, in *ConfirmEmailAddressRequest, opts ...grpc.CallOption) (*ConfirmEmailAddressResponse, error)
-	SetAccommodationStatus(ctx context.Context, in *SetAccommodationStatusRequest, opts ...grpc.CallOption) (*Accommodation, error)
+	SetAccommodationStatus(ctx context.Context, in *SetAccommodationStatusRequest, opts ...grpc.CallOption) (*SetAccommodationStatusResponse, error)
 }
 
 type projectAmorClient struct {
@@ -253,9 +253,9 @@ func (c *projectAmorClient) ConfirmEmailAddress(ctx context.Context, in *Confirm
 	return out, nil
 }
 
-func (c *projectAmorClient) SetAccommodationStatus(ctx context.Context, in *SetAccommodationStatusRequest, opts ...grpc.CallOption) (*Accommodation, error) {
+func (c *projectAmorClient) SetAccommodationStatus(ctx context.Context, in *SetAccommodationStatusRequest, opts ...grpc.CallOption) (*SetAccommodationStatusResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Accommodation)
+	out := new(SetAccommodationStatusResponse)
 	err := c.cc.Invoke(ctx, ProjectAmor_SetAccommodationStatus_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -285,7 +285,7 @@ type ProjectAmorServer interface {
 	DeleteAmenities(context.Context, *DeleteAmenitiesRequest) (*DeleteAmenitiesResponse, error)
 	SendVerificationEmail(context.Context, *SendVerificationEmailRequest) (*SendVerificationEmailResponse, error)
 	ConfirmEmailAddress(context.Context, *ConfirmEmailAddressRequest) (*ConfirmEmailAddressResponse, error)
-	SetAccommodationStatus(context.Context, *SetAccommodationStatusRequest) (*Accommodation, error)
+	SetAccommodationStatus(context.Context, *SetAccommodationStatusRequest) (*SetAccommodationStatusResponse, error)
 	mustEmbedUnimplementedProjectAmorServer()
 }
 
@@ -350,7 +350,7 @@ func (UnimplementedProjectAmorServer) SendVerificationEmail(context.Context, *Se
 func (UnimplementedProjectAmorServer) ConfirmEmailAddress(context.Context, *ConfirmEmailAddressRequest) (*ConfirmEmailAddressResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ConfirmEmailAddress not implemented")
 }
-func (UnimplementedProjectAmorServer) SetAccommodationStatus(context.Context, *SetAccommodationStatusRequest) (*Accommodation, error) {
+func (UnimplementedProjectAmorServer) SetAccommodationStatus(context.Context, *SetAccommodationStatusRequest) (*SetAccommodationStatusResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SetAccommodationStatus not implemented")
 }
 func (UnimplementedProjectAmorServer) mustEmbedUnimplementedProjectAmorServer() {}
