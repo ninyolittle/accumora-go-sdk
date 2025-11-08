@@ -778,18 +778,13 @@ func (x *UpdateRoomResponse) GetRoom() *Room {
 }
 
 type UpdateAccommodationRequest struct {
-	state       protoimpl.MessageState          `protogen:"open.v1"`
-	Id          string                          `protobuf:"bytes,10,opt,name=id,proto3" json:"id,omitempty"`
-	Name        string                          `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Type        Accommodation_AccommodationType `protobuf:"varint,2,opt,name=type,proto3,enum=accumora_rpc.v1.Accommodation_AccommodationType" json:"type,omitempty"`
-	Amenities   []string                        `protobuf:"bytes,4,rep,name=amenities,proto3" json:"amenities,omitempty"`
-	Description *string                         `protobuf:"bytes,5,opt,name=description,proto3,oneof" json:"description,omitempty"`
-	// Types that are valid to be assigned to Geo:
-	//
-	//	*UpdateAccommodationRequest_Location
-	//	*UpdateAccommodationRequest_Coordinates
-	Geo           isUpdateAccommodationRequest_Geo `protobuf_oneof:"geo"`
-	Rules         []string                         `protobuf:"bytes,9,rep,name=rules,proto3" json:"rules,omitempty"`
+	state         protoimpl.MessageState          `protogen:"open.v1"`
+	Id            string                          `protobuf:"bytes,10,opt,name=id,proto3" json:"id,omitempty"`
+	Name          string                          `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Type          Accommodation_AccommodationType `protobuf:"varint,2,opt,name=type,proto3,enum=accumora_rpc.v1.Accommodation_AccommodationType" json:"type,omitempty"`
+	Amenities     []string                        `protobuf:"bytes,4,rep,name=amenities,proto3" json:"amenities,omitempty"`
+	Description   *string                         `protobuf:"bytes,5,opt,name=description,proto3,oneof" json:"description,omitempty"`
+	Rules         []string                        `protobuf:"bytes,9,rep,name=rules,proto3" json:"rules,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -859,53 +854,12 @@ func (x *UpdateAccommodationRequest) GetDescription() string {
 	return ""
 }
 
-func (x *UpdateAccommodationRequest) GetGeo() isUpdateAccommodationRequest_Geo {
-	if x != nil {
-		return x.Geo
-	}
-	return nil
-}
-
-func (x *UpdateAccommodationRequest) GetLocation() *Location {
-	if x != nil {
-		if x, ok := x.Geo.(*UpdateAccommodationRequest_Location); ok {
-			return x.Location
-		}
-	}
-	return nil
-}
-
-func (x *UpdateAccommodationRequest) GetCoordinates() *Coordinates {
-	if x != nil {
-		if x, ok := x.Geo.(*UpdateAccommodationRequest_Coordinates); ok {
-			return x.Coordinates
-		}
-	}
-	return nil
-}
-
 func (x *UpdateAccommodationRequest) GetRules() []string {
 	if x != nil {
 		return x.Rules
 	}
 	return nil
 }
-
-type isUpdateAccommodationRequest_Geo interface {
-	isUpdateAccommodationRequest_Geo()
-}
-
-type UpdateAccommodationRequest_Location struct {
-	Location *Location `protobuf:"bytes,6,opt,name=location,proto3,oneof"`
-}
-
-type UpdateAccommodationRequest_Coordinates struct {
-	Coordinates *Coordinates `protobuf:"bytes,7,opt,name=coordinates,proto3,oneof"`
-}
-
-func (*UpdateAccommodationRequest_Location) isUpdateAccommodationRequest_Geo() {}
-
-func (*UpdateAccommodationRequest_Coordinates) isUpdateAccommodationRequest_Geo() {}
 
 type GetUserRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
@@ -1990,18 +1944,15 @@ const file_amor_v1_amor_proto_rawDesc = "" +
 	"\n" +
 	"_photo_url\"?\n" +
 	"\x12UpdateRoomResponse\x12)\n" +
-	"\x04room\x18\x01 \x01(\v2\x15.accumora_rpc.v1.RoomR\x04room\"\xf3\x02\n" +
+	"\x04room\x18\x01 \x01(\v2\x15.accumora_rpc.v1.RoomR\x04room\"\xf1\x01\n" +
 	"\x1aUpdateAccommodationRequest\x12\x0e\n" +
 	"\x02id\x18\n" +
 	" \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12D\n" +
 	"\x04type\x18\x02 \x01(\x0e20.accumora_rpc.v1.Accommodation.AccommodationTypeR\x04type\x12\x1c\n" +
 	"\tamenities\x18\x04 \x03(\tR\tamenities\x12%\n" +
-	"\vdescription\x18\x05 \x01(\tH\x01R\vdescription\x88\x01\x01\x127\n" +
-	"\blocation\x18\x06 \x01(\v2\x19.accumora_rpc.v1.LocationH\x00R\blocation\x12@\n" +
-	"\vcoordinates\x18\a \x01(\v2\x1c.accumora_rpc.v1.CoordinatesH\x00R\vcoordinates\x12\x14\n" +
-	"\x05rules\x18\t \x03(\tR\x05rulesB\x05\n" +
-	"\x03geoB\x0e\n" +
+	"\vdescription\x18\x05 \x01(\tH\x00R\vdescription\x88\x01\x01\x12\x14\n" +
+	"\x05rules\x18\t \x03(\tR\x05rulesB\x0e\n" +
 	"\f_description\"\x10\n" +
 	"\x0eGetUserRequest\"\xb5\x02\n" +
 	"\x0eAddRoomRequest\x12\x12\n" +
@@ -2153,10 +2104,10 @@ var file_amor_v1_amor_proto_goTypes = []any{
 	(*Room_Prices)(nil),                    // 38: accumora_rpc.v1.Room.Prices
 	(*Room)(nil),                           // 39: accumora_rpc.v1.Room
 	(Accommodation_AccommodationType)(0),   // 40: accumora_rpc.v1.Accommodation.AccommodationType
-	(*Location)(nil),                       // 41: accumora_rpc.v1.Location
-	(*Coordinates)(nil),                    // 42: accumora_rpc.v1.Coordinates
-	(*Accommodation)(nil),                  // 43: accumora_rpc.v1.Accommodation
-	(User_Gender)(0),                       // 44: accumora_rpc.v1.User.Gender
+	(*Accommodation)(nil),                  // 41: accumora_rpc.v1.Accommodation
+	(User_Gender)(0),                       // 42: accumora_rpc.v1.User.Gender
+	(*Location)(nil),                       // 43: accumora_rpc.v1.Location
+	(*Coordinates)(nil),                    // 44: accumora_rpc.v1.Coordinates
 	(*User)(nil),                           // 45: accumora_rpc.v1.User
 }
 var file_amor_v1_amor_proto_depIdxs = []int32{
@@ -2168,60 +2119,58 @@ var file_amor_v1_amor_proto_depIdxs = []int32{
 	38, // 5: accumora_rpc.v1.UpdateRoomRequest.prices:type_name -> accumora_rpc.v1.Room.Prices
 	39, // 6: accumora_rpc.v1.UpdateRoomResponse.room:type_name -> accumora_rpc.v1.Room
 	40, // 7: accumora_rpc.v1.UpdateAccommodationRequest.type:type_name -> accumora_rpc.v1.Accommodation.AccommodationType
-	41, // 8: accumora_rpc.v1.UpdateAccommodationRequest.location:type_name -> accumora_rpc.v1.Location
-	42, // 9: accumora_rpc.v1.UpdateAccommodationRequest.coordinates:type_name -> accumora_rpc.v1.Coordinates
-	38, // 10: accumora_rpc.v1.AddRoomRequest.prices:type_name -> accumora_rpc.v1.Room.Prices
-	39, // 11: accumora_rpc.v1.AddRoomResponse.room:type_name -> accumora_rpc.v1.Room
-	39, // 12: accumora_rpc.v1.GetRoomsResponse.rooms:type_name -> accumora_rpc.v1.Room
-	43, // 13: accumora_rpc.v1.GetAccommodationsResponse.accommodations:type_name -> accumora_rpc.v1.Accommodation
-	44, // 14: accumora_rpc.v1.RegisterUserRequest.gender:type_name -> accumora_rpc.v1.User.Gender
-	35, // 15: accumora_rpc.v1.LoginUserRequest.manual:type_name -> accumora_rpc.v1.LoginUserRequest.Manual
-	40, // 16: accumora_rpc.v1.AddAccommodationRequest.type:type_name -> accumora_rpc.v1.Accommodation.AccommodationType
-	41, // 17: accumora_rpc.v1.AddAccommodationRequest.location:type_name -> accumora_rpc.v1.Location
-	42, // 18: accumora_rpc.v1.AddAccommodationRequest.coordinates:type_name -> accumora_rpc.v1.Coordinates
-	33, // 19: accumora_rpc.v1.ProjectAmor.AddAccommodation:input_type -> accumora_rpc.v1.AddAccommodationRequest
-	31, // 20: accumora_rpc.v1.ProjectAmor.LoginUser:input_type -> accumora_rpc.v1.LoginUserRequest
-	29, // 21: accumora_rpc.v1.ProjectAmor.RegisterUser:input_type -> accumora_rpc.v1.RegisterUserRequest
-	6,  // 22: accumora_rpc.v1.ProjectAmor.DeleteUser:input_type -> accumora_rpc.v1.DeleteUserRequest
-	27, // 23: accumora_rpc.v1.ProjectAmor.DeleteAccommodation:input_type -> accumora_rpc.v1.DeleteAccommodationRequest
-	25, // 24: accumora_rpc.v1.ProjectAmor.GetAccommodations:input_type -> accumora_rpc.v1.GetAccommodationsRequest
-	17, // 25: accumora_rpc.v1.ProjectAmor.UpdateAccommodation:input_type -> accumora_rpc.v1.UpdateAccommodationRequest
-	19, // 26: accumora_rpc.v1.ProjectAmor.AddRoom:input_type -> accumora_rpc.v1.AddRoomRequest
-	23, // 27: accumora_rpc.v1.ProjectAmor.GetRooms:input_type -> accumora_rpc.v1.GetRoomsRequest
-	21, // 28: accumora_rpc.v1.ProjectAmor.DeleteRoom:input_type -> accumora_rpc.v1.DeleteRoomRequest
-	15, // 29: accumora_rpc.v1.ProjectAmor.UpdateRoom:input_type -> accumora_rpc.v1.UpdateRoomRequest
-	18, // 30: accumora_rpc.v1.ProjectAmor.GetUser:input_type -> accumora_rpc.v1.GetUserRequest
-	14, // 31: accumora_rpc.v1.ProjectAmor.SetAsLandLord:input_type -> accumora_rpc.v1.SetAsLandLordRequest
-	12, // 32: accumora_rpc.v1.ProjectAmor.AddAmenities:input_type -> accumora_rpc.v1.AddAmenitiesRequest
-	4,  // 33: accumora_rpc.v1.ProjectAmor.ListAmenities:input_type -> accumora_rpc.v1.ListAmenitiesRequest
-	2,  // 34: accumora_rpc.v1.ProjectAmor.DeleteAmenities:input_type -> accumora_rpc.v1.DeleteAmenitiesRequest
-	10, // 35: accumora_rpc.v1.ProjectAmor.SendVerificationEmail:input_type -> accumora_rpc.v1.SendVerificationEmailRequest
-	8,  // 36: accumora_rpc.v1.ProjectAmor.ConfirmEmailAddress:input_type -> accumora_rpc.v1.ConfirmEmailAddressRequest
-	1,  // 37: accumora_rpc.v1.ProjectAmor.SetAccommodationStatus:input_type -> accumora_rpc.v1.SetAccommodationStatusRequest
-	43, // 38: accumora_rpc.v1.ProjectAmor.AddAccommodation:output_type -> accumora_rpc.v1.Accommodation
-	32, // 39: accumora_rpc.v1.ProjectAmor.LoginUser:output_type -> accumora_rpc.v1.LoginUserResponse
-	30, // 40: accumora_rpc.v1.ProjectAmor.RegisterUser:output_type -> accumora_rpc.v1.RegisterUserResponse
-	7,  // 41: accumora_rpc.v1.ProjectAmor.DeleteUser:output_type -> accumora_rpc.v1.DeleteUserResponse
-	28, // 42: accumora_rpc.v1.ProjectAmor.DeleteAccommodation:output_type -> accumora_rpc.v1.DeleteAccommodationResponse
-	26, // 43: accumora_rpc.v1.ProjectAmor.GetAccommodations:output_type -> accumora_rpc.v1.GetAccommodationsResponse
-	43, // 44: accumora_rpc.v1.ProjectAmor.UpdateAccommodation:output_type -> accumora_rpc.v1.Accommodation
-	20, // 45: accumora_rpc.v1.ProjectAmor.AddRoom:output_type -> accumora_rpc.v1.AddRoomResponse
-	24, // 46: accumora_rpc.v1.ProjectAmor.GetRooms:output_type -> accumora_rpc.v1.GetRoomsResponse
-	22, // 47: accumora_rpc.v1.ProjectAmor.DeleteRoom:output_type -> accumora_rpc.v1.DeleteRoomResponse
-	16, // 48: accumora_rpc.v1.ProjectAmor.UpdateRoom:output_type -> accumora_rpc.v1.UpdateRoomResponse
-	45, // 49: accumora_rpc.v1.ProjectAmor.GetUser:output_type -> accumora_rpc.v1.User
-	45, // 50: accumora_rpc.v1.ProjectAmor.SetAsLandLord:output_type -> accumora_rpc.v1.User
-	13, // 51: accumora_rpc.v1.ProjectAmor.AddAmenities:output_type -> accumora_rpc.v1.AddAmenitiesResponse
-	5,  // 52: accumora_rpc.v1.ProjectAmor.ListAmenities:output_type -> accumora_rpc.v1.ListAmenitiesResponse
-	3,  // 53: accumora_rpc.v1.ProjectAmor.DeleteAmenities:output_type -> accumora_rpc.v1.DeleteAmenitiesResponse
-	11, // 54: accumora_rpc.v1.ProjectAmor.SendVerificationEmail:output_type -> accumora_rpc.v1.SendVerificationEmailResponse
-	9,  // 55: accumora_rpc.v1.ProjectAmor.ConfirmEmailAddress:output_type -> accumora_rpc.v1.ConfirmEmailAddressResponse
-	0,  // 56: accumora_rpc.v1.ProjectAmor.SetAccommodationStatus:output_type -> accumora_rpc.v1.SetAccommodationStatusResponse
-	38, // [38:57] is the sub-list for method output_type
-	19, // [19:38] is the sub-list for method input_type
-	19, // [19:19] is the sub-list for extension type_name
-	19, // [19:19] is the sub-list for extension extendee
-	0,  // [0:19] is the sub-list for field type_name
+	38, // 8: accumora_rpc.v1.AddRoomRequest.prices:type_name -> accumora_rpc.v1.Room.Prices
+	39, // 9: accumora_rpc.v1.AddRoomResponse.room:type_name -> accumora_rpc.v1.Room
+	39, // 10: accumora_rpc.v1.GetRoomsResponse.rooms:type_name -> accumora_rpc.v1.Room
+	41, // 11: accumora_rpc.v1.GetAccommodationsResponse.accommodations:type_name -> accumora_rpc.v1.Accommodation
+	42, // 12: accumora_rpc.v1.RegisterUserRequest.gender:type_name -> accumora_rpc.v1.User.Gender
+	35, // 13: accumora_rpc.v1.LoginUserRequest.manual:type_name -> accumora_rpc.v1.LoginUserRequest.Manual
+	40, // 14: accumora_rpc.v1.AddAccommodationRequest.type:type_name -> accumora_rpc.v1.Accommodation.AccommodationType
+	43, // 15: accumora_rpc.v1.AddAccommodationRequest.location:type_name -> accumora_rpc.v1.Location
+	44, // 16: accumora_rpc.v1.AddAccommodationRequest.coordinates:type_name -> accumora_rpc.v1.Coordinates
+	33, // 17: accumora_rpc.v1.ProjectAmor.AddAccommodation:input_type -> accumora_rpc.v1.AddAccommodationRequest
+	31, // 18: accumora_rpc.v1.ProjectAmor.LoginUser:input_type -> accumora_rpc.v1.LoginUserRequest
+	29, // 19: accumora_rpc.v1.ProjectAmor.RegisterUser:input_type -> accumora_rpc.v1.RegisterUserRequest
+	6,  // 20: accumora_rpc.v1.ProjectAmor.DeleteUser:input_type -> accumora_rpc.v1.DeleteUserRequest
+	27, // 21: accumora_rpc.v1.ProjectAmor.DeleteAccommodation:input_type -> accumora_rpc.v1.DeleteAccommodationRequest
+	25, // 22: accumora_rpc.v1.ProjectAmor.GetAccommodations:input_type -> accumora_rpc.v1.GetAccommodationsRequest
+	17, // 23: accumora_rpc.v1.ProjectAmor.UpdateAccommodation:input_type -> accumora_rpc.v1.UpdateAccommodationRequest
+	19, // 24: accumora_rpc.v1.ProjectAmor.AddRoom:input_type -> accumora_rpc.v1.AddRoomRequest
+	23, // 25: accumora_rpc.v1.ProjectAmor.GetRooms:input_type -> accumora_rpc.v1.GetRoomsRequest
+	21, // 26: accumora_rpc.v1.ProjectAmor.DeleteRoom:input_type -> accumora_rpc.v1.DeleteRoomRequest
+	15, // 27: accumora_rpc.v1.ProjectAmor.UpdateRoom:input_type -> accumora_rpc.v1.UpdateRoomRequest
+	18, // 28: accumora_rpc.v1.ProjectAmor.GetUser:input_type -> accumora_rpc.v1.GetUserRequest
+	14, // 29: accumora_rpc.v1.ProjectAmor.SetAsLandLord:input_type -> accumora_rpc.v1.SetAsLandLordRequest
+	12, // 30: accumora_rpc.v1.ProjectAmor.AddAmenities:input_type -> accumora_rpc.v1.AddAmenitiesRequest
+	4,  // 31: accumora_rpc.v1.ProjectAmor.ListAmenities:input_type -> accumora_rpc.v1.ListAmenitiesRequest
+	2,  // 32: accumora_rpc.v1.ProjectAmor.DeleteAmenities:input_type -> accumora_rpc.v1.DeleteAmenitiesRequest
+	10, // 33: accumora_rpc.v1.ProjectAmor.SendVerificationEmail:input_type -> accumora_rpc.v1.SendVerificationEmailRequest
+	8,  // 34: accumora_rpc.v1.ProjectAmor.ConfirmEmailAddress:input_type -> accumora_rpc.v1.ConfirmEmailAddressRequest
+	1,  // 35: accumora_rpc.v1.ProjectAmor.SetAccommodationStatus:input_type -> accumora_rpc.v1.SetAccommodationStatusRequest
+	41, // 36: accumora_rpc.v1.ProjectAmor.AddAccommodation:output_type -> accumora_rpc.v1.Accommodation
+	32, // 37: accumora_rpc.v1.ProjectAmor.LoginUser:output_type -> accumora_rpc.v1.LoginUserResponse
+	30, // 38: accumora_rpc.v1.ProjectAmor.RegisterUser:output_type -> accumora_rpc.v1.RegisterUserResponse
+	7,  // 39: accumora_rpc.v1.ProjectAmor.DeleteUser:output_type -> accumora_rpc.v1.DeleteUserResponse
+	28, // 40: accumora_rpc.v1.ProjectAmor.DeleteAccommodation:output_type -> accumora_rpc.v1.DeleteAccommodationResponse
+	26, // 41: accumora_rpc.v1.ProjectAmor.GetAccommodations:output_type -> accumora_rpc.v1.GetAccommodationsResponse
+	41, // 42: accumora_rpc.v1.ProjectAmor.UpdateAccommodation:output_type -> accumora_rpc.v1.Accommodation
+	20, // 43: accumora_rpc.v1.ProjectAmor.AddRoom:output_type -> accumora_rpc.v1.AddRoomResponse
+	24, // 44: accumora_rpc.v1.ProjectAmor.GetRooms:output_type -> accumora_rpc.v1.GetRoomsResponse
+	22, // 45: accumora_rpc.v1.ProjectAmor.DeleteRoom:output_type -> accumora_rpc.v1.DeleteRoomResponse
+	16, // 46: accumora_rpc.v1.ProjectAmor.UpdateRoom:output_type -> accumora_rpc.v1.UpdateRoomResponse
+	45, // 47: accumora_rpc.v1.ProjectAmor.GetUser:output_type -> accumora_rpc.v1.User
+	45, // 48: accumora_rpc.v1.ProjectAmor.SetAsLandLord:output_type -> accumora_rpc.v1.User
+	13, // 49: accumora_rpc.v1.ProjectAmor.AddAmenities:output_type -> accumora_rpc.v1.AddAmenitiesResponse
+	5,  // 50: accumora_rpc.v1.ProjectAmor.ListAmenities:output_type -> accumora_rpc.v1.ListAmenitiesResponse
+	3,  // 51: accumora_rpc.v1.ProjectAmor.DeleteAmenities:output_type -> accumora_rpc.v1.DeleteAmenitiesResponse
+	11, // 52: accumora_rpc.v1.ProjectAmor.SendVerificationEmail:output_type -> accumora_rpc.v1.SendVerificationEmailResponse
+	9,  // 53: accumora_rpc.v1.ProjectAmor.ConfirmEmailAddress:output_type -> accumora_rpc.v1.ConfirmEmailAddressResponse
+	0,  // 54: accumora_rpc.v1.ProjectAmor.SetAccommodationStatus:output_type -> accumora_rpc.v1.SetAccommodationStatusResponse
+	36, // [36:55] is the sub-list for method output_type
+	17, // [17:36] is the sub-list for method input_type
+	17, // [17:17] is the sub-list for extension type_name
+	17, // [17:17] is the sub-list for extension extendee
+	0,  // [0:17] is the sub-list for field type_name
 }
 
 func init() { file_amor_v1_amor_proto_init() }
@@ -2232,10 +2181,7 @@ func file_amor_v1_amor_proto_init() {
 	file_amor_v1_types_proto_init()
 	file_amor_v1_amor_proto_msgTypes[4].OneofWrappers = []any{}
 	file_amor_v1_amor_proto_msgTypes[15].OneofWrappers = []any{}
-	file_amor_v1_amor_proto_msgTypes[17].OneofWrappers = []any{
-		(*UpdateAccommodationRequest_Location)(nil),
-		(*UpdateAccommodationRequest_Coordinates)(nil),
-	}
+	file_amor_v1_amor_proto_msgTypes[17].OneofWrappers = []any{}
 	file_amor_v1_amor_proto_msgTypes[19].OneofWrappers = []any{}
 	file_amor_v1_amor_proto_msgTypes[23].OneofWrappers = []any{}
 	file_amor_v1_amor_proto_msgTypes[25].OneofWrappers = []any{}
