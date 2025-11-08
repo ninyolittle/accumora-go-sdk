@@ -780,8 +780,9 @@ type Accommodation struct {
 	Coordinates   *Coordinates                    `protobuf:"bytes,7,opt,name=coordinates,proto3,oneof" json:"coordinates,omitempty"`
 	Amenities     []*Amenity                      `protobuf:"bytes,8,rep,name=amenities,proto3" json:"amenities,omitempty"`
 	Owner         string                          `protobuf:"bytes,9,opt,name=owner,proto3" json:"owner,omitempty"`
-	CreatedAt     string                          `protobuf:"bytes,10,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	CreatedTime   string                          `protobuf:"bytes,10,opt,name=created_time,json=createdTime,proto3" json:"created_time,omitempty"`
 	Status        Accommodation_Status            `protobuf:"varint,11,opt,name=status,proto3,enum=accumora_rpc.v1.Accommodation_Status" json:"status,omitempty"`
+	LastUpdate    string                          `protobuf:"bytes,12,opt,name=last_update,json=lastUpdate,proto3" json:"last_update,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -872,9 +873,9 @@ func (x *Accommodation) GetOwner() string {
 	return ""
 }
 
-func (x *Accommodation) GetCreatedAt() string {
+func (x *Accommodation) GetCreatedTime() string {
 	if x != nil {
-		return x.CreatedAt
+		return x.CreatedTime
 	}
 	return ""
 }
@@ -884,6 +885,13 @@ func (x *Accommodation) GetStatus() Accommodation_Status {
 		return x.Status
 	}
 	return Accommodation_unknown_status
+}
+
+func (x *Accommodation) GetLastUpdate() string {
+	if x != nil {
+		return x.LastUpdate
+	}
+	return ""
 }
 
 type Room_Prices struct {
@@ -1054,7 +1062,7 @@ const file_amor_v1_types_proto_rawDesc = "" +
 	"\t_locationB\v\n" +
 	"\t_passwordB\v\n" +
 	"\t_birthdayB\r\n" +
-	"\v_created_at\"\xfc\x04\n" +
+	"\v_created_at\"\xa1\x05\n" +
 	"\rAccommodation\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12:\n" +
@@ -1063,11 +1071,12 @@ const file_amor_v1_types_proto_rawDesc = "" +
 	"\x04type\x18\x06 \x01(\x0e20.accumora_rpc.v1.Accommodation.AccommodationTypeR\x04type\x12C\n" +
 	"\vcoordinates\x18\a \x01(\v2\x1c.accumora_rpc.v1.CoordinatesH\x02R\vcoordinates\x88\x01\x01\x126\n" +
 	"\tamenities\x18\b \x03(\v2\x18.accumora_rpc.v1.AmenityR\tamenities\x12\x14\n" +
-	"\x05owner\x18\t \x01(\tR\x05owner\x12\x1d\n" +
-	"\n" +
-	"created_at\x18\n" +
-	" \x01(\tR\tcreatedAt\x12=\n" +
-	"\x06status\x18\v \x01(\x0e2%.accumora_rpc.v1.Accommodation.StatusR\x06status\"H\n" +
+	"\x05owner\x18\t \x01(\tR\x05owner\x12!\n" +
+	"\fcreated_time\x18\n" +
+	" \x01(\tR\vcreatedTime\x12=\n" +
+	"\x06status\x18\v \x01(\x0e2%.accumora_rpc.v1.Accommodation.StatusR\x06status\x12\x1f\n" +
+	"\vlast_update\x18\f \x01(\tR\n" +
+	"lastUpdate\"H\n" +
 	"\x11AccommodationType\x12\x10\n" +
 	"\funknown_type\x10\x00\x12\r\n" +
 	"\tapartment\x10\x01\x12\x12\n" +
