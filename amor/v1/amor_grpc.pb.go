@@ -51,7 +51,7 @@ type ProjectAmorClient interface {
 	DeleteUser(ctx context.Context, in *DeleteUserRequest, opts ...grpc.CallOption) (*DeleteUserResponse, error)
 	DeleteAccommodation(ctx context.Context, in *DeleteAccommodationRequest, opts ...grpc.CallOption) (*DeleteAccommodationResponse, error)
 	GetAccommodations(ctx context.Context, in *GetAccommodationsRequest, opts ...grpc.CallOption) (*GetAccommodationsResponse, error)
-	GetAccommodationsBySection(ctx context.Context, in *GetAccommodationsBySectionRequest, opts ...grpc.CallOption) (*GetAccommodationsResponse, error)
+	GetAccommodationsBySection(ctx context.Context, in *GetAccommodationsBySectionRequest, opts ...grpc.CallOption) (*GetAccommodationsBySectionResponse, error)
 	UpdateAccommodation(ctx context.Context, in *UpdateAccommodationRequest, opts ...grpc.CallOption) (*Accommodation, error)
 	AddRoom(ctx context.Context, in *AddRoomRequest, opts ...grpc.CallOption) (*AddRoomResponse, error)
 	GetRooms(ctx context.Context, in *GetRoomsRequest, opts ...grpc.CallOption) (*GetRoomsResponse, error)
@@ -135,9 +135,9 @@ func (c *projectAmorClient) GetAccommodations(ctx context.Context, in *GetAccomm
 	return out, nil
 }
 
-func (c *projectAmorClient) GetAccommodationsBySection(ctx context.Context, in *GetAccommodationsBySectionRequest, opts ...grpc.CallOption) (*GetAccommodationsResponse, error) {
+func (c *projectAmorClient) GetAccommodationsBySection(ctx context.Context, in *GetAccommodationsBySectionRequest, opts ...grpc.CallOption) (*GetAccommodationsBySectionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAccommodationsResponse)
+	out := new(GetAccommodationsBySectionResponse)
 	err := c.cc.Invoke(ctx, ProjectAmor_GetAccommodationsBySection_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -285,7 +285,7 @@ type ProjectAmorServer interface {
 	DeleteUser(context.Context, *DeleteUserRequest) (*DeleteUserResponse, error)
 	DeleteAccommodation(context.Context, *DeleteAccommodationRequest) (*DeleteAccommodationResponse, error)
 	GetAccommodations(context.Context, *GetAccommodationsRequest) (*GetAccommodationsResponse, error)
-	GetAccommodationsBySection(context.Context, *GetAccommodationsBySectionRequest) (*GetAccommodationsResponse, error)
+	GetAccommodationsBySection(context.Context, *GetAccommodationsBySectionRequest) (*GetAccommodationsBySectionResponse, error)
 	UpdateAccommodation(context.Context, *UpdateAccommodationRequest) (*Accommodation, error)
 	AddRoom(context.Context, *AddRoomRequest) (*AddRoomResponse, error)
 	GetRooms(context.Context, *GetRoomsRequest) (*GetRoomsResponse, error)
@@ -327,7 +327,7 @@ func (UnimplementedProjectAmorServer) DeleteAccommodation(context.Context, *Dele
 func (UnimplementedProjectAmorServer) GetAccommodations(context.Context, *GetAccommodationsRequest) (*GetAccommodationsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAccommodations not implemented")
 }
-func (UnimplementedProjectAmorServer) GetAccommodationsBySection(context.Context, *GetAccommodationsBySectionRequest) (*GetAccommodationsResponse, error) {
+func (UnimplementedProjectAmorServer) GetAccommodationsBySection(context.Context, *GetAccommodationsBySectionRequest) (*GetAccommodationsBySectionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAccommodationsBySection not implemented")
 }
 func (UnimplementedProjectAmorServer) UpdateAccommodation(context.Context, *UpdateAccommodationRequest) (*Accommodation, error) {
