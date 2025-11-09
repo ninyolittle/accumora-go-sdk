@@ -19,25 +19,26 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	ProjectAmor_AddAccommodation_FullMethodName       = "/accumora_rpc.v1.ProjectAmor/AddAccommodation"
-	ProjectAmor_LoginUser_FullMethodName              = "/accumora_rpc.v1.ProjectAmor/LoginUser"
-	ProjectAmor_RegisterUser_FullMethodName           = "/accumora_rpc.v1.ProjectAmor/RegisterUser"
-	ProjectAmor_DeleteUser_FullMethodName             = "/accumora_rpc.v1.ProjectAmor/DeleteUser"
-	ProjectAmor_DeleteAccommodation_FullMethodName    = "/accumora_rpc.v1.ProjectAmor/DeleteAccommodation"
-	ProjectAmor_GetAccommodations_FullMethodName      = "/accumora_rpc.v1.ProjectAmor/GetAccommodations"
-	ProjectAmor_UpdateAccommodation_FullMethodName    = "/accumora_rpc.v1.ProjectAmor/UpdateAccommodation"
-	ProjectAmor_AddRoom_FullMethodName                = "/accumora_rpc.v1.ProjectAmor/AddRoom"
-	ProjectAmor_GetRooms_FullMethodName               = "/accumora_rpc.v1.ProjectAmor/GetRooms"
-	ProjectAmor_DeleteRoom_FullMethodName             = "/accumora_rpc.v1.ProjectAmor/DeleteRoom"
-	ProjectAmor_UpdateRoom_FullMethodName             = "/accumora_rpc.v1.ProjectAmor/UpdateRoom"
-	ProjectAmor_GetUser_FullMethodName                = "/accumora_rpc.v1.ProjectAmor/GetUser"
-	ProjectAmor_SetAsLandLord_FullMethodName          = "/accumora_rpc.v1.ProjectAmor/SetAsLandLord"
-	ProjectAmor_AddAmenities_FullMethodName           = "/accumora_rpc.v1.ProjectAmor/AddAmenities"
-	ProjectAmor_ListAmenities_FullMethodName          = "/accumora_rpc.v1.ProjectAmor/ListAmenities"
-	ProjectAmor_DeleteAmenities_FullMethodName        = "/accumora_rpc.v1.ProjectAmor/DeleteAmenities"
-	ProjectAmor_SendVerificationEmail_FullMethodName  = "/accumora_rpc.v1.ProjectAmor/SendVerificationEmail"
-	ProjectAmor_ConfirmEmailAddress_FullMethodName    = "/accumora_rpc.v1.ProjectAmor/ConfirmEmailAddress"
-	ProjectAmor_SetAccommodationStatus_FullMethodName = "/accumora_rpc.v1.ProjectAmor/SetAccommodationStatus"
+	ProjectAmor_AddAccommodation_FullMethodName           = "/accumora_rpc.v1.ProjectAmor/AddAccommodation"
+	ProjectAmor_LoginUser_FullMethodName                  = "/accumora_rpc.v1.ProjectAmor/LoginUser"
+	ProjectAmor_RegisterUser_FullMethodName               = "/accumora_rpc.v1.ProjectAmor/RegisterUser"
+	ProjectAmor_DeleteUser_FullMethodName                 = "/accumora_rpc.v1.ProjectAmor/DeleteUser"
+	ProjectAmor_DeleteAccommodation_FullMethodName        = "/accumora_rpc.v1.ProjectAmor/DeleteAccommodation"
+	ProjectAmor_GetAccommodations_FullMethodName          = "/accumora_rpc.v1.ProjectAmor/GetAccommodations"
+	ProjectAmor_GetAccommodationsBySection_FullMethodName = "/accumora_rpc.v1.ProjectAmor/GetAccommodationsBySection"
+	ProjectAmor_UpdateAccommodation_FullMethodName        = "/accumora_rpc.v1.ProjectAmor/UpdateAccommodation"
+	ProjectAmor_AddRoom_FullMethodName                    = "/accumora_rpc.v1.ProjectAmor/AddRoom"
+	ProjectAmor_GetRooms_FullMethodName                   = "/accumora_rpc.v1.ProjectAmor/GetRooms"
+	ProjectAmor_DeleteRoom_FullMethodName                 = "/accumora_rpc.v1.ProjectAmor/DeleteRoom"
+	ProjectAmor_UpdateRoom_FullMethodName                 = "/accumora_rpc.v1.ProjectAmor/UpdateRoom"
+	ProjectAmor_GetUser_FullMethodName                    = "/accumora_rpc.v1.ProjectAmor/GetUser"
+	ProjectAmor_SetAsLandLord_FullMethodName              = "/accumora_rpc.v1.ProjectAmor/SetAsLandLord"
+	ProjectAmor_AddAmenities_FullMethodName               = "/accumora_rpc.v1.ProjectAmor/AddAmenities"
+	ProjectAmor_ListAmenities_FullMethodName              = "/accumora_rpc.v1.ProjectAmor/ListAmenities"
+	ProjectAmor_DeleteAmenities_FullMethodName            = "/accumora_rpc.v1.ProjectAmor/DeleteAmenities"
+	ProjectAmor_SendVerificationEmail_FullMethodName      = "/accumora_rpc.v1.ProjectAmor/SendVerificationEmail"
+	ProjectAmor_ConfirmEmailAddress_FullMethodName        = "/accumora_rpc.v1.ProjectAmor/ConfirmEmailAddress"
+	ProjectAmor_SetAccommodationStatus_FullMethodName     = "/accumora_rpc.v1.ProjectAmor/SetAccommodationStatus"
 )
 
 // ProjectAmorClient is the client API for ProjectAmor service.
@@ -50,6 +51,7 @@ type ProjectAmorClient interface {
 	DeleteUser(ctx context.Context, in *DeleteUserRequest, opts ...grpc.CallOption) (*DeleteUserResponse, error)
 	DeleteAccommodation(ctx context.Context, in *DeleteAccommodationRequest, opts ...grpc.CallOption) (*DeleteAccommodationResponse, error)
 	GetAccommodations(ctx context.Context, in *GetAccommodationsRequest, opts ...grpc.CallOption) (*GetAccommodationsResponse, error)
+	GetAccommodationsBySection(ctx context.Context, in *GetAccommodationsBySectionRequest, opts ...grpc.CallOption) (*GetAccommodationsResponse, error)
 	UpdateAccommodation(ctx context.Context, in *UpdateAccommodationRequest, opts ...grpc.CallOption) (*Accommodation, error)
 	AddRoom(ctx context.Context, in *AddRoomRequest, opts ...grpc.CallOption) (*AddRoomResponse, error)
 	GetRooms(ctx context.Context, in *GetRoomsRequest, opts ...grpc.CallOption) (*GetRoomsResponse, error)
@@ -127,6 +129,16 @@ func (c *projectAmorClient) GetAccommodations(ctx context.Context, in *GetAccomm
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetAccommodationsResponse)
 	err := c.cc.Invoke(ctx, ProjectAmor_GetAccommodations_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *projectAmorClient) GetAccommodationsBySection(ctx context.Context, in *GetAccommodationsBySectionRequest, opts ...grpc.CallOption) (*GetAccommodationsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAccommodationsResponse)
+	err := c.cc.Invoke(ctx, ProjectAmor_GetAccommodationsBySection_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -273,6 +285,7 @@ type ProjectAmorServer interface {
 	DeleteUser(context.Context, *DeleteUserRequest) (*DeleteUserResponse, error)
 	DeleteAccommodation(context.Context, *DeleteAccommodationRequest) (*DeleteAccommodationResponse, error)
 	GetAccommodations(context.Context, *GetAccommodationsRequest) (*GetAccommodationsResponse, error)
+	GetAccommodationsBySection(context.Context, *GetAccommodationsBySectionRequest) (*GetAccommodationsResponse, error)
 	UpdateAccommodation(context.Context, *UpdateAccommodationRequest) (*Accommodation, error)
 	AddRoom(context.Context, *AddRoomRequest) (*AddRoomResponse, error)
 	GetRooms(context.Context, *GetRoomsRequest) (*GetRoomsResponse, error)
@@ -313,6 +326,9 @@ func (UnimplementedProjectAmorServer) DeleteAccommodation(context.Context, *Dele
 }
 func (UnimplementedProjectAmorServer) GetAccommodations(context.Context, *GetAccommodationsRequest) (*GetAccommodationsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAccommodations not implemented")
+}
+func (UnimplementedProjectAmorServer) GetAccommodationsBySection(context.Context, *GetAccommodationsBySectionRequest) (*GetAccommodationsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAccommodationsBySection not implemented")
 }
 func (UnimplementedProjectAmorServer) UpdateAccommodation(context.Context, *UpdateAccommodationRequest) (*Accommodation, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateAccommodation not implemented")
@@ -478,6 +494,24 @@ func _ProjectAmor_GetAccommodations_Handler(srv interface{}, ctx context.Context
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ProjectAmorServer).GetAccommodations(ctx, req.(*GetAccommodationsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProjectAmor_GetAccommodationsBySection_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAccommodationsBySectionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProjectAmorServer).GetAccommodationsBySection(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProjectAmor_GetAccommodationsBySection_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProjectAmorServer).GetAccommodationsBySection(ctx, req.(*GetAccommodationsBySectionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -746,6 +780,10 @@ var ProjectAmor_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetAccommodations",
 			Handler:    _ProjectAmor_GetAccommodations_Handler,
+		},
+		{
+			MethodName: "GetAccommodationsBySection",
+			Handler:    _ProjectAmor_GetAccommodationsBySection_Handler,
 		},
 		{
 			MethodName: "UpdateAccommodation",
