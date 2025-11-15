@@ -1755,6 +1755,7 @@ type AddAccommodationRequest struct {
 	//	*AddAccommodationRequest_Coordinates
 	Geo           isAddAccommodationRequest_Geo `protobuf_oneof:"geo"`
 	Rules         []string                      `protobuf:"bytes,9,rep,name=rules,proto3" json:"rules,omitempty"`
+	ProfilePhoto  []byte                        `protobuf:"bytes,10,opt,name=profile_photo,json=profilePhoto,proto3,oneof" json:"profile_photo,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1845,6 +1846,13 @@ func (x *AddAccommodationRequest) GetCoordinates() *Coordinates {
 func (x *AddAccommodationRequest) GetRules() []string {
 	if x != nil {
 		return x.Rules
+	}
+	return nil
+}
+
+func (x *AddAccommodationRequest) GetProfilePhoto() []byte {
+	if x != nil {
+		return x.ProfilePhoto
 	}
 	return nil
 }
@@ -2228,7 +2236,7 @@ const file_amor_v1_amor_proto_rawDesc = "" +
 	"\bpassword\x18\x02 \x01(\tR\bpasswordB\a\n" +
 	"\x05input\"6\n" +
 	"\x11LoginUserResponse\x12!\n" +
-	"\faccess_token\x18\x01 \x01(\tR\vaccessToken\"\xe0\x02\n" +
+	"\faccess_token\x18\x01 \x01(\tR\vaccessToken\"\x9c\x03\n" +
 	"\x17AddAccommodationRequest\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12D\n" +
 	"\x04type\x18\x02 \x01(\x0e20.accumora_rpc.v1.Accommodation.AccommodationTypeR\x04type\x12\x1c\n" +
@@ -2236,9 +2244,12 @@ const file_amor_v1_amor_proto_rawDesc = "" +
 	"\vdescription\x18\x05 \x01(\tH\x01R\vdescription\x88\x01\x01\x127\n" +
 	"\blocation\x18\x06 \x01(\v2\x19.accumora_rpc.v1.LocationH\x00R\blocation\x12@\n" +
 	"\vcoordinates\x18\a \x01(\v2\x1c.accumora_rpc.v1.CoordinatesH\x00R\vcoordinates\x12\x14\n" +
-	"\x05rules\x18\t \x03(\tR\x05rulesB\x05\n" +
+	"\x05rules\x18\t \x03(\tR\x05rules\x12(\n" +
+	"\rprofile_photo\x18\n" +
+	" \x01(\fH\x02R\fprofilePhoto\x88\x01\x01B\x05\n" +
 	"\x03geoB\x0e\n" +
-	"\f_description2\xcc\x0f\n" +
+	"\f_descriptionB\x10\n" +
+	"\x0e_profile_photo2\xcc\x0f\n" +
 	"\vProjectAmor\x12^\n" +
 	"\x10AddAccommodation\x12(.accumora_rpc.v1.AddAccommodationRequest\x1a\x1e.accumora_rpc.v1.Accommodation\"\x00\x12T\n" +
 	"\tLoginUser\x12!.accumora_rpc.v1.LoginUserRequest\x1a\".accumora_rpc.v1.LoginUserResponse\"\x00\x12]\n" +
