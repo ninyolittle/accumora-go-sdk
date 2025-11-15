@@ -1857,7 +1857,7 @@ func (*AddAccommodationRequest_Location) isAddAccommodationRequest_Geo() {}
 
 func (*AddAccommodationRequest_Coordinates) isAddAccommodationRequest_Geo() {}
 
-type GetAccommodationsBySectionResponse_SummarizedAccommdation struct {
+type GetAccommodationsBySectionResponse_SummarizedAccommodation struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
@@ -1866,20 +1866,20 @@ type GetAccommodationsBySectionResponse_SummarizedAccommdation struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetAccommodationsBySectionResponse_SummarizedAccommdation) Reset() {
-	*x = GetAccommodationsBySectionResponse_SummarizedAccommdation{}
+func (x *GetAccommodationsBySectionResponse_SummarizedAccommodation) Reset() {
+	*x = GetAccommodationsBySectionResponse_SummarizedAccommodation{}
 	mi := &file_amor_v1_amor_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetAccommodationsBySectionResponse_SummarizedAccommdation) String() string {
+func (x *GetAccommodationsBySectionResponse_SummarizedAccommodation) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetAccommodationsBySectionResponse_SummarizedAccommdation) ProtoMessage() {}
+func (*GetAccommodationsBySectionResponse_SummarizedAccommodation) ProtoMessage() {}
 
-func (x *GetAccommodationsBySectionResponse_SummarizedAccommdation) ProtoReflect() protoreflect.Message {
+func (x *GetAccommodationsBySectionResponse_SummarizedAccommodation) ProtoReflect() protoreflect.Message {
 	mi := &file_amor_v1_amor_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1891,26 +1891,26 @@ func (x *GetAccommodationsBySectionResponse_SummarizedAccommdation) ProtoReflect
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetAccommodationsBySectionResponse_SummarizedAccommdation.ProtoReflect.Descriptor instead.
-func (*GetAccommodationsBySectionResponse_SummarizedAccommdation) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetAccommodationsBySectionResponse_SummarizedAccommodation.ProtoReflect.Descriptor instead.
+func (*GetAccommodationsBySectionResponse_SummarizedAccommodation) Descriptor() ([]byte, []int) {
 	return file_amor_v1_amor_proto_rawDescGZIP(), []int{1, 0}
 }
 
-func (x *GetAccommodationsBySectionResponse_SummarizedAccommdation) GetId() string {
+func (x *GetAccommodationsBySectionResponse_SummarizedAccommodation) GetId() string {
 	if x != nil {
 		return x.Id
 	}
 	return ""
 }
 
-func (x *GetAccommodationsBySectionResponse_SummarizedAccommdation) GetName() string {
+func (x *GetAccommodationsBySectionResponse_SummarizedAccommodation) GetName() string {
 	if x != nil {
 		return x.Name
 	}
 	return ""
 }
 
-func (x *GetAccommodationsBySectionResponse_SummarizedAccommdation) GetLocation() *Location {
+func (x *GetAccommodationsBySectionResponse_SummarizedAccommodation) GetLocation() *Location {
 	if x != nil {
 		return x.Location
 	}
@@ -1918,9 +1918,9 @@ func (x *GetAccommodationsBySectionResponse_SummarizedAccommdation) GetLocation(
 }
 
 type GetAccommodationsBySectionResponse_Section struct {
-	state          protoimpl.MessageState                                       `protogen:"open.v1"`
-	Name           string                                                       `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Accommodations []*GetAccommodationsBySectionResponse_SummarizedAccommdation `protobuf:"bytes,2,rep,name=accommodations,proto3" json:"accommodations,omitempty"`
+	state          protoimpl.MessageState                                        `protogen:"open.v1"`
+	Name           string                                                        `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Accommodations []*GetAccommodationsBySectionResponse_SummarizedAccommodation `protobuf:"bytes,2,rep,name=accommodations,proto3" json:"accommodations,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -1962,7 +1962,7 @@ func (x *GetAccommodationsBySectionResponse_Section) GetName() string {
 	return ""
 }
 
-func (x *GetAccommodationsBySectionResponse_Section) GetAccommodations() []*GetAccommodationsBySectionResponse_SummarizedAccommdation {
+func (x *GetAccommodationsBySectionResponse_Section) GetAccommodations() []*GetAccommodationsBySectionResponse_SummarizedAccommodation {
 	if x != nil {
 		return x.Accommodations
 	}
@@ -2086,16 +2086,16 @@ var File_amor_v1_amor_proto protoreflect.FileDescriptor
 const file_amor_v1_amor_proto_rawDesc = "" +
 	"\n" +
 	"\x12amor/v1/amor.proto\x12\x0faccumora_rpc.v1\x1a\x13amor/v1/types.proto\"#\n" +
-	"!GetAccommodationsBySectionRequest\"\x86\x03\n" +
+	"!GetAccommodationsBySectionRequest\"\x88\x03\n" +
 	"\"GetAccommodationsBySectionResponse\x12W\n" +
-	"\bsections\x18\x01 \x03(\v2;.accumora_rpc.v1.GetAccommodationsBySectionResponse.SectionR\bsections\x1as\n" +
-	"\x16SummarizedAccommdation\x12\x0e\n" +
+	"\bsections\x18\x01 \x03(\v2;.accumora_rpc.v1.GetAccommodationsBySectionResponse.SectionR\bsections\x1at\n" +
+	"\x17SummarizedAccommodation\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x125\n" +
-	"\blocation\x18\x03 \x01(\v2\x19.accumora_rpc.v1.LocationR\blocation\x1a\x91\x01\n" +
+	"\blocation\x18\x03 \x01(\v2\x19.accumora_rpc.v1.LocationR\blocation\x1a\x92\x01\n" +
 	"\aSection\x12\x12\n" +
-	"\x04name\x18\x01 \x01(\tR\x04name\x12r\n" +
-	"\x0eaccommodations\x18\x02 \x03(\v2J.accumora_rpc.v1.GetAccommodationsBySectionResponse.SummarizedAccommdationR\x0eaccommodations\"o\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\x12s\n" +
+	"\x0eaccommodations\x18\x02 \x03(\v2K.accumora_rpc.v1.GetAccommodationsBySectionResponse.SummarizedAccommodationR\x0eaccommodations\"o\n" +
 	"\x1eSetAccommodationStatusResponse\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12=\n" +
 	"\x06status\x18\x02 \x01(\x0e2%.accumora_rpc.v1.Accommodation.StatusR\x06status\"n\n" +
@@ -2266,56 +2266,56 @@ func file_amor_v1_amor_proto_rawDescGZIP() []byte {
 
 var file_amor_v1_amor_proto_msgTypes = make([]protoimpl.MessageInfo, 40)
 var file_amor_v1_amor_proto_goTypes = []any{
-	(*GetAccommodationsBySectionRequest)(nil),                         // 0: accumora_rpc.v1.GetAccommodationsBySectionRequest
-	(*GetAccommodationsBySectionResponse)(nil),                        // 1: accumora_rpc.v1.GetAccommodationsBySectionResponse
-	(*SetAccommodationStatusResponse)(nil),                            // 2: accumora_rpc.v1.SetAccommodationStatusResponse
-	(*SetAccommodationStatusRequest)(nil),                             // 3: accumora_rpc.v1.SetAccommodationStatusRequest
-	(*DeleteAmenitiesRequest)(nil),                                    // 4: accumora_rpc.v1.DeleteAmenitiesRequest
-	(*DeleteAmenitiesResponse)(nil),                                   // 5: accumora_rpc.v1.DeleteAmenitiesResponse
-	(*ListAmenitiesRequest)(nil),                                      // 6: accumora_rpc.v1.ListAmenitiesRequest
-	(*ListAmenitiesResponse)(nil),                                     // 7: accumora_rpc.v1.ListAmenitiesResponse
-	(*DeleteUserRequest)(nil),                                         // 8: accumora_rpc.v1.DeleteUserRequest
-	(*DeleteUserResponse)(nil),                                        // 9: accumora_rpc.v1.DeleteUserResponse
-	(*ConfirmEmailAddressRequest)(nil),                                // 10: accumora_rpc.v1.ConfirmEmailAddressRequest
-	(*ConfirmEmailAddressResponse)(nil),                               // 11: accumora_rpc.v1.ConfirmEmailAddressResponse
-	(*SendVerificationEmailRequest)(nil),                              // 12: accumora_rpc.v1.SendVerificationEmailRequest
-	(*SendVerificationEmailResponse)(nil),                             // 13: accumora_rpc.v1.SendVerificationEmailResponse
-	(*AddAmenitiesRequest)(nil),                                       // 14: accumora_rpc.v1.AddAmenitiesRequest
-	(*AddAmenitiesResponse)(nil),                                      // 15: accumora_rpc.v1.AddAmenitiesResponse
-	(*SetAsLandLordRequest)(nil),                                      // 16: accumora_rpc.v1.SetAsLandLordRequest
-	(*UpdateRoomRequest)(nil),                                         // 17: accumora_rpc.v1.UpdateRoomRequest
-	(*UpdateRoomResponse)(nil),                                        // 18: accumora_rpc.v1.UpdateRoomResponse
-	(*UpdateAccommodationRequest)(nil),                                // 19: accumora_rpc.v1.UpdateAccommodationRequest
-	(*GetUserRequest)(nil),                                            // 20: accumora_rpc.v1.GetUserRequest
-	(*AddRoomRequest)(nil),                                            // 21: accumora_rpc.v1.AddRoomRequest
-	(*AddRoomResponse)(nil),                                           // 22: accumora_rpc.v1.AddRoomResponse
-	(*DeleteRoomRequest)(nil),                                         // 23: accumora_rpc.v1.DeleteRoomRequest
-	(*DeleteRoomResponse)(nil),                                        // 24: accumora_rpc.v1.DeleteRoomResponse
-	(*GetRoomsRequest)(nil),                                           // 25: accumora_rpc.v1.GetRoomsRequest
-	(*GetRoomsResponse)(nil),                                          // 26: accumora_rpc.v1.GetRoomsResponse
-	(*GetAccommodationsRequest)(nil),                                  // 27: accumora_rpc.v1.GetAccommodationsRequest
-	(*GetAccommodationsResponse)(nil),                                 // 28: accumora_rpc.v1.GetAccommodationsResponse
-	(*DeleteAccommodationRequest)(nil),                                // 29: accumora_rpc.v1.DeleteAccommodationRequest
-	(*DeleteAccommodationResponse)(nil),                               // 30: accumora_rpc.v1.DeleteAccommodationResponse
-	(*RegisterUserRequest)(nil),                                       // 31: accumora_rpc.v1.RegisterUserRequest
-	(*RegisterUserResponse)(nil),                                      // 32: accumora_rpc.v1.RegisterUserResponse
-	(*LoginUserRequest)(nil),                                          // 33: accumora_rpc.v1.LoginUserRequest
-	(*LoginUserResponse)(nil),                                         // 34: accumora_rpc.v1.LoginUserResponse
-	(*AddAccommodationRequest)(nil),                                   // 35: accumora_rpc.v1.AddAccommodationRequest
-	(*GetAccommodationsBySectionResponse_SummarizedAccommdation)(nil), // 36: accumora_rpc.v1.GetAccommodationsBySectionResponse.SummarizedAccommdation
-	(*GetAccommodationsBySectionResponse_Section)(nil),                // 37: accumora_rpc.v1.GetAccommodationsBySectionResponse.Section
-	(*AddAmenitiesRequest_Input)(nil),                                 // 38: accumora_rpc.v1.AddAmenitiesRequest.Input
-	(*LoginUserRequest_Manual)(nil),                                   // 39: accumora_rpc.v1.LoginUserRequest.Manual
-	(Accommodation_Status)(0),                                         // 40: accumora_rpc.v1.Accommodation.Status
-	(*Amenity)(nil),                                                   // 41: accumora_rpc.v1.Amenity
-	(*Room_Prices)(nil),                                               // 42: accumora_rpc.v1.Room.Prices
-	(*Room)(nil),                                                      // 43: accumora_rpc.v1.Room
-	(Accommodation_AccommodationType)(0),                              // 44: accumora_rpc.v1.Accommodation.AccommodationType
-	(*Accommodation)(nil),                                             // 45: accumora_rpc.v1.Accommodation
-	(User_Gender)(0),                                                  // 46: accumora_rpc.v1.User.Gender
-	(*Location)(nil),                                                  // 47: accumora_rpc.v1.Location
-	(*Coordinates)(nil),                                               // 48: accumora_rpc.v1.Coordinates
-	(*User)(nil),                                                      // 49: accumora_rpc.v1.User
+	(*GetAccommodationsBySectionRequest)(nil),                          // 0: accumora_rpc.v1.GetAccommodationsBySectionRequest
+	(*GetAccommodationsBySectionResponse)(nil),                         // 1: accumora_rpc.v1.GetAccommodationsBySectionResponse
+	(*SetAccommodationStatusResponse)(nil),                             // 2: accumora_rpc.v1.SetAccommodationStatusResponse
+	(*SetAccommodationStatusRequest)(nil),                              // 3: accumora_rpc.v1.SetAccommodationStatusRequest
+	(*DeleteAmenitiesRequest)(nil),                                     // 4: accumora_rpc.v1.DeleteAmenitiesRequest
+	(*DeleteAmenitiesResponse)(nil),                                    // 5: accumora_rpc.v1.DeleteAmenitiesResponse
+	(*ListAmenitiesRequest)(nil),                                       // 6: accumora_rpc.v1.ListAmenitiesRequest
+	(*ListAmenitiesResponse)(nil),                                      // 7: accumora_rpc.v1.ListAmenitiesResponse
+	(*DeleteUserRequest)(nil),                                          // 8: accumora_rpc.v1.DeleteUserRequest
+	(*DeleteUserResponse)(nil),                                         // 9: accumora_rpc.v1.DeleteUserResponse
+	(*ConfirmEmailAddressRequest)(nil),                                 // 10: accumora_rpc.v1.ConfirmEmailAddressRequest
+	(*ConfirmEmailAddressResponse)(nil),                                // 11: accumora_rpc.v1.ConfirmEmailAddressResponse
+	(*SendVerificationEmailRequest)(nil),                               // 12: accumora_rpc.v1.SendVerificationEmailRequest
+	(*SendVerificationEmailResponse)(nil),                              // 13: accumora_rpc.v1.SendVerificationEmailResponse
+	(*AddAmenitiesRequest)(nil),                                        // 14: accumora_rpc.v1.AddAmenitiesRequest
+	(*AddAmenitiesResponse)(nil),                                       // 15: accumora_rpc.v1.AddAmenitiesResponse
+	(*SetAsLandLordRequest)(nil),                                       // 16: accumora_rpc.v1.SetAsLandLordRequest
+	(*UpdateRoomRequest)(nil),                                          // 17: accumora_rpc.v1.UpdateRoomRequest
+	(*UpdateRoomResponse)(nil),                                         // 18: accumora_rpc.v1.UpdateRoomResponse
+	(*UpdateAccommodationRequest)(nil),                                 // 19: accumora_rpc.v1.UpdateAccommodationRequest
+	(*GetUserRequest)(nil),                                             // 20: accumora_rpc.v1.GetUserRequest
+	(*AddRoomRequest)(nil),                                             // 21: accumora_rpc.v1.AddRoomRequest
+	(*AddRoomResponse)(nil),                                            // 22: accumora_rpc.v1.AddRoomResponse
+	(*DeleteRoomRequest)(nil),                                          // 23: accumora_rpc.v1.DeleteRoomRequest
+	(*DeleteRoomResponse)(nil),                                         // 24: accumora_rpc.v1.DeleteRoomResponse
+	(*GetRoomsRequest)(nil),                                            // 25: accumora_rpc.v1.GetRoomsRequest
+	(*GetRoomsResponse)(nil),                                           // 26: accumora_rpc.v1.GetRoomsResponse
+	(*GetAccommodationsRequest)(nil),                                   // 27: accumora_rpc.v1.GetAccommodationsRequest
+	(*GetAccommodationsResponse)(nil),                                  // 28: accumora_rpc.v1.GetAccommodationsResponse
+	(*DeleteAccommodationRequest)(nil),                                 // 29: accumora_rpc.v1.DeleteAccommodationRequest
+	(*DeleteAccommodationResponse)(nil),                                // 30: accumora_rpc.v1.DeleteAccommodationResponse
+	(*RegisterUserRequest)(nil),                                        // 31: accumora_rpc.v1.RegisterUserRequest
+	(*RegisterUserResponse)(nil),                                       // 32: accumora_rpc.v1.RegisterUserResponse
+	(*LoginUserRequest)(nil),                                           // 33: accumora_rpc.v1.LoginUserRequest
+	(*LoginUserResponse)(nil),                                          // 34: accumora_rpc.v1.LoginUserResponse
+	(*AddAccommodationRequest)(nil),                                    // 35: accumora_rpc.v1.AddAccommodationRequest
+	(*GetAccommodationsBySectionResponse_SummarizedAccommodation)(nil), // 36: accumora_rpc.v1.GetAccommodationsBySectionResponse.SummarizedAccommodation
+	(*GetAccommodationsBySectionResponse_Section)(nil),                 // 37: accumora_rpc.v1.GetAccommodationsBySectionResponse.Section
+	(*AddAmenitiesRequest_Input)(nil),                                  // 38: accumora_rpc.v1.AddAmenitiesRequest.Input
+	(*LoginUserRequest_Manual)(nil),                                    // 39: accumora_rpc.v1.LoginUserRequest.Manual
+	(Accommodation_Status)(0),                                          // 40: accumora_rpc.v1.Accommodation.Status
+	(*Amenity)(nil),                                                    // 41: accumora_rpc.v1.Amenity
+	(*Room_Prices)(nil),                                                // 42: accumora_rpc.v1.Room.Prices
+	(*Room)(nil),                                                       // 43: accumora_rpc.v1.Room
+	(Accommodation_AccommodationType)(0),                               // 44: accumora_rpc.v1.Accommodation.AccommodationType
+	(*Accommodation)(nil),                                              // 45: accumora_rpc.v1.Accommodation
+	(User_Gender)(0),                                                   // 46: accumora_rpc.v1.User.Gender
+	(*Location)(nil),                                                   // 47: accumora_rpc.v1.Location
+	(*Coordinates)(nil),                                                // 48: accumora_rpc.v1.Coordinates
+	(*User)(nil),                                                       // 49: accumora_rpc.v1.User
 }
 var file_amor_v1_amor_proto_depIdxs = []int32{
 	37, // 0: accumora_rpc.v1.GetAccommodationsBySectionResponse.sections:type_name -> accumora_rpc.v1.GetAccommodationsBySectionResponse.Section
@@ -2336,8 +2336,8 @@ var file_amor_v1_amor_proto_depIdxs = []int32{
 	44, // 15: accumora_rpc.v1.AddAccommodationRequest.type:type_name -> accumora_rpc.v1.Accommodation.AccommodationType
 	47, // 16: accumora_rpc.v1.AddAccommodationRequest.location:type_name -> accumora_rpc.v1.Location
 	48, // 17: accumora_rpc.v1.AddAccommodationRequest.coordinates:type_name -> accumora_rpc.v1.Coordinates
-	47, // 18: accumora_rpc.v1.GetAccommodationsBySectionResponse.SummarizedAccommdation.location:type_name -> accumora_rpc.v1.Location
-	36, // 19: accumora_rpc.v1.GetAccommodationsBySectionResponse.Section.accommodations:type_name -> accumora_rpc.v1.GetAccommodationsBySectionResponse.SummarizedAccommdation
+	47, // 18: accumora_rpc.v1.GetAccommodationsBySectionResponse.SummarizedAccommodation.location:type_name -> accumora_rpc.v1.Location
+	36, // 19: accumora_rpc.v1.GetAccommodationsBySectionResponse.Section.accommodations:type_name -> accumora_rpc.v1.GetAccommodationsBySectionResponse.SummarizedAccommodation
 	35, // 20: accumora_rpc.v1.ProjectAmor.AddAccommodation:input_type -> accumora_rpc.v1.AddAccommodationRequest
 	33, // 21: accumora_rpc.v1.ProjectAmor.LoginUser:input_type -> accumora_rpc.v1.LoginUserRequest
 	31, // 22: accumora_rpc.v1.ProjectAmor.RegisterUser:input_type -> accumora_rpc.v1.RegisterUserRequest
