@@ -1299,8 +1299,7 @@ func (x *GetRoomsResponse) GetRooms() []*Room {
 
 type GetAccommodationsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	OwnerId       *string                `protobuf:"bytes,1,opt,name=ownerId,proto3,oneof" json:"ownerId,omitempty"`
-	Id            []string               `protobuf:"bytes,2,rep,name=id,proto3" json:"id,omitempty"`
+	Id            []string               `protobuf:"bytes,1,rep,name=id,proto3" json:"id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1333,13 +1332,6 @@ func (x *GetAccommodationsRequest) ProtoReflect() protoreflect.Message {
 // Deprecated: Use GetAccommodationsRequest.ProtoReflect.Descriptor instead.
 func (*GetAccommodationsRequest) Descriptor() ([]byte, []int) {
 	return file_amor_v1_amor_proto_rawDescGZIP(), []int{27}
-}
-
-func (x *GetAccommodationsRequest) GetOwnerId() string {
-	if x != nil && x.OwnerId != nil {
-		return *x.OwnerId
-	}
-	return ""
 }
 
 func (x *GetAccommodationsRequest) GetId() []string {
@@ -2208,12 +2200,9 @@ const file_amor_v1_amor_proto_rawDesc = "" +
 	"\x02id\x18\x02 \x03(\tR\x02idB\x12\n" +
 	"\x10_accommodationId\"?\n" +
 	"\x10GetRoomsResponse\x12+\n" +
-	"\x05rooms\x18\x01 \x03(\v2\x15.accumora_rpc.v1.RoomR\x05rooms\"U\n" +
-	"\x18GetAccommodationsRequest\x12\x1d\n" +
-	"\aownerId\x18\x01 \x01(\tH\x00R\aownerId\x88\x01\x01\x12\x0e\n" +
-	"\x02id\x18\x02 \x03(\tR\x02idB\n" +
-	"\n" +
-	"\b_ownerId\"c\n" +
+	"\x05rooms\x18\x01 \x03(\v2\x15.accumora_rpc.v1.RoomR\x05rooms\"*\n" +
+	"\x18GetAccommodationsRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x03(\tR\x02id\"c\n" +
 	"\x19GetAccommodationsResponse\x12F\n" +
 	"\x0eaccommodations\x18\x01 \x03(\v2\x1e.accumora_rpc.v1.AccommodationR\x0eaccommodations\",\n" +
 	"\x1aDeleteAccommodationRequest\x12\x0e\n" +
@@ -2431,7 +2420,6 @@ func file_amor_v1_amor_proto_init() {
 	file_amor_v1_amor_proto_msgTypes[19].OneofWrappers = []any{}
 	file_amor_v1_amor_proto_msgTypes[21].OneofWrappers = []any{}
 	file_amor_v1_amor_proto_msgTypes[25].OneofWrappers = []any{}
-	file_amor_v1_amor_proto_msgTypes[27].OneofWrappers = []any{}
 	file_amor_v1_amor_proto_msgTypes[31].OneofWrappers = []any{}
 	file_amor_v1_amor_proto_msgTypes[33].OneofWrappers = []any{
 		(*LoginUserRequest_Manual_)(nil),
