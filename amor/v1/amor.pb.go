@@ -1878,7 +1878,7 @@ type GetAccommodationsBySectionResponse_SummarizedAccommodation struct {
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	Location      *Location              `protobuf:"bytes,3,opt,name=location,proto3" json:"location,omitempty"`
-	ProfilePhoto  []byte                 `protobuf:"bytes,4,opt,name=profile_photo,json=profilePhoto,proto3,oneof" json:"profile_photo,omitempty"`
+	ProfilePhoto  *string                `protobuf:"bytes,4,opt,name=profile_photo,json=profilePhoto,proto3,oneof" json:"profile_photo,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1934,11 +1934,11 @@ func (x *GetAccommodationsBySectionResponse_SummarizedAccommodation) GetLocation
 	return nil
 }
 
-func (x *GetAccommodationsBySectionResponse_SummarizedAccommodation) GetProfilePhoto() []byte {
-	if x != nil {
-		return x.ProfilePhoto
+func (x *GetAccommodationsBySectionResponse_SummarizedAccommodation) GetProfilePhoto() string {
+	if x != nil && x.ProfilePhoto != nil {
+		return *x.ProfilePhoto
 	}
-	return nil
+	return ""
 }
 
 type GetAccommodationsBySectionResponse_Section struct {
@@ -2121,7 +2121,7 @@ const file_amor_v1_amor_proto_rawDesc = "" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x125\n" +
 	"\blocation\x18\x03 \x01(\v2\x19.accumora_rpc.v1.LocationR\blocation\x12(\n" +
-	"\rprofile_photo\x18\x04 \x01(\fH\x00R\fprofilePhoto\x88\x01\x01B\x10\n" +
+	"\rprofile_photo\x18\x04 \x01(\tH\x00R\fprofilePhoto\x88\x01\x01B\x10\n" +
 	"\x0e_profile_photo\x1a\x92\x01\n" +
 	"\aSection\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12s\n" +
