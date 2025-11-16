@@ -1878,6 +1878,7 @@ type GetAccommodationsBySectionResponse_SummarizedAccommodation struct {
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	Location      *Location              `protobuf:"bytes,3,opt,name=location,proto3" json:"location,omitempty"`
+	ProfilePhoto  []byte                 `protobuf:"bytes,4,opt,name=profile_photo,json=profilePhoto,proto3,oneof" json:"profile_photo,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1929,6 +1930,13 @@ func (x *GetAccommodationsBySectionResponse_SummarizedAccommodation) GetName() s
 func (x *GetAccommodationsBySectionResponse_SummarizedAccommodation) GetLocation() *Location {
 	if x != nil {
 		return x.Location
+	}
+	return nil
+}
+
+func (x *GetAccommodationsBySectionResponse_SummarizedAccommodation) GetProfilePhoto() []byte {
+	if x != nil {
+		return x.ProfilePhoto
 	}
 	return nil
 }
@@ -2106,13 +2114,15 @@ const file_amor_v1_amor_proto_rawDesc = "" +
 	"\x06inputs\x18\x01 \x03(\v2>.accumora_rpc.v1.GetAccommodationsBySectionRequest.InputsEntryR\x06inputs\x1a9\n" +
 	"\vInputsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\x88\x03\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\xc5\x03\n" +
 	"\"GetAccommodationsBySectionResponse\x12W\n" +
-	"\bsections\x18\x01 \x03(\v2;.accumora_rpc.v1.GetAccommodationsBySectionResponse.SectionR\bsections\x1at\n" +
+	"\bsections\x18\x01 \x03(\v2;.accumora_rpc.v1.GetAccommodationsBySectionResponse.SectionR\bsections\x1a\xb0\x01\n" +
 	"\x17SummarizedAccommodation\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x125\n" +
-	"\blocation\x18\x03 \x01(\v2\x19.accumora_rpc.v1.LocationR\blocation\x1a\x92\x01\n" +
+	"\blocation\x18\x03 \x01(\v2\x19.accumora_rpc.v1.LocationR\blocation\x12(\n" +
+	"\rprofile_photo\x18\x04 \x01(\fH\x00R\fprofilePhoto\x88\x01\x01B\x10\n" +
+	"\x0e_profile_photo\x1a\x92\x01\n" +
 	"\aSection\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12s\n" +
 	"\x0eaccommodations\x18\x02 \x03(\v2K.accumora_rpc.v1.GetAccommodationsBySectionResponse.SummarizedAccommodationR\x0eaccommodations\"o\n" +
@@ -2431,6 +2441,7 @@ func file_amor_v1_amor_proto_init() {
 		(*AddAccommodationRequest_Location)(nil),
 		(*AddAccommodationRequest_Coordinates)(nil),
 	}
+	file_amor_v1_amor_proto_msgTypes[37].OneofWrappers = []any{}
 	file_amor_v1_amor_proto_msgTypes[39].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
