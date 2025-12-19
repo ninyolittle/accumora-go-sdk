@@ -215,7 +215,7 @@ func (x *SetAccommodationStatusRequest) GetStatus() Accommodation_Status {
 
 type DeleteAmenitiesRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	AmenityIds    []string               `protobuf:"bytes,1,rep,name=amenityIds,proto3" json:"amenityIds,omitempty"`
+	AmenityIds    []string               `protobuf:"bytes,1,rep,name=amenity_ids,json=amenityIds,proto3" json:"amenity_ids,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -295,7 +295,7 @@ func (*DeleteAmenitiesResponse) Descriptor() ([]byte, []int) {
 
 type ListAmenitiesRequest struct {
 	state           protoimpl.MessageState `protogen:"open.v1"`
-	AccommodationId *string                `protobuf:"bytes,1,opt,name=accommodationId,proto3,oneof" json:"accommodationId,omitempty"`
+	AccommodationId *string                `protobuf:"bytes,1,opt,name=accommodation_id,json=accommodationId,proto3,oneof" json:"accommodation_id,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
@@ -867,12 +867,13 @@ func (x *UpdateRoomResponse) GetRoom() *Room {
 
 type UpdateAccommodationRequest struct {
 	state         protoimpl.MessageState          `protogen:"open.v1"`
-	Id            string                          `protobuf:"bytes,10,opt,name=id,proto3" json:"id,omitempty"`
-	Name          string                          `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Type          Accommodation_AccommodationType `protobuf:"varint,2,opt,name=type,proto3,enum=accumora_rpc.v1.Accommodation_AccommodationType" json:"type,omitempty"`
+	Id            string                          `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name          string                          `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Type          Accommodation_AccommodationType `protobuf:"varint,3,opt,name=type,proto3,enum=accumora_rpc.v1.Accommodation_AccommodationType" json:"type,omitempty"`
 	Amenities     []string                        `protobuf:"bytes,4,rep,name=amenities,proto3" json:"amenities,omitempty"`
 	Description   *string                         `protobuf:"bytes,5,opt,name=description,proto3,oneof" json:"description,omitempty"`
-	Rules         []string                        `protobuf:"bytes,9,rep,name=rules,proto3" json:"rules,omitempty"`
+	Rules         []string                        `protobuf:"bytes,6,rep,name=rules,proto3" json:"rules,omitempty"`
+	ProfilePhoto  []byte                          `protobuf:"bytes,7,opt,name=profile_photo,json=profilePhoto,proto3,oneof" json:"profile_photo,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -949,6 +950,13 @@ func (x *UpdateAccommodationRequest) GetRules() []string {
 	return nil
 }
 
+func (x *UpdateAccommodationRequest) GetProfilePhoto() []byte {
+	if x != nil {
+		return x.ProfilePhoto
+	}
+	return nil
+}
+
 type GetUserRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
@@ -988,12 +996,12 @@ func (*GetUserRequest) Descriptor() ([]byte, []int) {
 type AddRoomRequest struct {
 	state           protoimpl.MessageState `protogen:"open.v1"`
 	Name            string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	AccommodationId string                 `protobuf:"bytes,2,opt,name=accommodationId,proto3" json:"accommodationId,omitempty"`
+	AccommodationId string                 `protobuf:"bytes,2,opt,name=accommodation_id,json=accommodationId,proto3" json:"accommodation_id,omitempty"`
 	Description     *string                `protobuf:"bytes,3,opt,name=description,proto3,oneof" json:"description,omitempty"`
 	Prices          *Room_Prices           `protobuf:"bytes,4,opt,name=prices,proto3" json:"prices,omitempty"`
 	Capacity        *int32                 `protobuf:"varint,5,opt,name=capacity,proto3,oneof" json:"capacity,omitempty"`
 	Utilities       []string               `protobuf:"bytes,6,rep,name=utilities,proto3" json:"utilities,omitempty"`
-	PhotoUrl        []byte                 `protobuf:"bytes,7,opt,name=photoUrl,proto3,oneof" json:"photoUrl,omitempty"`
+	PhotoUrl        []byte                 `protobuf:"bytes,7,opt,name=photo_url,json=photoUrl,proto3,oneof" json:"photo_url,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
@@ -1203,7 +1211,7 @@ func (*DeleteRoomResponse) Descriptor() ([]byte, []int) {
 
 type GetRoomsRequest struct {
 	state           protoimpl.MessageState `protogen:"open.v1"`
-	AccommodationId *string                `protobuf:"bytes,1,opt,name=accommodationId,proto3,oneof" json:"accommodationId,omitempty"`
+	AccommodationId *string                `protobuf:"bytes,1,opt,name=accommodation_id,json=accommodationId,proto3,oneof" json:"accommodation_id,omitempty"`
 	Id              []string               `protobuf:"bytes,2,rep,name=id,proto3" json:"id,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
@@ -1684,7 +1692,7 @@ type LoginUserRequest_Manual_ struct {
 }
 
 type LoginUserRequest_Auth0Token struct {
-	Auth0Token string `protobuf:"bytes,2,opt,name=auth0Token,proto3,oneof"`
+	Auth0Token string `protobuf:"bytes,2,opt,name=auth0_token,json=auth0Token,proto3,oneof"`
 }
 
 func (*LoginUserRequest_Manual_) isLoginUserRequest_Input() {}
@@ -1989,7 +1997,7 @@ type AddAmenitiesRequest_Input struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	Icon          *string                `protobuf:"bytes,2,opt,name=icon,proto3,oneof" json:"icon,omitempty"`
-	IconColor     *string                `protobuf:"bytes,3,opt,name=iconColor,proto3,oneof" json:"iconColor,omitempty"`
+	IconColor     *string                `protobuf:"bytes,3,opt,name=icon_color,json=iconColor,proto3,oneof" json:"icon_color,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -2123,15 +2131,14 @@ const file_amor_v1_amor_proto_rawDesc = "" +
 	"\x06status\x18\x02 \x01(\x0e2%.accumora_rpc.v1.Accommodation.StatusR\x06status\"n\n" +
 	"\x1dSetAccommodationStatusRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12=\n" +
-	"\x06status\x18\x02 \x01(\x0e2%.accumora_rpc.v1.Accommodation.StatusR\x06status\"8\n" +
-	"\x16DeleteAmenitiesRequest\x12\x1e\n" +
-	"\n" +
-	"amenityIds\x18\x01 \x03(\tR\n" +
+	"\x06status\x18\x02 \x01(\x0e2%.accumora_rpc.v1.Accommodation.StatusR\x06status\"9\n" +
+	"\x16DeleteAmenitiesRequest\x12\x1f\n" +
+	"\vamenity_ids\x18\x01 \x03(\tR\n" +
 	"amenityIds\"\x19\n" +
-	"\x17DeleteAmenitiesResponse\"Y\n" +
-	"\x14ListAmenitiesRequest\x12-\n" +
-	"\x0faccommodationId\x18\x01 \x01(\tH\x00R\x0faccommodationId\x88\x01\x01B\x12\n" +
-	"\x10_accommodationId\"O\n" +
+	"\x17DeleteAmenitiesResponse\"[\n" +
+	"\x14ListAmenitiesRequest\x12.\n" +
+	"\x10accommodation_id\x18\x01 \x01(\tH\x00R\x0faccommodationId\x88\x01\x01B\x13\n" +
+	"\x11_accommodation_id\"O\n" +
 	"\x15ListAmenitiesResponse\x126\n" +
 	"\tamenities\x18\x01 \x03(\v2\x18.accumora_rpc.v1.AmenityR\tamenities\"\x13\n" +
 	"\x11DeleteUserRequest\"\x14\n" +
@@ -2140,16 +2147,16 @@ const file_amor_v1_amor_proto_rawDesc = "" +
 	"\x11confirmation_code\x18\x01 \x01(\tR\x10confirmationCode\"\x1d\n" +
 	"\x1bConfirmEmailAddressResponse\"\x1e\n" +
 	"\x1cSendVerificationEmailRequest\"\x1f\n" +
-	"\x1dSendVerificationEmailResponse\"\xcf\x01\n" +
+	"\x1dSendVerificationEmailResponse\"\xd1\x01\n" +
 	"\x13AddAmenitiesRequest\x12H\n" +
-	"\tamenities\x18\x01 \x03(\v2*.accumora_rpc.v1.AddAmenitiesRequest.InputR\tamenities\x1an\n" +
+	"\tamenities\x18\x01 \x03(\v2*.accumora_rpc.v1.AddAmenitiesRequest.InputR\tamenities\x1ap\n" +
 	"\x05Input\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x17\n" +
-	"\x04icon\x18\x02 \x01(\tH\x00R\x04icon\x88\x01\x01\x12!\n" +
-	"\ticonColor\x18\x03 \x01(\tH\x01R\ticonColor\x88\x01\x01B\a\n" +
-	"\x05_iconB\f\n" +
+	"\x04icon\x18\x02 \x01(\tH\x00R\x04icon\x88\x01\x01\x12\"\n" +
 	"\n" +
-	"_iconColor\"N\n" +
+	"icon_color\x18\x03 \x01(\tH\x01R\ticonColor\x88\x01\x01B\a\n" +
+	"\x05_iconB\r\n" +
+	"\v_icon_color\"N\n" +
 	"\x14AddAmenitiesResponse\x126\n" +
 	"\tamenities\x18\x01 \x03(\v2\x18.accumora_rpc.v1.AmenityR\tamenities\"\x16\n" +
 	"\x14SetAsLandLordRequest\"\xbe\x02\n" +
@@ -2168,37 +2175,39 @@ const file_amor_v1_amor_proto_rawDesc = "" +
 	"\n" +
 	"_photo_url\"?\n" +
 	"\x12UpdateRoomResponse\x12)\n" +
-	"\x04room\x18\x01 \x01(\v2\x15.accumora_rpc.v1.RoomR\x04room\"\xf1\x01\n" +
+	"\x04room\x18\x01 \x01(\v2\x15.accumora_rpc.v1.RoomR\x04room\"\xad\x02\n" +
 	"\x1aUpdateAccommodationRequest\x12\x0e\n" +
-	"\x02id\x18\n" +
-	" \x01(\tR\x02id\x12\x12\n" +
-	"\x04name\x18\x01 \x01(\tR\x04name\x12D\n" +
-	"\x04type\x18\x02 \x01(\x0e20.accumora_rpc.v1.Accommodation.AccommodationTypeR\x04type\x12\x1c\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x12D\n" +
+	"\x04type\x18\x03 \x01(\x0e20.accumora_rpc.v1.Accommodation.AccommodationTypeR\x04type\x12\x1c\n" +
 	"\tamenities\x18\x04 \x03(\tR\tamenities\x12%\n" +
 	"\vdescription\x18\x05 \x01(\tH\x00R\vdescription\x88\x01\x01\x12\x14\n" +
-	"\x05rules\x18\t \x03(\tR\x05rulesB\x0e\n" +
-	"\f_description\"\x10\n" +
-	"\x0eGetUserRequest\"\xb5\x02\n" +
+	"\x05rules\x18\x06 \x03(\tR\x05rules\x12(\n" +
+	"\rprofile_photo\x18\a \x01(\fH\x01R\fprofilePhoto\x88\x01\x01B\x0e\n" +
+	"\f_descriptionB\x10\n" +
+	"\x0e_profile_photo\"\x10\n" +
+	"\x0eGetUserRequest\"\xb8\x02\n" +
 	"\x0eAddRoomRequest\x12\x12\n" +
-	"\x04name\x18\x01 \x01(\tR\x04name\x12(\n" +
-	"\x0faccommodationId\x18\x02 \x01(\tR\x0faccommodationId\x12%\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\x12)\n" +
+	"\x10accommodation_id\x18\x02 \x01(\tR\x0faccommodationId\x12%\n" +
 	"\vdescription\x18\x03 \x01(\tH\x00R\vdescription\x88\x01\x01\x124\n" +
 	"\x06prices\x18\x04 \x01(\v2\x1c.accumora_rpc.v1.Room.PricesR\x06prices\x12\x1f\n" +
 	"\bcapacity\x18\x05 \x01(\x05H\x01R\bcapacity\x88\x01\x01\x12\x1c\n" +
-	"\tutilities\x18\x06 \x03(\tR\tutilities\x12\x1f\n" +
-	"\bphotoUrl\x18\a \x01(\fH\x02R\bphotoUrl\x88\x01\x01B\x0e\n" +
+	"\tutilities\x18\x06 \x03(\tR\tutilities\x12 \n" +
+	"\tphoto_url\x18\a \x01(\fH\x02R\bphotoUrl\x88\x01\x01B\x0e\n" +
 	"\f_descriptionB\v\n" +
-	"\t_capacityB\v\n" +
-	"\t_photoUrl\"<\n" +
+	"\t_capacityB\f\n" +
+	"\n" +
+	"_photo_url\"<\n" +
 	"\x0fAddRoomResponse\x12)\n" +
 	"\x04room\x18\x01 \x01(\v2\x15.accumora_rpc.v1.RoomR\x04room\"#\n" +
 	"\x11DeleteRoomRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\"\x14\n" +
-	"\x12DeleteRoomResponse\"d\n" +
-	"\x0fGetRoomsRequest\x12-\n" +
-	"\x0faccommodationId\x18\x01 \x01(\tH\x00R\x0faccommodationId\x88\x01\x01\x12\x0e\n" +
-	"\x02id\x18\x02 \x03(\tR\x02idB\x12\n" +
-	"\x10_accommodationId\"?\n" +
+	"\x12DeleteRoomResponse\"f\n" +
+	"\x0fGetRoomsRequest\x12.\n" +
+	"\x10accommodation_id\x18\x01 \x01(\tH\x00R\x0faccommodationId\x88\x01\x01\x12\x0e\n" +
+	"\x02id\x18\x02 \x03(\tR\x02idB\x13\n" +
+	"\x11_accommodation_id\"?\n" +
 	"\x10GetRoomsResponse\x12+\n" +
 	"\x05rooms\x18\x01 \x03(\v2\x15.accumora_rpc.v1.RoomR\x05rooms\"*\n" +
 	"\x18GetAccommodationsRequest\x12\x0e\n" +
@@ -2224,11 +2233,10 @@ const file_amor_v1_amor_proto_rawDesc = "" +
 	"\t_locationB\v\n" +
 	"\t_birthday\"9\n" +
 	"\x14RegisterUserResponse\x12!\n" +
-	"\faccess_token\x18\x01 \x01(\tR\vaccessToken\"\xbd\x01\n" +
+	"\faccess_token\x18\x01 \x01(\tR\vaccessToken\"\xbe\x01\n" +
 	"\x10LoginUserRequest\x12B\n" +
-	"\x06manual\x18\x01 \x01(\v2(.accumora_rpc.v1.LoginUserRequest.ManualH\x00R\x06manual\x12 \n" +
-	"\n" +
-	"auth0Token\x18\x02 \x01(\tH\x00R\n" +
+	"\x06manual\x18\x01 \x01(\v2(.accumora_rpc.v1.LoginUserRequest.ManualH\x00R\x06manual\x12!\n" +
+	"\vauth0_token\x18\x02 \x01(\tH\x00R\n" +
 	"auth0Token\x1a:\n" +
 	"\x06Manual\x12\x14\n" +
 	"\x05email\x18\x01 \x01(\tR\x05email\x12\x1a\n" +
