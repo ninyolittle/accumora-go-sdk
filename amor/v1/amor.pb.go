@@ -873,7 +873,7 @@ type UpdateAccommodationRequest struct {
 	Amenities     []string                        `protobuf:"bytes,4,rep,name=amenities,proto3" json:"amenities,omitempty"`
 	Description   *string                         `protobuf:"bytes,5,opt,name=description,proto3,oneof" json:"description,omitempty"`
 	Rules         []string                        `protobuf:"bytes,6,rep,name=rules,proto3" json:"rules,omitempty"`
-	ProfilePic    []byte                          `protobuf:"bytes,7,opt,name=profile_pic,json=profilePic,proto3,oneof" json:"profile_pic,omitempty"`
+	ProfilePic    []byte                          `protobuf:"bytes,7,opt,name=profile_pic,json=profilePic,proto3" json:"profile_pic,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -2175,18 +2175,17 @@ const file_amor_v1_amor_proto_rawDesc = "" +
 	"\n" +
 	"_photo_url\"?\n" +
 	"\x12UpdateRoomResponse\x12)\n" +
-	"\x04room\x18\x01 \x01(\v2\x15.accumora_rpc.v1.RoomR\x04room\"\xa7\x02\n" +
+	"\x04room\x18\x01 \x01(\v2\x15.accumora_rpc.v1.RoomR\x04room\"\x92\x02\n" +
 	"\x1aUpdateAccommodationRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12D\n" +
 	"\x04type\x18\x03 \x01(\x0e20.accumora_rpc.v1.Accommodation.AccommodationTypeR\x04type\x12\x1c\n" +
 	"\tamenities\x18\x04 \x03(\tR\tamenities\x12%\n" +
 	"\vdescription\x18\x05 \x01(\tH\x00R\vdescription\x88\x01\x01\x12\x14\n" +
-	"\x05rules\x18\x06 \x03(\tR\x05rules\x12$\n" +
-	"\vprofile_pic\x18\a \x01(\fH\x01R\n" +
-	"profilePic\x88\x01\x01B\x0e\n" +
-	"\f_descriptionB\x0e\n" +
-	"\f_profile_pic\"\x10\n" +
+	"\x05rules\x18\x06 \x03(\tR\x05rules\x12\x1f\n" +
+	"\vprofile_pic\x18\a \x01(\fR\n" +
+	"profilePicB\x0e\n" +
+	"\f_description\"\x10\n" +
 	"\x0eGetUserRequest\"\xb8\x02\n" +
 	"\x0eAddRoomRequest\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12)\n" +
