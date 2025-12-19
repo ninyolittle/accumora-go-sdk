@@ -783,7 +783,7 @@ type Accommodation struct {
 	CreatedTime   string                          `protobuf:"bytes,10,opt,name=created_time,json=createdTime,proto3" json:"created_time,omitempty"`
 	Status        Accommodation_Status            `protobuf:"varint,11,opt,name=status,proto3,enum=accumora_rpc.v1.Accommodation_Status" json:"status,omitempty"`
 	LastUpdate    string                          `protobuf:"bytes,12,opt,name=last_update,json=lastUpdate,proto3" json:"last_update,omitempty"`
-	ImageUrl      string                          `protobuf:"bytes,13,opt,name=image_url,json=imageUrl,proto3" json:"image_url,omitempty"`
+	ImageUrl      *string                         `protobuf:"bytes,13,opt,name=image_url,json=imageUrl,proto3,oneof" json:"image_url,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -896,8 +896,8 @@ func (x *Accommodation) GetLastUpdate() string {
 }
 
 func (x *Accommodation) GetImageUrl() string {
-	if x != nil {
-		return x.ImageUrl
+	if x != nil && x.ImageUrl != nil {
+		return *x.ImageUrl
 	}
 	return ""
 }
@@ -1070,7 +1070,7 @@ const file_amor_v1_types_proto_rawDesc = "" +
 	"\t_locationB\v\n" +
 	"\t_passwordB\v\n" +
 	"\t_birthdayB\r\n" +
-	"\v_created_at\"\xbe\x05\n" +
+	"\v_created_at\"\xd1\x05\n" +
 	"\rAccommodation\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12:\n" +
@@ -1084,8 +1084,8 @@ const file_amor_v1_types_proto_rawDesc = "" +
 	" \x01(\tR\vcreatedTime\x12=\n" +
 	"\x06status\x18\v \x01(\x0e2%.accumora_rpc.v1.Accommodation.StatusR\x06status\x12\x1f\n" +
 	"\vlast_update\x18\f \x01(\tR\n" +
-	"lastUpdate\x12\x1b\n" +
-	"\timage_url\x18\r \x01(\tR\bimageUrl\"H\n" +
+	"lastUpdate\x12 \n" +
+	"\timage_url\x18\r \x01(\tH\x03R\bimageUrl\x88\x01\x01\"H\n" +
 	"\x11AccommodationType\x12\x10\n" +
 	"\fUNKNOWN_TYPE\x10\x00\x12\r\n" +
 	"\tAPARTMENT\x10\x01\x12\x12\n" +
@@ -1097,7 +1097,9 @@ const file_amor_v1_types_proto_rawDesc = "" +
 	"\bINACTIVE\x10\x02B\v\n" +
 	"\t_locationB\x0e\n" +
 	"\f_descriptionB\x0e\n" +
-	"\f_coordinatesB2Z0github.com/ninyolittle/accumora-go-sdk/amor;amorb\x06proto3"
+	"\f_coordinatesB\f\n" +
+	"\n" +
+	"_image_urlB2Z0github.com/ninyolittle/accumora-go-sdk/amor;amorb\x06proto3"
 
 var (
 	file_amor_v1_types_proto_rawDescOnce sync.Once
