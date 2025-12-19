@@ -24,22 +24,22 @@ const (
 type Amenity_AmenityType int32
 
 const (
-	Amenity_unknown_amenity Amenity_AmenityType = 0
-	Amenity_built_in        Amenity_AmenityType = 1
-	Amenity_custom          Amenity_AmenityType = 2
+	Amenity_UNKNOWN_AMENITY Amenity_AmenityType = 0
+	Amenity_BUILT_IN        Amenity_AmenityType = 1
+	Amenity_CUSTOM          Amenity_AmenityType = 2
 )
 
 // Enum value maps for Amenity_AmenityType.
 var (
 	Amenity_AmenityType_name = map[int32]string{
-		0: "unknown_amenity",
-		1: "built_in",
-		2: "custom",
+		0: "UNKNOWN_AMENITY",
+		1: "BUILT_IN",
+		2: "CUSTOM",
 	}
 	Amenity_AmenityType_value = map[string]int32{
-		"unknown_amenity": 0,
-		"built_in":        1,
-		"custom":          2,
+		"UNKNOWN_AMENITY": 0,
+		"BUILT_IN":        1,
+		"CUSTOM":          2,
 	}
 )
 
@@ -73,22 +73,22 @@ func (Amenity_AmenityType) EnumDescriptor() ([]byte, []int) {
 type User_AccountType int32
 
 const (
-	User_manual   User_AccountType = 0
-	User_google   User_AccountType = 1
-	User_facebook User_AccountType = 2
+	User_MANUAL   User_AccountType = 0
+	User_GOOGLE   User_AccountType = 1
+	User_FACEBOOK User_AccountType = 2
 )
 
 // Enum value maps for User_AccountType.
 var (
 	User_AccountType_name = map[int32]string{
-		0: "manual",
-		1: "google",
-		2: "facebook",
+		0: "MANUAL",
+		1: "GOOGLE",
+		2: "FACEBOOK",
 	}
 	User_AccountType_value = map[string]int32{
-		"manual":   0,
-		"google":   1,
-		"facebook": 2,
+		"MANUAL":   0,
+		"GOOGLE":   1,
+		"FACEBOOK": 2,
 	}
 )
 
@@ -122,22 +122,22 @@ func (User_AccountType) EnumDescriptor() ([]byte, []int) {
 type User_Gender int32
 
 const (
-	User_unknown_gender User_Gender = 0
-	User_male           User_Gender = 1
-	User_female         User_Gender = 2
+	User_UNKNOWN_GENDER User_Gender = 0
+	User_MALE           User_Gender = 1
+	User_FEMALE         User_Gender = 2
 )
 
 // Enum value maps for User_Gender.
 var (
 	User_Gender_name = map[int32]string{
-		0: "unknown_gender",
-		1: "male",
-		2: "female",
+		0: "UNKNOWN_GENDER",
+		1: "MALE",
+		2: "FEMALE",
 	}
 	User_Gender_value = map[string]int32{
-		"unknown_gender": 0,
-		"male":           1,
-		"female":         2,
+		"UNKNOWN_GENDER": 0,
+		"MALE":           1,
+		"FEMALE":         2,
 	}
 )
 
@@ -171,25 +171,25 @@ func (User_Gender) EnumDescriptor() ([]byte, []int) {
 type User_Role int32
 
 const (
-	User_unknown_role User_Role = 0
-	User_tenant       User_Role = 1
-	User_landlord     User_Role = 2
-	User_admin        User_Role = 3
+	User_UNKNOWN_ROLE User_Role = 0
+	User_TENANT       User_Role = 1
+	User_LANDLORD     User_Role = 2
+	User_ADMIN        User_Role = 3
 )
 
 // Enum value maps for User_Role.
 var (
 	User_Role_name = map[int32]string{
-		0: "unknown_role",
-		1: "tenant",
-		2: "landlord",
-		3: "admin",
+		0: "UNKNOWN_ROLE",
+		1: "TENANT",
+		2: "LANDLORD",
+		3: "ADMIN",
 	}
 	User_Role_value = map[string]int32{
-		"unknown_role": 0,
-		"tenant":       1,
-		"landlord":     2,
-		"admin":        3,
+		"UNKNOWN_ROLE": 0,
+		"TENANT":       1,
+		"LANDLORD":     2,
+		"ADMIN":        3,
 	}
 )
 
@@ -223,22 +223,22 @@ func (User_Role) EnumDescriptor() ([]byte, []int) {
 type Accommodation_AccommodationType int32
 
 const (
-	Accommodation_unknown_type   Accommodation_AccommodationType = 0
-	Accommodation_apartment      Accommodation_AccommodationType = 1
-	Accommodation_boarding_house Accommodation_AccommodationType = 2
+	Accommodation_UNKNOWN_TYPE   Accommodation_AccommodationType = 0
+	Accommodation_APARTMENT      Accommodation_AccommodationType = 1
+	Accommodation_BOARDING_HOUSE Accommodation_AccommodationType = 2
 )
 
 // Enum value maps for Accommodation_AccommodationType.
 var (
 	Accommodation_AccommodationType_name = map[int32]string{
-		0: "unknown_type",
-		1: "apartment",
-		2: "boarding_house",
+		0: "UNKNOWN_TYPE",
+		1: "APARTMENT",
+		2: "BOARDING_HOUSE",
 	}
 	Accommodation_AccommodationType_value = map[string]int32{
-		"unknown_type":   0,
-		"apartment":      1,
-		"boarding_house": 2,
+		"UNKNOWN_TYPE":   0,
+		"APARTMENT":      1,
+		"BOARDING_HOUSE": 2,
 	}
 )
 
@@ -272,22 +272,22 @@ func (Accommodation_AccommodationType) EnumDescriptor() ([]byte, []int) {
 type Accommodation_Status int32
 
 const (
-	Accommodation_unknown_status Accommodation_Status = 0
-	Accommodation_active         Accommodation_Status = 1
-	Accommodation_inactive       Accommodation_Status = 2
+	Accommodation_UNKNOWN_STATUS Accommodation_Status = 0
+	Accommodation_ACTIVE         Accommodation_Status = 1
+	Accommodation_INACTIVE       Accommodation_Status = 2
 )
 
 // Enum value maps for Accommodation_Status.
 var (
 	Accommodation_Status_name = map[int32]string{
-		0: "unknown_status",
-		1: "active",
-		2: "inactive",
+		0: "UNKNOWN_STATUS",
+		1: "ACTIVE",
+		2: "INACTIVE",
 	}
 	Accommodation_Status_value = map[string]int32{
-		"unknown_status": 0,
-		"active":         1,
-		"inactive":       2,
+		"UNKNOWN_STATUS": 0,
+		"ACTIVE":         1,
+		"INACTIVE":       2,
 	}
 )
 
@@ -378,7 +378,7 @@ func (x *Amenity) GetType() Amenity_AmenityType {
 	if x != nil {
 		return x.Type
 	}
-	return Amenity_unknown_amenity
+	return Amenity_UNKNOWN_AMENITY
 }
 
 func (x *Amenity) GetOwner() string {
@@ -732,7 +732,7 @@ func (x *User) GetAccountType() User_AccountType {
 	if x != nil {
 		return x.AccountType
 	}
-	return User_manual
+	return User_MANUAL
 }
 
 func (x *User) GetBirthday() string {
@@ -746,7 +746,7 @@ func (x *User) GetGender() User_Gender {
 	if x != nil {
 		return x.Gender
 	}
-	return User_unknown_gender
+	return User_UNKNOWN_GENDER
 }
 
 func (x *User) GetCreatedAt() string {
@@ -760,7 +760,7 @@ func (x *User) GetRole() User_Role {
 	if x != nil {
 		return x.Role
 	}
-	return User_unknown_role
+	return User_UNKNOWN_ROLE
 }
 
 func (x *User) GetIsEmailVerified() bool {
@@ -783,6 +783,7 @@ type Accommodation struct {
 	CreatedTime   string                          `protobuf:"bytes,10,opt,name=created_time,json=createdTime,proto3" json:"created_time,omitempty"`
 	Status        Accommodation_Status            `protobuf:"varint,11,opt,name=status,proto3,enum=accumora_rpc.v1.Accommodation_Status" json:"status,omitempty"`
 	LastUpdate    string                          `protobuf:"bytes,12,opt,name=last_update,json=lastUpdate,proto3" json:"last_update,omitempty"`
+	ImageUrl      string                          `protobuf:"bytes,13,opt,name=image_url,json=imageUrl,proto3" json:"image_url,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -849,7 +850,7 @@ func (x *Accommodation) GetType() Accommodation_AccommodationType {
 	if x != nil {
 		return x.Type
 	}
-	return Accommodation_unknown_type
+	return Accommodation_UNKNOWN_TYPE
 }
 
 func (x *Accommodation) GetCoordinates() *Coordinates {
@@ -884,12 +885,19 @@ func (x *Accommodation) GetStatus() Accommodation_Status {
 	if x != nil {
 		return x.Status
 	}
-	return Accommodation_unknown_status
+	return Accommodation_UNKNOWN_STATUS
 }
 
 func (x *Accommodation) GetLastUpdate() string {
 	if x != nil {
 		return x.LastUpdate
+	}
+	return ""
+}
+
+func (x *Accommodation) GetImageUrl() string {
+	if x != nil {
+		return x.ImageUrl
 	}
 	return ""
 }
@@ -976,10 +984,10 @@ const file_amor_v1_types_proto_rawDesc = "" +
 	"\n" +
 	"icon_color\x18\x06 \x01(\tH\x01R\ticonColor\x88\x01\x01\"<\n" +
 	"\vAmenityType\x12\x13\n" +
-	"\x0funknown_amenity\x10\x00\x12\f\n" +
-	"\bbuilt_in\x10\x01\x12\n" +
+	"\x0fUNKNOWN_AMENITY\x10\x00\x12\f\n" +
+	"\bBUILT_IN\x10\x01\x12\n" +
 	"\n" +
-	"\x06custom\x10\x02B\a\n" +
+	"\x06CUSTOM\x10\x02B\a\n" +
 	"\x05_iconB\r\n" +
 	"\v_icon_color\"l\n" +
 	"\vCoordinates\x12\x1f\n" +
@@ -1041,28 +1049,28 @@ const file_amor_v1_types_proto_rawDesc = "" +
 	"\x11is_email_verified\x18\r \x01(\bR\x0fisEmailVerified\"3\n" +
 	"\vAccountType\x12\n" +
 	"\n" +
-	"\x06manual\x10\x00\x12\n" +
+	"\x06MANUAL\x10\x00\x12\n" +
 	"\n" +
-	"\x06google\x10\x01\x12\f\n" +
-	"\bfacebook\x10\x02\"2\n" +
+	"\x06GOOGLE\x10\x01\x12\f\n" +
+	"\bFACEBOOK\x10\x02\"2\n" +
 	"\x06Gender\x12\x12\n" +
-	"\x0eunknown_gender\x10\x00\x12\b\n" +
-	"\x04male\x10\x01\x12\n" +
+	"\x0eUNKNOWN_GENDER\x10\x00\x12\b\n" +
+	"\x04MALE\x10\x01\x12\n" +
 	"\n" +
-	"\x06female\x10\x02\"=\n" +
+	"\x06FEMALE\x10\x02\"=\n" +
 	"\x04Role\x12\x10\n" +
-	"\funknown_role\x10\x00\x12\n" +
+	"\fUNKNOWN_ROLE\x10\x00\x12\n" +
 	"\n" +
-	"\x06tenant\x10\x01\x12\f\n" +
-	"\blandlord\x10\x02\x12\t\n" +
-	"\x05admin\x10\x03B\f\n" +
+	"\x06TENANT\x10\x01\x12\f\n" +
+	"\bLANDLORD\x10\x02\x12\t\n" +
+	"\x05ADMIN\x10\x03B\f\n" +
 	"\n" +
 	"_last_nameB\b\n" +
 	"\x06_phoneB\v\n" +
 	"\t_locationB\v\n" +
 	"\t_passwordB\v\n" +
 	"\t_birthdayB\r\n" +
-	"\v_created_at\"\xa1\x05\n" +
+	"\v_created_at\"\xbe\x05\n" +
 	"\rAccommodation\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12:\n" +
@@ -1076,16 +1084,17 @@ const file_amor_v1_types_proto_rawDesc = "" +
 	" \x01(\tR\vcreatedTime\x12=\n" +
 	"\x06status\x18\v \x01(\x0e2%.accumora_rpc.v1.Accommodation.StatusR\x06status\x12\x1f\n" +
 	"\vlast_update\x18\f \x01(\tR\n" +
-	"lastUpdate\"H\n" +
+	"lastUpdate\x12\x1b\n" +
+	"\timage_url\x18\r \x01(\tR\bimageUrl\"H\n" +
 	"\x11AccommodationType\x12\x10\n" +
-	"\funknown_type\x10\x00\x12\r\n" +
-	"\tapartment\x10\x01\x12\x12\n" +
-	"\x0eboarding_house\x10\x02\"6\n" +
+	"\fUNKNOWN_TYPE\x10\x00\x12\r\n" +
+	"\tAPARTMENT\x10\x01\x12\x12\n" +
+	"\x0eBOARDING_HOUSE\x10\x02\"6\n" +
 	"\x06Status\x12\x12\n" +
-	"\x0eunknown_status\x10\x00\x12\n" +
+	"\x0eUNKNOWN_STATUS\x10\x00\x12\n" +
 	"\n" +
-	"\x06active\x10\x01\x12\f\n" +
-	"\binactive\x10\x02B\v\n" +
+	"\x06ACTIVE\x10\x01\x12\f\n" +
+	"\bINACTIVE\x10\x02B\v\n" +
 	"\t_locationB\x0e\n" +
 	"\f_descriptionB\x0e\n" +
 	"\f_coordinatesB2Z0github.com/ninyolittle/accumora-go-sdk/amor;amorb\x06proto3"

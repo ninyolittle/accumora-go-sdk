@@ -158,7 +158,7 @@ func (x *SetAccommodationStatusResponse) GetStatus() Accommodation_Status {
 	if x != nil {
 		return x.Status
 	}
-	return Accommodation_unknown_status
+	return Accommodation_UNKNOWN_STATUS
 }
 
 type SetAccommodationStatusRequest struct {
@@ -210,7 +210,7 @@ func (x *SetAccommodationStatusRequest) GetStatus() Accommodation_Status {
 	if x != nil {
 		return x.Status
 	}
-	return Accommodation_unknown_status
+	return Accommodation_UNKNOWN_STATUS
 }
 
 type DeleteAmenitiesRequest struct {
@@ -925,7 +925,7 @@ func (x *UpdateAccommodationRequest) GetType() Accommodation_AccommodationType {
 	if x != nil {
 		return x.Type
 	}
-	return Accommodation_unknown_type
+	return Accommodation_UNKNOWN_TYPE
 }
 
 func (x *UpdateAccommodationRequest) GetAmenities() []string {
@@ -1562,7 +1562,7 @@ func (x *RegisterUserRequest) GetGender() User_Gender {
 	if x != nil {
 		return x.Gender
 	}
-	return User_unknown_gender
+	return User_UNKNOWN_GENDER
 }
 
 type RegisterUserResponse struct {
@@ -1793,7 +1793,7 @@ func (x *AddAccommodationRequest) GetType() Accommodation_AccommodationType {
 	if x != nil {
 		return x.Type
 	}
-	return Accommodation_unknown_type
+	return Accommodation_UNKNOWN_TYPE
 }
 
 func (x *AddAccommodationRequest) GetAmenities() []string {
