@@ -44,26 +44,48 @@ const (
 // ProjectAmorClient is the client API for ProjectAmor service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+//
+// ProjectAmor provides RPC methods for managing accommodations, rooms, users, and amenities in the Accumora platform
 type ProjectAmorClient interface {
+	// AddAccommodation creates a new accommodation with the provided details
 	AddAccommodation(ctx context.Context, in *AddAccommodationRequest, opts ...grpc.CallOption) (*Accommodation, error)
+	// LoginUser authenticates a user and returns an access token
 	LoginUser(ctx context.Context, in *LoginUserRequest, opts ...grpc.CallOption) (*LoginUserResponse, error)
+	// RegisterUser creates a new user account and returns an access token
 	RegisterUser(ctx context.Context, in *RegisterUserRequest, opts ...grpc.CallOption) (*RegisterUserResponse, error)
+	// DeleteUser removes the current user's account
 	DeleteUser(ctx context.Context, in *DeleteUserRequest, opts ...grpc.CallOption) (*DeleteUserResponse, error)
+	// DeleteAccommodation removes an accommodation by ID
 	DeleteAccommodation(ctx context.Context, in *DeleteAccommodationRequest, opts ...grpc.CallOption) (*DeleteAccommodationResponse, error)
+	// GetAccommodations retrieves accommodations by their IDs
 	GetAccommodations(ctx context.Context, in *GetAccommodationsRequest, opts ...grpc.CallOption) (*GetAccommodationsResponse, error)
+	// GetAccommodationsBySection retrieves accommodations grouped by sections
 	GetAccommodationsBySection(ctx context.Context, in *GetAccommodationsBySectionRequest, opts ...grpc.CallOption) (*GetAccommodationsBySectionResponse, error)
+	// UpdateAccommodation modifies an existing accommodation's details
 	UpdateAccommodation(ctx context.Context, in *UpdateAccommodationRequest, opts ...grpc.CallOption) (*Accommodation, error)
+	// AddRoom creates a new room for an accommodation
 	AddRoom(ctx context.Context, in *AddRoomRequest, opts ...grpc.CallOption) (*AddRoomResponse, error)
+	// GetRooms retrieves rooms by accommodation ID or specific room IDs
 	GetRooms(ctx context.Context, in *GetRoomsRequest, opts ...grpc.CallOption) (*GetRoomsResponse, error)
+	// DeleteRoom removes a room by ID
 	DeleteRoom(ctx context.Context, in *DeleteRoomRequest, opts ...grpc.CallOption) (*DeleteRoomResponse, error)
+	// UpdateRoom modifies an existing room's details
 	UpdateRoom(ctx context.Context, in *UpdateRoomRequest, opts ...grpc.CallOption) (*UpdateRoomResponse, error)
+	// GetUser retrieves the current user's information
 	GetUser(ctx context.Context, in *GetUserRequest, opts ...grpc.CallOption) (*User, error)
+	// SetAsLandLord upgrades the current user to landlord status
 	SetAsLandLord(ctx context.Context, in *SetAsLandLordRequest, opts ...grpc.CallOption) (*User, error)
+	// AddAmenities creates new amenities
 	AddAmenities(ctx context.Context, in *AddAmenitiesRequest, opts ...grpc.CallOption) (*AddAmenitiesResponse, error)
+	// ListAmenities retrieves all amenities or amenities for a specific accommodation
 	ListAmenities(ctx context.Context, in *ListAmenitiesRequest, opts ...grpc.CallOption) (*ListAmenitiesResponse, error)
+	// DeleteAmenities removes amenities by their IDs
 	DeleteAmenities(ctx context.Context, in *DeleteAmenitiesRequest, opts ...grpc.CallOption) (*DeleteAmenitiesResponse, error)
+	// SendVerificationEmail sends an email verification link to the user
 	SendVerificationEmail(ctx context.Context, in *SendVerificationEmailRequest, opts ...grpc.CallOption) (*SendVerificationEmailResponse, error)
+	// ConfirmEmailAddress verifies a user's email address using a confirmation code
 	ConfirmEmailAddress(ctx context.Context, in *ConfirmEmailAddressRequest, opts ...grpc.CallOption) (*ConfirmEmailAddressResponse, error)
+	// SetAccommodationStatus updates the status of an accommodation
 	SetAccommodationStatus(ctx context.Context, in *SetAccommodationStatusRequest, opts ...grpc.CallOption) (*SetAccommodationStatusResponse, error)
 }
 
@@ -278,26 +300,48 @@ func (c *projectAmorClient) SetAccommodationStatus(ctx context.Context, in *SetA
 // ProjectAmorServer is the server API for ProjectAmor service.
 // All implementations must embed UnimplementedProjectAmorServer
 // for forward compatibility.
+//
+// ProjectAmor provides RPC methods for managing accommodations, rooms, users, and amenities in the Accumora platform
 type ProjectAmorServer interface {
+	// AddAccommodation creates a new accommodation with the provided details
 	AddAccommodation(context.Context, *AddAccommodationRequest) (*Accommodation, error)
+	// LoginUser authenticates a user and returns an access token
 	LoginUser(context.Context, *LoginUserRequest) (*LoginUserResponse, error)
+	// RegisterUser creates a new user account and returns an access token
 	RegisterUser(context.Context, *RegisterUserRequest) (*RegisterUserResponse, error)
+	// DeleteUser removes the current user's account
 	DeleteUser(context.Context, *DeleteUserRequest) (*DeleteUserResponse, error)
+	// DeleteAccommodation removes an accommodation by ID
 	DeleteAccommodation(context.Context, *DeleteAccommodationRequest) (*DeleteAccommodationResponse, error)
+	// GetAccommodations retrieves accommodations by their IDs
 	GetAccommodations(context.Context, *GetAccommodationsRequest) (*GetAccommodationsResponse, error)
+	// GetAccommodationsBySection retrieves accommodations grouped by sections
 	GetAccommodationsBySection(context.Context, *GetAccommodationsBySectionRequest) (*GetAccommodationsBySectionResponse, error)
+	// UpdateAccommodation modifies an existing accommodation's details
 	UpdateAccommodation(context.Context, *UpdateAccommodationRequest) (*Accommodation, error)
+	// AddRoom creates a new room for an accommodation
 	AddRoom(context.Context, *AddRoomRequest) (*AddRoomResponse, error)
+	// GetRooms retrieves rooms by accommodation ID or specific room IDs
 	GetRooms(context.Context, *GetRoomsRequest) (*GetRoomsResponse, error)
+	// DeleteRoom removes a room by ID
 	DeleteRoom(context.Context, *DeleteRoomRequest) (*DeleteRoomResponse, error)
+	// UpdateRoom modifies an existing room's details
 	UpdateRoom(context.Context, *UpdateRoomRequest) (*UpdateRoomResponse, error)
+	// GetUser retrieves the current user's information
 	GetUser(context.Context, *GetUserRequest) (*User, error)
+	// SetAsLandLord upgrades the current user to landlord status
 	SetAsLandLord(context.Context, *SetAsLandLordRequest) (*User, error)
+	// AddAmenities creates new amenities
 	AddAmenities(context.Context, *AddAmenitiesRequest) (*AddAmenitiesResponse, error)
+	// ListAmenities retrieves all amenities or amenities for a specific accommodation
 	ListAmenities(context.Context, *ListAmenitiesRequest) (*ListAmenitiesResponse, error)
+	// DeleteAmenities removes amenities by their IDs
 	DeleteAmenities(context.Context, *DeleteAmenitiesRequest) (*DeleteAmenitiesResponse, error)
+	// SendVerificationEmail sends an email verification link to the user
 	SendVerificationEmail(context.Context, *SendVerificationEmailRequest) (*SendVerificationEmailResponse, error)
+	// ConfirmEmailAddress verifies a user's email address using a confirmation code
 	ConfirmEmailAddress(context.Context, *ConfirmEmailAddressRequest) (*ConfirmEmailAddressResponse, error)
+	// SetAccommodationStatus updates the status of an accommodation
 	SetAccommodationStatus(context.Context, *SetAccommodationStatusRequest) (*SetAccommodationStatusResponse, error)
 	mustEmbedUnimplementedProjectAmorServer()
 }
