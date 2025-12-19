@@ -776,14 +776,14 @@ type Accommodation struct {
 	Name          string                          `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	Location      *Location                       `protobuf:"bytes,3,opt,name=location,proto3,oneof" json:"location,omitempty"`
 	Description   *string                         `protobuf:"bytes,4,opt,name=description,proto3,oneof" json:"description,omitempty"`
-	Type          Accommodation_AccommodationType `protobuf:"varint,6,opt,name=type,proto3,enum=accumora_rpc.v1.Accommodation_AccommodationType" json:"type,omitempty"`
-	Coordinates   *Coordinates                    `protobuf:"bytes,7,opt,name=coordinates,proto3,oneof" json:"coordinates,omitempty"`
-	Amenities     []*Amenity                      `protobuf:"bytes,8,rep,name=amenities,proto3" json:"amenities,omitempty"`
-	Owner         string                          `protobuf:"bytes,9,opt,name=owner,proto3" json:"owner,omitempty"`
-	CreatedTime   string                          `protobuf:"bytes,10,opt,name=created_time,json=createdTime,proto3" json:"created_time,omitempty"`
-	Status        Accommodation_Status            `protobuf:"varint,11,opt,name=status,proto3,enum=accumora_rpc.v1.Accommodation_Status" json:"status,omitempty"`
-	LastUpdate    string                          `protobuf:"bytes,12,opt,name=last_update,json=lastUpdate,proto3" json:"last_update,omitempty"`
-	ImageUrl      *string                         `protobuf:"bytes,13,opt,name=image_url,json=imageUrl,proto3,oneof" json:"image_url,omitempty"`
+	Type          Accommodation_AccommodationType `protobuf:"varint,5,opt,name=type,proto3,enum=accumora_rpc.v1.Accommodation_AccommodationType" json:"type,omitempty"`
+	Coordinates   *Coordinates                    `protobuf:"bytes,6,opt,name=coordinates,proto3,oneof" json:"coordinates,omitempty"`
+	Amenities     []*Amenity                      `protobuf:"bytes,7,rep,name=amenities,proto3" json:"amenities,omitempty"`
+	Owner         string                          `protobuf:"bytes,8,opt,name=owner,proto3" json:"owner,omitempty"`
+	CreatedTime   string                          `protobuf:"bytes,9,opt,name=created_time,json=createdTime,proto3" json:"created_time,omitempty"`
+	Status        Accommodation_Status            `protobuf:"varint,10,opt,name=status,proto3,enum=accumora_rpc.v1.Accommodation_Status" json:"status,omitempty"`
+	LastUpdate    string                          `protobuf:"bytes,11,opt,name=last_update,json=lastUpdate,proto3" json:"last_update,omitempty"`
+	ImageUrl      *string                         `protobuf:"bytes,12,opt,name=image_url,json=imageUrl,proto3,oneof" json:"image_url,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1076,16 +1076,16 @@ const file_amor_v1_types_proto_rawDesc = "" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12:\n" +
 	"\blocation\x18\x03 \x01(\v2\x19.accumora_rpc.v1.LocationH\x00R\blocation\x88\x01\x01\x12%\n" +
 	"\vdescription\x18\x04 \x01(\tH\x01R\vdescription\x88\x01\x01\x12D\n" +
-	"\x04type\x18\x06 \x01(\x0e20.accumora_rpc.v1.Accommodation.AccommodationTypeR\x04type\x12C\n" +
-	"\vcoordinates\x18\a \x01(\v2\x1c.accumora_rpc.v1.CoordinatesH\x02R\vcoordinates\x88\x01\x01\x126\n" +
-	"\tamenities\x18\b \x03(\v2\x18.accumora_rpc.v1.AmenityR\tamenities\x12\x14\n" +
-	"\x05owner\x18\t \x01(\tR\x05owner\x12!\n" +
-	"\fcreated_time\x18\n" +
-	" \x01(\tR\vcreatedTime\x12=\n" +
-	"\x06status\x18\v \x01(\x0e2%.accumora_rpc.v1.Accommodation.StatusR\x06status\x12\x1f\n" +
-	"\vlast_update\x18\f \x01(\tR\n" +
+	"\x04type\x18\x05 \x01(\x0e20.accumora_rpc.v1.Accommodation.AccommodationTypeR\x04type\x12C\n" +
+	"\vcoordinates\x18\x06 \x01(\v2\x1c.accumora_rpc.v1.CoordinatesH\x02R\vcoordinates\x88\x01\x01\x126\n" +
+	"\tamenities\x18\a \x03(\v2\x18.accumora_rpc.v1.AmenityR\tamenities\x12\x14\n" +
+	"\x05owner\x18\b \x01(\tR\x05owner\x12!\n" +
+	"\fcreated_time\x18\t \x01(\tR\vcreatedTime\x12=\n" +
+	"\x06status\x18\n" +
+	" \x01(\x0e2%.accumora_rpc.v1.Accommodation.StatusR\x06status\x12\x1f\n" +
+	"\vlast_update\x18\v \x01(\tR\n" +
 	"lastUpdate\x12 \n" +
-	"\timage_url\x18\r \x01(\tH\x03R\bimageUrl\x88\x01\x01\"H\n" +
+	"\timage_url\x18\f \x01(\tH\x03R\bimageUrl\x88\x01\x01\"H\n" +
 	"\x11AccommodationType\x12\x10\n" +
 	"\fUNKNOWN_TYPE\x10\x00\x12\r\n" +
 	"\tAPARTMENT\x10\x01\x12\x12\n" +
