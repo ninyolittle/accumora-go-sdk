@@ -23,6 +23,7 @@ const (
 
 type ListNotificationsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	NextPageToken *string                `protobuf:"bytes,1,opt,name=next_page_token,json=nextPageToken,proto3,oneof" json:"next_page_token,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -55,6 +56,13 @@ func (x *ListNotificationsRequest) ProtoReflect() protoreflect.Message {
 // Deprecated: Use ListNotificationsRequest.ProtoReflect.Descriptor instead.
 func (*ListNotificationsRequest) Descriptor() ([]byte, []int) {
 	return file_amor_v1_amor_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *ListNotificationsRequest) GetNextPageToken() string {
+	if x != nil && x.NextPageToken != nil {
+		return *x.NextPageToken
+	}
+	return ""
 }
 
 type ListNotificationsResponse struct {
@@ -2189,8 +2197,10 @@ var File_amor_v1_amor_proto protoreflect.FileDescriptor
 
 const file_amor_v1_amor_proto_rawDesc = "" +
 	"\n" +
-	"\x12amor/v1/amor.proto\x12\x0faccumora_rpc.v1\x1a\x13amor/v1/types.proto\"\x1a\n" +
-	"\x18ListNotificationsRequest\"`\n" +
+	"\x12amor/v1/amor.proto\x12\x0faccumora_rpc.v1\x1a\x13amor/v1/types.proto\"[\n" +
+	"\x18ListNotificationsRequest\x12+\n" +
+	"\x0fnext_page_token\x18\x01 \x01(\tH\x00R\rnextPageToken\x88\x01\x01B\x12\n" +
+	"\x10_next_page_token\"`\n" +
 	"\x19ListNotificationsResponse\x12C\n" +
 	"\rnotifications\x18\x01 \x03(\v2\x1d.accumora_rpc.v1.NotificationR\rnotifications\"\xb6\x01\n" +
 	"!GetAccommodationsBySectionRequest\x12V\n" +
@@ -2512,6 +2522,7 @@ func file_amor_v1_amor_proto_init() {
 		return
 	}
 	file_amor_v1_types_proto_init()
+	file_amor_v1_amor_proto_msgTypes[0].OneofWrappers = []any{}
 	file_amor_v1_amor_proto_msgTypes[8].OneofWrappers = []any{}
 	file_amor_v1_amor_proto_msgTypes[19].OneofWrappers = []any{}
 	file_amor_v1_amor_proto_msgTypes[21].OneofWrappers = []any{}
