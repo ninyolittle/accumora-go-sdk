@@ -9,6 +9,7 @@ package amor
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
+	structpb "google.golang.org/protobuf/types/known/structpb"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
@@ -20,6 +21,61 @@ const (
 	// Verify that runtime/protoimpl is sufficiently up-to-date.
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
+
+type Notification_NotificationType int32
+
+const (
+	Notification_UNKNOWN_NOTIFICATION Notification_NotificationType = 0
+	Notification_RESERVE_ROOM         Notification_NotificationType = 1
+	Notification_CANCEL_RESERVATION   Notification_NotificationType = 2
+	Notification_PAYMENT_MADE         Notification_NotificationType = 3
+	Notification_PAYMENT_FAILED       Notification_NotificationType = 4
+)
+
+// Enum value maps for Notification_NotificationType.
+var (
+	Notification_NotificationType_name = map[int32]string{
+		0: "UNKNOWN_NOTIFICATION",
+		1: "RESERVE_ROOM",
+		2: "CANCEL_RESERVATION",
+		3: "PAYMENT_MADE",
+		4: "PAYMENT_FAILED",
+	}
+	Notification_NotificationType_value = map[string]int32{
+		"UNKNOWN_NOTIFICATION": 0,
+		"RESERVE_ROOM":         1,
+		"CANCEL_RESERVATION":   2,
+		"PAYMENT_MADE":         3,
+		"PAYMENT_FAILED":       4,
+	}
+)
+
+func (x Notification_NotificationType) Enum() *Notification_NotificationType {
+	p := new(Notification_NotificationType)
+	*p = x
+	return p
+}
+
+func (x Notification_NotificationType) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (Notification_NotificationType) Descriptor() protoreflect.EnumDescriptor {
+	return file_amor_v1_types_proto_enumTypes[0].Descriptor()
+}
+
+func (Notification_NotificationType) Type() protoreflect.EnumType {
+	return &file_amor_v1_types_proto_enumTypes[0]
+}
+
+func (x Notification_NotificationType) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use Notification_NotificationType.Descriptor instead.
+func (Notification_NotificationType) EnumDescriptor() ([]byte, []int) {
+	return file_amor_v1_types_proto_rawDescGZIP(), []int{0, 0}
+}
 
 type Amenity_AmenityType int32
 
@@ -54,11 +110,11 @@ func (x Amenity_AmenityType) String() string {
 }
 
 func (Amenity_AmenityType) Descriptor() protoreflect.EnumDescriptor {
-	return file_amor_v1_types_proto_enumTypes[0].Descriptor()
+	return file_amor_v1_types_proto_enumTypes[1].Descriptor()
 }
 
 func (Amenity_AmenityType) Type() protoreflect.EnumType {
-	return &file_amor_v1_types_proto_enumTypes[0]
+	return &file_amor_v1_types_proto_enumTypes[1]
 }
 
 func (x Amenity_AmenityType) Number() protoreflect.EnumNumber {
@@ -67,7 +123,7 @@ func (x Amenity_AmenityType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use Amenity_AmenityType.Descriptor instead.
 func (Amenity_AmenityType) EnumDescriptor() ([]byte, []int) {
-	return file_amor_v1_types_proto_rawDescGZIP(), []int{0, 0}
+	return file_amor_v1_types_proto_rawDescGZIP(), []int{1, 0}
 }
 
 type User_AccountType int32
@@ -103,11 +159,11 @@ func (x User_AccountType) String() string {
 }
 
 func (User_AccountType) Descriptor() protoreflect.EnumDescriptor {
-	return file_amor_v1_types_proto_enumTypes[1].Descriptor()
+	return file_amor_v1_types_proto_enumTypes[2].Descriptor()
 }
 
 func (User_AccountType) Type() protoreflect.EnumType {
-	return &file_amor_v1_types_proto_enumTypes[1]
+	return &file_amor_v1_types_proto_enumTypes[2]
 }
 
 func (x User_AccountType) Number() protoreflect.EnumNumber {
@@ -116,7 +172,7 @@ func (x User_AccountType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use User_AccountType.Descriptor instead.
 func (User_AccountType) EnumDescriptor() ([]byte, []int) {
-	return file_amor_v1_types_proto_rawDescGZIP(), []int{4, 0}
+	return file_amor_v1_types_proto_rawDescGZIP(), []int{5, 0}
 }
 
 type User_Gender int32
@@ -152,11 +208,11 @@ func (x User_Gender) String() string {
 }
 
 func (User_Gender) Descriptor() protoreflect.EnumDescriptor {
-	return file_amor_v1_types_proto_enumTypes[2].Descriptor()
+	return file_amor_v1_types_proto_enumTypes[3].Descriptor()
 }
 
 func (User_Gender) Type() protoreflect.EnumType {
-	return &file_amor_v1_types_proto_enumTypes[2]
+	return &file_amor_v1_types_proto_enumTypes[3]
 }
 
 func (x User_Gender) Number() protoreflect.EnumNumber {
@@ -165,7 +221,7 @@ func (x User_Gender) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use User_Gender.Descriptor instead.
 func (User_Gender) EnumDescriptor() ([]byte, []int) {
-	return file_amor_v1_types_proto_rawDescGZIP(), []int{4, 1}
+	return file_amor_v1_types_proto_rawDescGZIP(), []int{5, 1}
 }
 
 type User_Role int32
@@ -204,11 +260,11 @@ func (x User_Role) String() string {
 }
 
 func (User_Role) Descriptor() protoreflect.EnumDescriptor {
-	return file_amor_v1_types_proto_enumTypes[3].Descriptor()
+	return file_amor_v1_types_proto_enumTypes[4].Descriptor()
 }
 
 func (User_Role) Type() protoreflect.EnumType {
-	return &file_amor_v1_types_proto_enumTypes[3]
+	return &file_amor_v1_types_proto_enumTypes[4]
 }
 
 func (x User_Role) Number() protoreflect.EnumNumber {
@@ -217,7 +273,7 @@ func (x User_Role) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use User_Role.Descriptor instead.
 func (User_Role) EnumDescriptor() ([]byte, []int) {
-	return file_amor_v1_types_proto_rawDescGZIP(), []int{4, 2}
+	return file_amor_v1_types_proto_rawDescGZIP(), []int{5, 2}
 }
 
 type Accommodation_AccommodationType int32
@@ -253,11 +309,11 @@ func (x Accommodation_AccommodationType) String() string {
 }
 
 func (Accommodation_AccommodationType) Descriptor() protoreflect.EnumDescriptor {
-	return file_amor_v1_types_proto_enumTypes[4].Descriptor()
+	return file_amor_v1_types_proto_enumTypes[5].Descriptor()
 }
 
 func (Accommodation_AccommodationType) Type() protoreflect.EnumType {
-	return &file_amor_v1_types_proto_enumTypes[4]
+	return &file_amor_v1_types_proto_enumTypes[5]
 }
 
 func (x Accommodation_AccommodationType) Number() protoreflect.EnumNumber {
@@ -266,7 +322,7 @@ func (x Accommodation_AccommodationType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use Accommodation_AccommodationType.Descriptor instead.
 func (Accommodation_AccommodationType) EnumDescriptor() ([]byte, []int) {
-	return file_amor_v1_types_proto_rawDescGZIP(), []int{5, 0}
+	return file_amor_v1_types_proto_rawDescGZIP(), []int{6, 0}
 }
 
 type Accommodation_Status int32
@@ -302,11 +358,11 @@ func (x Accommodation_Status) String() string {
 }
 
 func (Accommodation_Status) Descriptor() protoreflect.EnumDescriptor {
-	return file_amor_v1_types_proto_enumTypes[5].Descriptor()
+	return file_amor_v1_types_proto_enumTypes[6].Descriptor()
 }
 
 func (Accommodation_Status) Type() protoreflect.EnumType {
-	return &file_amor_v1_types_proto_enumTypes[5]
+	return &file_amor_v1_types_proto_enumTypes[6]
 }
 
 func (x Accommodation_Status) Number() protoreflect.EnumNumber {
@@ -315,7 +371,83 @@ func (x Accommodation_Status) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use Accommodation_Status.Descriptor instead.
 func (Accommodation_Status) EnumDescriptor() ([]byte, []int) {
-	return file_amor_v1_types_proto_rawDescGZIP(), []int{5, 1}
+	return file_amor_v1_types_proto_rawDescGZIP(), []int{6, 1}
+}
+
+type Notification struct {
+	state         protoimpl.MessageState        `protogen:"open.v1"`
+	Id            string                        `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Type          Notification_NotificationType `protobuf:"varint,2,opt,name=type,proto3,enum=accumora_rpc.v1.Notification_NotificationType" json:"type,omitempty"`
+	Content       string                        `protobuf:"bytes,3,opt,name=content,proto3" json:"content,omitempty"`
+	Title         string                        `protobuf:"bytes,4,opt,name=title,proto3" json:"title,omitempty"`
+	Metadata      *structpb.Struct              `protobuf:"bytes,5,opt,name=metadata,proto3" json:"metadata,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Notification) Reset() {
+	*x = Notification{}
+	mi := &file_amor_v1_types_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Notification) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Notification) ProtoMessage() {}
+
+func (x *Notification) ProtoReflect() protoreflect.Message {
+	mi := &file_amor_v1_types_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Notification.ProtoReflect.Descriptor instead.
+func (*Notification) Descriptor() ([]byte, []int) {
+	return file_amor_v1_types_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *Notification) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+func (x *Notification) GetType() Notification_NotificationType {
+	if x != nil {
+		return x.Type
+	}
+	return Notification_UNKNOWN_NOTIFICATION
+}
+
+func (x *Notification) GetContent() string {
+	if x != nil {
+		return x.Content
+	}
+	return ""
+}
+
+func (x *Notification) GetTitle() string {
+	if x != nil {
+		return x.Title
+	}
+	return ""
+}
+
+func (x *Notification) GetMetadata() *structpb.Struct {
+	if x != nil {
+		return x.Metadata
+	}
+	return nil
 }
 
 type Amenity struct {
@@ -332,7 +464,7 @@ type Amenity struct {
 
 func (x *Amenity) Reset() {
 	*x = Amenity{}
-	mi := &file_amor_v1_types_proto_msgTypes[0]
+	mi := &file_amor_v1_types_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -344,7 +476,7 @@ func (x *Amenity) String() string {
 func (*Amenity) ProtoMessage() {}
 
 func (x *Amenity) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_types_proto_msgTypes[0]
+	mi := &file_amor_v1_types_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -357,7 +489,7 @@ func (x *Amenity) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Amenity.ProtoReflect.Descriptor instead.
 func (*Amenity) Descriptor() ([]byte, []int) {
-	return file_amor_v1_types_proto_rawDescGZIP(), []int{0}
+	return file_amor_v1_types_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *Amenity) GetId() string {
@@ -412,7 +544,7 @@ type Coordinates struct {
 
 func (x *Coordinates) Reset() {
 	*x = Coordinates{}
-	mi := &file_amor_v1_types_proto_msgTypes[1]
+	mi := &file_amor_v1_types_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -424,7 +556,7 @@ func (x *Coordinates) String() string {
 func (*Coordinates) ProtoMessage() {}
 
 func (x *Coordinates) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_types_proto_msgTypes[1]
+	mi := &file_amor_v1_types_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -437,7 +569,7 @@ func (x *Coordinates) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Coordinates.ProtoReflect.Descriptor instead.
 func (*Coordinates) Descriptor() ([]byte, []int) {
-	return file_amor_v1_types_proto_rawDescGZIP(), []int{1}
+	return file_amor_v1_types_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *Coordinates) GetLatitude() float64 {
@@ -467,7 +599,7 @@ type Location struct {
 
 func (x *Location) Reset() {
 	*x = Location{}
-	mi := &file_amor_v1_types_proto_msgTypes[2]
+	mi := &file_amor_v1_types_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -479,7 +611,7 @@ func (x *Location) String() string {
 func (*Location) ProtoMessage() {}
 
 func (x *Location) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_types_proto_msgTypes[2]
+	mi := &file_amor_v1_types_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -492,7 +624,7 @@ func (x *Location) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Location.ProtoReflect.Descriptor instead.
 func (*Location) Descriptor() ([]byte, []int) {
-	return file_amor_v1_types_proto_rawDescGZIP(), []int{2}
+	return file_amor_v1_types_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *Location) GetBarangay() string {
@@ -546,7 +678,7 @@ type Room struct {
 
 func (x *Room) Reset() {
 	*x = Room{}
-	mi := &file_amor_v1_types_proto_msgTypes[3]
+	mi := &file_amor_v1_types_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -558,7 +690,7 @@ func (x *Room) String() string {
 func (*Room) ProtoMessage() {}
 
 func (x *Room) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_types_proto_msgTypes[3]
+	mi := &file_amor_v1_types_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -571,7 +703,7 @@ func (x *Room) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Room.ProtoReflect.Descriptor instead.
 func (*Room) Descriptor() ([]byte, []int) {
-	return file_amor_v1_types_proto_rawDescGZIP(), []int{3}
+	return file_amor_v1_types_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *Room) GetId() string {
@@ -651,7 +783,7 @@ type User struct {
 
 func (x *User) Reset() {
 	*x = User{}
-	mi := &file_amor_v1_types_proto_msgTypes[4]
+	mi := &file_amor_v1_types_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -663,7 +795,7 @@ func (x *User) String() string {
 func (*User) ProtoMessage() {}
 
 func (x *User) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_types_proto_msgTypes[4]
+	mi := &file_amor_v1_types_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -676,7 +808,7 @@ func (x *User) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use User.ProtoReflect.Descriptor instead.
 func (*User) Descriptor() ([]byte, []int) {
-	return file_amor_v1_types_proto_rawDescGZIP(), []int{4}
+	return file_amor_v1_types_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *User) GetId() string {
@@ -790,7 +922,7 @@ type Accommodation struct {
 
 func (x *Accommodation) Reset() {
 	*x = Accommodation{}
-	mi := &file_amor_v1_types_proto_msgTypes[5]
+	mi := &file_amor_v1_types_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -802,7 +934,7 @@ func (x *Accommodation) String() string {
 func (*Accommodation) ProtoMessage() {}
 
 func (x *Accommodation) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_types_proto_msgTypes[5]
+	mi := &file_amor_v1_types_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -815,7 +947,7 @@ func (x *Accommodation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Accommodation.ProtoReflect.Descriptor instead.
 func (*Accommodation) Descriptor() ([]byte, []int) {
-	return file_amor_v1_types_proto_rawDescGZIP(), []int{5}
+	return file_amor_v1_types_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *Accommodation) GetId() string {
@@ -914,7 +1046,7 @@ type Room_Prices struct {
 
 func (x *Room_Prices) Reset() {
 	*x = Room_Prices{}
-	mi := &file_amor_v1_types_proto_msgTypes[6]
+	mi := &file_amor_v1_types_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -926,7 +1058,7 @@ func (x *Room_Prices) String() string {
 func (*Room_Prices) ProtoMessage() {}
 
 func (x *Room_Prices) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_types_proto_msgTypes[6]
+	mi := &file_amor_v1_types_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -939,7 +1071,7 @@ func (x *Room_Prices) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Room_Prices.ProtoReflect.Descriptor instead.
 func (*Room_Prices) Descriptor() ([]byte, []int) {
-	return file_amor_v1_types_proto_rawDescGZIP(), []int{3, 0}
+	return file_amor_v1_types_proto_rawDescGZIP(), []int{4, 0}
 }
 
 func (x *Room_Prices) GetDaily() float64 {
@@ -974,7 +1106,19 @@ var File_amor_v1_types_proto protoreflect.FileDescriptor
 
 const file_amor_v1_types_proto_rawDesc = "" +
 	"\n" +
-	"\x13amor/v1/types.proto\x12\x0faccumora_rpc.v1\"\x90\x02\n" +
+	"\x13amor/v1/types.proto\x12\x0faccumora_rpc.v1\x1a\x1cgoogle/protobuf/struct.proto\"\xc5\x02\n" +
+	"\fNotification\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12B\n" +
+	"\x04type\x18\x02 \x01(\x0e2..accumora_rpc.v1.Notification.NotificationTypeR\x04type\x12\x18\n" +
+	"\acontent\x18\x03 \x01(\tR\acontent\x12\x14\n" +
+	"\x05title\x18\x04 \x01(\tR\x05title\x123\n" +
+	"\bmetadata\x18\x05 \x01(\v2\x17.google.protobuf.StructR\bmetadata\"|\n" +
+	"\x10NotificationType\x12\x18\n" +
+	"\x14UNKNOWN_NOTIFICATION\x10\x00\x12\x10\n" +
+	"\fRESERVE_ROOM\x10\x01\x12\x16\n" +
+	"\x12CANCEL_RESERVATION\x10\x02\x12\x10\n" +
+	"\fPAYMENT_MADE\x10\x03\x12\x12\n" +
+	"\x0ePAYMENT_FAILED\x10\x04\"\x90\x02\n" +
 	"\aAmenity\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x128\n" +
@@ -1113,40 +1257,45 @@ func file_amor_v1_types_proto_rawDescGZIP() []byte {
 	return file_amor_v1_types_proto_rawDescData
 }
 
-var file_amor_v1_types_proto_enumTypes = make([]protoimpl.EnumInfo, 6)
-var file_amor_v1_types_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
+var file_amor_v1_types_proto_enumTypes = make([]protoimpl.EnumInfo, 7)
+var file_amor_v1_types_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_amor_v1_types_proto_goTypes = []any{
-	(Amenity_AmenityType)(0),             // 0: accumora_rpc.v1.Amenity.AmenityType
-	(User_AccountType)(0),                // 1: accumora_rpc.v1.User.AccountType
-	(User_Gender)(0),                     // 2: accumora_rpc.v1.User.Gender
-	(User_Role)(0),                       // 3: accumora_rpc.v1.User.Role
-	(Accommodation_AccommodationType)(0), // 4: accumora_rpc.v1.Accommodation.AccommodationType
-	(Accommodation_Status)(0),            // 5: accumora_rpc.v1.Accommodation.Status
-	(*Amenity)(nil),                      // 6: accumora_rpc.v1.Amenity
-	(*Coordinates)(nil),                  // 7: accumora_rpc.v1.Coordinates
-	(*Location)(nil),                     // 8: accumora_rpc.v1.Location
-	(*Room)(nil),                         // 9: accumora_rpc.v1.Room
-	(*User)(nil),                         // 10: accumora_rpc.v1.User
-	(*Accommodation)(nil),                // 11: accumora_rpc.v1.Accommodation
-	(*Room_Prices)(nil),                  // 12: accumora_rpc.v1.Room.Prices
+	(Notification_NotificationType)(0),   // 0: accumora_rpc.v1.Notification.NotificationType
+	(Amenity_AmenityType)(0),             // 1: accumora_rpc.v1.Amenity.AmenityType
+	(User_AccountType)(0),                // 2: accumora_rpc.v1.User.AccountType
+	(User_Gender)(0),                     // 3: accumora_rpc.v1.User.Gender
+	(User_Role)(0),                       // 4: accumora_rpc.v1.User.Role
+	(Accommodation_AccommodationType)(0), // 5: accumora_rpc.v1.Accommodation.AccommodationType
+	(Accommodation_Status)(0),            // 6: accumora_rpc.v1.Accommodation.Status
+	(*Notification)(nil),                 // 7: accumora_rpc.v1.Notification
+	(*Amenity)(nil),                      // 8: accumora_rpc.v1.Amenity
+	(*Coordinates)(nil),                  // 9: accumora_rpc.v1.Coordinates
+	(*Location)(nil),                     // 10: accumora_rpc.v1.Location
+	(*Room)(nil),                         // 11: accumora_rpc.v1.Room
+	(*User)(nil),                         // 12: accumora_rpc.v1.User
+	(*Accommodation)(nil),                // 13: accumora_rpc.v1.Accommodation
+	(*Room_Prices)(nil),                  // 14: accumora_rpc.v1.Room.Prices
+	(*structpb.Struct)(nil),              // 15: google.protobuf.Struct
 }
 var file_amor_v1_types_proto_depIdxs = []int32{
-	0,  // 0: accumora_rpc.v1.Amenity.type:type_name -> accumora_rpc.v1.Amenity.AmenityType
-	12, // 1: accumora_rpc.v1.Room.prices:type_name -> accumora_rpc.v1.Room.Prices
-	8,  // 2: accumora_rpc.v1.User.location:type_name -> accumora_rpc.v1.Location
-	1,  // 3: accumora_rpc.v1.User.account_type:type_name -> accumora_rpc.v1.User.AccountType
-	2,  // 4: accumora_rpc.v1.User.gender:type_name -> accumora_rpc.v1.User.Gender
-	3,  // 5: accumora_rpc.v1.User.role:type_name -> accumora_rpc.v1.User.Role
-	8,  // 6: accumora_rpc.v1.Accommodation.location:type_name -> accumora_rpc.v1.Location
-	4,  // 7: accumora_rpc.v1.Accommodation.type:type_name -> accumora_rpc.v1.Accommodation.AccommodationType
-	7,  // 8: accumora_rpc.v1.Accommodation.coordinates:type_name -> accumora_rpc.v1.Coordinates
-	6,  // 9: accumora_rpc.v1.Accommodation.amenities:type_name -> accumora_rpc.v1.Amenity
-	5,  // 10: accumora_rpc.v1.Accommodation.status:type_name -> accumora_rpc.v1.Accommodation.Status
-	11, // [11:11] is the sub-list for method output_type
-	11, // [11:11] is the sub-list for method input_type
-	11, // [11:11] is the sub-list for extension type_name
-	11, // [11:11] is the sub-list for extension extendee
-	0,  // [0:11] is the sub-list for field type_name
+	0,  // 0: accumora_rpc.v1.Notification.type:type_name -> accumora_rpc.v1.Notification.NotificationType
+	15, // 1: accumora_rpc.v1.Notification.metadata:type_name -> google.protobuf.Struct
+	1,  // 2: accumora_rpc.v1.Amenity.type:type_name -> accumora_rpc.v1.Amenity.AmenityType
+	14, // 3: accumora_rpc.v1.Room.prices:type_name -> accumora_rpc.v1.Room.Prices
+	10, // 4: accumora_rpc.v1.User.location:type_name -> accumora_rpc.v1.Location
+	2,  // 5: accumora_rpc.v1.User.account_type:type_name -> accumora_rpc.v1.User.AccountType
+	3,  // 6: accumora_rpc.v1.User.gender:type_name -> accumora_rpc.v1.User.Gender
+	4,  // 7: accumora_rpc.v1.User.role:type_name -> accumora_rpc.v1.User.Role
+	10, // 8: accumora_rpc.v1.Accommodation.location:type_name -> accumora_rpc.v1.Location
+	5,  // 9: accumora_rpc.v1.Accommodation.type:type_name -> accumora_rpc.v1.Accommodation.AccommodationType
+	9,  // 10: accumora_rpc.v1.Accommodation.coordinates:type_name -> accumora_rpc.v1.Coordinates
+	8,  // 11: accumora_rpc.v1.Accommodation.amenities:type_name -> accumora_rpc.v1.Amenity
+	6,  // 12: accumora_rpc.v1.Accommodation.status:type_name -> accumora_rpc.v1.Accommodation.Status
+	13, // [13:13] is the sub-list for method output_type
+	13, // [13:13] is the sub-list for method input_type
+	13, // [13:13] is the sub-list for extension type_name
+	13, // [13:13] is the sub-list for extension extendee
+	0,  // [0:13] is the sub-list for field type_name
 }
 
 func init() { file_amor_v1_types_proto_init() }
@@ -1154,20 +1303,20 @@ func file_amor_v1_types_proto_init() {
 	if File_amor_v1_types_proto != nil {
 		return
 	}
-	file_amor_v1_types_proto_msgTypes[0].OneofWrappers = []any{}
 	file_amor_v1_types_proto_msgTypes[1].OneofWrappers = []any{}
 	file_amor_v1_types_proto_msgTypes[2].OneofWrappers = []any{}
 	file_amor_v1_types_proto_msgTypes[3].OneofWrappers = []any{}
 	file_amor_v1_types_proto_msgTypes[4].OneofWrappers = []any{}
 	file_amor_v1_types_proto_msgTypes[5].OneofWrappers = []any{}
 	file_amor_v1_types_proto_msgTypes[6].OneofWrappers = []any{}
+	file_amor_v1_types_proto_msgTypes[7].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_amor_v1_types_proto_rawDesc), len(file_amor_v1_types_proto_rawDesc)),
-			NumEnums:      6,
-			NumMessages:   7,
+			NumEnums:      7,
+			NumMessages:   8,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
