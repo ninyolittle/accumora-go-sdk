@@ -22,26 +22,26 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type Notification_NotificationType int32
+type Notification_Type int32
 
 const (
-	Notification_UNKNOWN_NOTIFICATION Notification_NotificationType = 0
-	Notification_RESERVE_ROOM         Notification_NotificationType = 1
-	Notification_CANCEL_RESERVATION   Notification_NotificationType = 2
-	Notification_PAYMENT_MADE         Notification_NotificationType = 3
-	Notification_PAYMENT_FAILED       Notification_NotificationType = 4
+	Notification_UNKNOWN_NOTIFICATION Notification_Type = 0
+	Notification_RESERVE_ROOM         Notification_Type = 1
+	Notification_CANCEL_RESERVATION   Notification_Type = 2
+	Notification_PAYMENT_MADE         Notification_Type = 3
+	Notification_PAYMENT_FAILED       Notification_Type = 4
 )
 
-// Enum value maps for Notification_NotificationType.
+// Enum value maps for Notification_Type.
 var (
-	Notification_NotificationType_name = map[int32]string{
+	Notification_Type_name = map[int32]string{
 		0: "UNKNOWN_NOTIFICATION",
 		1: "RESERVE_ROOM",
 		2: "CANCEL_RESERVATION",
 		3: "PAYMENT_MADE",
 		4: "PAYMENT_FAILED",
 	}
-	Notification_NotificationType_value = map[string]int32{
+	Notification_Type_value = map[string]int32{
 		"UNKNOWN_NOTIFICATION": 0,
 		"RESERVE_ROOM":         1,
 		"CANCEL_RESERVATION":   2,
@@ -50,31 +50,83 @@ var (
 	}
 )
 
-func (x Notification_NotificationType) Enum() *Notification_NotificationType {
-	p := new(Notification_NotificationType)
+func (x Notification_Type) Enum() *Notification_Type {
+	p := new(Notification_Type)
 	*p = x
 	return p
 }
 
-func (x Notification_NotificationType) String() string {
+func (x Notification_Type) String() string {
 	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
 }
 
-func (Notification_NotificationType) Descriptor() protoreflect.EnumDescriptor {
+func (Notification_Type) Descriptor() protoreflect.EnumDescriptor {
 	return file_amor_v1_types_proto_enumTypes[0].Descriptor()
 }
 
-func (Notification_NotificationType) Type() protoreflect.EnumType {
+func (Notification_Type) Type() protoreflect.EnumType {
 	return &file_amor_v1_types_proto_enumTypes[0]
 }
 
-func (x Notification_NotificationType) Number() protoreflect.EnumNumber {
+func (x Notification_Type) Number() protoreflect.EnumNumber {
 	return protoreflect.EnumNumber(x)
 }
 
-// Deprecated: Use Notification_NotificationType.Descriptor instead.
-func (Notification_NotificationType) EnumDescriptor() ([]byte, []int) {
+// Deprecated: Use Notification_Type.Descriptor instead.
+func (Notification_Type) EnumDescriptor() ([]byte, []int) {
 	return file_amor_v1_types_proto_rawDescGZIP(), []int{0, 0}
+}
+
+type Notification_Status int32
+
+const (
+	Notification_UNKNOWN_STATUS  Notification_Status = 0
+	Notification_UNREAD          Notification_Status = 1
+	Notification_READ            Notification_Status = 2
+	Notification_SEEN_BUT_UNREAD Notification_Status = 3
+)
+
+// Enum value maps for Notification_Status.
+var (
+	Notification_Status_name = map[int32]string{
+		0: "UNKNOWN_STATUS",
+		1: "UNREAD",
+		2: "READ",
+		3: "SEEN_BUT_UNREAD",
+	}
+	Notification_Status_value = map[string]int32{
+		"UNKNOWN_STATUS":  0,
+		"UNREAD":          1,
+		"READ":            2,
+		"SEEN_BUT_UNREAD": 3,
+	}
+)
+
+func (x Notification_Status) Enum() *Notification_Status {
+	p := new(Notification_Status)
+	*p = x
+	return p
+}
+
+func (x Notification_Status) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (Notification_Status) Descriptor() protoreflect.EnumDescriptor {
+	return file_amor_v1_types_proto_enumTypes[1].Descriptor()
+}
+
+func (Notification_Status) Type() protoreflect.EnumType {
+	return &file_amor_v1_types_proto_enumTypes[1]
+}
+
+func (x Notification_Status) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use Notification_Status.Descriptor instead.
+func (Notification_Status) EnumDescriptor() ([]byte, []int) {
+	return file_amor_v1_types_proto_rawDescGZIP(), []int{0, 1}
 }
 
 type Amenity_AmenityType int32
@@ -110,11 +162,11 @@ func (x Amenity_AmenityType) String() string {
 }
 
 func (Amenity_AmenityType) Descriptor() protoreflect.EnumDescriptor {
-	return file_amor_v1_types_proto_enumTypes[1].Descriptor()
+	return file_amor_v1_types_proto_enumTypes[2].Descriptor()
 }
 
 func (Amenity_AmenityType) Type() protoreflect.EnumType {
-	return &file_amor_v1_types_proto_enumTypes[1]
+	return &file_amor_v1_types_proto_enumTypes[2]
 }
 
 func (x Amenity_AmenityType) Number() protoreflect.EnumNumber {
@@ -159,11 +211,11 @@ func (x User_AccountType) String() string {
 }
 
 func (User_AccountType) Descriptor() protoreflect.EnumDescriptor {
-	return file_amor_v1_types_proto_enumTypes[2].Descriptor()
+	return file_amor_v1_types_proto_enumTypes[3].Descriptor()
 }
 
 func (User_AccountType) Type() protoreflect.EnumType {
-	return &file_amor_v1_types_proto_enumTypes[2]
+	return &file_amor_v1_types_proto_enumTypes[3]
 }
 
 func (x User_AccountType) Number() protoreflect.EnumNumber {
@@ -208,11 +260,11 @@ func (x User_Gender) String() string {
 }
 
 func (User_Gender) Descriptor() protoreflect.EnumDescriptor {
-	return file_amor_v1_types_proto_enumTypes[3].Descriptor()
+	return file_amor_v1_types_proto_enumTypes[4].Descriptor()
 }
 
 func (User_Gender) Type() protoreflect.EnumType {
-	return &file_amor_v1_types_proto_enumTypes[3]
+	return &file_amor_v1_types_proto_enumTypes[4]
 }
 
 func (x User_Gender) Number() protoreflect.EnumNumber {
@@ -260,11 +312,11 @@ func (x User_Role) String() string {
 }
 
 func (User_Role) Descriptor() protoreflect.EnumDescriptor {
-	return file_amor_v1_types_proto_enumTypes[4].Descriptor()
+	return file_amor_v1_types_proto_enumTypes[5].Descriptor()
 }
 
 func (User_Role) Type() protoreflect.EnumType {
-	return &file_amor_v1_types_proto_enumTypes[4]
+	return &file_amor_v1_types_proto_enumTypes[5]
 }
 
 func (x User_Role) Number() protoreflect.EnumNumber {
@@ -309,11 +361,11 @@ func (x Accommodation_AccommodationType) String() string {
 }
 
 func (Accommodation_AccommodationType) Descriptor() protoreflect.EnumDescriptor {
-	return file_amor_v1_types_proto_enumTypes[5].Descriptor()
+	return file_amor_v1_types_proto_enumTypes[6].Descriptor()
 }
 
 func (Accommodation_AccommodationType) Type() protoreflect.EnumType {
-	return &file_amor_v1_types_proto_enumTypes[5]
+	return &file_amor_v1_types_proto_enumTypes[6]
 }
 
 func (x Accommodation_AccommodationType) Number() protoreflect.EnumNumber {
@@ -358,11 +410,11 @@ func (x Accommodation_Status) String() string {
 }
 
 func (Accommodation_Status) Descriptor() protoreflect.EnumDescriptor {
-	return file_amor_v1_types_proto_enumTypes[6].Descriptor()
+	return file_amor_v1_types_proto_enumTypes[7].Descriptor()
 }
 
 func (Accommodation_Status) Type() protoreflect.EnumType {
-	return &file_amor_v1_types_proto_enumTypes[6]
+	return &file_amor_v1_types_proto_enumTypes[7]
 }
 
 func (x Accommodation_Status) Number() protoreflect.EnumNumber {
@@ -375,12 +427,13 @@ func (Accommodation_Status) EnumDescriptor() ([]byte, []int) {
 }
 
 type Notification struct {
-	state         protoimpl.MessageState        `protogen:"open.v1"`
-	Id            string                        `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	Type          Notification_NotificationType `protobuf:"varint,2,opt,name=type,proto3,enum=accumora_rpc.v1.Notification_NotificationType" json:"type,omitempty"`
-	Content       string                        `protobuf:"bytes,3,opt,name=content,proto3" json:"content,omitempty"`
-	Title         string                        `protobuf:"bytes,4,opt,name=title,proto3" json:"title,omitempty"`
-	Metadata      *structpb.Struct              `protobuf:"bytes,5,opt,name=metadata,proto3" json:"metadata,omitempty"`
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Type          Notification_Type      `protobuf:"varint,2,opt,name=type,proto3,enum=accumora_rpc.v1.Notification_Type" json:"type,omitempty"`
+	Content       string                 `protobuf:"bytes,3,opt,name=content,proto3" json:"content,omitempty"`
+	Title         string                 `protobuf:"bytes,4,opt,name=title,proto3" json:"title,omitempty"`
+	Status        Notification_Status    `protobuf:"varint,5,opt,name=status,proto3,enum=accumora_rpc.v1.Notification_Status" json:"status,omitempty"`
+	Metadata      *structpb.Struct       `protobuf:"bytes,6,opt,name=metadata,proto3" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -422,7 +475,7 @@ func (x *Notification) GetId() string {
 	return ""
 }
 
-func (x *Notification) GetType() Notification_NotificationType {
+func (x *Notification) GetType() Notification_Type {
 	if x != nil {
 		return x.Type
 	}
@@ -441,6 +494,13 @@ func (x *Notification) GetTitle() string {
 		return x.Title
 	}
 	return ""
+}
+
+func (x *Notification) GetStatus() Notification_Status {
+	if x != nil {
+		return x.Status
+	}
+	return Notification_UNKNOWN_STATUS
 }
 
 func (x *Notification) GetMetadata() *structpb.Struct {
@@ -1106,19 +1166,26 @@ var File_amor_v1_types_proto protoreflect.FileDescriptor
 
 const file_amor_v1_types_proto_rawDesc = "" +
 	"\n" +
-	"\x13amor/v1/types.proto\x12\x0faccumora_rpc.v1\x1a\x1cgoogle/protobuf/struct.proto\"\xc5\x02\n" +
+	"\x13amor/v1/types.proto\x12\x0faccumora_rpc.v1\x1a\x1cgoogle/protobuf/struct.proto\"\xb4\x03\n" +
 	"\fNotification\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\x12B\n" +
-	"\x04type\x18\x02 \x01(\x0e2..accumora_rpc.v1.Notification.NotificationTypeR\x04type\x12\x18\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x126\n" +
+	"\x04type\x18\x02 \x01(\x0e2\".accumora_rpc.v1.Notification.TypeR\x04type\x12\x18\n" +
 	"\acontent\x18\x03 \x01(\tR\acontent\x12\x14\n" +
-	"\x05title\x18\x04 \x01(\tR\x05title\x123\n" +
-	"\bmetadata\x18\x05 \x01(\v2\x17.google.protobuf.StructR\bmetadata\"|\n" +
-	"\x10NotificationType\x12\x18\n" +
+	"\x05title\x18\x04 \x01(\tR\x05title\x12<\n" +
+	"\x06status\x18\x05 \x01(\x0e2$.accumora_rpc.v1.Notification.StatusR\x06status\x123\n" +
+	"\bmetadata\x18\x06 \x01(\v2\x17.google.protobuf.StructR\bmetadata\"p\n" +
+	"\x04Type\x12\x18\n" +
 	"\x14UNKNOWN_NOTIFICATION\x10\x00\x12\x10\n" +
 	"\fRESERVE_ROOM\x10\x01\x12\x16\n" +
 	"\x12CANCEL_RESERVATION\x10\x02\x12\x10\n" +
 	"\fPAYMENT_MADE\x10\x03\x12\x12\n" +
-	"\x0ePAYMENT_FAILED\x10\x04\"\x90\x02\n" +
+	"\x0ePAYMENT_FAILED\x10\x04\"G\n" +
+	"\x06Status\x12\x12\n" +
+	"\x0eUNKNOWN_STATUS\x10\x00\x12\n" +
+	"\n" +
+	"\x06UNREAD\x10\x01\x12\b\n" +
+	"\x04READ\x10\x02\x12\x13\n" +
+	"\x0fSEEN_BUT_UNREAD\x10\x03\"\x90\x02\n" +
 	"\aAmenity\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x128\n" +
@@ -1257,45 +1324,47 @@ func file_amor_v1_types_proto_rawDescGZIP() []byte {
 	return file_amor_v1_types_proto_rawDescData
 }
 
-var file_amor_v1_types_proto_enumTypes = make([]protoimpl.EnumInfo, 7)
+var file_amor_v1_types_proto_enumTypes = make([]protoimpl.EnumInfo, 8)
 var file_amor_v1_types_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_amor_v1_types_proto_goTypes = []any{
-	(Notification_NotificationType)(0),   // 0: accumora_rpc.v1.Notification.NotificationType
-	(Amenity_AmenityType)(0),             // 1: accumora_rpc.v1.Amenity.AmenityType
-	(User_AccountType)(0),                // 2: accumora_rpc.v1.User.AccountType
-	(User_Gender)(0),                     // 3: accumora_rpc.v1.User.Gender
-	(User_Role)(0),                       // 4: accumora_rpc.v1.User.Role
-	(Accommodation_AccommodationType)(0), // 5: accumora_rpc.v1.Accommodation.AccommodationType
-	(Accommodation_Status)(0),            // 6: accumora_rpc.v1.Accommodation.Status
-	(*Notification)(nil),                 // 7: accumora_rpc.v1.Notification
-	(*Amenity)(nil),                      // 8: accumora_rpc.v1.Amenity
-	(*Coordinates)(nil),                  // 9: accumora_rpc.v1.Coordinates
-	(*Location)(nil),                     // 10: accumora_rpc.v1.Location
-	(*Room)(nil),                         // 11: accumora_rpc.v1.Room
-	(*User)(nil),                         // 12: accumora_rpc.v1.User
-	(*Accommodation)(nil),                // 13: accumora_rpc.v1.Accommodation
-	(*Room_Prices)(nil),                  // 14: accumora_rpc.v1.Room.Prices
-	(*structpb.Struct)(nil),              // 15: google.protobuf.Struct
+	(Notification_Type)(0),               // 0: accumora_rpc.v1.Notification.Type
+	(Notification_Status)(0),             // 1: accumora_rpc.v1.Notification.Status
+	(Amenity_AmenityType)(0),             // 2: accumora_rpc.v1.Amenity.AmenityType
+	(User_AccountType)(0),                // 3: accumora_rpc.v1.User.AccountType
+	(User_Gender)(0),                     // 4: accumora_rpc.v1.User.Gender
+	(User_Role)(0),                       // 5: accumora_rpc.v1.User.Role
+	(Accommodation_AccommodationType)(0), // 6: accumora_rpc.v1.Accommodation.AccommodationType
+	(Accommodation_Status)(0),            // 7: accumora_rpc.v1.Accommodation.Status
+	(*Notification)(nil),                 // 8: accumora_rpc.v1.Notification
+	(*Amenity)(nil),                      // 9: accumora_rpc.v1.Amenity
+	(*Coordinates)(nil),                  // 10: accumora_rpc.v1.Coordinates
+	(*Location)(nil),                     // 11: accumora_rpc.v1.Location
+	(*Room)(nil),                         // 12: accumora_rpc.v1.Room
+	(*User)(nil),                         // 13: accumora_rpc.v1.User
+	(*Accommodation)(nil),                // 14: accumora_rpc.v1.Accommodation
+	(*Room_Prices)(nil),                  // 15: accumora_rpc.v1.Room.Prices
+	(*structpb.Struct)(nil),              // 16: google.protobuf.Struct
 }
 var file_amor_v1_types_proto_depIdxs = []int32{
-	0,  // 0: accumora_rpc.v1.Notification.type:type_name -> accumora_rpc.v1.Notification.NotificationType
-	15, // 1: accumora_rpc.v1.Notification.metadata:type_name -> google.protobuf.Struct
-	1,  // 2: accumora_rpc.v1.Amenity.type:type_name -> accumora_rpc.v1.Amenity.AmenityType
-	14, // 3: accumora_rpc.v1.Room.prices:type_name -> accumora_rpc.v1.Room.Prices
-	10, // 4: accumora_rpc.v1.User.location:type_name -> accumora_rpc.v1.Location
-	2,  // 5: accumora_rpc.v1.User.account_type:type_name -> accumora_rpc.v1.User.AccountType
-	3,  // 6: accumora_rpc.v1.User.gender:type_name -> accumora_rpc.v1.User.Gender
-	4,  // 7: accumora_rpc.v1.User.role:type_name -> accumora_rpc.v1.User.Role
-	10, // 8: accumora_rpc.v1.Accommodation.location:type_name -> accumora_rpc.v1.Location
-	5,  // 9: accumora_rpc.v1.Accommodation.type:type_name -> accumora_rpc.v1.Accommodation.AccommodationType
-	9,  // 10: accumora_rpc.v1.Accommodation.coordinates:type_name -> accumora_rpc.v1.Coordinates
-	8,  // 11: accumora_rpc.v1.Accommodation.amenities:type_name -> accumora_rpc.v1.Amenity
-	6,  // 12: accumora_rpc.v1.Accommodation.status:type_name -> accumora_rpc.v1.Accommodation.Status
-	13, // [13:13] is the sub-list for method output_type
-	13, // [13:13] is the sub-list for method input_type
-	13, // [13:13] is the sub-list for extension type_name
-	13, // [13:13] is the sub-list for extension extendee
-	0,  // [0:13] is the sub-list for field type_name
+	0,  // 0: accumora_rpc.v1.Notification.type:type_name -> accumora_rpc.v1.Notification.Type
+	1,  // 1: accumora_rpc.v1.Notification.status:type_name -> accumora_rpc.v1.Notification.Status
+	16, // 2: accumora_rpc.v1.Notification.metadata:type_name -> google.protobuf.Struct
+	2,  // 3: accumora_rpc.v1.Amenity.type:type_name -> accumora_rpc.v1.Amenity.AmenityType
+	15, // 4: accumora_rpc.v1.Room.prices:type_name -> accumora_rpc.v1.Room.Prices
+	11, // 5: accumora_rpc.v1.User.location:type_name -> accumora_rpc.v1.Location
+	3,  // 6: accumora_rpc.v1.User.account_type:type_name -> accumora_rpc.v1.User.AccountType
+	4,  // 7: accumora_rpc.v1.User.gender:type_name -> accumora_rpc.v1.User.Gender
+	5,  // 8: accumora_rpc.v1.User.role:type_name -> accumora_rpc.v1.User.Role
+	11, // 9: accumora_rpc.v1.Accommodation.location:type_name -> accumora_rpc.v1.Location
+	6,  // 10: accumora_rpc.v1.Accommodation.type:type_name -> accumora_rpc.v1.Accommodation.AccommodationType
+	10, // 11: accumora_rpc.v1.Accommodation.coordinates:type_name -> accumora_rpc.v1.Coordinates
+	9,  // 12: accumora_rpc.v1.Accommodation.amenities:type_name -> accumora_rpc.v1.Amenity
+	7,  // 13: accumora_rpc.v1.Accommodation.status:type_name -> accumora_rpc.v1.Accommodation.Status
+	14, // [14:14] is the sub-list for method output_type
+	14, // [14:14] is the sub-list for method input_type
+	14, // [14:14] is the sub-list for extension type_name
+	14, // [14:14] is the sub-list for extension extendee
+	0,  // [0:14] is the sub-list for field type_name
 }
 
 func init() { file_amor_v1_types_proto_init() }
@@ -1315,7 +1384,7 @@ func file_amor_v1_types_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_amor_v1_types_proto_rawDesc), len(file_amor_v1_types_proto_rawDesc)),
-			NumEnums:      7,
+			NumEnums:      8,
 			NumMessages:   8,
 			NumExtensions: 0,
 			NumServices:   0,
