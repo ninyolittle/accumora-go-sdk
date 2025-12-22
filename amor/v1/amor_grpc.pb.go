@@ -40,6 +40,7 @@ const (
 	ProjectAmor_ConfirmEmailAddress_FullMethodName        = "/accumora_rpc.v1.ProjectAmor/ConfirmEmailAddress"
 	ProjectAmor_SetAccommodationStatus_FullMethodName     = "/accumora_rpc.v1.ProjectAmor/SetAccommodationStatus"
 	ProjectAmor_ListNotifications_FullMethodName          = "/accumora_rpc.v1.ProjectAmor/ListNotifications"
+	ProjectAmor_UpdateNotificationStatus_FullMethodName   = "/accumora_rpc.v1.ProjectAmor/UpdateNotificationStatus"
 )
 
 // ProjectAmorClient is the client API for ProjectAmor service.
@@ -90,6 +91,8 @@ type ProjectAmorClient interface {
 	SetAccommodationStatus(ctx context.Context, in *SetAccommodationStatusRequest, opts ...grpc.CallOption) (*SetAccommodationStatusResponse, error)
 	// ListNotifications retrieves all notifications for the current user
 	ListNotifications(ctx context.Context, in *ListNotificationsRequest, opts ...grpc.CallOption) (*ListNotificationsResponse, error)
+	// UpdateNotificationStatus updates the status of one or more notifications
+	UpdateNotificationStatus(ctx context.Context, in *UpdateNotificationStatusRequest, opts ...grpc.CallOption) (*UpdateNotificationStatusResponse, error)
 }
 
 type projectAmorClient struct {
@@ -310,6 +313,16 @@ func (c *projectAmorClient) ListNotifications(ctx context.Context, in *ListNotif
 	return out, nil
 }
 
+func (c *projectAmorClient) UpdateNotificationStatus(ctx context.Context, in *UpdateNotificationStatusRequest, opts ...grpc.CallOption) (*UpdateNotificationStatusResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateNotificationStatusResponse)
+	err := c.cc.Invoke(ctx, ProjectAmor_UpdateNotificationStatus_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ProjectAmorServer is the server API for ProjectAmor service.
 // All implementations must embed UnimplementedProjectAmorServer
 // for forward compatibility.
@@ -358,6 +371,8 @@ type ProjectAmorServer interface {
 	SetAccommodationStatus(context.Context, *SetAccommodationStatusRequest) (*SetAccommodationStatusResponse, error)
 	// ListNotifications retrieves all notifications for the current user
 	ListNotifications(context.Context, *ListNotificationsRequest) (*ListNotificationsResponse, error)
+	// UpdateNotificationStatus updates the status of one or more notifications
+	UpdateNotificationStatus(context.Context, *UpdateNotificationStatusRequest) (*UpdateNotificationStatusResponse, error)
 	mustEmbedUnimplementedProjectAmorServer()
 }
 
@@ -430,6 +445,9 @@ func (UnimplementedProjectAmorServer) SetAccommodationStatus(context.Context, *S
 }
 func (UnimplementedProjectAmorServer) ListNotifications(context.Context, *ListNotificationsRequest) (*ListNotificationsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListNotifications not implemented")
+}
+func (UnimplementedProjectAmorServer) UpdateNotificationStatus(context.Context, *UpdateNotificationStatusRequest) (*UpdateNotificationStatusResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateNotificationStatus not implemented")
 }
 func (UnimplementedProjectAmorServer) mustEmbedUnimplementedProjectAmorServer() {}
 func (UnimplementedProjectAmorServer) testEmbeddedByValue()                     {}
@@ -830,6 +848,24 @@ func _ProjectAmor_ListNotifications_Handler(srv interface{}, ctx context.Context
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ProjectAmor_UpdateNotificationStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateNotificationStatusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProjectAmorServer).UpdateNotificationStatus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProjectAmor_UpdateNotificationStatus_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProjectAmorServer).UpdateNotificationStatus(ctx, req.(*UpdateNotificationStatusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // ProjectAmor_ServiceDesc is the grpc.ServiceDesc for ProjectAmor service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -920,6 +956,10 @@ var ProjectAmor_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ListNotifications",
 			Handler:    _ProjectAmor_ListNotifications_Handler,
+		},
+		{
+			MethodName: "UpdateNotificationStatus",
+			Handler:    _ProjectAmor_UpdateNotificationStatus_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
