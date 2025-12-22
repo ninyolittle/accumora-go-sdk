@@ -94,6 +94,7 @@ type ProjectAmorClient interface {
 	ListNotifications(ctx context.Context, in *ListNotificationsRequest, opts ...grpc.CallOption) (*ListNotificationsResponse, error)
 	// UpdateNotificationStatus updates the status of one or more notifications
 	UpdateNotificationStatus(ctx context.Context, in *UpdateNotificationStatusRequest, opts ...grpc.CallOption) (*UpdateNotificationStatusResponse, error)
+	// ReserveRoom creates a reservation for a specific room
 	ReserveRoom(ctx context.Context, in *ReserveRoomRequest, opts ...grpc.CallOption) (*ReserveRoomResponse, error)
 }
 
@@ -385,6 +386,7 @@ type ProjectAmorServer interface {
 	ListNotifications(context.Context, *ListNotificationsRequest) (*ListNotificationsResponse, error)
 	// UpdateNotificationStatus updates the status of one or more notifications
 	UpdateNotificationStatus(context.Context, *UpdateNotificationStatusRequest) (*UpdateNotificationStatusResponse, error)
+	// ReserveRoom creates a reservation for a specific room
 	ReserveRoom(context.Context, *ReserveRoomRequest) (*ReserveRoomResponse, error)
 	mustEmbedUnimplementedProjectAmorServer()
 }
