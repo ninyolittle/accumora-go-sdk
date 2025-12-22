@@ -433,6 +433,7 @@ type Notification struct {
 	Content       string                 `protobuf:"bytes,3,opt,name=content,proto3" json:"content,omitempty"`
 	Title         string                 `protobuf:"bytes,4,opt,name=title,proto3" json:"title,omitempty"`
 	Status        Notification_Status    `protobuf:"varint,5,opt,name=status,proto3,enum=accumora_rpc.v1.Notification_Status" json:"status,omitempty"`
+	Timestamp     string                 `protobuf:"bytes,7,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
 	Metadata      *structpb.Struct       `protobuf:"bytes,6,opt,name=metadata,proto3" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -501,6 +502,13 @@ func (x *Notification) GetStatus() Notification_Status {
 		return x.Status
 	}
 	return Notification_UNKNOWN_STATUS
+}
+
+func (x *Notification) GetTimestamp() string {
+	if x != nil {
+		return x.Timestamp
+	}
+	return ""
 }
 
 func (x *Notification) GetMetadata() *structpb.Struct {
@@ -1166,13 +1174,14 @@ var File_amor_v1_types_proto protoreflect.FileDescriptor
 
 const file_amor_v1_types_proto_rawDesc = "" +
 	"\n" +
-	"\x13amor/v1/types.proto\x12\x0faccumora_rpc.v1\x1a\x1cgoogle/protobuf/struct.proto\"\xb4\x03\n" +
+	"\x13amor/v1/types.proto\x12\x0faccumora_rpc.v1\x1a\x1cgoogle/protobuf/struct.proto\"\xd2\x03\n" +
 	"\fNotification\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x126\n" +
 	"\x04type\x18\x02 \x01(\x0e2\".accumora_rpc.v1.Notification.TypeR\x04type\x12\x18\n" +
 	"\acontent\x18\x03 \x01(\tR\acontent\x12\x14\n" +
 	"\x05title\x18\x04 \x01(\tR\x05title\x12<\n" +
-	"\x06status\x18\x05 \x01(\x0e2$.accumora_rpc.v1.Notification.StatusR\x06status\x123\n" +
+	"\x06status\x18\x05 \x01(\x0e2$.accumora_rpc.v1.Notification.StatusR\x06status\x12\x1c\n" +
+	"\ttimestamp\x18\a \x01(\tR\ttimestamp\x123\n" +
 	"\bmetadata\x18\x06 \x01(\v2\x17.google.protobuf.StructR\bmetadata\"p\n" +
 	"\x04Type\x12\x18\n" +
 	"\x14UNKNOWN_NOTIFICATION\x10\x00\x12\x10\n" +
