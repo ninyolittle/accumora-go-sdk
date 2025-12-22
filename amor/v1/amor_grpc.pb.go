@@ -41,6 +41,7 @@ const (
 	ProjectAmor_SetAccommodationStatus_FullMethodName     = "/accumora_rpc.v1.ProjectAmor/SetAccommodationStatus"
 	ProjectAmor_ListNotifications_FullMethodName          = "/accumora_rpc.v1.ProjectAmor/ListNotifications"
 	ProjectAmor_UpdateNotificationStatus_FullMethodName   = "/accumora_rpc.v1.ProjectAmor/UpdateNotificationStatus"
+	ProjectAmor_ReserveRoom_FullMethodName                = "/accumora_rpc.v1.ProjectAmor/ReserveRoom"
 )
 
 // ProjectAmorClient is the client API for ProjectAmor service.
@@ -93,6 +94,7 @@ type ProjectAmorClient interface {
 	ListNotifications(ctx context.Context, in *ListNotificationsRequest, opts ...grpc.CallOption) (*ListNotificationsResponse, error)
 	// UpdateNotificationStatus updates the status of one or more notifications
 	UpdateNotificationStatus(ctx context.Context, in *UpdateNotificationStatusRequest, opts ...grpc.CallOption) (*UpdateNotificationStatusResponse, error)
+	ReserveRoom(ctx context.Context, in *ReserveRoomRequest, opts ...grpc.CallOption) (*ReserveRoomResponse, error)
 }
 
 type projectAmorClient struct {
@@ -323,6 +325,16 @@ func (c *projectAmorClient) UpdateNotificationStatus(ctx context.Context, in *Up
 	return out, nil
 }
 
+func (c *projectAmorClient) ReserveRoom(ctx context.Context, in *ReserveRoomRequest, opts ...grpc.CallOption) (*ReserveRoomResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ReserveRoomResponse)
+	err := c.cc.Invoke(ctx, ProjectAmor_ReserveRoom_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ProjectAmorServer is the server API for ProjectAmor service.
 // All implementations must embed UnimplementedProjectAmorServer
 // for forward compatibility.
@@ -373,6 +385,7 @@ type ProjectAmorServer interface {
 	ListNotifications(context.Context, *ListNotificationsRequest) (*ListNotificationsResponse, error)
 	// UpdateNotificationStatus updates the status of one or more notifications
 	UpdateNotificationStatus(context.Context, *UpdateNotificationStatusRequest) (*UpdateNotificationStatusResponse, error)
+	ReserveRoom(context.Context, *ReserveRoomRequest) (*ReserveRoomResponse, error)
 	mustEmbedUnimplementedProjectAmorServer()
 }
 
@@ -448,6 +461,9 @@ func (UnimplementedProjectAmorServer) ListNotifications(context.Context, *ListNo
 }
 func (UnimplementedProjectAmorServer) UpdateNotificationStatus(context.Context, *UpdateNotificationStatusRequest) (*UpdateNotificationStatusResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateNotificationStatus not implemented")
+}
+func (UnimplementedProjectAmorServer) ReserveRoom(context.Context, *ReserveRoomRequest) (*ReserveRoomResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ReserveRoom not implemented")
 }
 func (UnimplementedProjectAmorServer) mustEmbedUnimplementedProjectAmorServer() {}
 func (UnimplementedProjectAmorServer) testEmbeddedByValue()                     {}
@@ -866,6 +882,24 @@ func _ProjectAmor_UpdateNotificationStatus_Handler(srv interface{}, ctx context.
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ProjectAmor_ReserveRoom_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReserveRoomRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProjectAmorServer).ReserveRoom(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProjectAmor_ReserveRoom_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProjectAmorServer).ReserveRoom(ctx, req.(*ReserveRoomRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // ProjectAmor_ServiceDesc is the grpc.ServiceDesc for ProjectAmor service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -960,6 +994,10 @@ var ProjectAmor_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateNotificationStatus",
 			Handler:    _ProjectAmor_UpdateNotificationStatus_Handler,
+		},
+		{
+			MethodName: "ReserveRoom",
+			Handler:    _ProjectAmor_ReserveRoom_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
