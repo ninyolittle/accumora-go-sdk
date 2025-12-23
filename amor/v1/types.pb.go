@@ -22,24 +22,24 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type Colors int32
+type Color int32
 
 const (
-	Colors_COLOR_UNSPECIFIED Colors = 0
-	Colors_RED               Colors = 1
-	Colors_BLUE              Colors = 2
-	Colors_GREEN             Colors = 3
-	Colors_YELLOW            Colors = 4
-	Colors_ORANGE            Colors = 5
-	Colors_PURPLE            Colors = 6
-	Colors_BLACK             Colors = 7
-	Colors_WHITE             Colors = 8
-	Colors_GRAY              Colors = 9
+	Color_COLOR_UNSPECIFIED Color = 0
+	Color_RED               Color = 1
+	Color_BLUE              Color = 2
+	Color_GREEN             Color = 3
+	Color_YELLOW            Color = 4
+	Color_ORANGE            Color = 5
+	Color_PURPLE            Color = 6
+	Color_BLACK             Color = 7
+	Color_WHITE             Color = 8
+	Color_GRAY              Color = 9
 )
 
-// Enum value maps for Colors.
+// Enum value maps for Color.
 var (
-	Colors_name = map[int32]string{
+	Color_name = map[int32]string{
 		0: "COLOR_UNSPECIFIED",
 		1: "RED",
 		2: "BLUE",
@@ -51,7 +51,7 @@ var (
 		8: "WHITE",
 		9: "GRAY",
 	}
-	Colors_value = map[string]int32{
+	Color_value = map[string]int32{
 		"COLOR_UNSPECIFIED": 0,
 		"RED":               1,
 		"BLUE":              2,
@@ -65,30 +65,30 @@ var (
 	}
 )
 
-func (x Colors) Enum() *Colors {
-	p := new(Colors)
+func (x Color) Enum() *Color {
+	p := new(Color)
 	*p = x
 	return p
 }
 
-func (x Colors) String() string {
+func (x Color) String() string {
 	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
 }
 
-func (Colors) Descriptor() protoreflect.EnumDescriptor {
+func (Color) Descriptor() protoreflect.EnumDescriptor {
 	return file_amor_v1_types_proto_enumTypes[0].Descriptor()
 }
 
-func (Colors) Type() protoreflect.EnumType {
+func (Color) Type() protoreflect.EnumType {
 	return &file_amor_v1_types_proto_enumTypes[0]
 }
 
-func (x Colors) Number() protoreflect.EnumNumber {
+func (x Color) Number() protoreflect.EnumNumber {
 	return protoreflect.EnumNumber(x)
 }
 
-// Deprecated: Use Colors.Descriptor instead.
-func (Colors) EnumDescriptor() ([]byte, []int) {
+// Deprecated: Use Color.Descriptor instead.
+func (Color) EnumDescriptor() ([]byte, []int) {
 	return file_amor_v1_types_proto_rawDescGZIP(), []int{0}
 }
 
@@ -595,7 +595,7 @@ type Amenity struct {
 	Type          Amenity_AmenityType    `protobuf:"varint,3,opt,name=type,proto3,enum=accumora_rpc.v1.Amenity_AmenityType" json:"type,omitempty"`
 	Owner         string                 `protobuf:"bytes,4,opt,name=owner,proto3" json:"owner,omitempty"`
 	Icon          *string                `protobuf:"bytes,5,opt,name=icon,proto3,oneof" json:"icon,omitempty"`
-	IconColor     *string                `protobuf:"bytes,6,opt,name=icon_color,json=iconColor,proto3,oneof" json:"icon_color,omitempty"`
+	IconColor     *Color                 `protobuf:"varint,6,opt,name=icon_color,json=iconColor,proto3,enum=accumora_rpc.v1.Color,oneof" json:"icon_color,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -665,11 +665,11 @@ func (x *Amenity) GetIcon() string {
 	return ""
 }
 
-func (x *Amenity) GetIconColor() string {
+func (x *Amenity) GetIconColor() Color {
 	if x != nil && x.IconColor != nil {
 		return *x.IconColor
 	}
-	return ""
+	return Color_COLOR_UNSPECIFIED
 }
 
 type Coordinates struct {
@@ -1264,15 +1264,15 @@ const file_amor_v1_types_proto_rawDesc = "" +
 	"\n" +
 	"\x06UNREAD\x10\x01\x12\b\n" +
 	"\x04READ\x10\x02\x12\x13\n" +
-	"\x0fSEEN_BUT_UNREAD\x10\x03\"\x90\x02\n" +
+	"\x0fSEEN_BUT_UNREAD\x10\x03\"\xa8\x02\n" +
 	"\aAmenity\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x128\n" +
 	"\x04type\x18\x03 \x01(\x0e2$.accumora_rpc.v1.Amenity.AmenityTypeR\x04type\x12\x14\n" +
 	"\x05owner\x18\x04 \x01(\tR\x05owner\x12\x17\n" +
-	"\x04icon\x18\x05 \x01(\tH\x00R\x04icon\x88\x01\x01\x12\"\n" +
+	"\x04icon\x18\x05 \x01(\tH\x00R\x04icon\x88\x01\x01\x12:\n" +
 	"\n" +
-	"icon_color\x18\x06 \x01(\tH\x01R\ticonColor\x88\x01\x01\"<\n" +
+	"icon_color\x18\x06 \x01(\x0e2\x16.accumora_rpc.v1.ColorH\x01R\ticonColor\x88\x01\x01\"<\n" +
 	"\vAmenityType\x12\x13\n" +
 	"\x0fUNKNOWN_AMENITY\x10\x00\x12\f\n" +
 	"\bBUILT_IN\x10\x01\x12\n" +
@@ -1389,8 +1389,8 @@ const file_amor_v1_types_proto_rawDesc = "" +
 	"\f_descriptionB\x0e\n" +
 	"\f_coordinatesB\f\n" +
 	"\n" +
-	"_image_url*\x81\x01\n" +
-	"\x06Colors\x12\x15\n" +
+	"_image_url*\x80\x01\n" +
+	"\x05Color\x12\x15\n" +
 	"\x11COLOR_UNSPECIFIED\x10\x00\x12\a\n" +
 	"\x03RED\x10\x01\x12\b\n" +
 	"\x04BLUE\x10\x02\x12\t\n" +
@@ -1420,7 +1420,7 @@ func file_amor_v1_types_proto_rawDescGZIP() []byte {
 var file_amor_v1_types_proto_enumTypes = make([]protoimpl.EnumInfo, 9)
 var file_amor_v1_types_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_amor_v1_types_proto_goTypes = []any{
-	(Colors)(0),                          // 0: accumora_rpc.v1.Colors
+	(Color)(0),                           // 0: accumora_rpc.v1.Color
 	(Notification_Type)(0),               // 1: accumora_rpc.v1.Notification.Type
 	(Notification_Status)(0),             // 2: accumora_rpc.v1.Notification.Status
 	(Amenity_AmenityType)(0),             // 3: accumora_rpc.v1.Amenity.AmenityType
@@ -1444,21 +1444,22 @@ var file_amor_v1_types_proto_depIdxs = []int32{
 	2,  // 1: accumora_rpc.v1.Notification.status:type_name -> accumora_rpc.v1.Notification.Status
 	17, // 2: accumora_rpc.v1.Notification.metadata:type_name -> google.protobuf.Struct
 	3,  // 3: accumora_rpc.v1.Amenity.type:type_name -> accumora_rpc.v1.Amenity.AmenityType
-	16, // 4: accumora_rpc.v1.Room.prices:type_name -> accumora_rpc.v1.Room.Prices
-	12, // 5: accumora_rpc.v1.User.location:type_name -> accumora_rpc.v1.Location
-	4,  // 6: accumora_rpc.v1.User.account_type:type_name -> accumora_rpc.v1.User.AccountType
-	5,  // 7: accumora_rpc.v1.User.gender:type_name -> accumora_rpc.v1.User.Gender
-	6,  // 8: accumora_rpc.v1.User.role:type_name -> accumora_rpc.v1.User.Role
-	12, // 9: accumora_rpc.v1.Accommodation.location:type_name -> accumora_rpc.v1.Location
-	7,  // 10: accumora_rpc.v1.Accommodation.type:type_name -> accumora_rpc.v1.Accommodation.AccommodationType
-	11, // 11: accumora_rpc.v1.Accommodation.coordinates:type_name -> accumora_rpc.v1.Coordinates
-	10, // 12: accumora_rpc.v1.Accommodation.amenities:type_name -> accumora_rpc.v1.Amenity
-	8,  // 13: accumora_rpc.v1.Accommodation.status:type_name -> accumora_rpc.v1.Accommodation.Status
-	14, // [14:14] is the sub-list for method output_type
-	14, // [14:14] is the sub-list for method input_type
-	14, // [14:14] is the sub-list for extension type_name
-	14, // [14:14] is the sub-list for extension extendee
-	0,  // [0:14] is the sub-list for field type_name
+	0,  // 4: accumora_rpc.v1.Amenity.icon_color:type_name -> accumora_rpc.v1.Color
+	16, // 5: accumora_rpc.v1.Room.prices:type_name -> accumora_rpc.v1.Room.Prices
+	12, // 6: accumora_rpc.v1.User.location:type_name -> accumora_rpc.v1.Location
+	4,  // 7: accumora_rpc.v1.User.account_type:type_name -> accumora_rpc.v1.User.AccountType
+	5,  // 8: accumora_rpc.v1.User.gender:type_name -> accumora_rpc.v1.User.Gender
+	6,  // 9: accumora_rpc.v1.User.role:type_name -> accumora_rpc.v1.User.Role
+	12, // 10: accumora_rpc.v1.Accommodation.location:type_name -> accumora_rpc.v1.Location
+	7,  // 11: accumora_rpc.v1.Accommodation.type:type_name -> accumora_rpc.v1.Accommodation.AccommodationType
+	11, // 12: accumora_rpc.v1.Accommodation.coordinates:type_name -> accumora_rpc.v1.Coordinates
+	10, // 13: accumora_rpc.v1.Accommodation.amenities:type_name -> accumora_rpc.v1.Amenity
+	8,  // 14: accumora_rpc.v1.Accommodation.status:type_name -> accumora_rpc.v1.Accommodation.Status
+	15, // [15:15] is the sub-list for method output_type
+	15, // [15:15] is the sub-list for method input_type
+	15, // [15:15] is the sub-list for extension type_name
+	15, // [15:15] is the sub-list for extension extendee
+	0,  // [0:15] is the sub-list for field type_name
 }
 
 func init() { file_amor_v1_types_proto_init() }
