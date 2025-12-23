@@ -808,8 +808,8 @@ type Room struct {
 	Description     *string                `protobuf:"bytes,4,opt,name=description,proto3,oneof" json:"description,omitempty"`
 	Prices          *Room_Prices           `protobuf:"bytes,5,opt,name=prices,proto3" json:"prices,omitempty"`
 	Capacity        *int32                 `protobuf:"varint,6,opt,name=capacity,proto3,oneof" json:"capacity,omitempty"`
-	Utilities       []string               `protobuf:"bytes,7,rep,name=utilities,proto3" json:"utilities,omitempty"`
-	PhotoUrl        *string                `protobuf:"bytes,8,opt,name=photo_url,json=photoUrl,proto3,oneof" json:"photo_url,omitempty"`
+	PhotoUrl        *string                `protobuf:"bytes,7,opt,name=photo_url,json=photoUrl,proto3,oneof" json:"photo_url,omitempty"`
+	Amenities       []*Amenity             `protobuf:"bytes,8,rep,name=amenities,proto3" json:"amenities,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
@@ -886,18 +886,18 @@ func (x *Room) GetCapacity() int32 {
 	return 0
 }
 
-func (x *Room) GetUtilities() []string {
-	if x != nil {
-		return x.Utilities
-	}
-	return nil
-}
-
 func (x *Room) GetPhotoUrl() string {
 	if x != nil && x.PhotoUrl != nil {
 		return *x.PhotoUrl
 	}
 	return ""
+}
+
+func (x *Room) GetAmenities() []*Amenity {
+	if x != nil {
+		return x.Amenities
+	}
+	return nil
 }
 
 type User struct {
@@ -1296,16 +1296,16 @@ const file_amor_v1_types_proto_rawDesc = "" +
 	"\x05_townB\v\n" +
 	"\t_zip_codeB\v\n" +
 	"\t_provinceB\t\n" +
-	"\a_region\"\xe9\x03\n" +
+	"\a_region\"\x83\x04\n" +
 	"\x04Room\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12)\n" +
 	"\x10accommodation_id\x18\x03 \x01(\tR\x0faccommodationId\x12%\n" +
 	"\vdescription\x18\x04 \x01(\tH\x00R\vdescription\x88\x01\x01\x124\n" +
 	"\x06prices\x18\x05 \x01(\v2\x1c.accumora_rpc.v1.Room.PricesR\x06prices\x12\x1f\n" +
-	"\bcapacity\x18\x06 \x01(\x05H\x01R\bcapacity\x88\x01\x01\x12\x1c\n" +
-	"\tutilities\x18\a \x03(\tR\tutilities\x12 \n" +
-	"\tphoto_url\x18\b \x01(\tH\x02R\bphotoUrl\x88\x01\x01\x1a\xa8\x01\n" +
+	"\bcapacity\x18\x06 \x01(\x05H\x01R\bcapacity\x88\x01\x01\x12 \n" +
+	"\tphoto_url\x18\a \x01(\tH\x02R\bphotoUrl\x88\x01\x01\x126\n" +
+	"\tamenities\x18\b \x03(\v2\x18.accumora_rpc.v1.AmenityR\tamenities\x1a\xa8\x01\n" +
 	"\x06Prices\x12\x19\n" +
 	"\x05daily\x18\x01 \x01(\x01H\x00R\x05daily\x88\x01\x01\x12\x1b\n" +
 	"\x06weekly\x18\x02 \x01(\x01H\x01R\x06weekly\x88\x01\x01\x12\x1d\n" +
@@ -1446,20 +1446,21 @@ var file_amor_v1_types_proto_depIdxs = []int32{
 	3,  // 3: accumora_rpc.v1.Amenity.type:type_name -> accumora_rpc.v1.Amenity.AmenityType
 	0,  // 4: accumora_rpc.v1.Amenity.icon_color:type_name -> accumora_rpc.v1.Color
 	16, // 5: accumora_rpc.v1.Room.prices:type_name -> accumora_rpc.v1.Room.Prices
-	12, // 6: accumora_rpc.v1.User.location:type_name -> accumora_rpc.v1.Location
-	4,  // 7: accumora_rpc.v1.User.account_type:type_name -> accumora_rpc.v1.User.AccountType
-	5,  // 8: accumora_rpc.v1.User.gender:type_name -> accumora_rpc.v1.User.Gender
-	6,  // 9: accumora_rpc.v1.User.role:type_name -> accumora_rpc.v1.User.Role
-	12, // 10: accumora_rpc.v1.Accommodation.location:type_name -> accumora_rpc.v1.Location
-	7,  // 11: accumora_rpc.v1.Accommodation.type:type_name -> accumora_rpc.v1.Accommodation.AccommodationType
-	11, // 12: accumora_rpc.v1.Accommodation.coordinates:type_name -> accumora_rpc.v1.Coordinates
-	10, // 13: accumora_rpc.v1.Accommodation.amenities:type_name -> accumora_rpc.v1.Amenity
-	8,  // 14: accumora_rpc.v1.Accommodation.status:type_name -> accumora_rpc.v1.Accommodation.Status
-	15, // [15:15] is the sub-list for method output_type
-	15, // [15:15] is the sub-list for method input_type
-	15, // [15:15] is the sub-list for extension type_name
-	15, // [15:15] is the sub-list for extension extendee
-	0,  // [0:15] is the sub-list for field type_name
+	10, // 6: accumora_rpc.v1.Room.amenities:type_name -> accumora_rpc.v1.Amenity
+	12, // 7: accumora_rpc.v1.User.location:type_name -> accumora_rpc.v1.Location
+	4,  // 8: accumora_rpc.v1.User.account_type:type_name -> accumora_rpc.v1.User.AccountType
+	5,  // 9: accumora_rpc.v1.User.gender:type_name -> accumora_rpc.v1.User.Gender
+	6,  // 10: accumora_rpc.v1.User.role:type_name -> accumora_rpc.v1.User.Role
+	12, // 11: accumora_rpc.v1.Accommodation.location:type_name -> accumora_rpc.v1.Location
+	7,  // 12: accumora_rpc.v1.Accommodation.type:type_name -> accumora_rpc.v1.Accommodation.AccommodationType
+	11, // 13: accumora_rpc.v1.Accommodation.coordinates:type_name -> accumora_rpc.v1.Coordinates
+	10, // 14: accumora_rpc.v1.Accommodation.amenities:type_name -> accumora_rpc.v1.Amenity
+	8,  // 15: accumora_rpc.v1.Accommodation.status:type_name -> accumora_rpc.v1.Accommodation.Status
+	16, // [16:16] is the sub-list for method output_type
+	16, // [16:16] is the sub-list for method input_type
+	16, // [16:16] is the sub-list for extension type_name
+	16, // [16:16] is the sub-list for extension extendee
+	0,  // [0:16] is the sub-list for field type_name
 }
 
 func init() { file_amor_v1_types_proto_init() }
