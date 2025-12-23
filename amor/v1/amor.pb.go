@@ -1264,7 +1264,7 @@ type AddRoomRequest struct {
 	Description     *string                `protobuf:"bytes,3,opt,name=description,proto3,oneof" json:"description,omitempty"`
 	Prices          *Room_Prices           `protobuf:"bytes,4,opt,name=prices,proto3" json:"prices,omitempty"`
 	Capacity        *int32                 `protobuf:"varint,5,opt,name=capacity,proto3,oneof" json:"capacity,omitempty"`
-	Utilities       []string               `protobuf:"bytes,6,rep,name=utilities,proto3" json:"utilities,omitempty"`
+	Amenities       []string               `protobuf:"bytes,6,rep,name=amenities,proto3" json:"amenities,omitempty"`
 	PhotoUrl        []byte                 `protobuf:"bytes,7,opt,name=photo_url,json=photoUrl,proto3,oneof" json:"photo_url,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
@@ -1335,9 +1335,9 @@ func (x *AddRoomRequest) GetCapacity() int32 {
 	return 0
 }
 
-func (x *AddRoomRequest) GetUtilities() []string {
+func (x *AddRoomRequest) GetAmenities() []string {
 	if x != nil {
-		return x.Utilities
+		return x.Amenities
 	}
 	return nil
 }
@@ -2469,7 +2469,7 @@ const file_amor_v1_amor_proto_rawDesc = "" +
 	"\vdescription\x18\x03 \x01(\tH\x00R\vdescription\x88\x01\x01\x124\n" +
 	"\x06prices\x18\x04 \x01(\v2\x1c.accumora_rpc.v1.Room.PricesR\x06prices\x12\x1f\n" +
 	"\bcapacity\x18\x05 \x01(\x05H\x01R\bcapacity\x88\x01\x01\x12\x1c\n" +
-	"\tutilities\x18\x06 \x03(\tR\tutilities\x12 \n" +
+	"\tamenities\x18\x06 \x03(\tR\tamenities\x12 \n" +
 	"\tphoto_url\x18\a \x01(\fH\x02R\bphotoUrl\x88\x01\x01B\x0e\n" +
 	"\f_descriptionB\v\n" +
 	"\t_capacityB\f\n" +
