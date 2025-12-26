@@ -810,6 +810,7 @@ type Room struct {
 	Capacity        *int32                 `protobuf:"varint,6,opt,name=capacity,proto3,oneof" json:"capacity,omitempty"`
 	PhotoUrl        *string                `protobuf:"bytes,7,opt,name=photo_url,json=photoUrl,proto3,oneof" json:"photo_url,omitempty"`
 	Amenities       []*Amenity             `protobuf:"bytes,8,rep,name=amenities,proto3" json:"amenities,omitempty"`
+	Visibility      bool                   `protobuf:"varint,9,opt,name=visibility,proto3" json:"visibility,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
@@ -898,6 +899,13 @@ func (x *Room) GetAmenities() []*Amenity {
 		return x.Amenities
 	}
 	return nil
+}
+
+func (x *Room) GetVisibility() bool {
+	if x != nil {
+		return x.Visibility
+	}
+	return false
 }
 
 type User struct {
@@ -1296,7 +1304,7 @@ const file_amor_v1_types_proto_rawDesc = "" +
 	"\x05_townB\v\n" +
 	"\t_zip_codeB\v\n" +
 	"\t_provinceB\t\n" +
-	"\a_region\"\x83\x04\n" +
+	"\a_region\"\xa3\x04\n" +
 	"\x04Room\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12)\n" +
@@ -1305,7 +1313,10 @@ const file_amor_v1_types_proto_rawDesc = "" +
 	"\x06prices\x18\x05 \x01(\v2\x1c.accumora_rpc.v1.Room.PricesR\x06prices\x12\x1f\n" +
 	"\bcapacity\x18\x06 \x01(\x05H\x01R\bcapacity\x88\x01\x01\x12 \n" +
 	"\tphoto_url\x18\a \x01(\tH\x02R\bphotoUrl\x88\x01\x01\x126\n" +
-	"\tamenities\x18\b \x03(\v2\x18.accumora_rpc.v1.AmenityR\tamenities\x1a\xa8\x01\n" +
+	"\tamenities\x18\b \x03(\v2\x18.accumora_rpc.v1.AmenityR\tamenities\x12\x1e\n" +
+	"\n" +
+	"visibility\x18\t \x01(\bR\n" +
+	"visibility\x1a\xa8\x01\n" +
 	"\x06Prices\x12\x19\n" +
 	"\x05daily\x18\x01 \x01(\x01H\x00R\x05daily\x88\x01\x01\x12\x1b\n" +
 	"\x06weekly\x18\x02 \x01(\x01H\x01R\x06weekly\x88\x01\x01\x12\x1d\n" +
