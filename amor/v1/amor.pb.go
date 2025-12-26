@@ -1002,6 +1002,7 @@ type UpdateRoomRequest struct {
 	Capacity      *int32                 `protobuf:"varint,5,opt,name=capacity,proto3,oneof" json:"capacity,omitempty"`
 	Amenities     []string               `protobuf:"bytes,6,rep,name=amenities,proto3" json:"amenities,omitempty"`
 	PhotoUrl      []byte                 `protobuf:"bytes,7,opt,name=photo_url,json=photoUrl,proto3,oneof" json:"photo_url,omitempty"`
+	Visibility    bool                   `protobuf:"varint,8,opt,name=visibility,proto3" json:"visibility,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1083,6 +1084,13 @@ func (x *UpdateRoomRequest) GetPhotoUrl() []byte {
 		return x.PhotoUrl
 	}
 	return nil
+}
+
+func (x *UpdateRoomRequest) GetVisibility() bool {
+	if x != nil {
+		return x.Visibility
+	}
+	return false
 }
 
 type UpdateRoomResponse struct {
@@ -2278,6 +2286,7 @@ type AddRoomsRequest_Input struct {
 	Capacity        *int32                 `protobuf:"varint,5,opt,name=capacity,proto3,oneof" json:"capacity,omitempty"`
 	Amenities       []string               `protobuf:"bytes,6,rep,name=amenities,proto3" json:"amenities,omitempty"`
 	PhotoUrl        []byte                 `protobuf:"bytes,7,opt,name=photo_url,json=photoUrl,proto3,oneof" json:"photo_url,omitempty"`
+	Visibility      bool                   `protobuf:"varint,8,opt,name=visibility,proto3" json:"visibility,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
@@ -2359,6 +2368,13 @@ func (x *AddRoomsRequest_Input) GetPhotoUrl() []byte {
 		return x.PhotoUrl
 	}
 	return nil
+}
+
+func (x *AddRoomsRequest_Input) GetVisibility() bool {
+	if x != nil {
+		return x.Visibility
+	}
+	return false
 }
 
 type LoginUserRequest_Manual struct {
@@ -2480,7 +2496,7 @@ const file_amor_v1_amor_proto_rawDesc = "" +
 	"\v_icon_color\"N\n" +
 	"\x14AddAmenitiesResponse\x126\n" +
 	"\tamenities\x18\x01 \x03(\v2\x18.accumora_rpc.v1.AmenityR\tamenities\"\x16\n" +
-	"\x14SetAsLandLordRequest\"\xbe\x02\n" +
+	"\x14SetAsLandLordRequest\"\xde\x02\n" +
 	"\x11UpdateRoomRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x17\n" +
 	"\x04name\x18\x02 \x01(\tH\x00R\x04name\x88\x01\x01\x12%\n" +
@@ -2488,7 +2504,10 @@ const file_amor_v1_amor_proto_rawDesc = "" +
 	"\x06prices\x18\x04 \x01(\v2\x1c.accumora_rpc.v1.Room.PricesH\x02R\x06prices\x88\x01\x01\x12\x1f\n" +
 	"\bcapacity\x18\x05 \x01(\x05H\x03R\bcapacity\x88\x01\x01\x12\x1c\n" +
 	"\tamenities\x18\x06 \x03(\tR\tamenities\x12 \n" +
-	"\tphoto_url\x18\a \x01(\fH\x04R\bphotoUrl\x88\x01\x01B\a\n" +
+	"\tphoto_url\x18\a \x01(\fH\x04R\bphotoUrl\x88\x01\x01\x12\x1e\n" +
+	"\n" +
+	"visibility\x18\b \x01(\bR\n" +
+	"visibilityB\a\n" +
 	"\x05_nameB\x0e\n" +
 	"\f_descriptionB\t\n" +
 	"\a_pricesB\v\n" +
@@ -2506,9 +2525,9 @@ const file_amor_v1_amor_proto_rawDesc = "" +
 	"\x05rules\x18\x06 \x03(\tR\x05rules\x12#\n" +
 	"\rprofile_photo\x18\a \x01(\fR\fprofilePhotoB\x0e\n" +
 	"\f_description\"\x10\n" +
-	"\x0eGetUserRequest\"\x83\x03\n" +
+	"\x0eGetUserRequest\"\xa3\x03\n" +
 	"\x0fAddRoomsRequest\x12>\n" +
-	"\x06inputs\x18\x01 \x03(\v2&.accumora_rpc.v1.AddRoomsRequest.InputR\x06inputs\x1a\xaf\x02\n" +
+	"\x06inputs\x18\x01 \x03(\v2&.accumora_rpc.v1.AddRoomsRequest.InputR\x06inputs\x1a\xcf\x02\n" +
 	"\x05Input\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12)\n" +
 	"\x10accommodation_id\x18\x02 \x01(\tR\x0faccommodationId\x12%\n" +
@@ -2516,7 +2535,10 @@ const file_amor_v1_amor_proto_rawDesc = "" +
 	"\x06prices\x18\x04 \x01(\v2\x1c.accumora_rpc.v1.Room.PricesR\x06prices\x12\x1f\n" +
 	"\bcapacity\x18\x05 \x01(\x05H\x01R\bcapacity\x88\x01\x01\x12\x1c\n" +
 	"\tamenities\x18\x06 \x03(\tR\tamenities\x12 \n" +
-	"\tphoto_url\x18\a \x01(\fH\x02R\bphotoUrl\x88\x01\x01B\x0e\n" +
+	"\tphoto_url\x18\a \x01(\fH\x02R\bphotoUrl\x88\x01\x01\x12\x1e\n" +
+	"\n" +
+	"visibility\x18\b \x01(\bR\n" +
+	"visibilityB\x0e\n" +
 	"\f_descriptionB\v\n" +
 	"\t_capacityB\f\n" +
 	"\n" +
