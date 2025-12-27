@@ -103,6 +103,7 @@ type ProjectAmorClient interface {
 	ChangeSortOrder(ctx context.Context, in *ChangeSortOrderRequest, opts ...grpc.CallOption) (*ChangeSortOrderResponse, error)
 	// AddRoomGroup creates a new room group with the provided details
 	AddRoomGroup(ctx context.Context, in *AddRoomGroupRequest, opts ...grpc.CallOption) (*RoomGroup, error)
+	// GetRoomGroups retrieves room groups for a specific accommodation
 	GetRoomGroups(ctx context.Context, in *GetRoomGroupsRequest, opts ...grpc.CallOption) (*GetRoomGroupsResponse, error)
 }
 
@@ -430,6 +431,7 @@ type ProjectAmorServer interface {
 	ChangeSortOrder(context.Context, *ChangeSortOrderRequest) (*ChangeSortOrderResponse, error)
 	// AddRoomGroup creates a new room group with the provided details
 	AddRoomGroup(context.Context, *AddRoomGroupRequest) (*RoomGroup, error)
+	// GetRoomGroups retrieves room groups for a specific accommodation
 	GetRoomGroups(context.Context, *GetRoomGroupsRequest) (*GetRoomGroupsResponse, error)
 	mustEmbedUnimplementedProjectAmorServer()
 }
