@@ -21,6 +21,94 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type GetRoomGroupsRequest struct {
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	AccommodationId string                 `protobuf:"bytes,1,opt,name=accommodation_id,json=accommodationId,proto3" json:"accommodation_id,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *GetRoomGroupsRequest) Reset() {
+	*x = GetRoomGroupsRequest{}
+	mi := &file_amor_v1_amor_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRoomGroupsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRoomGroupsRequest) ProtoMessage() {}
+
+func (x *GetRoomGroupsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_amor_v1_amor_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRoomGroupsRequest.ProtoReflect.Descriptor instead.
+func (*GetRoomGroupsRequest) Descriptor() ([]byte, []int) {
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *GetRoomGroupsRequest) GetAccommodationId() string {
+	if x != nil {
+		return x.AccommodationId
+	}
+	return ""
+}
+
+type GetRoomGroupsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	RoomGroups    []*RoomGroup           `protobuf:"bytes,1,rep,name=room_groups,json=roomGroups,proto3" json:"room_groups,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRoomGroupsResponse) Reset() {
+	*x = GetRoomGroupsResponse{}
+	mi := &file_amor_v1_amor_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRoomGroupsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRoomGroupsResponse) ProtoMessage() {}
+
+func (x *GetRoomGroupsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_amor_v1_amor_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRoomGroupsResponse.ProtoReflect.Descriptor instead.
+func (*GetRoomGroupsResponse) Descriptor() ([]byte, []int) {
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *GetRoomGroupsResponse) GetRoomGroups() []*RoomGroup {
+	if x != nil {
+		return x.RoomGroups
+	}
+	return nil
+}
+
 type AddRoomGroupRequest struct {
 	state           protoimpl.MessageState `protogen:"open.v1"`
 	Name            string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
@@ -34,7 +122,7 @@ type AddRoomGroupRequest struct {
 
 func (x *AddRoomGroupRequest) Reset() {
 	*x = AddRoomGroupRequest{}
-	mi := &file_amor_v1_amor_proto_msgTypes[0]
+	mi := &file_amor_v1_amor_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -46,7 +134,7 @@ func (x *AddRoomGroupRequest) String() string {
 func (*AddRoomGroupRequest) ProtoMessage() {}
 
 func (x *AddRoomGroupRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[0]
+	mi := &file_amor_v1_amor_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -59,7 +147,7 @@ func (x *AddRoomGroupRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddRoomGroupRequest.ProtoReflect.Descriptor instead.
 func (*AddRoomGroupRequest) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{0}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *AddRoomGroupRequest) GetName() string {
@@ -107,7 +195,7 @@ type ChangeSortOrderRequest struct {
 
 func (x *ChangeSortOrderRequest) Reset() {
 	*x = ChangeSortOrderRequest{}
-	mi := &file_amor_v1_amor_proto_msgTypes[1]
+	mi := &file_amor_v1_amor_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -119,7 +207,7 @@ func (x *ChangeSortOrderRequest) String() string {
 func (*ChangeSortOrderRequest) ProtoMessage() {}
 
 func (x *ChangeSortOrderRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[1]
+	mi := &file_amor_v1_amor_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -132,7 +220,7 @@ func (x *ChangeSortOrderRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ChangeSortOrderRequest.ProtoReflect.Descriptor instead.
 func (*ChangeSortOrderRequest) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{1}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *ChangeSortOrderRequest) GetTableName() string {
@@ -157,7 +245,7 @@ type ChangeSortOrderResponse struct {
 
 func (x *ChangeSortOrderResponse) Reset() {
 	*x = ChangeSortOrderResponse{}
-	mi := &file_amor_v1_amor_proto_msgTypes[2]
+	mi := &file_amor_v1_amor_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -169,7 +257,7 @@ func (x *ChangeSortOrderResponse) String() string {
 func (*ChangeSortOrderResponse) ProtoMessage() {}
 
 func (x *ChangeSortOrderResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[2]
+	mi := &file_amor_v1_amor_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -182,7 +270,7 @@ func (x *ChangeSortOrderResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ChangeSortOrderResponse.ProtoReflect.Descriptor instead.
 func (*ChangeSortOrderResponse) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{2}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{4}
 }
 
 type ReserveRoomRequest struct {
@@ -194,7 +282,7 @@ type ReserveRoomRequest struct {
 
 func (x *ReserveRoomRequest) Reset() {
 	*x = ReserveRoomRequest{}
-	mi := &file_amor_v1_amor_proto_msgTypes[3]
+	mi := &file_amor_v1_amor_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -206,7 +294,7 @@ func (x *ReserveRoomRequest) String() string {
 func (*ReserveRoomRequest) ProtoMessage() {}
 
 func (x *ReserveRoomRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[3]
+	mi := &file_amor_v1_amor_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -219,7 +307,7 @@ func (x *ReserveRoomRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReserveRoomRequest.ProtoReflect.Descriptor instead.
 func (*ReserveRoomRequest) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{3}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *ReserveRoomRequest) GetRoomId() string {
@@ -238,7 +326,7 @@ type ReserveRoomResponse struct {
 
 func (x *ReserveRoomResponse) Reset() {
 	*x = ReserveRoomResponse{}
-	mi := &file_amor_v1_amor_proto_msgTypes[4]
+	mi := &file_amor_v1_amor_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -250,7 +338,7 @@ func (x *ReserveRoomResponse) String() string {
 func (*ReserveRoomResponse) ProtoMessage() {}
 
 func (x *ReserveRoomResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[4]
+	mi := &file_amor_v1_amor_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -263,7 +351,7 @@ func (x *ReserveRoomResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReserveRoomResponse.ProtoReflect.Descriptor instead.
 func (*ReserveRoomResponse) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{4}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *ReserveRoomResponse) GetReservationId() string {
@@ -283,7 +371,7 @@ type UpdateNotificationStatusRequest struct {
 
 func (x *UpdateNotificationStatusRequest) Reset() {
 	*x = UpdateNotificationStatusRequest{}
-	mi := &file_amor_v1_amor_proto_msgTypes[5]
+	mi := &file_amor_v1_amor_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -295,7 +383,7 @@ func (x *UpdateNotificationStatusRequest) String() string {
 func (*UpdateNotificationStatusRequest) ProtoMessage() {}
 
 func (x *UpdateNotificationStatusRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[5]
+	mi := &file_amor_v1_amor_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -308,7 +396,7 @@ func (x *UpdateNotificationStatusRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateNotificationStatusRequest.ProtoReflect.Descriptor instead.
 func (*UpdateNotificationStatusRequest) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{5}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *UpdateNotificationStatusRequest) GetNotificationIds() []string {
@@ -333,7 +421,7 @@ type UpdateNotificationStatusResponse struct {
 
 func (x *UpdateNotificationStatusResponse) Reset() {
 	*x = UpdateNotificationStatusResponse{}
-	mi := &file_amor_v1_amor_proto_msgTypes[6]
+	mi := &file_amor_v1_amor_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -345,7 +433,7 @@ func (x *UpdateNotificationStatusResponse) String() string {
 func (*UpdateNotificationStatusResponse) ProtoMessage() {}
 
 func (x *UpdateNotificationStatusResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[6]
+	mi := &file_amor_v1_amor_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -358,7 +446,7 @@ func (x *UpdateNotificationStatusResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateNotificationStatusResponse.ProtoReflect.Descriptor instead.
 func (*UpdateNotificationStatusResponse) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{6}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{8}
 }
 
 type ListNotificationsRequest struct {
@@ -370,7 +458,7 @@ type ListNotificationsRequest struct {
 
 func (x *ListNotificationsRequest) Reset() {
 	*x = ListNotificationsRequest{}
-	mi := &file_amor_v1_amor_proto_msgTypes[7]
+	mi := &file_amor_v1_amor_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -382,7 +470,7 @@ func (x *ListNotificationsRequest) String() string {
 func (*ListNotificationsRequest) ProtoMessage() {}
 
 func (x *ListNotificationsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[7]
+	mi := &file_amor_v1_amor_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -395,7 +483,7 @@ func (x *ListNotificationsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListNotificationsRequest.ProtoReflect.Descriptor instead.
 func (*ListNotificationsRequest) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{7}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *ListNotificationsRequest) GetNextPageToken() string {
@@ -414,7 +502,7 @@ type ListNotificationsResponse struct {
 
 func (x *ListNotificationsResponse) Reset() {
 	*x = ListNotificationsResponse{}
-	mi := &file_amor_v1_amor_proto_msgTypes[8]
+	mi := &file_amor_v1_amor_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -426,7 +514,7 @@ func (x *ListNotificationsResponse) String() string {
 func (*ListNotificationsResponse) ProtoMessage() {}
 
 func (x *ListNotificationsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[8]
+	mi := &file_amor_v1_amor_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -439,7 +527,7 @@ func (x *ListNotificationsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListNotificationsResponse.ProtoReflect.Descriptor instead.
 func (*ListNotificationsResponse) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{8}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *ListNotificationsResponse) GetNotifications() []*Notification {
@@ -458,7 +546,7 @@ type GetAccommodationsBySectionRequest struct {
 
 func (x *GetAccommodationsBySectionRequest) Reset() {
 	*x = GetAccommodationsBySectionRequest{}
-	mi := &file_amor_v1_amor_proto_msgTypes[9]
+	mi := &file_amor_v1_amor_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -470,7 +558,7 @@ func (x *GetAccommodationsBySectionRequest) String() string {
 func (*GetAccommodationsBySectionRequest) ProtoMessage() {}
 
 func (x *GetAccommodationsBySectionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[9]
+	mi := &file_amor_v1_amor_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -483,7 +571,7 @@ func (x *GetAccommodationsBySectionRequest) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use GetAccommodationsBySectionRequest.ProtoReflect.Descriptor instead.
 func (*GetAccommodationsBySectionRequest) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{9}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *GetAccommodationsBySectionRequest) GetInputs() map[string]string {
@@ -502,7 +590,7 @@ type GetAccommodationsBySectionResponse struct {
 
 func (x *GetAccommodationsBySectionResponse) Reset() {
 	*x = GetAccommodationsBySectionResponse{}
-	mi := &file_amor_v1_amor_proto_msgTypes[10]
+	mi := &file_amor_v1_amor_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -514,7 +602,7 @@ func (x *GetAccommodationsBySectionResponse) String() string {
 func (*GetAccommodationsBySectionResponse) ProtoMessage() {}
 
 func (x *GetAccommodationsBySectionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[10]
+	mi := &file_amor_v1_amor_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -527,7 +615,7 @@ func (x *GetAccommodationsBySectionResponse) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use GetAccommodationsBySectionResponse.ProtoReflect.Descriptor instead.
 func (*GetAccommodationsBySectionResponse) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{10}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *GetAccommodationsBySectionResponse) GetSections() []*GetAccommodationsBySectionResponse_Section {
@@ -547,7 +635,7 @@ type SetAccommodationStatusResponse struct {
 
 func (x *SetAccommodationStatusResponse) Reset() {
 	*x = SetAccommodationStatusResponse{}
-	mi := &file_amor_v1_amor_proto_msgTypes[11]
+	mi := &file_amor_v1_amor_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -559,7 +647,7 @@ func (x *SetAccommodationStatusResponse) String() string {
 func (*SetAccommodationStatusResponse) ProtoMessage() {}
 
 func (x *SetAccommodationStatusResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[11]
+	mi := &file_amor_v1_amor_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -572,7 +660,7 @@ func (x *SetAccommodationStatusResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetAccommodationStatusResponse.ProtoReflect.Descriptor instead.
 func (*SetAccommodationStatusResponse) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{11}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *SetAccommodationStatusResponse) GetId() string {
@@ -599,7 +687,7 @@ type SetAccommodationStatusRequest struct {
 
 func (x *SetAccommodationStatusRequest) Reset() {
 	*x = SetAccommodationStatusRequest{}
-	mi := &file_amor_v1_amor_proto_msgTypes[12]
+	mi := &file_amor_v1_amor_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -611,7 +699,7 @@ func (x *SetAccommodationStatusRequest) String() string {
 func (*SetAccommodationStatusRequest) ProtoMessage() {}
 
 func (x *SetAccommodationStatusRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[12]
+	mi := &file_amor_v1_amor_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -624,7 +712,7 @@ func (x *SetAccommodationStatusRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetAccommodationStatusRequest.ProtoReflect.Descriptor instead.
 func (*SetAccommodationStatusRequest) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{12}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *SetAccommodationStatusRequest) GetId() string {
@@ -650,7 +738,7 @@ type DeleteAmenitiesRequest struct {
 
 func (x *DeleteAmenitiesRequest) Reset() {
 	*x = DeleteAmenitiesRequest{}
-	mi := &file_amor_v1_amor_proto_msgTypes[13]
+	mi := &file_amor_v1_amor_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -662,7 +750,7 @@ func (x *DeleteAmenitiesRequest) String() string {
 func (*DeleteAmenitiesRequest) ProtoMessage() {}
 
 func (x *DeleteAmenitiesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[13]
+	mi := &file_amor_v1_amor_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -675,7 +763,7 @@ func (x *DeleteAmenitiesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteAmenitiesRequest.ProtoReflect.Descriptor instead.
 func (*DeleteAmenitiesRequest) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{13}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *DeleteAmenitiesRequest) GetAmenityIds() []string {
@@ -693,7 +781,7 @@ type DeleteAmenitiesResponse struct {
 
 func (x *DeleteAmenitiesResponse) Reset() {
 	*x = DeleteAmenitiesResponse{}
-	mi := &file_amor_v1_amor_proto_msgTypes[14]
+	mi := &file_amor_v1_amor_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -705,7 +793,7 @@ func (x *DeleteAmenitiesResponse) String() string {
 func (*DeleteAmenitiesResponse) ProtoMessage() {}
 
 func (x *DeleteAmenitiesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[14]
+	mi := &file_amor_v1_amor_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -718,7 +806,7 @@ func (x *DeleteAmenitiesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteAmenitiesResponse.ProtoReflect.Descriptor instead.
 func (*DeleteAmenitiesResponse) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{14}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{16}
 }
 
 type ListAmenitiesRequest struct {
@@ -730,7 +818,7 @@ type ListAmenitiesRequest struct {
 
 func (x *ListAmenitiesRequest) Reset() {
 	*x = ListAmenitiesRequest{}
-	mi := &file_amor_v1_amor_proto_msgTypes[15]
+	mi := &file_amor_v1_amor_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -742,7 +830,7 @@ func (x *ListAmenitiesRequest) String() string {
 func (*ListAmenitiesRequest) ProtoMessage() {}
 
 func (x *ListAmenitiesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[15]
+	mi := &file_amor_v1_amor_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -755,7 +843,7 @@ func (x *ListAmenitiesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListAmenitiesRequest.ProtoReflect.Descriptor instead.
 func (*ListAmenitiesRequest) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{15}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *ListAmenitiesRequest) GetAccommodationId() string {
@@ -774,7 +862,7 @@ type ListAmenitiesResponse struct {
 
 func (x *ListAmenitiesResponse) Reset() {
 	*x = ListAmenitiesResponse{}
-	mi := &file_amor_v1_amor_proto_msgTypes[16]
+	mi := &file_amor_v1_amor_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -786,7 +874,7 @@ func (x *ListAmenitiesResponse) String() string {
 func (*ListAmenitiesResponse) ProtoMessage() {}
 
 func (x *ListAmenitiesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[16]
+	mi := &file_amor_v1_amor_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -799,7 +887,7 @@ func (x *ListAmenitiesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListAmenitiesResponse.ProtoReflect.Descriptor instead.
 func (*ListAmenitiesResponse) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{16}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *ListAmenitiesResponse) GetAmenities() []*Amenity {
@@ -817,7 +905,7 @@ type DeleteUserRequest struct {
 
 func (x *DeleteUserRequest) Reset() {
 	*x = DeleteUserRequest{}
-	mi := &file_amor_v1_amor_proto_msgTypes[17]
+	mi := &file_amor_v1_amor_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -829,7 +917,7 @@ func (x *DeleteUserRequest) String() string {
 func (*DeleteUserRequest) ProtoMessage() {}
 
 func (x *DeleteUserRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[17]
+	mi := &file_amor_v1_amor_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -842,7 +930,7 @@ func (x *DeleteUserRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteUserRequest.ProtoReflect.Descriptor instead.
 func (*DeleteUserRequest) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{17}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{19}
 }
 
 type DeleteUserResponse struct {
@@ -853,7 +941,7 @@ type DeleteUserResponse struct {
 
 func (x *DeleteUserResponse) Reset() {
 	*x = DeleteUserResponse{}
-	mi := &file_amor_v1_amor_proto_msgTypes[18]
+	mi := &file_amor_v1_amor_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -865,7 +953,7 @@ func (x *DeleteUserResponse) String() string {
 func (*DeleteUserResponse) ProtoMessage() {}
 
 func (x *DeleteUserResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[18]
+	mi := &file_amor_v1_amor_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -878,7 +966,7 @@ func (x *DeleteUserResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteUserResponse.ProtoReflect.Descriptor instead.
 func (*DeleteUserResponse) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{18}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{20}
 }
 
 type ConfirmEmailAddressRequest struct {
@@ -890,7 +978,7 @@ type ConfirmEmailAddressRequest struct {
 
 func (x *ConfirmEmailAddressRequest) Reset() {
 	*x = ConfirmEmailAddressRequest{}
-	mi := &file_amor_v1_amor_proto_msgTypes[19]
+	mi := &file_amor_v1_amor_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -902,7 +990,7 @@ func (x *ConfirmEmailAddressRequest) String() string {
 func (*ConfirmEmailAddressRequest) ProtoMessage() {}
 
 func (x *ConfirmEmailAddressRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[19]
+	mi := &file_amor_v1_amor_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -915,7 +1003,7 @@ func (x *ConfirmEmailAddressRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ConfirmEmailAddressRequest.ProtoReflect.Descriptor instead.
 func (*ConfirmEmailAddressRequest) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{19}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *ConfirmEmailAddressRequest) GetConfirmationCode() string {
@@ -933,7 +1021,7 @@ type ConfirmEmailAddressResponse struct {
 
 func (x *ConfirmEmailAddressResponse) Reset() {
 	*x = ConfirmEmailAddressResponse{}
-	mi := &file_amor_v1_amor_proto_msgTypes[20]
+	mi := &file_amor_v1_amor_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -945,7 +1033,7 @@ func (x *ConfirmEmailAddressResponse) String() string {
 func (*ConfirmEmailAddressResponse) ProtoMessage() {}
 
 func (x *ConfirmEmailAddressResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[20]
+	mi := &file_amor_v1_amor_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -958,7 +1046,7 @@ func (x *ConfirmEmailAddressResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ConfirmEmailAddressResponse.ProtoReflect.Descriptor instead.
 func (*ConfirmEmailAddressResponse) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{20}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{22}
 }
 
 type SendVerificationEmailRequest struct {
@@ -969,7 +1057,7 @@ type SendVerificationEmailRequest struct {
 
 func (x *SendVerificationEmailRequest) Reset() {
 	*x = SendVerificationEmailRequest{}
-	mi := &file_amor_v1_amor_proto_msgTypes[21]
+	mi := &file_amor_v1_amor_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -981,7 +1069,7 @@ func (x *SendVerificationEmailRequest) String() string {
 func (*SendVerificationEmailRequest) ProtoMessage() {}
 
 func (x *SendVerificationEmailRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[21]
+	mi := &file_amor_v1_amor_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -994,7 +1082,7 @@ func (x *SendVerificationEmailRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SendVerificationEmailRequest.ProtoReflect.Descriptor instead.
 func (*SendVerificationEmailRequest) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{21}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{23}
 }
 
 type SendVerificationEmailResponse struct {
@@ -1005,7 +1093,7 @@ type SendVerificationEmailResponse struct {
 
 func (x *SendVerificationEmailResponse) Reset() {
 	*x = SendVerificationEmailResponse{}
-	mi := &file_amor_v1_amor_proto_msgTypes[22]
+	mi := &file_amor_v1_amor_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1017,7 +1105,7 @@ func (x *SendVerificationEmailResponse) String() string {
 func (*SendVerificationEmailResponse) ProtoMessage() {}
 
 func (x *SendVerificationEmailResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[22]
+	mi := &file_amor_v1_amor_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1030,7 +1118,7 @@ func (x *SendVerificationEmailResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SendVerificationEmailResponse.ProtoReflect.Descriptor instead.
 func (*SendVerificationEmailResponse) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{22}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{24}
 }
 
 type AddAmenitiesRequest struct {
@@ -1042,7 +1130,7 @@ type AddAmenitiesRequest struct {
 
 func (x *AddAmenitiesRequest) Reset() {
 	*x = AddAmenitiesRequest{}
-	mi := &file_amor_v1_amor_proto_msgTypes[23]
+	mi := &file_amor_v1_amor_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1054,7 +1142,7 @@ func (x *AddAmenitiesRequest) String() string {
 func (*AddAmenitiesRequest) ProtoMessage() {}
 
 func (x *AddAmenitiesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[23]
+	mi := &file_amor_v1_amor_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1067,7 +1155,7 @@ func (x *AddAmenitiesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddAmenitiesRequest.ProtoReflect.Descriptor instead.
 func (*AddAmenitiesRequest) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{23}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *AddAmenitiesRequest) GetAmenities() []*AddAmenitiesRequest_Input {
@@ -1086,7 +1174,7 @@ type AddAmenitiesResponse struct {
 
 func (x *AddAmenitiesResponse) Reset() {
 	*x = AddAmenitiesResponse{}
-	mi := &file_amor_v1_amor_proto_msgTypes[24]
+	mi := &file_amor_v1_amor_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1098,7 +1186,7 @@ func (x *AddAmenitiesResponse) String() string {
 func (*AddAmenitiesResponse) ProtoMessage() {}
 
 func (x *AddAmenitiesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[24]
+	mi := &file_amor_v1_amor_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1111,7 +1199,7 @@ func (x *AddAmenitiesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddAmenitiesResponse.ProtoReflect.Descriptor instead.
 func (*AddAmenitiesResponse) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{24}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *AddAmenitiesResponse) GetAmenities() []*Amenity {
@@ -1129,7 +1217,7 @@ type SetAsLandLordRequest struct {
 
 func (x *SetAsLandLordRequest) Reset() {
 	*x = SetAsLandLordRequest{}
-	mi := &file_amor_v1_amor_proto_msgTypes[25]
+	mi := &file_amor_v1_amor_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1141,7 +1229,7 @@ func (x *SetAsLandLordRequest) String() string {
 func (*SetAsLandLordRequest) ProtoMessage() {}
 
 func (x *SetAsLandLordRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[25]
+	mi := &file_amor_v1_amor_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1154,7 +1242,7 @@ func (x *SetAsLandLordRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetAsLandLordRequest.ProtoReflect.Descriptor instead.
 func (*SetAsLandLordRequest) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{25}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{27}
 }
 
 type UpdateRoomRequest struct {
@@ -1173,7 +1261,7 @@ type UpdateRoomRequest struct {
 
 func (x *UpdateRoomRequest) Reset() {
 	*x = UpdateRoomRequest{}
-	mi := &file_amor_v1_amor_proto_msgTypes[26]
+	mi := &file_amor_v1_amor_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1185,7 +1273,7 @@ func (x *UpdateRoomRequest) String() string {
 func (*UpdateRoomRequest) ProtoMessage() {}
 
 func (x *UpdateRoomRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[26]
+	mi := &file_amor_v1_amor_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1198,7 +1286,7 @@ func (x *UpdateRoomRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateRoomRequest.ProtoReflect.Descriptor instead.
 func (*UpdateRoomRequest) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{26}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *UpdateRoomRequest) GetId() string {
@@ -1266,7 +1354,7 @@ type UpdateRoomResponse struct {
 
 func (x *UpdateRoomResponse) Reset() {
 	*x = UpdateRoomResponse{}
-	mi := &file_amor_v1_amor_proto_msgTypes[27]
+	mi := &file_amor_v1_amor_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1278,7 +1366,7 @@ func (x *UpdateRoomResponse) String() string {
 func (*UpdateRoomResponse) ProtoMessage() {}
 
 func (x *UpdateRoomResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[27]
+	mi := &file_amor_v1_amor_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1291,7 +1379,7 @@ func (x *UpdateRoomResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateRoomResponse.ProtoReflect.Descriptor instead.
 func (*UpdateRoomResponse) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{27}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *UpdateRoomResponse) GetRoom() *Room {
@@ -1316,7 +1404,7 @@ type UpdateAccommodationRequest struct {
 
 func (x *UpdateAccommodationRequest) Reset() {
 	*x = UpdateAccommodationRequest{}
-	mi := &file_amor_v1_amor_proto_msgTypes[28]
+	mi := &file_amor_v1_amor_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1328,7 +1416,7 @@ func (x *UpdateAccommodationRequest) String() string {
 func (*UpdateAccommodationRequest) ProtoMessage() {}
 
 func (x *UpdateAccommodationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[28]
+	mi := &file_amor_v1_amor_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1341,7 +1429,7 @@ func (x *UpdateAccommodationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateAccommodationRequest.ProtoReflect.Descriptor instead.
 func (*UpdateAccommodationRequest) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{28}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *UpdateAccommodationRequest) GetId() string {
@@ -1401,7 +1489,7 @@ type GetUserRequest struct {
 
 func (x *GetUserRequest) Reset() {
 	*x = GetUserRequest{}
-	mi := &file_amor_v1_amor_proto_msgTypes[29]
+	mi := &file_amor_v1_amor_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1413,7 +1501,7 @@ func (x *GetUserRequest) String() string {
 func (*GetUserRequest) ProtoMessage() {}
 
 func (x *GetUserRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[29]
+	mi := &file_amor_v1_amor_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1426,7 +1514,7 @@ func (x *GetUserRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserRequest.ProtoReflect.Descriptor instead.
 func (*GetUserRequest) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{29}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{31}
 }
 
 type AddRoomsRequest struct {
@@ -1438,7 +1526,7 @@ type AddRoomsRequest struct {
 
 func (x *AddRoomsRequest) Reset() {
 	*x = AddRoomsRequest{}
-	mi := &file_amor_v1_amor_proto_msgTypes[30]
+	mi := &file_amor_v1_amor_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1450,7 +1538,7 @@ func (x *AddRoomsRequest) String() string {
 func (*AddRoomsRequest) ProtoMessage() {}
 
 func (x *AddRoomsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[30]
+	mi := &file_amor_v1_amor_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1463,7 +1551,7 @@ func (x *AddRoomsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddRoomsRequest.ProtoReflect.Descriptor instead.
 func (*AddRoomsRequest) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{30}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{32}
 }
 
 func (x *AddRoomsRequest) GetInputs() []*AddRoomsRequest_Input {
@@ -1482,7 +1570,7 @@ type AddRoomsResponse struct {
 
 func (x *AddRoomsResponse) Reset() {
 	*x = AddRoomsResponse{}
-	mi := &file_amor_v1_amor_proto_msgTypes[31]
+	mi := &file_amor_v1_amor_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1494,7 +1582,7 @@ func (x *AddRoomsResponse) String() string {
 func (*AddRoomsResponse) ProtoMessage() {}
 
 func (x *AddRoomsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[31]
+	mi := &file_amor_v1_amor_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1507,7 +1595,7 @@ func (x *AddRoomsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddRoomsResponse.ProtoReflect.Descriptor instead.
 func (*AddRoomsResponse) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{31}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{33}
 }
 
 func (x *AddRoomsResponse) GetRooms() []*Room {
@@ -1526,7 +1614,7 @@ type DeleteRoomRequest struct {
 
 func (x *DeleteRoomRequest) Reset() {
 	*x = DeleteRoomRequest{}
-	mi := &file_amor_v1_amor_proto_msgTypes[32]
+	mi := &file_amor_v1_amor_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1538,7 +1626,7 @@ func (x *DeleteRoomRequest) String() string {
 func (*DeleteRoomRequest) ProtoMessage() {}
 
 func (x *DeleteRoomRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[32]
+	mi := &file_amor_v1_amor_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1551,7 +1639,7 @@ func (x *DeleteRoomRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteRoomRequest.ProtoReflect.Descriptor instead.
 func (*DeleteRoomRequest) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{32}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{34}
 }
 
 func (x *DeleteRoomRequest) GetId() string {
@@ -1569,7 +1657,7 @@ type DeleteRoomResponse struct {
 
 func (x *DeleteRoomResponse) Reset() {
 	*x = DeleteRoomResponse{}
-	mi := &file_amor_v1_amor_proto_msgTypes[33]
+	mi := &file_amor_v1_amor_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1581,7 +1669,7 @@ func (x *DeleteRoomResponse) String() string {
 func (*DeleteRoomResponse) ProtoMessage() {}
 
 func (x *DeleteRoomResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[33]
+	mi := &file_amor_v1_amor_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1594,7 +1682,7 @@ func (x *DeleteRoomResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteRoomResponse.ProtoReflect.Descriptor instead.
 func (*DeleteRoomResponse) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{33}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{35}
 }
 
 type GetRoomsRequest struct {
@@ -1607,7 +1695,7 @@ type GetRoomsRequest struct {
 
 func (x *GetRoomsRequest) Reset() {
 	*x = GetRoomsRequest{}
-	mi := &file_amor_v1_amor_proto_msgTypes[34]
+	mi := &file_amor_v1_amor_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1619,7 +1707,7 @@ func (x *GetRoomsRequest) String() string {
 func (*GetRoomsRequest) ProtoMessage() {}
 
 func (x *GetRoomsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[34]
+	mi := &file_amor_v1_amor_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1632,7 +1720,7 @@ func (x *GetRoomsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRoomsRequest.ProtoReflect.Descriptor instead.
 func (*GetRoomsRequest) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{34}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{36}
 }
 
 func (x *GetRoomsRequest) GetAccommodationId() string {
@@ -1658,7 +1746,7 @@ type GetRoomsResponse struct {
 
 func (x *GetRoomsResponse) Reset() {
 	*x = GetRoomsResponse{}
-	mi := &file_amor_v1_amor_proto_msgTypes[35]
+	mi := &file_amor_v1_amor_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1670,7 +1758,7 @@ func (x *GetRoomsResponse) String() string {
 func (*GetRoomsResponse) ProtoMessage() {}
 
 func (x *GetRoomsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[35]
+	mi := &file_amor_v1_amor_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1683,7 +1771,7 @@ func (x *GetRoomsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRoomsResponse.ProtoReflect.Descriptor instead.
 func (*GetRoomsResponse) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{35}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{37}
 }
 
 func (x *GetRoomsResponse) GetRooms() []*Room {
@@ -1702,7 +1790,7 @@ type GetAccommodationsRequest struct {
 
 func (x *GetAccommodationsRequest) Reset() {
 	*x = GetAccommodationsRequest{}
-	mi := &file_amor_v1_amor_proto_msgTypes[36]
+	mi := &file_amor_v1_amor_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1714,7 +1802,7 @@ func (x *GetAccommodationsRequest) String() string {
 func (*GetAccommodationsRequest) ProtoMessage() {}
 
 func (x *GetAccommodationsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[36]
+	mi := &file_amor_v1_amor_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1727,7 +1815,7 @@ func (x *GetAccommodationsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAccommodationsRequest.ProtoReflect.Descriptor instead.
 func (*GetAccommodationsRequest) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{36}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{38}
 }
 
 func (x *GetAccommodationsRequest) GetId() []string {
@@ -1746,7 +1834,7 @@ type GetAccommodationsResponse struct {
 
 func (x *GetAccommodationsResponse) Reset() {
 	*x = GetAccommodationsResponse{}
-	mi := &file_amor_v1_amor_proto_msgTypes[37]
+	mi := &file_amor_v1_amor_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1758,7 +1846,7 @@ func (x *GetAccommodationsResponse) String() string {
 func (*GetAccommodationsResponse) ProtoMessage() {}
 
 func (x *GetAccommodationsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[37]
+	mi := &file_amor_v1_amor_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1771,7 +1859,7 @@ func (x *GetAccommodationsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAccommodationsResponse.ProtoReflect.Descriptor instead.
 func (*GetAccommodationsResponse) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{37}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{39}
 }
 
 func (x *GetAccommodationsResponse) GetAccommodations() []*Accommodation {
@@ -1790,7 +1878,7 @@ type DeleteAccommodationRequest struct {
 
 func (x *DeleteAccommodationRequest) Reset() {
 	*x = DeleteAccommodationRequest{}
-	mi := &file_amor_v1_amor_proto_msgTypes[38]
+	mi := &file_amor_v1_amor_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1802,7 +1890,7 @@ func (x *DeleteAccommodationRequest) String() string {
 func (*DeleteAccommodationRequest) ProtoMessage() {}
 
 func (x *DeleteAccommodationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[38]
+	mi := &file_amor_v1_amor_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1815,7 +1903,7 @@ func (x *DeleteAccommodationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteAccommodationRequest.ProtoReflect.Descriptor instead.
 func (*DeleteAccommodationRequest) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{38}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{40}
 }
 
 func (x *DeleteAccommodationRequest) GetId() string {
@@ -1833,7 +1921,7 @@ type DeleteAccommodationResponse struct {
 
 func (x *DeleteAccommodationResponse) Reset() {
 	*x = DeleteAccommodationResponse{}
-	mi := &file_amor_v1_amor_proto_msgTypes[39]
+	mi := &file_amor_v1_amor_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1845,7 +1933,7 @@ func (x *DeleteAccommodationResponse) String() string {
 func (*DeleteAccommodationResponse) ProtoMessage() {}
 
 func (x *DeleteAccommodationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[39]
+	mi := &file_amor_v1_amor_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1858,7 +1946,7 @@ func (x *DeleteAccommodationResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteAccommodationResponse.ProtoReflect.Descriptor instead.
 func (*DeleteAccommodationResponse) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{39}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{41}
 }
 
 type RegisterUserRequest struct {
@@ -1877,7 +1965,7 @@ type RegisterUserRequest struct {
 
 func (x *RegisterUserRequest) Reset() {
 	*x = RegisterUserRequest{}
-	mi := &file_amor_v1_amor_proto_msgTypes[40]
+	mi := &file_amor_v1_amor_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1889,7 +1977,7 @@ func (x *RegisterUserRequest) String() string {
 func (*RegisterUserRequest) ProtoMessage() {}
 
 func (x *RegisterUserRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[40]
+	mi := &file_amor_v1_amor_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1902,7 +1990,7 @@ func (x *RegisterUserRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RegisterUserRequest.ProtoReflect.Descriptor instead.
 func (*RegisterUserRequest) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{40}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{42}
 }
 
 func (x *RegisterUserRequest) GetFirstName() string {
@@ -1970,7 +2058,7 @@ type RegisterUserResponse struct {
 
 func (x *RegisterUserResponse) Reset() {
 	*x = RegisterUserResponse{}
-	mi := &file_amor_v1_amor_proto_msgTypes[41]
+	mi := &file_amor_v1_amor_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1982,7 +2070,7 @@ func (x *RegisterUserResponse) String() string {
 func (*RegisterUserResponse) ProtoMessage() {}
 
 func (x *RegisterUserResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[41]
+	mi := &file_amor_v1_amor_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1995,7 +2083,7 @@ func (x *RegisterUserResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RegisterUserResponse.ProtoReflect.Descriptor instead.
 func (*RegisterUserResponse) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{41}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{43}
 }
 
 func (x *RegisterUserResponse) GetAccessToken() string {
@@ -2018,7 +2106,7 @@ type LoginUserRequest struct {
 
 func (x *LoginUserRequest) Reset() {
 	*x = LoginUserRequest{}
-	mi := &file_amor_v1_amor_proto_msgTypes[42]
+	mi := &file_amor_v1_amor_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2030,7 +2118,7 @@ func (x *LoginUserRequest) String() string {
 func (*LoginUserRequest) ProtoMessage() {}
 
 func (x *LoginUserRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[42]
+	mi := &file_amor_v1_amor_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2043,7 +2131,7 @@ func (x *LoginUserRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LoginUserRequest.ProtoReflect.Descriptor instead.
 func (*LoginUserRequest) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{42}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{44}
 }
 
 func (x *LoginUserRequest) GetInput() isLoginUserRequest_Input {
@@ -2096,7 +2184,7 @@ type LoginUserResponse struct {
 
 func (x *LoginUserResponse) Reset() {
 	*x = LoginUserResponse{}
-	mi := &file_amor_v1_amor_proto_msgTypes[43]
+	mi := &file_amor_v1_amor_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2108,7 +2196,7 @@ func (x *LoginUserResponse) String() string {
 func (*LoginUserResponse) ProtoMessage() {}
 
 func (x *LoginUserResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[43]
+	mi := &file_amor_v1_amor_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2121,7 +2209,7 @@ func (x *LoginUserResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LoginUserResponse.ProtoReflect.Descriptor instead.
 func (*LoginUserResponse) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{43}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{45}
 }
 
 func (x *LoginUserResponse) GetAccessToken() string {
@@ -2150,7 +2238,7 @@ type AddAccommodationRequest struct {
 
 func (x *AddAccommodationRequest) Reset() {
 	*x = AddAccommodationRequest{}
-	mi := &file_amor_v1_amor_proto_msgTypes[44]
+	mi := &file_amor_v1_amor_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2162,7 +2250,7 @@ func (x *AddAccommodationRequest) String() string {
 func (*AddAccommodationRequest) ProtoMessage() {}
 
 func (x *AddAccommodationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[44]
+	mi := &file_amor_v1_amor_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2175,7 +2263,7 @@ func (x *AddAccommodationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddAccommodationRequest.ProtoReflect.Descriptor instead.
 func (*AddAccommodationRequest) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{44}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{46}
 }
 
 func (x *AddAccommodationRequest) GetName() string {
@@ -2271,7 +2359,7 @@ type ChangeSortOrderRequest_Item struct {
 
 func (x *ChangeSortOrderRequest_Item) Reset() {
 	*x = ChangeSortOrderRequest_Item{}
-	mi := &file_amor_v1_amor_proto_msgTypes[45]
+	mi := &file_amor_v1_amor_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2283,7 +2371,7 @@ func (x *ChangeSortOrderRequest_Item) String() string {
 func (*ChangeSortOrderRequest_Item) ProtoMessage() {}
 
 func (x *ChangeSortOrderRequest_Item) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[45]
+	mi := &file_amor_v1_amor_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2296,7 +2384,7 @@ func (x *ChangeSortOrderRequest_Item) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ChangeSortOrderRequest_Item.ProtoReflect.Descriptor instead.
 func (*ChangeSortOrderRequest_Item) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{1, 0}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{3, 0}
 }
 
 func (x *ChangeSortOrderRequest_Item) GetId() string {
@@ -2325,7 +2413,7 @@ type GetAccommodationsBySectionResponse_SummarizedAccommodation struct {
 
 func (x *GetAccommodationsBySectionResponse_SummarizedAccommodation) Reset() {
 	*x = GetAccommodationsBySectionResponse_SummarizedAccommodation{}
-	mi := &file_amor_v1_amor_proto_msgTypes[47]
+	mi := &file_amor_v1_amor_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2337,7 +2425,7 @@ func (x *GetAccommodationsBySectionResponse_SummarizedAccommodation) String() st
 func (*GetAccommodationsBySectionResponse_SummarizedAccommodation) ProtoMessage() {}
 
 func (x *GetAccommodationsBySectionResponse_SummarizedAccommodation) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[47]
+	mi := &file_amor_v1_amor_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2350,7 +2438,7 @@ func (x *GetAccommodationsBySectionResponse_SummarizedAccommodation) ProtoReflec
 
 // Deprecated: Use GetAccommodationsBySectionResponse_SummarizedAccommodation.ProtoReflect.Descriptor instead.
 func (*GetAccommodationsBySectionResponse_SummarizedAccommodation) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{10, 0}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{12, 0}
 }
 
 func (x *GetAccommodationsBySectionResponse_SummarizedAccommodation) GetId() string {
@@ -2391,7 +2479,7 @@ type GetAccommodationsBySectionResponse_Section struct {
 
 func (x *GetAccommodationsBySectionResponse_Section) Reset() {
 	*x = GetAccommodationsBySectionResponse_Section{}
-	mi := &file_amor_v1_amor_proto_msgTypes[48]
+	mi := &file_amor_v1_amor_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2403,7 +2491,7 @@ func (x *GetAccommodationsBySectionResponse_Section) String() string {
 func (*GetAccommodationsBySectionResponse_Section) ProtoMessage() {}
 
 func (x *GetAccommodationsBySectionResponse_Section) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[48]
+	mi := &file_amor_v1_amor_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2416,7 +2504,7 @@ func (x *GetAccommodationsBySectionResponse_Section) ProtoReflect() protoreflect
 
 // Deprecated: Use GetAccommodationsBySectionResponse_Section.ProtoReflect.Descriptor instead.
 func (*GetAccommodationsBySectionResponse_Section) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{10, 1}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{12, 1}
 }
 
 func (x *GetAccommodationsBySectionResponse_Section) GetName() string {
@@ -2444,7 +2532,7 @@ type AddAmenitiesRequest_Input struct {
 
 func (x *AddAmenitiesRequest_Input) Reset() {
 	*x = AddAmenitiesRequest_Input{}
-	mi := &file_amor_v1_amor_proto_msgTypes[49]
+	mi := &file_amor_v1_amor_proto_msgTypes[51]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2456,7 +2544,7 @@ func (x *AddAmenitiesRequest_Input) String() string {
 func (*AddAmenitiesRequest_Input) ProtoMessage() {}
 
 func (x *AddAmenitiesRequest_Input) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[49]
+	mi := &file_amor_v1_amor_proto_msgTypes[51]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2469,7 +2557,7 @@ func (x *AddAmenitiesRequest_Input) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddAmenitiesRequest_Input.ProtoReflect.Descriptor instead.
 func (*AddAmenitiesRequest_Input) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{23, 0}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{25, 0}
 }
 
 func (x *AddAmenitiesRequest_Input) GetName() string {
@@ -2509,7 +2597,7 @@ type AddRoomsRequest_Input struct {
 
 func (x *AddRoomsRequest_Input) Reset() {
 	*x = AddRoomsRequest_Input{}
-	mi := &file_amor_v1_amor_proto_msgTypes[50]
+	mi := &file_amor_v1_amor_proto_msgTypes[52]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2521,7 +2609,7 @@ func (x *AddRoomsRequest_Input) String() string {
 func (*AddRoomsRequest_Input) ProtoMessage() {}
 
 func (x *AddRoomsRequest_Input) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[50]
+	mi := &file_amor_v1_amor_proto_msgTypes[52]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2534,7 +2622,7 @@ func (x *AddRoomsRequest_Input) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddRoomsRequest_Input.ProtoReflect.Descriptor instead.
 func (*AddRoomsRequest_Input) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{30, 0}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{32, 0}
 }
 
 func (x *AddRoomsRequest_Input) GetName() string {
@@ -2603,7 +2691,7 @@ type LoginUserRequest_Manual struct {
 
 func (x *LoginUserRequest_Manual) Reset() {
 	*x = LoginUserRequest_Manual{}
-	mi := &file_amor_v1_amor_proto_msgTypes[51]
+	mi := &file_amor_v1_amor_proto_msgTypes[53]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2615,7 +2703,7 @@ func (x *LoginUserRequest_Manual) String() string {
 func (*LoginUserRequest_Manual) ProtoMessage() {}
 
 func (x *LoginUserRequest_Manual) ProtoReflect() protoreflect.Message {
-	mi := &file_amor_v1_amor_proto_msgTypes[51]
+	mi := &file_amor_v1_amor_proto_msgTypes[53]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2628,7 +2716,7 @@ func (x *LoginUserRequest_Manual) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LoginUserRequest_Manual.ProtoReflect.Descriptor instead.
 func (*LoginUserRequest_Manual) Descriptor() ([]byte, []int) {
-	return file_amor_v1_amor_proto_rawDescGZIP(), []int{42, 0}
+	return file_amor_v1_amor_proto_rawDescGZIP(), []int{44, 0}
 }
 
 func (x *LoginUserRequest_Manual) GetEmail() string {
@@ -2649,7 +2737,12 @@ var File_amor_v1_amor_proto protoreflect.FileDescriptor
 
 const file_amor_v1_amor_proto_rawDesc = "" +
 	"\n" +
-	"\x12amor/v1/amor.proto\x12\x0faccumora_rpc.v1\x1a\x13amor/v1/types.proto\"\xce\x01\n" +
+	"\x12amor/v1/amor.proto\x12\x0faccumora_rpc.v1\x1a\x13amor/v1/types.proto\"A\n" +
+	"\x14GetRoomGroupsRequest\x12)\n" +
+	"\x10accommodation_id\x18\x01 \x01(\tR\x0faccommodationId\"T\n" +
+	"\x15GetRoomGroupsResponse\x12;\n" +
+	"\vroom_groups\x18\x01 \x03(\v2\x1a.accumora_rpc.v1.RoomGroupR\n" +
+	"roomGroups\"\xce\x01\n" +
 	"\x13AddRoomGroupRequest\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12%\n" +
 	"\vdescription\x18\x02 \x01(\tH\x00R\vdescription\x88\x01\x01\x12)\n" +
@@ -2832,7 +2925,7 @@ const file_amor_v1_amor_proto_rawDesc = "" +
 	" \x01(\fH\x02R\fprofilePhoto\x88\x01\x01B\x05\n" +
 	"\x03geoB\x0e\n" +
 	"\f_descriptionB\x10\n" +
-	"\x0e_profile_photo2\xd9\x13\n" +
+	"\x0e_profile_photo2\xbb\x14\n" +
 	"\vProjectAmor\x12^\n" +
 	"\x10AddAccommodation\x12(.accumora_rpc.v1.AddAccommodationRequest\x1a\x1e.accumora_rpc.v1.Accommodation\"\x00\x12T\n" +
 	"\tLoginUser\x12!.accumora_rpc.v1.LoginUserRequest\x1a\".accumora_rpc.v1.LoginUserResponse\"\x00\x12]\n" +
@@ -2861,7 +2954,8 @@ const file_amor_v1_amor_proto_rawDesc = "" +
 	"\x18UpdateNotificationStatus\x120.accumora_rpc.v1.UpdateNotificationStatusRequest\x1a1.accumora_rpc.v1.UpdateNotificationStatusResponse\"\x00\x12Z\n" +
 	"\vReserveRoom\x12#.accumora_rpc.v1.ReserveRoomRequest\x1a$.accumora_rpc.v1.ReserveRoomResponse\"\x00\x12f\n" +
 	"\x0fChangeSortOrder\x12'.accumora_rpc.v1.ChangeSortOrderRequest\x1a(.accumora_rpc.v1.ChangeSortOrderResponse\"\x00\x12R\n" +
-	"\fAddRoomGroup\x12$.accumora_rpc.v1.AddRoomGroupRequest\x1a\x1a.accumora_rpc.v1.RoomGroup\"\x00B2Z0github.com/ninyolittle/accumora-go-sdk/amor;amorb\x06proto3"
+	"\fAddRoomGroup\x12$.accumora_rpc.v1.AddRoomGroupRequest\x1a\x1a.accumora_rpc.v1.RoomGroup\"\x00\x12`\n" +
+	"\rGetRoomGroups\x12%.accumora_rpc.v1.GetRoomGroupsRequest\x1a&.accumora_rpc.v1.GetRoomGroupsResponse\"\x00B2Z0github.com/ninyolittle/accumora-go-sdk/amor;amorb\x06proto3"
 
 var (
 	file_amor_v1_amor_proto_rawDescOnce sync.Once
@@ -2875,157 +2969,162 @@ func file_amor_v1_amor_proto_rawDescGZIP() []byte {
 	return file_amor_v1_amor_proto_rawDescData
 }
 
-var file_amor_v1_amor_proto_msgTypes = make([]protoimpl.MessageInfo, 52)
+var file_amor_v1_amor_proto_msgTypes = make([]protoimpl.MessageInfo, 54)
 var file_amor_v1_amor_proto_goTypes = []any{
-	(*AddRoomGroupRequest)(nil),                                        // 0: accumora_rpc.v1.AddRoomGroupRequest
-	(*ChangeSortOrderRequest)(nil),                                     // 1: accumora_rpc.v1.ChangeSortOrderRequest
-	(*ChangeSortOrderResponse)(nil),                                    // 2: accumora_rpc.v1.ChangeSortOrderResponse
-	(*ReserveRoomRequest)(nil),                                         // 3: accumora_rpc.v1.ReserveRoomRequest
-	(*ReserveRoomResponse)(nil),                                        // 4: accumora_rpc.v1.ReserveRoomResponse
-	(*UpdateNotificationStatusRequest)(nil),                            // 5: accumora_rpc.v1.UpdateNotificationStatusRequest
-	(*UpdateNotificationStatusResponse)(nil),                           // 6: accumora_rpc.v1.UpdateNotificationStatusResponse
-	(*ListNotificationsRequest)(nil),                                   // 7: accumora_rpc.v1.ListNotificationsRequest
-	(*ListNotificationsResponse)(nil),                                  // 8: accumora_rpc.v1.ListNotificationsResponse
-	(*GetAccommodationsBySectionRequest)(nil),                          // 9: accumora_rpc.v1.GetAccommodationsBySectionRequest
-	(*GetAccommodationsBySectionResponse)(nil),                         // 10: accumora_rpc.v1.GetAccommodationsBySectionResponse
-	(*SetAccommodationStatusResponse)(nil),                             // 11: accumora_rpc.v1.SetAccommodationStatusResponse
-	(*SetAccommodationStatusRequest)(nil),                              // 12: accumora_rpc.v1.SetAccommodationStatusRequest
-	(*DeleteAmenitiesRequest)(nil),                                     // 13: accumora_rpc.v1.DeleteAmenitiesRequest
-	(*DeleteAmenitiesResponse)(nil),                                    // 14: accumora_rpc.v1.DeleteAmenitiesResponse
-	(*ListAmenitiesRequest)(nil),                                       // 15: accumora_rpc.v1.ListAmenitiesRequest
-	(*ListAmenitiesResponse)(nil),                                      // 16: accumora_rpc.v1.ListAmenitiesResponse
-	(*DeleteUserRequest)(nil),                                          // 17: accumora_rpc.v1.DeleteUserRequest
-	(*DeleteUserResponse)(nil),                                         // 18: accumora_rpc.v1.DeleteUserResponse
-	(*ConfirmEmailAddressRequest)(nil),                                 // 19: accumora_rpc.v1.ConfirmEmailAddressRequest
-	(*ConfirmEmailAddressResponse)(nil),                                // 20: accumora_rpc.v1.ConfirmEmailAddressResponse
-	(*SendVerificationEmailRequest)(nil),                               // 21: accumora_rpc.v1.SendVerificationEmailRequest
-	(*SendVerificationEmailResponse)(nil),                              // 22: accumora_rpc.v1.SendVerificationEmailResponse
-	(*AddAmenitiesRequest)(nil),                                        // 23: accumora_rpc.v1.AddAmenitiesRequest
-	(*AddAmenitiesResponse)(nil),                                       // 24: accumora_rpc.v1.AddAmenitiesResponse
-	(*SetAsLandLordRequest)(nil),                                       // 25: accumora_rpc.v1.SetAsLandLordRequest
-	(*UpdateRoomRequest)(nil),                                          // 26: accumora_rpc.v1.UpdateRoomRequest
-	(*UpdateRoomResponse)(nil),                                         // 27: accumora_rpc.v1.UpdateRoomResponse
-	(*UpdateAccommodationRequest)(nil),                                 // 28: accumora_rpc.v1.UpdateAccommodationRequest
-	(*GetUserRequest)(nil),                                             // 29: accumora_rpc.v1.GetUserRequest
-	(*AddRoomsRequest)(nil),                                            // 30: accumora_rpc.v1.AddRoomsRequest
-	(*AddRoomsResponse)(nil),                                           // 31: accumora_rpc.v1.AddRoomsResponse
-	(*DeleteRoomRequest)(nil),                                          // 32: accumora_rpc.v1.DeleteRoomRequest
-	(*DeleteRoomResponse)(nil),                                         // 33: accumora_rpc.v1.DeleteRoomResponse
-	(*GetRoomsRequest)(nil),                                            // 34: accumora_rpc.v1.GetRoomsRequest
-	(*GetRoomsResponse)(nil),                                           // 35: accumora_rpc.v1.GetRoomsResponse
-	(*GetAccommodationsRequest)(nil),                                   // 36: accumora_rpc.v1.GetAccommodationsRequest
-	(*GetAccommodationsResponse)(nil),                                  // 37: accumora_rpc.v1.GetAccommodationsResponse
-	(*DeleteAccommodationRequest)(nil),                                 // 38: accumora_rpc.v1.DeleteAccommodationRequest
-	(*DeleteAccommodationResponse)(nil),                                // 39: accumora_rpc.v1.DeleteAccommodationResponse
-	(*RegisterUserRequest)(nil),                                        // 40: accumora_rpc.v1.RegisterUserRequest
-	(*RegisterUserResponse)(nil),                                       // 41: accumora_rpc.v1.RegisterUserResponse
-	(*LoginUserRequest)(nil),                                           // 42: accumora_rpc.v1.LoginUserRequest
-	(*LoginUserResponse)(nil),                                          // 43: accumora_rpc.v1.LoginUserResponse
-	(*AddAccommodationRequest)(nil),                                    // 44: accumora_rpc.v1.AddAccommodationRequest
-	(*ChangeSortOrderRequest_Item)(nil),                                // 45: accumora_rpc.v1.ChangeSortOrderRequest.Item
-	nil,                                                                // 46: accumora_rpc.v1.GetAccommodationsBySectionRequest.InputsEntry
-	(*GetAccommodationsBySectionResponse_SummarizedAccommodation)(nil), // 47: accumora_rpc.v1.GetAccommodationsBySectionResponse.SummarizedAccommodation
-	(*GetAccommodationsBySectionResponse_Section)(nil),                 // 48: accumora_rpc.v1.GetAccommodationsBySectionResponse.Section
-	(*AddAmenitiesRequest_Input)(nil),                                  // 49: accumora_rpc.v1.AddAmenitiesRequest.Input
-	(*AddRoomsRequest_Input)(nil),                                      // 50: accumora_rpc.v1.AddRoomsRequest.Input
-	(*LoginUserRequest_Manual)(nil),                                    // 51: accumora_rpc.v1.LoginUserRequest.Manual
-	(Notification_Status)(0),                                           // 52: accumora_rpc.v1.Notification.Status
-	(*Notification)(nil),                                               // 53: accumora_rpc.v1.Notification
-	(Accommodation_Status)(0),                                          // 54: accumora_rpc.v1.Accommodation.Status
-	(*Amenity)(nil),                                                    // 55: accumora_rpc.v1.Amenity
-	(*Room_Prices)(nil),                                                // 56: accumora_rpc.v1.Room.Prices
-	(*Room)(nil),                                                       // 57: accumora_rpc.v1.Room
-	(Accommodation_AccommodationType)(0),                               // 58: accumora_rpc.v1.Accommodation.AccommodationType
-	(*Accommodation)(nil),                                              // 59: accumora_rpc.v1.Accommodation
-	(User_Gender)(0),                                                   // 60: accumora_rpc.v1.User.Gender
-	(*Location)(nil),                                                   // 61: accumora_rpc.v1.Location
-	(*Coordinates)(nil),                                                // 62: accumora_rpc.v1.Coordinates
-	(Color)(0),                                                         // 63: accumora_rpc.v1.Color
-	(*User)(nil),                                                       // 64: accumora_rpc.v1.User
-	(*RoomGroup)(nil),                                                  // 65: accumora_rpc.v1.RoomGroup
+	(*GetRoomGroupsRequest)(nil),                                       // 0: accumora_rpc.v1.GetRoomGroupsRequest
+	(*GetRoomGroupsResponse)(nil),                                      // 1: accumora_rpc.v1.GetRoomGroupsResponse
+	(*AddRoomGroupRequest)(nil),                                        // 2: accumora_rpc.v1.AddRoomGroupRequest
+	(*ChangeSortOrderRequest)(nil),                                     // 3: accumora_rpc.v1.ChangeSortOrderRequest
+	(*ChangeSortOrderResponse)(nil),                                    // 4: accumora_rpc.v1.ChangeSortOrderResponse
+	(*ReserveRoomRequest)(nil),                                         // 5: accumora_rpc.v1.ReserveRoomRequest
+	(*ReserveRoomResponse)(nil),                                        // 6: accumora_rpc.v1.ReserveRoomResponse
+	(*UpdateNotificationStatusRequest)(nil),                            // 7: accumora_rpc.v1.UpdateNotificationStatusRequest
+	(*UpdateNotificationStatusResponse)(nil),                           // 8: accumora_rpc.v1.UpdateNotificationStatusResponse
+	(*ListNotificationsRequest)(nil),                                   // 9: accumora_rpc.v1.ListNotificationsRequest
+	(*ListNotificationsResponse)(nil),                                  // 10: accumora_rpc.v1.ListNotificationsResponse
+	(*GetAccommodationsBySectionRequest)(nil),                          // 11: accumora_rpc.v1.GetAccommodationsBySectionRequest
+	(*GetAccommodationsBySectionResponse)(nil),                         // 12: accumora_rpc.v1.GetAccommodationsBySectionResponse
+	(*SetAccommodationStatusResponse)(nil),                             // 13: accumora_rpc.v1.SetAccommodationStatusResponse
+	(*SetAccommodationStatusRequest)(nil),                              // 14: accumora_rpc.v1.SetAccommodationStatusRequest
+	(*DeleteAmenitiesRequest)(nil),                                     // 15: accumora_rpc.v1.DeleteAmenitiesRequest
+	(*DeleteAmenitiesResponse)(nil),                                    // 16: accumora_rpc.v1.DeleteAmenitiesResponse
+	(*ListAmenitiesRequest)(nil),                                       // 17: accumora_rpc.v1.ListAmenitiesRequest
+	(*ListAmenitiesResponse)(nil),                                      // 18: accumora_rpc.v1.ListAmenitiesResponse
+	(*DeleteUserRequest)(nil),                                          // 19: accumora_rpc.v1.DeleteUserRequest
+	(*DeleteUserResponse)(nil),                                         // 20: accumora_rpc.v1.DeleteUserResponse
+	(*ConfirmEmailAddressRequest)(nil),                                 // 21: accumora_rpc.v1.ConfirmEmailAddressRequest
+	(*ConfirmEmailAddressResponse)(nil),                                // 22: accumora_rpc.v1.ConfirmEmailAddressResponse
+	(*SendVerificationEmailRequest)(nil),                               // 23: accumora_rpc.v1.SendVerificationEmailRequest
+	(*SendVerificationEmailResponse)(nil),                              // 24: accumora_rpc.v1.SendVerificationEmailResponse
+	(*AddAmenitiesRequest)(nil),                                        // 25: accumora_rpc.v1.AddAmenitiesRequest
+	(*AddAmenitiesResponse)(nil),                                       // 26: accumora_rpc.v1.AddAmenitiesResponse
+	(*SetAsLandLordRequest)(nil),                                       // 27: accumora_rpc.v1.SetAsLandLordRequest
+	(*UpdateRoomRequest)(nil),                                          // 28: accumora_rpc.v1.UpdateRoomRequest
+	(*UpdateRoomResponse)(nil),                                         // 29: accumora_rpc.v1.UpdateRoomResponse
+	(*UpdateAccommodationRequest)(nil),                                 // 30: accumora_rpc.v1.UpdateAccommodationRequest
+	(*GetUserRequest)(nil),                                             // 31: accumora_rpc.v1.GetUserRequest
+	(*AddRoomsRequest)(nil),                                            // 32: accumora_rpc.v1.AddRoomsRequest
+	(*AddRoomsResponse)(nil),                                           // 33: accumora_rpc.v1.AddRoomsResponse
+	(*DeleteRoomRequest)(nil),                                          // 34: accumora_rpc.v1.DeleteRoomRequest
+	(*DeleteRoomResponse)(nil),                                         // 35: accumora_rpc.v1.DeleteRoomResponse
+	(*GetRoomsRequest)(nil),                                            // 36: accumora_rpc.v1.GetRoomsRequest
+	(*GetRoomsResponse)(nil),                                           // 37: accumora_rpc.v1.GetRoomsResponse
+	(*GetAccommodationsRequest)(nil),                                   // 38: accumora_rpc.v1.GetAccommodationsRequest
+	(*GetAccommodationsResponse)(nil),                                  // 39: accumora_rpc.v1.GetAccommodationsResponse
+	(*DeleteAccommodationRequest)(nil),                                 // 40: accumora_rpc.v1.DeleteAccommodationRequest
+	(*DeleteAccommodationResponse)(nil),                                // 41: accumora_rpc.v1.DeleteAccommodationResponse
+	(*RegisterUserRequest)(nil),                                        // 42: accumora_rpc.v1.RegisterUserRequest
+	(*RegisterUserResponse)(nil),                                       // 43: accumora_rpc.v1.RegisterUserResponse
+	(*LoginUserRequest)(nil),                                           // 44: accumora_rpc.v1.LoginUserRequest
+	(*LoginUserResponse)(nil),                                          // 45: accumora_rpc.v1.LoginUserResponse
+	(*AddAccommodationRequest)(nil),                                    // 46: accumora_rpc.v1.AddAccommodationRequest
+	(*ChangeSortOrderRequest_Item)(nil),                                // 47: accumora_rpc.v1.ChangeSortOrderRequest.Item
+	nil,                                                                // 48: accumora_rpc.v1.GetAccommodationsBySectionRequest.InputsEntry
+	(*GetAccommodationsBySectionResponse_SummarizedAccommodation)(nil), // 49: accumora_rpc.v1.GetAccommodationsBySectionResponse.SummarizedAccommodation
+	(*GetAccommodationsBySectionResponse_Section)(nil),                 // 50: accumora_rpc.v1.GetAccommodationsBySectionResponse.Section
+	(*AddAmenitiesRequest_Input)(nil),                                  // 51: accumora_rpc.v1.AddAmenitiesRequest.Input
+	(*AddRoomsRequest_Input)(nil),                                      // 52: accumora_rpc.v1.AddRoomsRequest.Input
+	(*LoginUserRequest_Manual)(nil),                                    // 53: accumora_rpc.v1.LoginUserRequest.Manual
+	(*RoomGroup)(nil),                                                  // 54: accumora_rpc.v1.RoomGroup
+	(Notification_Status)(0),                                           // 55: accumora_rpc.v1.Notification.Status
+	(*Notification)(nil),                                               // 56: accumora_rpc.v1.Notification
+	(Accommodation_Status)(0),                                          // 57: accumora_rpc.v1.Accommodation.Status
+	(*Amenity)(nil),                                                    // 58: accumora_rpc.v1.Amenity
+	(*Room_Prices)(nil),                                                // 59: accumora_rpc.v1.Room.Prices
+	(*Room)(nil),                                                       // 60: accumora_rpc.v1.Room
+	(Accommodation_AccommodationType)(0),                               // 61: accumora_rpc.v1.Accommodation.AccommodationType
+	(*Accommodation)(nil),                                              // 62: accumora_rpc.v1.Accommodation
+	(User_Gender)(0),                                                   // 63: accumora_rpc.v1.User.Gender
+	(*Location)(nil),                                                   // 64: accumora_rpc.v1.Location
+	(*Coordinates)(nil),                                                // 65: accumora_rpc.v1.Coordinates
+	(Color)(0),                                                         // 66: accumora_rpc.v1.Color
+	(*User)(nil),                                                       // 67: accumora_rpc.v1.User
 }
 var file_amor_v1_amor_proto_depIdxs = []int32{
-	45, // 0: accumora_rpc.v1.ChangeSortOrderRequest.items:type_name -> accumora_rpc.v1.ChangeSortOrderRequest.Item
-	52, // 1: accumora_rpc.v1.UpdateNotificationStatusRequest.status:type_name -> accumora_rpc.v1.Notification.Status
-	53, // 2: accumora_rpc.v1.ListNotificationsResponse.notifications:type_name -> accumora_rpc.v1.Notification
-	46, // 3: accumora_rpc.v1.GetAccommodationsBySectionRequest.inputs:type_name -> accumora_rpc.v1.GetAccommodationsBySectionRequest.InputsEntry
-	48, // 4: accumora_rpc.v1.GetAccommodationsBySectionResponse.sections:type_name -> accumora_rpc.v1.GetAccommodationsBySectionResponse.Section
-	54, // 5: accumora_rpc.v1.SetAccommodationStatusResponse.status:type_name -> accumora_rpc.v1.Accommodation.Status
-	54, // 6: accumora_rpc.v1.SetAccommodationStatusRequest.status:type_name -> accumora_rpc.v1.Accommodation.Status
-	55, // 7: accumora_rpc.v1.ListAmenitiesResponse.amenities:type_name -> accumora_rpc.v1.Amenity
-	49, // 8: accumora_rpc.v1.AddAmenitiesRequest.amenities:type_name -> accumora_rpc.v1.AddAmenitiesRequest.Input
-	55, // 9: accumora_rpc.v1.AddAmenitiesResponse.amenities:type_name -> accumora_rpc.v1.Amenity
-	56, // 10: accumora_rpc.v1.UpdateRoomRequest.prices:type_name -> accumora_rpc.v1.Room.Prices
-	57, // 11: accumora_rpc.v1.UpdateRoomResponse.room:type_name -> accumora_rpc.v1.Room
-	58, // 12: accumora_rpc.v1.UpdateAccommodationRequest.type:type_name -> accumora_rpc.v1.Accommodation.AccommodationType
-	50, // 13: accumora_rpc.v1.AddRoomsRequest.inputs:type_name -> accumora_rpc.v1.AddRoomsRequest.Input
-	57, // 14: accumora_rpc.v1.AddRoomsResponse.rooms:type_name -> accumora_rpc.v1.Room
-	57, // 15: accumora_rpc.v1.GetRoomsResponse.rooms:type_name -> accumora_rpc.v1.Room
-	59, // 16: accumora_rpc.v1.GetAccommodationsResponse.accommodations:type_name -> accumora_rpc.v1.Accommodation
-	60, // 17: accumora_rpc.v1.RegisterUserRequest.gender:type_name -> accumora_rpc.v1.User.Gender
-	51, // 18: accumora_rpc.v1.LoginUserRequest.manual:type_name -> accumora_rpc.v1.LoginUserRequest.Manual
-	58, // 19: accumora_rpc.v1.AddAccommodationRequest.type:type_name -> accumora_rpc.v1.Accommodation.AccommodationType
-	61, // 20: accumora_rpc.v1.AddAccommodationRequest.location:type_name -> accumora_rpc.v1.Location
-	62, // 21: accumora_rpc.v1.AddAccommodationRequest.coordinates:type_name -> accumora_rpc.v1.Coordinates
-	61, // 22: accumora_rpc.v1.GetAccommodationsBySectionResponse.SummarizedAccommodation.location:type_name -> accumora_rpc.v1.Location
-	47, // 23: accumora_rpc.v1.GetAccommodationsBySectionResponse.Section.accommodations:type_name -> accumora_rpc.v1.GetAccommodationsBySectionResponse.SummarizedAccommodation
-	63, // 24: accumora_rpc.v1.AddAmenitiesRequest.Input.icon_color:type_name -> accumora_rpc.v1.Color
-	56, // 25: accumora_rpc.v1.AddRoomsRequest.Input.prices:type_name -> accumora_rpc.v1.Room.Prices
-	44, // 26: accumora_rpc.v1.ProjectAmor.AddAccommodation:input_type -> accumora_rpc.v1.AddAccommodationRequest
-	42, // 27: accumora_rpc.v1.ProjectAmor.LoginUser:input_type -> accumora_rpc.v1.LoginUserRequest
-	40, // 28: accumora_rpc.v1.ProjectAmor.RegisterUser:input_type -> accumora_rpc.v1.RegisterUserRequest
-	17, // 29: accumora_rpc.v1.ProjectAmor.DeleteUser:input_type -> accumora_rpc.v1.DeleteUserRequest
-	38, // 30: accumora_rpc.v1.ProjectAmor.DeleteAccommodation:input_type -> accumora_rpc.v1.DeleteAccommodationRequest
-	36, // 31: accumora_rpc.v1.ProjectAmor.GetAccommodations:input_type -> accumora_rpc.v1.GetAccommodationsRequest
-	9,  // 32: accumora_rpc.v1.ProjectAmor.GetAccommodationsBySection:input_type -> accumora_rpc.v1.GetAccommodationsBySectionRequest
-	28, // 33: accumora_rpc.v1.ProjectAmor.UpdateAccommodation:input_type -> accumora_rpc.v1.UpdateAccommodationRequest
-	30, // 34: accumora_rpc.v1.ProjectAmor.AddRooms:input_type -> accumora_rpc.v1.AddRoomsRequest
-	34, // 35: accumora_rpc.v1.ProjectAmor.GetRooms:input_type -> accumora_rpc.v1.GetRoomsRequest
-	32, // 36: accumora_rpc.v1.ProjectAmor.DeleteRoom:input_type -> accumora_rpc.v1.DeleteRoomRequest
-	26, // 37: accumora_rpc.v1.ProjectAmor.UpdateRoom:input_type -> accumora_rpc.v1.UpdateRoomRequest
-	29, // 38: accumora_rpc.v1.ProjectAmor.GetUser:input_type -> accumora_rpc.v1.GetUserRequest
-	25, // 39: accumora_rpc.v1.ProjectAmor.SetAsLandLord:input_type -> accumora_rpc.v1.SetAsLandLordRequest
-	23, // 40: accumora_rpc.v1.ProjectAmor.AddAmenities:input_type -> accumora_rpc.v1.AddAmenitiesRequest
-	15, // 41: accumora_rpc.v1.ProjectAmor.ListAmenities:input_type -> accumora_rpc.v1.ListAmenitiesRequest
-	13, // 42: accumora_rpc.v1.ProjectAmor.DeleteAmenities:input_type -> accumora_rpc.v1.DeleteAmenitiesRequest
-	21, // 43: accumora_rpc.v1.ProjectAmor.SendVerificationEmail:input_type -> accumora_rpc.v1.SendVerificationEmailRequest
-	19, // 44: accumora_rpc.v1.ProjectAmor.ConfirmEmailAddress:input_type -> accumora_rpc.v1.ConfirmEmailAddressRequest
-	12, // 45: accumora_rpc.v1.ProjectAmor.SetAccommodationStatus:input_type -> accumora_rpc.v1.SetAccommodationStatusRequest
-	7,  // 46: accumora_rpc.v1.ProjectAmor.ListNotifications:input_type -> accumora_rpc.v1.ListNotificationsRequest
-	5,  // 47: accumora_rpc.v1.ProjectAmor.UpdateNotificationStatus:input_type -> accumora_rpc.v1.UpdateNotificationStatusRequest
-	3,  // 48: accumora_rpc.v1.ProjectAmor.ReserveRoom:input_type -> accumora_rpc.v1.ReserveRoomRequest
-	1,  // 49: accumora_rpc.v1.ProjectAmor.ChangeSortOrder:input_type -> accumora_rpc.v1.ChangeSortOrderRequest
-	0,  // 50: accumora_rpc.v1.ProjectAmor.AddRoomGroup:input_type -> accumora_rpc.v1.AddRoomGroupRequest
-	59, // 51: accumora_rpc.v1.ProjectAmor.AddAccommodation:output_type -> accumora_rpc.v1.Accommodation
-	43, // 52: accumora_rpc.v1.ProjectAmor.LoginUser:output_type -> accumora_rpc.v1.LoginUserResponse
-	41, // 53: accumora_rpc.v1.ProjectAmor.RegisterUser:output_type -> accumora_rpc.v1.RegisterUserResponse
-	18, // 54: accumora_rpc.v1.ProjectAmor.DeleteUser:output_type -> accumora_rpc.v1.DeleteUserResponse
-	39, // 55: accumora_rpc.v1.ProjectAmor.DeleteAccommodation:output_type -> accumora_rpc.v1.DeleteAccommodationResponse
-	37, // 56: accumora_rpc.v1.ProjectAmor.GetAccommodations:output_type -> accumora_rpc.v1.GetAccommodationsResponse
-	10, // 57: accumora_rpc.v1.ProjectAmor.GetAccommodationsBySection:output_type -> accumora_rpc.v1.GetAccommodationsBySectionResponse
-	59, // 58: accumora_rpc.v1.ProjectAmor.UpdateAccommodation:output_type -> accumora_rpc.v1.Accommodation
-	31, // 59: accumora_rpc.v1.ProjectAmor.AddRooms:output_type -> accumora_rpc.v1.AddRoomsResponse
-	35, // 60: accumora_rpc.v1.ProjectAmor.GetRooms:output_type -> accumora_rpc.v1.GetRoomsResponse
-	33, // 61: accumora_rpc.v1.ProjectAmor.DeleteRoom:output_type -> accumora_rpc.v1.DeleteRoomResponse
-	27, // 62: accumora_rpc.v1.ProjectAmor.UpdateRoom:output_type -> accumora_rpc.v1.UpdateRoomResponse
-	64, // 63: accumora_rpc.v1.ProjectAmor.GetUser:output_type -> accumora_rpc.v1.User
-	64, // 64: accumora_rpc.v1.ProjectAmor.SetAsLandLord:output_type -> accumora_rpc.v1.User
-	24, // 65: accumora_rpc.v1.ProjectAmor.AddAmenities:output_type -> accumora_rpc.v1.AddAmenitiesResponse
-	16, // 66: accumora_rpc.v1.ProjectAmor.ListAmenities:output_type -> accumora_rpc.v1.ListAmenitiesResponse
-	14, // 67: accumora_rpc.v1.ProjectAmor.DeleteAmenities:output_type -> accumora_rpc.v1.DeleteAmenitiesResponse
-	22, // 68: accumora_rpc.v1.ProjectAmor.SendVerificationEmail:output_type -> accumora_rpc.v1.SendVerificationEmailResponse
-	20, // 69: accumora_rpc.v1.ProjectAmor.ConfirmEmailAddress:output_type -> accumora_rpc.v1.ConfirmEmailAddressResponse
-	11, // 70: accumora_rpc.v1.ProjectAmor.SetAccommodationStatus:output_type -> accumora_rpc.v1.SetAccommodationStatusResponse
-	8,  // 71: accumora_rpc.v1.ProjectAmor.ListNotifications:output_type -> accumora_rpc.v1.ListNotificationsResponse
-	6,  // 72: accumora_rpc.v1.ProjectAmor.UpdateNotificationStatus:output_type -> accumora_rpc.v1.UpdateNotificationStatusResponse
-	4,  // 73: accumora_rpc.v1.ProjectAmor.ReserveRoom:output_type -> accumora_rpc.v1.ReserveRoomResponse
-	2,  // 74: accumora_rpc.v1.ProjectAmor.ChangeSortOrder:output_type -> accumora_rpc.v1.ChangeSortOrderResponse
-	65, // 75: accumora_rpc.v1.ProjectAmor.AddRoomGroup:output_type -> accumora_rpc.v1.RoomGroup
-	51, // [51:76] is the sub-list for method output_type
-	26, // [26:51] is the sub-list for method input_type
-	26, // [26:26] is the sub-list for extension type_name
-	26, // [26:26] is the sub-list for extension extendee
-	0,  // [0:26] is the sub-list for field type_name
+	54, // 0: accumora_rpc.v1.GetRoomGroupsResponse.room_groups:type_name -> accumora_rpc.v1.RoomGroup
+	47, // 1: accumora_rpc.v1.ChangeSortOrderRequest.items:type_name -> accumora_rpc.v1.ChangeSortOrderRequest.Item
+	55, // 2: accumora_rpc.v1.UpdateNotificationStatusRequest.status:type_name -> accumora_rpc.v1.Notification.Status
+	56, // 3: accumora_rpc.v1.ListNotificationsResponse.notifications:type_name -> accumora_rpc.v1.Notification
+	48, // 4: accumora_rpc.v1.GetAccommodationsBySectionRequest.inputs:type_name -> accumora_rpc.v1.GetAccommodationsBySectionRequest.InputsEntry
+	50, // 5: accumora_rpc.v1.GetAccommodationsBySectionResponse.sections:type_name -> accumora_rpc.v1.GetAccommodationsBySectionResponse.Section
+	57, // 6: accumora_rpc.v1.SetAccommodationStatusResponse.status:type_name -> accumora_rpc.v1.Accommodation.Status
+	57, // 7: accumora_rpc.v1.SetAccommodationStatusRequest.status:type_name -> accumora_rpc.v1.Accommodation.Status
+	58, // 8: accumora_rpc.v1.ListAmenitiesResponse.amenities:type_name -> accumora_rpc.v1.Amenity
+	51, // 9: accumora_rpc.v1.AddAmenitiesRequest.amenities:type_name -> accumora_rpc.v1.AddAmenitiesRequest.Input
+	58, // 10: accumora_rpc.v1.AddAmenitiesResponse.amenities:type_name -> accumora_rpc.v1.Amenity
+	59, // 11: accumora_rpc.v1.UpdateRoomRequest.prices:type_name -> accumora_rpc.v1.Room.Prices
+	60, // 12: accumora_rpc.v1.UpdateRoomResponse.room:type_name -> accumora_rpc.v1.Room
+	61, // 13: accumora_rpc.v1.UpdateAccommodationRequest.type:type_name -> accumora_rpc.v1.Accommodation.AccommodationType
+	52, // 14: accumora_rpc.v1.AddRoomsRequest.inputs:type_name -> accumora_rpc.v1.AddRoomsRequest.Input
+	60, // 15: accumora_rpc.v1.AddRoomsResponse.rooms:type_name -> accumora_rpc.v1.Room
+	60, // 16: accumora_rpc.v1.GetRoomsResponse.rooms:type_name -> accumora_rpc.v1.Room
+	62, // 17: accumora_rpc.v1.GetAccommodationsResponse.accommodations:type_name -> accumora_rpc.v1.Accommodation
+	63, // 18: accumora_rpc.v1.RegisterUserRequest.gender:type_name -> accumora_rpc.v1.User.Gender
+	53, // 19: accumora_rpc.v1.LoginUserRequest.manual:type_name -> accumora_rpc.v1.LoginUserRequest.Manual
+	61, // 20: accumora_rpc.v1.AddAccommodationRequest.type:type_name -> accumora_rpc.v1.Accommodation.AccommodationType
+	64, // 21: accumora_rpc.v1.AddAccommodationRequest.location:type_name -> accumora_rpc.v1.Location
+	65, // 22: accumora_rpc.v1.AddAccommodationRequest.coordinates:type_name -> accumora_rpc.v1.Coordinates
+	64, // 23: accumora_rpc.v1.GetAccommodationsBySectionResponse.SummarizedAccommodation.location:type_name -> accumora_rpc.v1.Location
+	49, // 24: accumora_rpc.v1.GetAccommodationsBySectionResponse.Section.accommodations:type_name -> accumora_rpc.v1.GetAccommodationsBySectionResponse.SummarizedAccommodation
+	66, // 25: accumora_rpc.v1.AddAmenitiesRequest.Input.icon_color:type_name -> accumora_rpc.v1.Color
+	59, // 26: accumora_rpc.v1.AddRoomsRequest.Input.prices:type_name -> accumora_rpc.v1.Room.Prices
+	46, // 27: accumora_rpc.v1.ProjectAmor.AddAccommodation:input_type -> accumora_rpc.v1.AddAccommodationRequest
+	44, // 28: accumora_rpc.v1.ProjectAmor.LoginUser:input_type -> accumora_rpc.v1.LoginUserRequest
+	42, // 29: accumora_rpc.v1.ProjectAmor.RegisterUser:input_type -> accumora_rpc.v1.RegisterUserRequest
+	19, // 30: accumora_rpc.v1.ProjectAmor.DeleteUser:input_type -> accumora_rpc.v1.DeleteUserRequest
+	40, // 31: accumora_rpc.v1.ProjectAmor.DeleteAccommodation:input_type -> accumora_rpc.v1.DeleteAccommodationRequest
+	38, // 32: accumora_rpc.v1.ProjectAmor.GetAccommodations:input_type -> accumora_rpc.v1.GetAccommodationsRequest
+	11, // 33: accumora_rpc.v1.ProjectAmor.GetAccommodationsBySection:input_type -> accumora_rpc.v1.GetAccommodationsBySectionRequest
+	30, // 34: accumora_rpc.v1.ProjectAmor.UpdateAccommodation:input_type -> accumora_rpc.v1.UpdateAccommodationRequest
+	32, // 35: accumora_rpc.v1.ProjectAmor.AddRooms:input_type -> accumora_rpc.v1.AddRoomsRequest
+	36, // 36: accumora_rpc.v1.ProjectAmor.GetRooms:input_type -> accumora_rpc.v1.GetRoomsRequest
+	34, // 37: accumora_rpc.v1.ProjectAmor.DeleteRoom:input_type -> accumora_rpc.v1.DeleteRoomRequest
+	28, // 38: accumora_rpc.v1.ProjectAmor.UpdateRoom:input_type -> accumora_rpc.v1.UpdateRoomRequest
+	31, // 39: accumora_rpc.v1.ProjectAmor.GetUser:input_type -> accumora_rpc.v1.GetUserRequest
+	27, // 40: accumora_rpc.v1.ProjectAmor.SetAsLandLord:input_type -> accumora_rpc.v1.SetAsLandLordRequest
+	25, // 41: accumora_rpc.v1.ProjectAmor.AddAmenities:input_type -> accumora_rpc.v1.AddAmenitiesRequest
+	17, // 42: accumora_rpc.v1.ProjectAmor.ListAmenities:input_type -> accumora_rpc.v1.ListAmenitiesRequest
+	15, // 43: accumora_rpc.v1.ProjectAmor.DeleteAmenities:input_type -> accumora_rpc.v1.DeleteAmenitiesRequest
+	23, // 44: accumora_rpc.v1.ProjectAmor.SendVerificationEmail:input_type -> accumora_rpc.v1.SendVerificationEmailRequest
+	21, // 45: accumora_rpc.v1.ProjectAmor.ConfirmEmailAddress:input_type -> accumora_rpc.v1.ConfirmEmailAddressRequest
+	14, // 46: accumora_rpc.v1.ProjectAmor.SetAccommodationStatus:input_type -> accumora_rpc.v1.SetAccommodationStatusRequest
+	9,  // 47: accumora_rpc.v1.ProjectAmor.ListNotifications:input_type -> accumora_rpc.v1.ListNotificationsRequest
+	7,  // 48: accumora_rpc.v1.ProjectAmor.UpdateNotificationStatus:input_type -> accumora_rpc.v1.UpdateNotificationStatusRequest
+	5,  // 49: accumora_rpc.v1.ProjectAmor.ReserveRoom:input_type -> accumora_rpc.v1.ReserveRoomRequest
+	3,  // 50: accumora_rpc.v1.ProjectAmor.ChangeSortOrder:input_type -> accumora_rpc.v1.ChangeSortOrderRequest
+	2,  // 51: accumora_rpc.v1.ProjectAmor.AddRoomGroup:input_type -> accumora_rpc.v1.AddRoomGroupRequest
+	0,  // 52: accumora_rpc.v1.ProjectAmor.GetRoomGroups:input_type -> accumora_rpc.v1.GetRoomGroupsRequest
+	62, // 53: accumora_rpc.v1.ProjectAmor.AddAccommodation:output_type -> accumora_rpc.v1.Accommodation
+	45, // 54: accumora_rpc.v1.ProjectAmor.LoginUser:output_type -> accumora_rpc.v1.LoginUserResponse
+	43, // 55: accumora_rpc.v1.ProjectAmor.RegisterUser:output_type -> accumora_rpc.v1.RegisterUserResponse
+	20, // 56: accumora_rpc.v1.ProjectAmor.DeleteUser:output_type -> accumora_rpc.v1.DeleteUserResponse
+	41, // 57: accumora_rpc.v1.ProjectAmor.DeleteAccommodation:output_type -> accumora_rpc.v1.DeleteAccommodationResponse
+	39, // 58: accumora_rpc.v1.ProjectAmor.GetAccommodations:output_type -> accumora_rpc.v1.GetAccommodationsResponse
+	12, // 59: accumora_rpc.v1.ProjectAmor.GetAccommodationsBySection:output_type -> accumora_rpc.v1.GetAccommodationsBySectionResponse
+	62, // 60: accumora_rpc.v1.ProjectAmor.UpdateAccommodation:output_type -> accumora_rpc.v1.Accommodation
+	33, // 61: accumora_rpc.v1.ProjectAmor.AddRooms:output_type -> accumora_rpc.v1.AddRoomsResponse
+	37, // 62: accumora_rpc.v1.ProjectAmor.GetRooms:output_type -> accumora_rpc.v1.GetRoomsResponse
+	35, // 63: accumora_rpc.v1.ProjectAmor.DeleteRoom:output_type -> accumora_rpc.v1.DeleteRoomResponse
+	29, // 64: accumora_rpc.v1.ProjectAmor.UpdateRoom:output_type -> accumora_rpc.v1.UpdateRoomResponse
+	67, // 65: accumora_rpc.v1.ProjectAmor.GetUser:output_type -> accumora_rpc.v1.User
+	67, // 66: accumora_rpc.v1.ProjectAmor.SetAsLandLord:output_type -> accumora_rpc.v1.User
+	26, // 67: accumora_rpc.v1.ProjectAmor.AddAmenities:output_type -> accumora_rpc.v1.AddAmenitiesResponse
+	18, // 68: accumora_rpc.v1.ProjectAmor.ListAmenities:output_type -> accumora_rpc.v1.ListAmenitiesResponse
+	16, // 69: accumora_rpc.v1.ProjectAmor.DeleteAmenities:output_type -> accumora_rpc.v1.DeleteAmenitiesResponse
+	24, // 70: accumora_rpc.v1.ProjectAmor.SendVerificationEmail:output_type -> accumora_rpc.v1.SendVerificationEmailResponse
+	22, // 71: accumora_rpc.v1.ProjectAmor.ConfirmEmailAddress:output_type -> accumora_rpc.v1.ConfirmEmailAddressResponse
+	13, // 72: accumora_rpc.v1.ProjectAmor.SetAccommodationStatus:output_type -> accumora_rpc.v1.SetAccommodationStatusResponse
+	10, // 73: accumora_rpc.v1.ProjectAmor.ListNotifications:output_type -> accumora_rpc.v1.ListNotificationsResponse
+	8,  // 74: accumora_rpc.v1.ProjectAmor.UpdateNotificationStatus:output_type -> accumora_rpc.v1.UpdateNotificationStatusResponse
+	6,  // 75: accumora_rpc.v1.ProjectAmor.ReserveRoom:output_type -> accumora_rpc.v1.ReserveRoomResponse
+	4,  // 76: accumora_rpc.v1.ProjectAmor.ChangeSortOrder:output_type -> accumora_rpc.v1.ChangeSortOrderResponse
+	54, // 77: accumora_rpc.v1.ProjectAmor.AddRoomGroup:output_type -> accumora_rpc.v1.RoomGroup
+	1,  // 78: accumora_rpc.v1.ProjectAmor.GetRoomGroups:output_type -> accumora_rpc.v1.GetRoomGroupsResponse
+	53, // [53:79] is the sub-list for method output_type
+	27, // [27:53] is the sub-list for method input_type
+	27, // [27:27] is the sub-list for extension type_name
+	27, // [27:27] is the sub-list for extension extendee
+	0,  // [0:27] is the sub-list for field type_name
 }
 
 func init() { file_amor_v1_amor_proto_init() }
@@ -3034,31 +3133,31 @@ func file_amor_v1_amor_proto_init() {
 		return
 	}
 	file_amor_v1_types_proto_init()
-	file_amor_v1_amor_proto_msgTypes[0].OneofWrappers = []any{}
-	file_amor_v1_amor_proto_msgTypes[7].OneofWrappers = []any{}
-	file_amor_v1_amor_proto_msgTypes[15].OneofWrappers = []any{}
-	file_amor_v1_amor_proto_msgTypes[26].OneofWrappers = []any{}
+	file_amor_v1_amor_proto_msgTypes[2].OneofWrappers = []any{}
+	file_amor_v1_amor_proto_msgTypes[9].OneofWrappers = []any{}
+	file_amor_v1_amor_proto_msgTypes[17].OneofWrappers = []any{}
 	file_amor_v1_amor_proto_msgTypes[28].OneofWrappers = []any{}
-	file_amor_v1_amor_proto_msgTypes[34].OneofWrappers = []any{}
-	file_amor_v1_amor_proto_msgTypes[40].OneofWrappers = []any{}
-	file_amor_v1_amor_proto_msgTypes[42].OneofWrappers = []any{
+	file_amor_v1_amor_proto_msgTypes[30].OneofWrappers = []any{}
+	file_amor_v1_amor_proto_msgTypes[36].OneofWrappers = []any{}
+	file_amor_v1_amor_proto_msgTypes[42].OneofWrappers = []any{}
+	file_amor_v1_amor_proto_msgTypes[44].OneofWrappers = []any{
 		(*LoginUserRequest_Manual_)(nil),
 		(*LoginUserRequest_Auth0Token)(nil),
 	}
-	file_amor_v1_amor_proto_msgTypes[44].OneofWrappers = []any{
+	file_amor_v1_amor_proto_msgTypes[46].OneofWrappers = []any{
 		(*AddAccommodationRequest_Location)(nil),
 		(*AddAccommodationRequest_Coordinates)(nil),
 	}
-	file_amor_v1_amor_proto_msgTypes[47].OneofWrappers = []any{}
 	file_amor_v1_amor_proto_msgTypes[49].OneofWrappers = []any{}
-	file_amor_v1_amor_proto_msgTypes[50].OneofWrappers = []any{}
+	file_amor_v1_amor_proto_msgTypes[51].OneofWrappers = []any{}
+	file_amor_v1_amor_proto_msgTypes[52].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_amor_v1_amor_proto_rawDesc), len(file_amor_v1_amor_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   52,
+			NumMessages:   54,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

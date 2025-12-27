@@ -44,6 +44,7 @@ const (
 	ProjectAmor_ReserveRoom_FullMethodName                = "/accumora_rpc.v1.ProjectAmor/ReserveRoom"
 	ProjectAmor_ChangeSortOrder_FullMethodName            = "/accumora_rpc.v1.ProjectAmor/ChangeSortOrder"
 	ProjectAmor_AddRoomGroup_FullMethodName               = "/accumora_rpc.v1.ProjectAmor/AddRoomGroup"
+	ProjectAmor_GetRoomGroups_FullMethodName              = "/accumora_rpc.v1.ProjectAmor/GetRoomGroups"
 )
 
 // ProjectAmorClient is the client API for ProjectAmor service.
@@ -102,6 +103,7 @@ type ProjectAmorClient interface {
 	ChangeSortOrder(ctx context.Context, in *ChangeSortOrderRequest, opts ...grpc.CallOption) (*ChangeSortOrderResponse, error)
 	// AddRoomGroup creates a new room group with the provided details
 	AddRoomGroup(ctx context.Context, in *AddRoomGroupRequest, opts ...grpc.CallOption) (*RoomGroup, error)
+	GetRoomGroups(ctx context.Context, in *GetRoomGroupsRequest, opts ...grpc.CallOption) (*GetRoomGroupsResponse, error)
 }
 
 type projectAmorClient struct {
@@ -362,6 +364,16 @@ func (c *projectAmorClient) AddRoomGroup(ctx context.Context, in *AddRoomGroupRe
 	return out, nil
 }
 
+func (c *projectAmorClient) GetRoomGroups(ctx context.Context, in *GetRoomGroupsRequest, opts ...grpc.CallOption) (*GetRoomGroupsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRoomGroupsResponse)
+	err := c.cc.Invoke(ctx, ProjectAmor_GetRoomGroups_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ProjectAmorServer is the server API for ProjectAmor service.
 // All implementations must embed UnimplementedProjectAmorServer
 // for forward compatibility.
@@ -418,6 +430,7 @@ type ProjectAmorServer interface {
 	ChangeSortOrder(context.Context, *ChangeSortOrderRequest) (*ChangeSortOrderResponse, error)
 	// AddRoomGroup creates a new room group with the provided details
 	AddRoomGroup(context.Context, *AddRoomGroupRequest) (*RoomGroup, error)
+	GetRoomGroups(context.Context, *GetRoomGroupsRequest) (*GetRoomGroupsResponse, error)
 	mustEmbedUnimplementedProjectAmorServer()
 }
 
@@ -502,6 +515,9 @@ func (UnimplementedProjectAmorServer) ChangeSortOrder(context.Context, *ChangeSo
 }
 func (UnimplementedProjectAmorServer) AddRoomGroup(context.Context, *AddRoomGroupRequest) (*RoomGroup, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AddRoomGroup not implemented")
+}
+func (UnimplementedProjectAmorServer) GetRoomGroups(context.Context, *GetRoomGroupsRequest) (*GetRoomGroupsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetRoomGroups not implemented")
 }
 func (UnimplementedProjectAmorServer) mustEmbedUnimplementedProjectAmorServer() {}
 func (UnimplementedProjectAmorServer) testEmbeddedByValue()                     {}
@@ -974,6 +990,24 @@ func _ProjectAmor_AddRoomGroup_Handler(srv interface{}, ctx context.Context, dec
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ProjectAmor_GetRoomGroups_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRoomGroupsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProjectAmorServer).GetRoomGroups(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProjectAmor_GetRoomGroups_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProjectAmorServer).GetRoomGroups(ctx, req.(*GetRoomGroupsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // ProjectAmor_ServiceDesc is the grpc.ServiceDesc for ProjectAmor service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -1080,6 +1114,10 @@ var ProjectAmor_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "AddRoomGroup",
 			Handler:    _ProjectAmor_AddRoomGroup_Handler,
+		},
+		{
+			MethodName: "GetRoomGroups",
+			Handler:    _ProjectAmor_GetRoomGroups_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
