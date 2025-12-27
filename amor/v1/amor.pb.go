@@ -24,7 +24,7 @@ const (
 type AddRoomGroupRequest struct {
 	state           protoimpl.MessageState `protogen:"open.v1"`
 	Name            string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Description     string                 `protobuf:"bytes,2,opt,name=description,proto3" json:"description,omitempty"`
+	Description     *string                `protobuf:"bytes,2,opt,name=description,proto3,oneof" json:"description,omitempty"`
 	AccommodationId string                 `protobuf:"bytes,3,opt,name=accommodation_id,json=accommodationId,proto3" json:"accommodation_id,omitempty"`
 	RoomIds         []string               `protobuf:"bytes,4,rep,name=room_ids,json=roomIds,proto3" json:"room_ids,omitempty"`
 	Parent          *string                `protobuf:"bytes,5,opt,name=parent,proto3,oneof" json:"parent,omitempty"`
@@ -70,8 +70,8 @@ func (x *AddRoomGroupRequest) GetName() string {
 }
 
 func (x *AddRoomGroupRequest) GetDescription() string {
-	if x != nil {
-		return x.Description
+	if x != nil && x.Description != nil {
+		return *x.Description
 	}
 	return ""
 }
@@ -2649,13 +2649,14 @@ var File_amor_v1_amor_proto protoreflect.FileDescriptor
 
 const file_amor_v1_amor_proto_rawDesc = "" +
 	"\n" +
-	"\x12amor/v1/amor.proto\x12\x0faccumora_rpc.v1\x1a\x13amor/v1/types.proto\"\xb9\x01\n" +
+	"\x12amor/v1/amor.proto\x12\x0faccumora_rpc.v1\x1a\x13amor/v1/types.proto\"\xce\x01\n" +
 	"\x13AddRoomGroupRequest\x12\x12\n" +
-	"\x04name\x18\x01 \x01(\tR\x04name\x12 \n" +
-	"\vdescription\x18\x02 \x01(\tR\vdescription\x12)\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\x12%\n" +
+	"\vdescription\x18\x02 \x01(\tH\x00R\vdescription\x88\x01\x01\x12)\n" +
 	"\x10accommodation_id\x18\x03 \x01(\tR\x0faccommodationId\x12\x19\n" +
 	"\broom_ids\x18\x04 \x03(\tR\aroomIds\x12\x1b\n" +
-	"\x06parent\x18\x05 \x01(\tH\x00R\x06parent\x88\x01\x01B\t\n" +
+	"\x06parent\x18\x05 \x01(\tH\x01R\x06parent\x88\x01\x01B\x0e\n" +
+	"\f_descriptionB\t\n" +
 	"\a_parent\"\xa9\x01\n" +
 	"\x16ChangeSortOrderRequest\x12\x1d\n" +
 	"\n" +
