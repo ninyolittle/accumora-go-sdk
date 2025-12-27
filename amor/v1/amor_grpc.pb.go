@@ -43,6 +43,7 @@ const (
 	ProjectAmor_UpdateNotificationStatus_FullMethodName   = "/accumora_rpc.v1.ProjectAmor/UpdateNotificationStatus"
 	ProjectAmor_ReserveRoom_FullMethodName                = "/accumora_rpc.v1.ProjectAmor/ReserveRoom"
 	ProjectAmor_ChangeSortOrder_FullMethodName            = "/accumora_rpc.v1.ProjectAmor/ChangeSortOrder"
+	ProjectAmor_AddRoomGroup_FullMethodName               = "/accumora_rpc.v1.ProjectAmor/AddRoomGroup"
 )
 
 // ProjectAmorClient is the client API for ProjectAmor service.
@@ -99,6 +100,8 @@ type ProjectAmorClient interface {
 	ReserveRoom(ctx context.Context, in *ReserveRoomRequest, opts ...grpc.CallOption) (*ReserveRoomResponse, error)
 	// ChangeSortOrder updates the order of items in a specified table
 	ChangeSortOrder(ctx context.Context, in *ChangeSortOrderRequest, opts ...grpc.CallOption) (*ChangeSortOrderResponse, error)
+	// AddRoomGroup creates a new room group with the provided details
+	AddRoomGroup(ctx context.Context, in *AddRoomGroupRequest, opts ...grpc.CallOption) (*RoomGroup, error)
 }
 
 type projectAmorClient struct {
@@ -349,6 +352,16 @@ func (c *projectAmorClient) ChangeSortOrder(ctx context.Context, in *ChangeSortO
 	return out, nil
 }
 
+func (c *projectAmorClient) AddRoomGroup(ctx context.Context, in *AddRoomGroupRequest, opts ...grpc.CallOption) (*RoomGroup, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RoomGroup)
+	err := c.cc.Invoke(ctx, ProjectAmor_AddRoomGroup_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ProjectAmorServer is the server API for ProjectAmor service.
 // All implementations must embed UnimplementedProjectAmorServer
 // for forward compatibility.
@@ -403,6 +416,8 @@ type ProjectAmorServer interface {
 	ReserveRoom(context.Context, *ReserveRoomRequest) (*ReserveRoomResponse, error)
 	// ChangeSortOrder updates the order of items in a specified table
 	ChangeSortOrder(context.Context, *ChangeSortOrderRequest) (*ChangeSortOrderResponse, error)
+	// AddRoomGroup creates a new room group with the provided details
+	AddRoomGroup(context.Context, *AddRoomGroupRequest) (*RoomGroup, error)
 	mustEmbedUnimplementedProjectAmorServer()
 }
 
@@ -484,6 +499,9 @@ func (UnimplementedProjectAmorServer) ReserveRoom(context.Context, *ReserveRoomR
 }
 func (UnimplementedProjectAmorServer) ChangeSortOrder(context.Context, *ChangeSortOrderRequest) (*ChangeSortOrderResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ChangeSortOrder not implemented")
+}
+func (UnimplementedProjectAmorServer) AddRoomGroup(context.Context, *AddRoomGroupRequest) (*RoomGroup, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddRoomGroup not implemented")
 }
 func (UnimplementedProjectAmorServer) mustEmbedUnimplementedProjectAmorServer() {}
 func (UnimplementedProjectAmorServer) testEmbeddedByValue()                     {}
@@ -938,6 +956,24 @@ func _ProjectAmor_ChangeSortOrder_Handler(srv interface{}, ctx context.Context, 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ProjectAmor_AddRoomGroup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddRoomGroupRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProjectAmorServer).AddRoomGroup(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProjectAmor_AddRoomGroup_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProjectAmorServer).AddRoomGroup(ctx, req.(*AddRoomGroupRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // ProjectAmor_ServiceDesc is the grpc.ServiceDesc for ProjectAmor service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -1040,6 +1076,10 @@ var ProjectAmor_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ChangeSortOrder",
 			Handler:    _ProjectAmor_ChangeSortOrder_Handler,
+		},
+		{
+			MethodName: "AddRoomGroup",
+			Handler:    _ProjectAmor_AddRoomGroup_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
