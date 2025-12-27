@@ -27,6 +27,7 @@ type AddRoomGroupRequest struct {
 	Description     string                 `protobuf:"bytes,2,opt,name=description,proto3" json:"description,omitempty"`
 	AccommodationId string                 `protobuf:"bytes,3,opt,name=accommodation_id,json=accommodationId,proto3" json:"accommodation_id,omitempty"`
 	RoomIds         []string               `protobuf:"bytes,4,rep,name=room_ids,json=roomIds,proto3" json:"room_ids,omitempty"`
+	Parent          *string                `protobuf:"bytes,5,opt,name=parent,proto3,oneof" json:"parent,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
@@ -87,6 +88,13 @@ func (x *AddRoomGroupRequest) GetRoomIds() []string {
 		return x.RoomIds
 	}
 	return nil
+}
+
+func (x *AddRoomGroupRequest) GetParent() string {
+	if x != nil && x.Parent != nil {
+		return *x.Parent
+	}
+	return ""
 }
 
 type ChangeSortOrderRequest struct {
@@ -2641,12 +2649,14 @@ var File_amor_v1_amor_proto protoreflect.FileDescriptor
 
 const file_amor_v1_amor_proto_rawDesc = "" +
 	"\n" +
-	"\x12amor/v1/amor.proto\x12\x0faccumora_rpc.v1\x1a\x13amor/v1/types.proto\"\x91\x01\n" +
+	"\x12amor/v1/amor.proto\x12\x0faccumora_rpc.v1\x1a\x13amor/v1/types.proto\"\xb9\x01\n" +
 	"\x13AddRoomGroupRequest\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12 \n" +
 	"\vdescription\x18\x02 \x01(\tR\vdescription\x12)\n" +
 	"\x10accommodation_id\x18\x03 \x01(\tR\x0faccommodationId\x12\x19\n" +
-	"\broom_ids\x18\x04 \x03(\tR\aroomIds\"\xa9\x01\n" +
+	"\broom_ids\x18\x04 \x03(\tR\aroomIds\x12\x1b\n" +
+	"\x06parent\x18\x05 \x01(\tH\x00R\x06parent\x88\x01\x01B\t\n" +
+	"\a_parent\"\xa9\x01\n" +
 	"\x16ChangeSortOrderRequest\x12\x1d\n" +
 	"\n" +
 	"table_name\x18\x01 \x01(\tR\ttableName\x12B\n" +
@@ -3023,6 +3033,7 @@ func file_amor_v1_amor_proto_init() {
 		return
 	}
 	file_amor_v1_types_proto_init()
+	file_amor_v1_amor_proto_msgTypes[0].OneofWrappers = []any{}
 	file_amor_v1_amor_proto_msgTypes[7].OneofWrappers = []any{}
 	file_amor_v1_amor_proto_msgTypes[15].OneofWrappers = []any{}
 	file_amor_v1_amor_proto_msgTypes[26].OneofWrappers = []any{}
