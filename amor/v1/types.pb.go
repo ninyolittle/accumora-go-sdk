@@ -501,9 +501,8 @@ type RoomGroup struct {
 	Id              string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	Name            string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	AccommodationId string                 `protobuf:"bytes,3,opt,name=accommodation_id,json=accommodationId,proto3" json:"accommodation_id,omitempty"`
-	RoomIds         []string               `protobuf:"bytes,4,rep,name=room_ids,json=roomIds,proto3" json:"room_ids,omitempty"`
-	Description     *string                `protobuf:"bytes,5,opt,name=description,proto3,oneof" json:"description,omitempty"`
-	Parent          *string                `protobuf:"bytes,6,opt,name=parent,proto3,oneof" json:"parent,omitempty"`
+	Description     *string                `protobuf:"bytes,4,opt,name=description,proto3,oneof" json:"description,omitempty"`
+	Parent          *string                `protobuf:"bytes,5,opt,name=parent,proto3,oneof" json:"parent,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
@@ -557,13 +556,6 @@ func (x *RoomGroup) GetAccommodationId() string {
 		return x.AccommodationId
 	}
 	return ""
-}
-
-func (x *RoomGroup) GetRoomIds() []string {
-	if x != nil {
-		return x.RoomIds
-	}
-	return nil
 }
 
 func (x *RoomGroup) GetDescription() string {
@@ -1344,14 +1336,13 @@ var File_amor_v1_types_proto protoreflect.FileDescriptor
 
 const file_amor_v1_types_proto_rawDesc = "" +
 	"\n" +
-	"\x13amor/v1/types.proto\x12\x0faccumora_rpc.v1\x1a\x1cgoogle/protobuf/struct.proto\"\xd4\x01\n" +
+	"\x13amor/v1/types.proto\x12\x0faccumora_rpc.v1\x1a\x1cgoogle/protobuf/struct.proto\"\xb9\x01\n" +
 	"\tRoomGroup\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12)\n" +
-	"\x10accommodation_id\x18\x03 \x01(\tR\x0faccommodationId\x12\x19\n" +
-	"\broom_ids\x18\x04 \x03(\tR\aroomIds\x12%\n" +
-	"\vdescription\x18\x05 \x01(\tH\x00R\vdescription\x88\x01\x01\x12\x1b\n" +
-	"\x06parent\x18\x06 \x01(\tH\x01R\x06parent\x88\x01\x01B\x0e\n" +
+	"\x10accommodation_id\x18\x03 \x01(\tR\x0faccommodationId\x12%\n" +
+	"\vdescription\x18\x04 \x01(\tH\x00R\vdescription\x88\x01\x01\x12\x1b\n" +
+	"\x06parent\x18\x05 \x01(\tH\x01R\x06parent\x88\x01\x01B\x0e\n" +
 	"\f_descriptionB\t\n" +
 	"\a_parent\"\xd2\x03\n" +
 	"\fNotification\x12\x0e\n" +
